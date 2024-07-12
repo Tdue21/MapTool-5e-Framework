@@ -1,0 +1,53 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build library",
+            "detail": "Builds the add-on library.",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/build.ps1",
+            "args": [
+                "${input:name}",
+                "${input:version}"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "New Library",
+            "detail": "Adds a new library with necessary files and folders set up.",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/new-library.ps1",
+            "args": [
+                "${input:name}"
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "description": "Name of the library",
+            "default": "",
+            "id": "name",
+            "type": "promptString"
+        },
+        {
+            "id":"library",
+            "type": "pickString",
+            "description": "Select library",
+            "default": "",
+            "options": []
+        },
+        {
+            "description": "Version of the library",
+            "default": "",
+            "id": "version",
+            "type": "promptString"
+
+        }
+    ]
+}

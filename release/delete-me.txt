@@ -1,0 +1,2 @@
+This folder will contain everything that is outputted by the build task. 
+Additionally, the latest version file from each library will be added here.
