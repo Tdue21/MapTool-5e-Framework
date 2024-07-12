@@ -23,7 +23,8 @@ Each library should be as self-contained as possible, even at the cost of duplic
 
 ## Combat Tracker
 * Add PCs and NPCs to list
+* Group NPCs
 * Set initiatives or roll per group
 * Easy health management
-* Round management
+* Round/turn management
 * 
