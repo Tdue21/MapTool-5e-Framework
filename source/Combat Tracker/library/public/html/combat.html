@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Combat Tracker</title>
+    <link rel="stylesheet" href="../css/combat.css">
+</head>
+
+<body>
+    <div id="app">
+
+        <div class="combatant">
+            <label class="info">
+                <span>Initiative</span>
+                <input type="text" value="17"/>
+            </label>
+            <div class="img">
+                <img src="../../../../test data/images/PC Emma Tildon.png" title="Emma Tildon">
+            </div>
+            <div class="info">11/11</div>
+        </div>
+
+        <div class="combatant active">
+            <label class="info">
+                <span>Initiative</span>
+                <input type="text" value="12"/>
+            </label>
+
+            <div class="img">
+                <img src="../../../../test data/images/NPC Bugbear Chief.png" title="Bugbear Chief">
+            </div>
+            <label class="info">
+                <span>HP</span>
+                <input type="text" value="12 / 18"/>
+            </label>
+        </div>
+
+        <div class="combatant">
+            <label class="info">
+                <span>Initiative</span>
+                <input type="text" value="7"/>
+            </label>
+            <div class="img">
+                <img src="../../../../test data/images/PC Nafaris LReg.png" title="Nafaris L'Reg">
+            </div>
+            <div class="info">11/11</div>
+        </div>
+
+        <div class="controls">
+            <button>Undo</button>
+            <div class="counter">
+                <span>Round</span>
+                <span>3</span>
+            </div>
+            <div class="counter">
+                <span>Turn</span>
+                <span>5</span>
+            </div>
+            <button>Next</button>
+        </div>
+
+    </div>
+
+    <script>
+        "use strict";
+
+        const { createApp } = Vue;
+
+        createApp({
+
+            data() {
+                return {
+                    combatants: [
+                        {
+                            "name":"Emma Tildon",
+                            "token":"./images/PC Emma Tildon.png",
+                            "init":12,
+                            "hp":{
+                                "current":9,
+                                "max":9
+                            }
+                        },
+                        {
+                            "name":"Nafaris L'Reg",
+                            "token":"./images/PC Nafaris LReg.png",
+                            "init":11,
+                            "hp":{
+                                "current":10,
+                                "max":10
+                            }
+                        },
+                        {
+                            "name":"Bugbear Chief",
+                            "token":"./images/NPC Bugbear Chief.png",
+                            "init":8,
+                            "hp":{
+                                "current":23,
+                                "max":30
+                            }
+                        }
+                    ]
+                    
+                }
+            },
+
+            computed: {
+            },
+
+            methods: {
+                initialization() {
+
+                }
+
+            },
+
+            mounted() {
+
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>
