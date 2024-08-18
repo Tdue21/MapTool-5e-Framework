@@ -9,7 +9,7 @@
             "type": "shell",
             "command": "${workspaceFolder}/build/build.ps1",
             "args": [
-                "${input:name}",
+                "${input:library}",
                 "${input:version}"
             ],
             "problemMatcher": [],
@@ -40,7 +40,9 @@
             "type": "pickString",
             "description": "Select library",
             "default": "",
-            "options": []
+            "options": [
+                "5e-Framework"
+            ]
         },
         {
             "description": "Version of the library",

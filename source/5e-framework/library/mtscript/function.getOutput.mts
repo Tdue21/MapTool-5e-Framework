@@ -1,0 +1,5 @@
+[h:namespace = function.getNamespace()]
+[h:outputPC  = getLibProperty("PC Output", namespace)]
+[h:outputGM  = getLibProperty("GM Output", namespace)]
+[h:output    = if(isGM()==1,outputGM,outputPC)]
+[r:output]

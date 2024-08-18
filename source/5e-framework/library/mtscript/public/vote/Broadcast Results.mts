@@ -1,0 +1,1 @@
+[h:broadcast(execMacro("[macro('Results@Lib:Vote'):'']"),"all")]

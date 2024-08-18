@@ -1,0 +1,1 @@
+[macro('Mass Initiative@Lib:Bestiary'):'']

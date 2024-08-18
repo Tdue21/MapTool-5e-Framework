@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "Rod Takehara",
+    "tdue21"
+  ],
+  "name": "D&D 5e Framework ",
+  "gitUrl": "",
+  "shortDescription": "Dungeons & Dragons 5e Framework",
+  "namespace": "org.maptool.dnd5e",
+  "licenseFile": "license.txt",
+  "readMeFile": "readme.md",
+  "website": "",
+  "version": "2.6.0",
+  "license": "MIT",
+  "allowsUriAccess": true,
+  "description": "This is a full conversion of Takehara's excellent 5e framework to MapTool add-on library."
+}
