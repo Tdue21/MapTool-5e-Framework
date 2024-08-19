@@ -1,12 +1,17 @@
-[h:outputPC=getLibProperty("PC Output", "Lib:Character")]
-[h:outputGM=getLibProperty("GM Output", "Lib:Character")]
-
-[h:output=if(isGM()==1,outputGM,outputPC)]
-
-
-
 [h:text=getStrProp(macro.args,"text")]
 [h:diceRoll=getStrProp(macro.args,"value")]
+
+[h:output=function.getOutput()]
+
+
+
+
+
+
+
+
+
+
 
 
 [h:roll1=1d20]
@@ -14,8 +19,6 @@
 <!--------------------------------DICE SOUNDS---------------------------------->
 [macro("Dice Sounds@Lib:Campaign"):""]
 [macro("Dice Sounds@Lib:Campaign"):""]
-
-
 
 [h:img=tableImage("BlankDice",20)]
 [h:color=getStrProp(macro.args,"color")]

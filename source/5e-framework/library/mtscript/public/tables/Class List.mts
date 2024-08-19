@@ -1,16 +1,8 @@
-[h:classesObj=getLibProperty("Classes","Lib:Character Creation")]
+[h:classesObj=getLibProperty("Classes",function.getNamespace())]
 [h:classlist=json.fields(classesObj)]
-
 [h:classlist=listSort(classlist,"a")]
 
-[r,count(listcount(classlist),""),code:{
-
-	[h:currentClass=listget(classlist,roll.count)]
-
+[r,foreach(currentClass, classlist,""),code:{
 	[h:CapitalName=function.Capitalize(currentClass)]
-
-	<li>[r:macroLink(CapitalName,"Class Window@Lib:Tables","","class="+currentClass)]</li>
-
-
-
+	<li>[r:macroLink(CapitalName,"tables/Class Window@this","","class="+currentClass)]</li>
 }]

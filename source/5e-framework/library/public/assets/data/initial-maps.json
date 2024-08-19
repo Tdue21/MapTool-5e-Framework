@@ -1,0 +1,81 @@
+[
+    {
+        "name": "00.DM",
+        "settings": {
+            "player visible": false,
+            "vision type": "Off",
+            "vision distance": 100,
+            "lighting style": "OVERTOP",
+            "has fog": false,
+            "ai rounding": "CELL_UNIT",
+            "background paint": "#C19F7C",
+            "grid": {
+                "type": "None",
+                "color": "#333333"
+            }
+        },
+        "tokens": [
+            {
+                "name": "Image:DmBackground",
+                "tokenImage": "lib://{ns}/assets/images/dm-background.png",
+                "size": "Free",
+                "layer": "Background",
+                "opacity": "0.6",
+                "position": {
+                    "display": "relative",
+                    "position": "center",
+                    "x": -150,
+                    "y": 0,
+                    "width":-1,
+                    "height":-1
+                }
+            }
+        ]
+    },
+    {
+        "name": "01.Start",
+        "settings": {
+            "player visible": true,
+            "vision type": "Off",
+            "vision distance": 100,
+            "lighting style": "OVERTOP",
+            "has fog": false,
+            "ai rounding": "CELL_UNIT",
+            "background paint": "#C19F7C",
+            "grid": {
+                "type": "Square",
+                "color": "#333333"
+            }
+        },
+        "tokens":[
+            {
+                "name": "Image:BG",
+                "tokenImage": "lib://{ns}/assets/images/start-background.png",
+                "size": "Free",
+                "layer": "Background",
+                "opacity": "0.5",
+                "position": {
+                    "display": "center",
+                    "x": 0,
+                    "y": 0,
+                    "width":-1,
+                    "height":-1
+                }
+            },
+            {
+                "name": "Image:Logo",
+                "tokenImage": "lib://{ns}/assets/images/dnd-logo.png",
+                "size": "Free",
+                "layer": "Background",
+                "opacity": "1",
+                "position": {
+                    "display": "center",
+                    "x": -5,
+                    "y": 2,
+                    "width":400,
+                    "height":200
+                }
+            }
+        ]
+    }
+]

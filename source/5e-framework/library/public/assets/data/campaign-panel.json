@@ -1,0 +1,74 @@
+[
+    {
+        "label":"<img src='asset://366e86b4e19b3aa94457cd0b9e7f8e37'><br>Menu",
+        "autoExec": true,
+        "fontSize": "1.15em",
+        "minWidth": 120,
+        "sortPrefix": "1",
+        "HotKey":"F9",
+        "command": "[h:function.showMenu()]"
+    },
+    {
+        "label":"<img src='asset://0fcfa25c7bce6c353f089fa6baa111aa'><br>Select Map",
+        "autoExec": true,
+        "fontSize": "1.15em",
+        "minWidth": 120,
+        "sortPrefix": "2",
+        "HotKey":"F10",
+        "command": "[h:function.selectMap()]"
+    },
+    {
+        "label":"<img src='asset://8aa28b1474dd5f3031536499843264d9'><br>Search",
+        "autoExec": true,
+        "fontSize": "1.15em",
+        "minWidth": 120,
+        "sortPrefix": "3",        
+        "HotKey":"F11",
+        "command": "[h:function.search()]"
+    },
+    {
+        "label":"<img src='asset://aed6269a99576e707a8b2e5081a11fed'><br>Compendium",
+        "autoExec": true,
+        "fontSize": "1.15em",
+        "minWidth": 120,
+        "sortPrefix": "4",        
+        "HotKey":"F12",
+        "command": "[h:function.showCompendium()]"
+    },
+    {
+        "label":"<img src=asset://b92cef77adaee8657caaed183e14fc90><br>Notebooks",
+        "autoExec": true,
+        "fontSize": "1.15em",
+        "minWidth": 120,
+        "sortPrefix": "5",        
+        "HotKey":"",
+        "command": "[h:function.showNotebooks()]"
+    },
+    {
+        "label":"Load Overlays",
+        "autoExec": true,
+        "fontSize": "1.15em",
+        "minWidth": 120,
+        "sortPrefix": "6",
+        "HotKey":"",
+        "command": "[h:function.reloadOverlays()]"
+    },
+    {
+        "label":"Share Image",
+        "autoExec": true,
+        "fontSize": "1.15em",
+        "minWidth": 120,
+        "sortPrefix": "7",
+        "HotKey":"shift F1",
+        "command": "[h:function.shareImage()]"
+    },
+    {
+        "label":"Get Distance",
+        "autoExec": true,
+        "fontSize": "1.15em",
+        "minWidth": 120,
+        "sortPrefix": "8",
+        "HotKey":"",
+        "command": "[h:function.getDistance()]"
+    }
+]

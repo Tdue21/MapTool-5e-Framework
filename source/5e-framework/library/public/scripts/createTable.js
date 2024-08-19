@@ -4,30 +4,30 @@ function createTable(tableName, visible, rollable, tableRoll, imageUrl, entries)
     MTScript.setVariable("tableName", tableName);
     MTScript.setVariable("visible", visible ? 1 : 0);
     MTScript.setVariable("rollable", rollable ? 1 : 0);
-    
+    MTScript.setVariable("assetId", getAssetId(imageUrl));
     MTScript.setVariable("tableRoll", tableRoll);
 
-/*
-    [macro("function.getAssetId@this"):"lib://" + ns + "/assets/dice/d4.png"]
-    [h:d4assetId = macro.return]
-    [h:tableName = "BlankDice"]
-    [h:createTable(tableName, 0, 1, d20assetId)]
-    [h:setTableRoll(tableName, "d17+3")]
-*/
+    MTScript.evalMacro(`
+        [h:createTable(tableName, visible, rollable, assetId)]
+        [h:setTableRoll(tableName, tableRoll)]
+    `);
+
+    for (const element of entries) {
+        MTScript.setVariable("tableName", tableName);
+        MTScript.setVariable("rangeStart", element.start);
+        MTScript.setVariable("rangeEnd", element.end);
+        MTScript.setVariable("result", element.value);
+        MTScript.setVariable("assetId", getAssetId(element.imageUrl));
+
+        MTScript.evalMacro(`[h:addTableEntry(tableName, rangeStart, rangeEnd, result, assetId)]`);
+    }
 }
 
-function getAssetId(imageUrl) {
-    let tokenData = {
-        name: "temp", 
-        tokenImage: imageUrl,
-        layer: "Hidden"
-    };
-    MTScript.SetVariable("tokenData", JSON.stringify(tokenData));
-    MTScript.evalMacro(`
-        [h:tokenId = createToken(tokenData)]
-        [h:assetId = getTokenImage('', tokenId)]
-        [h:removeToken(tokenId)]
-    `);
-    let tokenId = MTScript.getVariable("assetId");
-    return tokenId;
+try {
+    const args = MTScript.getMTScriptCallingArgs()[0];
+    const data = JSON.parse(atob(args));
+
+    createTable(data.tableName, data.visible, data.rollable, data.tableRoll, data.imageUrl, data.entries);
+} catch (e) {
+    MapTool.chat.broadcast("" + e + "\n" + e.stack);
 }

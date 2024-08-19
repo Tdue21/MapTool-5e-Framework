@@ -20,6 +20,15 @@
 
 [h:defineFunction("function.getNamespace",       "function.getNamespace@this")]
 [h:defineFunction("function.getOutput",          "function.getOutput@this")]
+[h:defineFunction("function.getCss",             "function.getCss@this")]
+[h:defineFunction("function.showMenu",           "function.showMenu@this")]
+[h:defineFunction("function.selectMap",          "function.selectMap@this")]
+[h:defineFunction("function.search",             "function.search@this")]
+[h:defineFunction("function.showCompendium",     "function.showCompendium@this")]
+[h:defineFunction("function.showNotebooks",      "function.showNotebooks@this")]
+[h:defineFunction("function.reloadOverlays",     "function.reloadOverlays@this")]
+[h:defineFunction("function.shareImage",         "function.shareImage@this")]
+[h:defineFunction("function.getDistance",        "function.getDistance@this")]
 
 [h,macro("overlay/Loading@this"):"Loading Audio Clips"]
 

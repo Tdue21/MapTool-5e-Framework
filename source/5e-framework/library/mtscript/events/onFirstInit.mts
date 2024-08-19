@@ -1,4 +1,5 @@
 [h:ns = "org.maptool.dnd5e"]
+[h:js.createNS(ns)]
 
 [h: audio = "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Dice%201.wav," +
             "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Dice%202.wav," +
@@ -119,26 +120,21 @@
 [h:setTokenHeight(200, tokenId)]
 [h:moveToken(-5, 2, 0, tokenId)]
 
-[macro("function.getAssetId@this"):"lib://" + ns + "/assets/dice/d4.png"]
-[h:d4assetId = macro.return]
-[macro("function.getAssetId@this"):"lib://" + ns + "/assets/dice/d6.png"]
-[h:d6assetId = macro.return]
-[macro("function.getAssetId@this"):"lib://" + ns + "/assets/dice/d8.png"]
-[h:d8assetId = macro.return]
-[macro("function.getAssetId@this"):"lib://" + ns + "/assets/dice/d10.png"]
-[h:d10assetId = macro.return]
-[macro("function.getAssetId@this"):"lib://" + ns + "/assets/dice/d12.png"]
-[h:d12assetId = macro.return]
-[macro("function.getAssetId@this"):"lib://" + ns + "/assets/dice/d20.png"]
-[h:d20assetId = macro.return]
+[h:tableData = json.set("{}", 
+    "tableName", "BlankDice",
+    "visible", json.false, 
+    "rollable", json.true, 
+    "tableRoll", "d17+3", 
+    "imageUrl", "lib://" + ns + "/assets/dice/d20.png", 
+    "entries", json.append("", 
+        json.set("{}", "start",  "1", "end",  "4", "value", "", "imageUrl", "lib://" + ns + "/assets/dice/d4.png" ),
+        json.set("{}", "start",  "5", "end",  "6", "value", "", "imageUrl", "lib://" + ns + "/assets/dice/d6.png" ),
+        json.set("{}", "start",  "7", "end",  "8", "value", "", "imageUrl", "lib://" + ns + "/assets/dice/d8.png" ),
+        json.set("{}", "start",  "9", "end", "10", "value", "", "imageUrl", "lib://" + ns + "/assets/dice/d10.png"),
+        json.set("{}", "start", "11", "end", "12", "value", "", "imageUrl", "lib://" + ns + "/assets/dice/d12.png"),
+        json.set("{}", "start", "13", "end", "20", "value", "", "imageUrl", "lib://" + ns + "/assets/dice/d20.png")
+    )
+)]
+[h:broadcast("<pre>" + json.indent(tableData, 4) + "</pre>")]
+[h:js.evalUri(ns, "lib://" + ns + "/scripts/createTable.js", base64.encode(tableData))]
 
-[h:tableName = "BlankDice"]
-[h:createTable(tableName, 0, 1, d20assetId)]
-[h:setTableRoll(tableName, "d17+3")]
-
-[h:addTableEntry(tableName,  1,  4, "", d4assetId)]
-[h:addTableEntry(tableName,  5,  6, "", d6assetId)]
-[h:addTableEntry(tableName,  7,  8, "", d8assetId)]
-[h:addTableEntry(tableName,  9, 10, "", d10assetId)]
-[h:addTableEntry(tableName, 11, 12, "", d12assetId)]
-[h:addTableEntry(tableName, 13, 20, "", d20assetId)]

@@ -19,59 +19,47 @@
 	[h:group2=replace(group2,"[Pp]in","token")]
 
 	[h,switch(group2),code:
+
 	case "map":{
-	
-		[h:objLink=macroLinkText("Select Map process@Lib:Campaign","",ContentName)]
-	
+		[h:objLink=macroLinkText("campaign/Select Map process@this","",ContentName)]
 	};
 	case "note":{
-	
-			[h:note=replace(group3,".*@","")]
+		[h:note=replace(group3,".*@","")]
 		[h:chapter=replace(group3,"@.*","")]
-
 		[h:note=if(matches(note,"^Lib:.*")==1,note,"Lib:"+note)]
-		
 		[h:object=getLibProperty("Value",note)]
-[h:jsonValue=json.get(object,chapter)]
-[h:objLink=macroLinkText("Content@Lib:Notebook","","key="+chapter+";description="+encode(jsonValue)+";tokenName="+note)]
-	
+		[h:jsonValue=json.get(object,chapter)]
+		[h:objLink=macroLinkText("notebook/Content@this","","key="+chapter+";description="+encode(jsonValue)+";tokenName="+note)]	
 	};
 	case "npc":{
-	
-	<!---------NPC STATBLOCK---------->
-		[h:objLink=macroLinkText("Viewer Frame@Lib:Bestiary","",lower(ContentName))]
-	
+		<!---------NPC STATBLOCK---------->
+		[h:objLink=macroLinkText("bestiary/Viewer Frame@this","",lower(ContentName))]	
 	};
-
 	case "pc":{
-
 		<!---------PC STATBLOCK---------->	
-		[h:objLink=macroLinkText("Macro Frame@Lib:Character","","macro=Statblock;tokenName="+ContentName)]
+		[h:objLink=macroLinkText("character/Macro Frame@this","","macro=Statblock;tokenName="+ContentName)]
 		Waterskin
-		};
-	
+	};
 	case "token":{
-	
 		<!---------TOKEN ON MAP---------->
 		[h:map=getCurrentMapName()]
-		[h,if(group2=="token"):objLink=macroLinkText("Focus Token@Lib:Character","","map="+map+";tokenName="+ContentName)]
+		[h,if(group2=="token"):objLink=macroLinkText("character/Focus Token@this","","map="+map+";tokenName="+ContentName)]
 	
 	};
 	default:{
-	
-	[h:tokenId=findToken(tokenName)]
-	[h,if(tokenId==""):proptype="";proptype=getPropertyType(tokenId)]
-	
-	[h,switch(proptype):
-	case "Basic":library="Lib:Character";
-	case "Props":library="Lib:Character";
-	case "NPC":library="Lib:Bestiary";
-	case "Notebook":library="Lib:Notebook";
-	default:library="Lib:Campaign"]
-	<!---------CONTENT POPUP---------->
+		[h:tokenId=findToken(tokenName)]
+		[h,if(tokenId==""):proptype="";proptype=getPropertyType(tokenId)]
+		[h,switch(proptype):
+			case "Basic"   : library = "character";
+			case "Props"   : library = "character";
+			case "NPC"     : library = "bestiary";
+			case "Notebook": library = "notebook";
+			default        : library = "campaign"
+		]
+		<!---------CONTENT POPUP---------->
 		[h:group3=replace(group3,'"',"")]
-		[h:Object=getLibProperty(group2,"Lib:Compendium")]
-		[h:objLink=macroLinkText("Args Dialog@"+library,"","prop="+group2+";source=;name="+lower(ContentName)+";description=;tokenName="+tokenName)]
+		[h:Object=getLibProperty(group2,function.getNamespace())]
+		[h:objLink=macroLinkText(library + "/Args Dialog@this","","prop="+group2+";source=;name="+lower(ContentName)+";description=;tokenName="+tokenName)]
 	
 	}]
 
