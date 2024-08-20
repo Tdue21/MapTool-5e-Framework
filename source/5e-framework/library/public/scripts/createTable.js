@@ -1,18 +1,21 @@
 "use strict";
 
-function createTable(tableName, visible, rollable, tableRoll, imageUrl, entries) {
-    MTScript.setVariable("tableName", tableName);
-    MTScript.setVariable("visible", visible ? 1 : 0);
-    MTScript.setVariable("rollable", rollable ? 1 : 0);
-    MTScript.setVariable("assetId", getAssetId(imageUrl));
-    MTScript.setVariable("tableRoll", tableRoll);
+try {
+    const args = MTScript.getMTScriptCallingArgs()[0];
+    const data = JSON.parse(atob(args));
+
+    MTScript.setVariable("tableName", data.tableName);
+    MTScript.setVariable("visible", data.visible ? 1 : 0);
+    MTScript.setVariable("rollable", data.rollable ? 1 : 0);
+    MTScript.setVariable("assetId", getAssetId(data.imageUrl));
+    MTScript.setVariable("tableRoll", data.tableRoll);
 
     MTScript.evalMacro(`
         [h:createTable(tableName, visible, rollable, assetId)]
         [h:setTableRoll(tableName, tableRoll)]
     `);
 
-    for (const element of entries) {
+    for (const element of data.entries) {
         MTScript.setVariable("tableName", tableName);
         MTScript.setVariable("rangeStart", element.start);
         MTScript.setVariable("rangeEnd", element.end);
@@ -21,13 +24,6 @@ function createTable(tableName, visible, rollable, tableRoll, imageUrl, entries)
 
         MTScript.evalMacro(`[h:addTableEntry(tableName, rangeStart, rangeEnd, result, assetId)]`);
     }
-}
-
-try {
-    const args = MTScript.getMTScriptCallingArgs()[0];
-    const data = JSON.parse(atob(args));
-
-    createTable(data.tableName, data.visible, data.rollable, data.tableRoll, data.imageUrl, data.entries);
 } catch (e) {
-    MapTool.chat.broadcast("" + e + "\n" + e.stack);
+    MapTool.chat.broadcast("createTable: " + e + "\n" + e.stack);
 }

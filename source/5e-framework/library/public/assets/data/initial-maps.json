@@ -26,8 +26,8 @@
                     "position": "center",
                     "x": -150,
                     "y": 0,
-                    "width":-1,
-                    "height":-1
+                    "width": -1,
+                    "height": -1
                 }
             }
         ]
@@ -47,7 +47,7 @@
                 "color": "#333333"
             }
         },
-        "tokens":[
+        "tokens": [
             {
                 "name": "Image:BG",
                 "tokenImage": "lib://{ns}/assets/images/start-background.png",
@@ -58,8 +58,8 @@
                     "display": "center",
                     "x": 0,
                     "y": 0,
-                    "width":-1,
-                    "height":-1
+                    "width": -1,
+                    "height": -1
                 }
             },
             {
@@ -72,9 +72,35 @@
                     "display": "center",
                     "x": -5,
                     "y": 2,
-                    "width":400,
-                    "height":200
+                    "width": 400,
+                    "height": 200
                 }
+            },
+            {
+                "name": "Click on the 'Notebook' macro",
+                "tokenImage": "lib://{ns}/assets/images/start-here.png",
+                "size": "Free",
+                "layer": "Token",
+                "opacity": "1",
+                "position": {
+                    "display": "center",
+                    "x": -5,
+                    "y": 2,
+                    "width": 300,
+                    "height": 100
+                },
+                "macros": [
+                    {
+                        "name": "Notebook",
+                        "autoExec": true,
+                        "command": [
+                            "[h:value=getLibProperty('Value','Lib:Welcome')]",
+                            "[h:description=json.get(value,'1. Getting Started')]",
+                            "[h,if(isGM()==1):share=0;share=1]",
+                            "[macro('notebook/Content@{ns}'):'key=1. Getting Started;description='+encode(description)+';tokenName=Lib:Welcome;share='+share]"
+                        ]
+                    }
+                ]
             }
         ]
     }
