@@ -26,6 +26,3 @@ function createTable(tableName, visible, rollable, tableRoll, qqqqimageUrl) {
 }
 MTScript.registerMacro("createTable", createTable);
 
-function createMap() {
-    
-}

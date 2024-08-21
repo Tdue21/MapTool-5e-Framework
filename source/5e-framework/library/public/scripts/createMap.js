@@ -1,34 +1,33 @@
 "use strict";
 
-try {
-    const args = MTScript.getMTScriptCallingArgs()[0];
-    const data = JSON.parse(atob(args));
+function createMap(mapName, settings, tokens) {
+    try {
+        MTScript.setVariable("mapName", mapName);
+        MTScript.setVariable("settings", settings);
+        MTScript.evalMacro(`[h:createMap(mapName, settings)][h:setCurrentMap(mapName)]`);
 
-    const mapName = data.name;
-    const settings = JSON.stringify(data.settings);
-    const tokens = data.tokens;
+        for (const token of tokens) {
+           MTScript 
+            
+        }
+
+    } catch (e) {
+        MapTool.chat.broadcast("createMap: " + e + "\n" + e.stack);
+    }
+}
+MTScript.registerMacro("createMap", createMap);
 
 /*
+        const args = MTScript.getMTScriptCallingArgs()[0];
+        const data = JSON.parse(atob(args));
+
+        const mapName = data.name;
+        const settings = JSON.stringify(data.settings);
+        const tokens = data.tokens;
 
 
     <!-- ### create the DM map for storing tokens and other stuff for the GM only. ### -->
     [h:screenTexture = "lib://" + ns + "/assets/images/paper-background.png")]
-    [h: screenId = createMap("00.DM",
-        json.set("{}",
-            "player visible", json.false,
-            "vision type", "Off",
-            "vision distance", 100,
-            "lighting style", "OVERTOP",
-            "has fog", json.false,
-            "ai rounding", "CELL_UNIT",
-            "background paint", "#C19F7C",
-            
-            "grid", json.set("{}", 
-                "type", "None",
-                "color", "#333333"
-            )
-        )
-    )]
 
     <!-- ### Work-around for placing an image on the background, as createMap does not yet understand lib:// uris ### -->
     [h:tokenImage = "lib://" + ns + "/assets/images/dm-background.png")]
@@ -64,7 +63,3 @@ try {
         ]
 */
 
-
-} catch (e) {
-    MapTool.chat.broadcast("createMap: " + e + "\n" + e.stack);
-}

@@ -7,6 +7,10 @@
  * @returns The asset id of the image. 
  */
 function getAssetId(imageUrl) {
+    if(imageUrl.includes("{ns}")) {
+        imageUrl = imageUrl.replace("{ns}", "")
+    }
+    
     let tokenData = {
         name: "temp",
         tokenImage: imageUrl,
