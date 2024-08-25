@@ -1,4 +1,4 @@
-[h:ouputArg = if(argCount() > 0, arg(0), "")]
+[h:outputArg = if(argCount() > 0, arg(0), "")]
 
 [h:namespace = function.getNamespace()]
 [h:outputPC  = getLibProperty("PC Output", namespace)]

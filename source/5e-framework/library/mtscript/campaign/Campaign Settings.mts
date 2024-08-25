@@ -7,7 +7,7 @@
 
 [dialog5("Settings", "width=350; height=600; temporary=0; noframe=0; input=1"):{
 
-<link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 
 
 <!-----------------GENERAL------------------->

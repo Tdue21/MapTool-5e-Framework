@@ -4,7 +4,7 @@
 
 [frame5("Shared", "width=350; height=500; temporary=0;"):{
 
-<link rel="stylesheet" type="text/css" href="D&D@Lib:Campaign">
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('D&D')]">
 
 [h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
 [h:closeShared=getStrProp(permissions,"closeShared")]

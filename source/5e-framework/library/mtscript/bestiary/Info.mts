@@ -35,7 +35,7 @@
 
 [dialog5(CapitalName+" - Info", "width=450; height="+height+"; temporary=0; noframe=0; input=1"):{
 
-<link rel="stylesheet" type="text/css" href="D&D@Lib:Campaign">
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('D&D')]">
 
 
 [h:permissions=getLibProperty("PlayerPermission","Lib:Character")]

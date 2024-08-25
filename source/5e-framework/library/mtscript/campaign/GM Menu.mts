@@ -1,7 +1,7 @@
 
 [dialog5("GM Menu", "width=340; height=240; temporary=1; noframe=0; input=1"):{
 
-<link rel="stylesheet" type="text/css" href="lib://[r:function.getNamespace()]/css/GitHub.css">
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 
 [h:processorLink=macroLinkText("campaign/Menu process@this","")]
 <form action="[r:processorLink]" method="json">

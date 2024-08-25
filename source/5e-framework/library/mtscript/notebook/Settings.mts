@@ -40,8 +40,8 @@
 [h:setLibProperty("Settings",settingsObject,tokenName)]
 
 [h,if(isFrameVisible("Compendium")==1),code:{
-[macro("Index@lib:Notebook"):tokenName]
+[macro("notebook/Index@this"):tokenName]
 };{}]
 [h,if(isFrameVisible(LibName)==1),code:{
-[macro("Content@lib:Notebook"):"key="+name+";description="+description+";tokenName="+tokenName]
+[macro("notebook/Content@this"):"key="+name+";description="+description+";tokenName="+tokenName]
 };{}]

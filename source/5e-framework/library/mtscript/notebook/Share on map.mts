@@ -12,7 +12,7 @@
 
 [h:switchToken(newId)]
 
-[h:setTokenImage("asset://b92cef77adaee8657caaed183e14fc90")]
+[h:getTokenImage("asset://b92cef77adaee8657caaed183e14fc90")]
 
 [h,switch(target):
 	case "all":setOwnedByAll(1);

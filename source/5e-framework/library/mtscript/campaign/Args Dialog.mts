@@ -39,7 +39,7 @@
 
 [dialog5(if(share==1,"",tokenName+" - ")+CapitalName, "width=450; height="+height+"; temporary=0; noframe=0; input=1"):{
 
-<link rel="stylesheet" type="text/css" href="lib://[r:function.getNamespace()]/css/D&D.css">
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('D&D')]">
 
 
 [h:permissions=getLibProperty("PlayerPermission","Lib:Character")]

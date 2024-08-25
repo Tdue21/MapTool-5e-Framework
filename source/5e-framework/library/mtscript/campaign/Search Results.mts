@@ -4,28 +4,35 @@
 [h:window=getStrProp(macro.args,"window")]
 
 [h:processorLink=macroLinkText("campaign/Search process@this","")]
+
 <form action="[r:processorLink]" method="json">
+<input type="hidden" name="window" value="[r:window]">
 
-	<table>
-	<tr><td>
+<table>
+<tr>
+	<td>
+		<table style="width:100%">
+		<tr>
+			<td>
+				<input type="text" name="terms" value="[r:terms]" style="width:calc(100% - 20px)">
+			</td>
+			<td>
+				<button type="submit" name="button" style="width:40px; margin:0px; padding:2px">
+					<img style="width:14px; height:14px" src="lib://[r:function.getNamespace()]/assets/icons/search.png">
+				</button>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
 
-	<input type="hidden" name="window" value="[r:window]">
-	
-	<table width=100%>
-	<tr><td align=right>
-	<input type="text" name="terms" value="[r:terms]" size="30">
-	<td align=left>
-	<input type="submit" name="button" value="<html><img width=13 height=13 src='asset://8aa28b1474dd5f3031536499843264d9'>">
-	</table>
-
-	<tr><td style="margin:0px;padding:0px;padding-left:[r:if(window=='search','25px','0px')]">
+<tr>
+	<td style="margin:0px;padding:0px;padding-left:[r:if(window=='search','25px','0px')]">
 
 	<!-------------------PCs------------------->
 	[h:outputPCs=getStrProp(output,"PC")]
 	[r,count(listcount(outputPCs),""),code:{
-
 		[r,if(roll.count==0):"<h5>Characters</h5><p>"]
-				
 		[h:currentPCName=listget(outputPCs,roll.count)]
 		<!---------------------------CAPITALIZE----------------------------->
 		[h:CapitalName=capitalize(currentPCName)]
@@ -36,30 +43,22 @@
 		[r:macroLink(CapitalName,"character/Macro Frame@this","","macro=Statblock;tokenName="+currentPCName)+"<br>"]
 	}]
 
-
 	<!-------------------NOTES------------------->
 	[h:outputNotes=getStrProp(output,"Notes")]
 	[r,count(listcount(outputNotes),""),code:{
-
 		[r,if(roll.count==0):"<h5>Notes</h5><p>"]
-		
 		[h:currentNotebook=listget(outputNotes,roll.count)]
 		[h:ChapterName=listget(currentNotebook,0,"@")]
 		[h:NotebookName=listget(currentNotebook,1,"@")]
-
 		[h:valueField=getLibProperty("Value",NotebookName)]
 		[h:jsonValue=json.get(valueField,ChapterName)]
-
 		[r:macroLink(ChapterName+" ("+replace(NotebookName,"^Lib:","")+")","notebook/Content@this","","key="+ChapterName+";description="+encode(jsonValue)+";tokenName="+NotebookName)+"<br>"]
 	}]
-
 
 	<!-------------------CLASSES------------------->
 	[h:outputClasses=getStrProp(output,"Classes")]
 	[r,count(listcount(outputClasses),""),code:{
-
 		[r,if(roll.count==0):"<h5>Classes</h5><p>"]
-		
 		[h:currentClassName=listget(outputClasses,roll.count)]
 		<!---------------------------CAPITALIZE----------------------------->
 		[h:CapitalName=capitalize(currentClassName)]
@@ -73,9 +72,7 @@
 	<!-------------------SUBCLASSES------------------->
 	[h:outputSubclasses=getStrProp(output,"Subclasses")]
 	[r,count(listcount(outputSubclasses),""),code:{
-
 		[r,if(roll.count==0):"<h5>Subclasses</h5><p>"]
-		
 		[h:currentSubclass=listget(outputSubclasses,roll.count)]
 		[h:ClassName=listget(currentSubclass,0,"/")]
 		[h:SubclassName=listget(currentSubclass,1,"/")]

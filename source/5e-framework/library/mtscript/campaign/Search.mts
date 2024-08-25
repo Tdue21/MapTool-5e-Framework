@@ -12,7 +12,6 @@
 [h:height=if(height>500,500,height)]
 
 [dialog5("Search", "width=450; height="+height+"; temporary=1; input=1; noframe=0"):{
-	<link rel="stylesheet" type="text/css" href="lib://[r:function.getNamespace()]/css/GitHub.css">
-	<body>
+	<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">	<body>
 	[macro("campaign/Search Results@this"):macro.args+";window=Search"]
 }]

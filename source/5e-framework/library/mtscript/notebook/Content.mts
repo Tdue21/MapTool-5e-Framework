@@ -8,8 +8,7 @@
 	[h:settingsObject=getLibProperty("Settings",tokenName)]
 	[h:theme=json.get(settingsObject,"theme")]
 	<title>[r:name+" - "+chapter]</title>
-	<link rel="stylesheet" type="text/css" href="lib://[r:function.getNamespace()]/css/[r:theme].css">
-	<body>
+	<link rel="stylesheet" type="text/css" href="[r:function.getCss(theme)]"><body>
 
 	[h:permissions=getLibProperty("PlayerPermission",function.getNamespace())]
 	[h:closeShared=getStrProp(permissions,"closeShared")]

@@ -189,7 +189,7 @@ function createNotebooks(notebookData) {
                 color: "gray50",
                 fontColor: "white",
                 minWidth: 120,
-                command:"[macro('notebook/Index@org.maptool.dnd5e'):'Lib:"+ name + "']"
+                command:"[function.showNotebook('Lib:"+ name + "')]"
             };
 
             MTScript.setVariable("tokenData", JSON.stringify(tokenData));

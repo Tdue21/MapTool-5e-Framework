@@ -63,8 +63,7 @@
 
 [frame5("Fantasy Script"):{
 
-<link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
-
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 	[h: processorLink = macroLinkText("Render@Lib:Languages", "")]
 
 <form action="[r:processorLink]" method="json">

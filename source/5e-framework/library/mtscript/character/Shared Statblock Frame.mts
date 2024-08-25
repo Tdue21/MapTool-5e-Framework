@@ -11,8 +11,7 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
-
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 
 [h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
 [h:closeShared=getStrProp(permissions,"closeShared")]

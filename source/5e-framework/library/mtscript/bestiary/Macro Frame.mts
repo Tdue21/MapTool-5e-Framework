@@ -14,7 +14,7 @@ default:frameName=tokenName+" - Statblock"]
 
 [frame5(frameName, "width=350; height=500; temporary=0;"):{
 
-<link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 
 [macro("Statblock@Lib:Bestiary"):tokenName]
 

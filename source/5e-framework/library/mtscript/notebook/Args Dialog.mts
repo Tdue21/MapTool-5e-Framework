@@ -29,8 +29,7 @@
 };{
 
 [dialog5(if(share==1,"",tokenName+" - ")+CapitalName, "width=450; height="+height+"; temporary=0; noframe=0; input=1"):{
-	<link rel="stylesheet" type="text/css" href="lib://[r:function.getNamespace()]/css/D&D.css">
-
+	<link rel="stylesheet" type="text/css" href="[r:function.getCss('D&D')]">
 	[r,if(share==1):"";"<p class='topbar'>"]
 	[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 	[h:edit=getStrProp(permissions,"edit")]

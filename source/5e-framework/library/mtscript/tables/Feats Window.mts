@@ -2,7 +2,7 @@
 
 [dialog5("Feats", "width=750; height=600; temporary=1; noframe=0; input=1"):{
 
-<link rel="stylesheet" type="text/css" href="D&D@Lib:Campaign">
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('D&D')]">
 
 
 

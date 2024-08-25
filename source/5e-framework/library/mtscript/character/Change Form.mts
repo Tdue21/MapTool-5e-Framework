@@ -33,8 +33,7 @@
 
 [dialog5(tokenName+" - "+CapitalName+" - Edit", "width=650; height=550; temporary=1; input=1; noframe=0"): {
 
-<link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
-
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 [h: processorLink = macroLinkText("Change Form process@Lib:Character", "")]
 <form action="[r:processorLink]" method="json">
 

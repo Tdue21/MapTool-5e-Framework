@@ -10,6 +10,6 @@
 }]
 
 [dialog5("Class", "width=750; height=600; temporary=1; noframe=0; input=1"):{
-	<link rel="stylesheet" type="text/css" href="[r:function.getCss('D&D.css')]">
+	<link rel="stylesheet" type="text/css" href="[r:function.getCss('D&D')]">
 	[macro("tables/Class Features@this"):"class="+class+";subclass="+subclass]
 }]

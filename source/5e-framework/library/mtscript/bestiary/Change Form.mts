@@ -18,7 +18,7 @@
 
 [dialog5(tokenName+" - "+name+" - Edit", "width=650; height=550; temporary=1; input=1; noframe=0"): {
 
-<link rel="stylesheet" type="text/css" href="lib://[r:function.getNamespace()]/css/GitHub.css">
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 
 [h: processorLink = macroLinkText("Change Form process@Lib:Bestiary", "")]
 <form action="[r:processorLink]" method="json">

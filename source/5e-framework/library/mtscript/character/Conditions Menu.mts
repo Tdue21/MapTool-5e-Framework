@@ -22,8 +22,7 @@
 [r:tokenName] Conditions
 </title>
 
-<link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
-
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 [h: link = macroLinkText("Conditions Menu@Lib:Character", "none","","tokenName="+tokenName)]
 <link rel="onChangeSelection" type="macro" href="[r:link]">
 

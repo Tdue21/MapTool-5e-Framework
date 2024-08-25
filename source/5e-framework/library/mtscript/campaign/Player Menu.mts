@@ -1,8 +1,7 @@
 
 [dialog5("Player Menu", "width=340; height=240; temporary=1; noframe=0; input=1"):{
 
-<link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
-
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 
 
 

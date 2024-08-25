@@ -20,8 +20,7 @@
 
 [dialog5("Select Map", "width=220; height="+height+"; temporary=1; input=1; noframe=0"):{
 
-	<link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
-	
+	<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">	
 	<table>
 	<tr>
 	<td align=center>

@@ -15,10 +15,9 @@
 	[h:theme=json.get(settingsObject,"theme")]
 	[h:ChaNumber=json.get(settingsObject,"ChaNumber")]
 
-	<link rel="stylesheet" type="text/css" href="lib://[r:function.getNamespace()]/css/GitHub.css">
-	
+	<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">	
 	<h3 style="padding-bottom:0px;margin-bottom:8px">
-<img src="asset://aed6269a99576e707a8b2e5081a11fed">&nbsp;
+<img src="lib://[r:function.getNamespace()]/assets/icons/library.png">&nbsp;
 [r:macroLink("<font size=6>Compendium","tables/Tables List@this")]
 </h3>
 

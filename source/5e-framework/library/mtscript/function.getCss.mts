@@ -1,1 +1,1 @@
-[r:"lib://" + function.getNamespace() + "/css/" + macro.args>
+[r:"lib://" + function.getNamespace() + "/css/" + arg(0) + ".css?libcache=false"]

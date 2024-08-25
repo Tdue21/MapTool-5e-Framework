@@ -33,10 +33,14 @@
 [h:defineFunction("function.search",             "function.search@this")]
 [h:defineFunction("function.showCompendium",     "function.showCompendium@this")]
 [h:defineFunction("function.showNotebooks",      "function.showNotebooks@this")]
+[h:defineFunction("function.showNotebook",       "function.showNotebook@this")]
 [h:defineFunction("function.reloadOverlays",     "function.reloadOverlays@this")]
 [h:defineFunction("function.shareImage",         "function.shareImage@this")]
 [h:defineFunction("function.getDistance",        "function.getDistance@this")]
 [h:defineFunction("function.getAssetId",         "function.getAssetId@this")]
+
+[h:defineFunction("function.listCharacters",     "function.listCharacters@this")]
+[h:defineFunction("function.listNotebooks",      "function.listNotebooks@this")]
 
 [h,macro("overlay/Loading@this"):"Loading Audio Clips"]
 

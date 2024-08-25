@@ -6,7 +6,7 @@
 
 [dialog5(tokenName, "width=350; height=500; temporary=1; noframe=0; input=1"):{
 
-<link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 
 <p class='topbar'>
 

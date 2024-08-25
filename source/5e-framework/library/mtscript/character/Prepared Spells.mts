@@ -3,8 +3,7 @@
 
 [dialog5(tokenName+" - Prepared Spells", "width=400; height=550; temporary=1; input=1; noframe=0"): {
 	
-	<link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
-	
+	<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">	
 	[h: processorLink = macroLinkText("Prepared Spells process@Lib:Character", "")]
 	<form action="[r:processorLink]" method="json">
 	
