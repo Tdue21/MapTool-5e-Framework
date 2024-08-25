@@ -1,15 +1,12 @@
 [h,if(macro.args==""):sort="Name";sort=getStrProp(macro.args,"sort")]
 [h,if(macro.args==""):dir="a";dir=getStrProp(macro.args,"dir")]
 
-[h:outputPC=getLibProperty("PC Output","Lib:Character")]
-[h:outputGM=getLibProperty("GM Output","Lib:Character")]
-
 [h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
 [h:rollNPC=getStrProp(gameplay,"rollNPC")]
 
-[r,if(rollNPC==1):output=if(isGM()==1,outputGM,outputPC);output="none"]
+[r,if(rollNPC==1):output=function.getOutput();output="none"]
 
-[dialog("Bestiary", "width=750; height=600; temporary=1; noframe=0; input=1"):{
+[dialog5("Bestiary", "width=750; height=600; temporary=1; noframe=0; input=1"):{
 
 	<link rel="stylesheet" type="text/css" href="D&D@Lib:Campaign">
 	

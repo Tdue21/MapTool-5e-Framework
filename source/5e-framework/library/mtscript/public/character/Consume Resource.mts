@@ -3,11 +3,7 @@
 [h:tokenName=getStrProp(macro.args,"tokenName")]
 [h:resource=getStrProp(macro.args,"resource")]
 
-[h:outputPC=getLibProperty("PC Output", "Lib:Character")]
-[h:outputGM=getLibProperty("GM Output", "Lib:Character")]
-
-[h:output=if(isGM()==1,outputGM,outputPC)]
-
+[h:output= function.getOutput())]
 [h:resourcesObj=getLibProperty("Resources","Lib:"+tokenName)]
 
 [h:currentResource=json.get(resourcesObj,resource)]

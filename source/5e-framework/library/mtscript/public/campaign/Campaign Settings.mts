@@ -5,7 +5,7 @@
 [h:setLibProperty("macroList",macroList,"Lib:Compendium")]
 
 
-[dialog("Settings", "width=350; height=600; temporary=0; noframe=0; input=1"):{
+[dialog5("Settings", "width=350; height=600; temporary=0; noframe=0; input=1"):{
 
 <link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
 
@@ -222,16 +222,16 @@ Player Permissions
 <span title="Define output of rolls made by the players and GM">
 [r:macroLink("Roll Output","Settings@Lib:Campaign","","Output")]
 <td align=right>
-[r:getLibProperty("PC Output","Lib:Character")] /
-[r:getLibProperty("GM Output","Lib:Character")]
+[r:getLibProperty("PC Output",function.getNamespace())] /
+[r:getLibProperty("GM Output",function.getNamespace())]
 
 <tr><td>
 
 <span title="Define output of dice sounds made by the players and GM">
 [r:macroLink("Audio Output","Settings@Lib:Campaign","","OutputAudio")]
 <td align=right>
-[r:getLibProperty("PC Audio","Lib:Character")] /
-[r:getLibProperty("GM Audio","Lib:Character")]
+[r:getLibProperty("PC Audio",function.getNamespace())] /
+[r:getLibProperty("GM Audio",function.getNamespace())]
 
 <tr class=bg><td>
 <span title="Define link to audio clips and set audio to preload on startup or when required, multiple links delimited by comma">

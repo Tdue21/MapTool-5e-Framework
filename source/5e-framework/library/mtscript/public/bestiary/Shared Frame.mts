@@ -1,6 +1,6 @@
 [h:tokenName=macro.args]
 
-[frame("Shared", "width=350; height=500; temporary=0;"):{
+[frame5("Shared", "width=350; height=500; temporary=0;"):{
 
 <link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
 

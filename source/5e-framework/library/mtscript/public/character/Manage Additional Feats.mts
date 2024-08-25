@@ -1,7 +1,7 @@
 [h:tokenName="Lib:Character"]
 
 
-[dialog("Manage Additional Feats", "width=450; height=600; temporary=0; noframe=0; input=1"):{
+[dialog5("Manage Additional Feats", "width=450; height=600; temporary=0; noframe=0; input=1"):{
 
 <link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
 

@@ -1,3 +1,10 @@
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
+<!-- **                                                                   ** -->
+<!-- **                           onInit                                  ** -->
+<!-- **                                                                   ** -->
+<!-- *********************************************************************** -->
+<!-- *********************************************************************** -->
 [h:library = "org.maptool.dnd5e"]
 
 [h,macro("overlay/Loading@this"):"Setting Starting Map"]
@@ -29,6 +36,7 @@
 [h:defineFunction("function.reloadOverlays",     "function.reloadOverlays@this")]
 [h:defineFunction("function.shareImage",         "function.shareImage@this")]
 [h:defineFunction("function.getDistance",        "function.getDistance@this")]
+[h:defineFunction("function.getAssetId",         "function.getAssetId@this")]
 
 [h,macro("overlay/Loading@this"):"Loading Audio Clips"]
 

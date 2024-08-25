@@ -66,7 +66,7 @@
 
 [h:partySize=listcount(tokens)]
 
-[dialog("Manage", "width=580; height=400; temporary=1; noframe=0; input=1"):{
+[dialog5("Manage", "width=580; height=400; temporary=1; noframe=0; input=1"):{
 
 <link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
 

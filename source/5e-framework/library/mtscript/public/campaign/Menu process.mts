@@ -17,11 +17,7 @@
 [h:PCMacros=decode(json.get(macro.args,"PCMacros"))]
 
 
-[h:outputPC=getLibProperty("PC Output", "Lib:Character")]
-[h:outputGM=getLibProperty("GM Output", "Lib:Character")]
-
-
-[h:output=if(isGM()==1,outputGM,outputPC)]
+[h:output= function.getOutput())]
 
 [h,count(listcount(NoteList)),code:{
 

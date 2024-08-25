@@ -8,7 +8,7 @@
             "lighting style": "OVERTOP",
             "has fog": false,
             "ai rounding": "CELL_UNIT",
-            "background paint": "#C19F7C",
+            "background paint": "%bgpaint%",
             "grid": {
                 "type": "None",
                 "color": "#333333"
@@ -17,18 +17,12 @@
         "tokens": [
             {
                 "name": "Image:DmBackground",
-                "tokenImage": "lib://{ns}/assets/images/dm-background.png",
+                "tokenImage": "lib://org.maptool.dnd5e/assets/images/dm-background.png",
                 "size": "Free",
                 "layer": "Background",
                 "opacity": "0.6",
-                "position": {
-                    "display": "relative",
-                    "position": "center",
-                    "x": -150,
-                    "y": 0,
-                    "width": -1,
-                    "height": -1
-                }
+                "x": -5,
+                "y": -5
             }
         ]
     },
@@ -41,7 +35,7 @@
             "lighting style": "OVERTOP",
             "has fog": false,
             "ai rounding": "CELL_UNIT",
-            "background paint": "#C19F7C",
+            "background paint": "%bgpaint%",
             "grid": {
                 "type": "Square",
                 "color": "#333333"
@@ -50,55 +44,35 @@
         "tokens": [
             {
                 "name": "Image:BG",
-                "tokenImage": "lib://{ns}/assets/images/start-background.png",
+                "tokenImage": "lib://org.maptool.dnd5e/assets/images/start-background.png",
                 "size": "Free",
                 "layer": "Background",
                 "opacity": "0.5",
-                "position": {
-                    "display": "center",
-                    "x": 0,
-                    "y": 0,
-                    "width": -1,
-                    "height": -1
-                }
+                "x": -4,
+                "y": -5
             },
             {
                 "name": "Image:Logo",
-                "tokenImage": "lib://{ns}/assets/images/dnd-logo.png",
+                "tokenImage": "lib://org.maptool.dnd5e/assets/images/dnd-logo.png",
                 "size": "Free",
                 "layer": "Background",
                 "opacity": "1",
-                "position": {
-                    "display": "center",
-                    "x": -5,
-                    "y": 2,
-                    "width": 400,
-                    "height": 200
-                }
+                "x": -5,
+                "y": 2
             },
             {
                 "name": "Click on the 'Notebook' macro",
-                "tokenImage": "lib://{ns}/assets/images/start-here.png",
-                "size": "Free",
+                "tokenImage": "lib://org.maptool.dnd5e/assets/images/start-here.png",
+                "size": "Native",
                 "layer": "Token",
                 "opacity": "1",
-                "position": {
-                    "display": "center",
-                    "x": -5,
-                    "y": 2,
-                    "width": 300,
-                    "height": 100
-                },
+                "x": 2,
+                "y": 3,
                 "macros": [
                     {
-                        "name": "Notebook",
+                        "label": "Notebook",
                         "autoExec": true,
-                        "command": [
-                            "[h:value=getLibProperty('Value','Lib:Welcome')]",
-                            "[h:description=json.get(value,'1. Getting Started')]",
-                            "[h,if(isGM()==1):share=0;share=1]",
-                            "[macro('notebook/Content@{ns}'):'key=1. Getting Started;description='+encode(description)+';tokenName=Lib:Welcome;share='+share]"
-                        ]
+                        "command": "[macro(\"notebook.showWelcome@lib:org.maptool.dnd5e\"):\"\"]"
                     }
                 ]
             }

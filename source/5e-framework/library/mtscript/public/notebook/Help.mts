@@ -1,4 +1,4 @@
-[dialog("Markdown Help", "width=260; height=550; temporary=0; input=1; noframe=0"): {
+[dialog5("Markdown Help", "width=260; height=550; temporary=0; input=1; noframe=0"): {
 
 
 <link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
@@ -67,7 +67,7 @@ _underline_
 <td width=0%>
 [r:'[spell](spell)']
 <td>
-[r:macroLink("spell","Args Dialog@Lib:Notebook","","prop=Spells;source=;name=spell;description=;tokenName=")]
+[r:macroLink("spell","notebook/Args Dialog@this","","prop=Spells;source=;name=spell;description=;tokenName=")]
 <tr>
 <td width=0%>
 [r:'[npc](npc)']

@@ -31,7 +31,7 @@
 
 [h,if(id==""):"";switchToken(id)]
 
-[dialog(tokenName+" - "+CapitalName+" - Edit", "width=650; height=550; temporary=1; input=1; noframe=0"): {
+[dialog5(tokenName+" - "+CapitalName+" - Edit", "width=650; height=550; temporary=1; input=1; noframe=0"): {
 
 <link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
 

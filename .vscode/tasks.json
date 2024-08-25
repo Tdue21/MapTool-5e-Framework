@@ -41,7 +41,8 @@
             "description": "Select library",
             "default": "",
             "options": [
-                "5e-Framework"
+                "5e-Framework",
+                "InitEventTest"
             ]
         },
         {

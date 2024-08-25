@@ -5,11 +5,10 @@
 
 [h:atrList=""]
 
-[h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
+[h:gameplay=getLibProperty("Gameplay",function.getNamespace())]
 [h:autoInit=getStrProp(gameplay,"autosetInitiative")]
 
 [h,if(autoInit==1 && matches(text,"Initiative.*")==1),code:{
-	
 	[h:res=input("var|<html><h3>"+tokenName+" initiative||label|span=true","roll|Normal Roll,Advantage,Disadvantage|Roll|radio|span=true")]
 	[h:abort(res)]
 };{}]
@@ -17,8 +16,8 @@
 [h:roll1=1d20]
 [h:roll2=1d20]
 <!--------------------------------DICE SOUNDS---------------------------------->
-[macro("Dice Sounds@Lib:Campaign"):""]
-[macro("Dice Sounds@Lib:Campaign"):""]
+[macro("campaign/Dice Sounds@this"):""]
+[macro("campaign/Dice Sounds@this"):""]
 
 [h:img=tableImage("BlankDice",20)]
 [h:color=getStrProp(macro.args,"color")]
@@ -30,29 +29,17 @@
 		<font color=white><b>[r:text]:</b> ([r:roll1]/[r:roll2])
 	<tr>
 		<td style="padding-top: 5px" align=center valign=middle width=25%>
-
-
 		<table>
 			<tr><td width=32 height=32 align=center valign=middle background=[r:img] style="background-repeat: no-repeat;background-position: center; padding-left:4px; padding-bottom:5px">
 			<font color=[r:if(roll1==1,"ff5b5b",if(roll1==20,"3cff00","white"))] size=4><b>
-			
 			[r:roll1]
-
-
 		</table>
-
-		
 		<td align=center valign=middle width=25%>
 		<font size=4 color=gray><b>
 
 [h:formula=""]
-
-
 [h:advRoll=if(roll1>roll2,roll1,roll2)]
 [h:disadvRoll=if(roll1<roll2,roll1,roll2)]
-
-
-
 
 [h:id=strfind(diceRoll,"([-+]?)(?:(\\d+)d(\\d+)|([0-9A-Za-z|]+))")]
 [r,count(getFindCount(id),""),code:{
@@ -66,89 +53,60 @@
 
 	[h:firstRoll=roll.count]
 	[r,if(isNumber(group3)==1),count(dices,""),code:{
-
 		[r:if(roll.count==0,"","+")]
 		[h:dice=roll(1,group3)]
 		[r:dice=if(group1=="-",dice*-1,if(firstRoll==0,"","+")+dice)]
 		[h:formula=add(formula,dice)]
-		
 	};{}]
 
 	[r,if(isNumber(group4)==1),code:{
-		
 		[h:lvl=0]
 		[r:group1+group4]
 		[h:formula=add(formula,number(group1+group4))]
-	
 	};{
 		[h:lvl=getStrProp(classProps,group4)]
-		
 	}]
 	[h:formula=add(formula,lvl)]
-
 	[h,if(lvl==""):lvl=0;""]
 	[r:if(lvl<0,"",if(lvl==0,"",if(firstRoll==0,"","+")))+if(lvl==0,"",lvl)]
 
-
-[h:countMax=listcount(group4,"|")]
-[h:countMax=if(countMax==0,1,countMax)]
-[h,count(countMax):index=listfind(atrList,listget(group4,roll.count,"|"))]
-[h:maxValue=""]
-[h:atrValue=listget(listsort(maxValue,"N-"),0)]
-[h,if(atrValue==""):"";atrValue=eval(string(atrValue))]
-[h,if(index==-1):mod=0;mod=floor(number(atrValue)/2)-5]
-
+	[h:countMax=listcount(group4,"|")]
+	[h:countMax=if(countMax==0,1,countMax)]
+	[h,count(countMax):index=listfind(atrList,listget(group4,roll.count,"|"))]
+	[h:maxValue=""]
+	[h:atrValue=listget(listsort(maxValue,"N-"),0)]
+	[h,if(atrValue==""):"";atrValue=eval(string(atrValue))]
+	[h,if(index==-1):mod=0;mod=floor(number(atrValue)/2)-5]
 	[h:formula=add(formula,mod)]
-
 	[r:if(mod<0,"",if(mod==0,"","+"))+if(mod==0,"",mod)]
 }]
 
-
 [h:formulaNormal=add(formula,roll1)]
-
-
-
 		<td align=center valign=middle width=25%>
 		<font size=4 color=[r:color]><b>
-
-
 		[r:formulaNormal]
 		
 		<td valign=middle width=25%>
 		<font size=2 color=gray>Adv:
-		
 		[r:adv=add(formula,advRoll)]
 
-		
 		<br>
 		<font size=2 color=gray>Dis:
-		
 		[r:dis=add(formula,disadvRoll)]
-		
-		
-		
-</table>
-
+</table>½
+½
 [h:macro.return="normal="+formulaNormal+";adv="+adv+";dis="+dis]
 
 <font color=gray size=2 style="text-decoration:none">
-
-
 [r,if(autoInit==1 && matches(text,"Initiative.*")==1),code:{
-
-	[h,macro("Set Initiative@Lib:Character"):"tokenName="+tokenName+";value="+if(roll==0,formulaNormal,if(roll==1,adv,dis))]
-
+	[h,macro("character/Set Initiative@this"):"tokenName="+tokenName+";value="+if(roll==0,formulaNormal,if(roll==1,adv,dis))]
 };{
-
-	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macroLink("[Set initiative]","Set Initiative@Lib:Character","","tokenName="+tokenName+";value="+formulaNormal),"")]
-	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macroLink("[Adv]","Set Initiative@Lib:Character","","tokenName="+tokenName+";value="+adv),"")]
-	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macroLink("[Dis]","Set Initiative@Lib:Character","","tokenName="+tokenName+";value="+dis),"")]
+	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macroLink("[Set initiative]","character/Set Initiative@this","","tokenName="+tokenName+";value="+formulaNormal),"")]
+	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macroLink("[Adv]","character/Set Initiative@this","","tokenName="+tokenName+";value="+adv),"")]
+	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macroLink("[Dis]","character/Set Initiative@this","","tokenName="+tokenName+";value="+dis),"")]
 	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1 && output!="all","<br>","")]
-
 }]
 
-
-
-[r,if(output!="all"):macroLink("[Share Result]","ShareRoll@Lib:Character","all",formulaNormal)]
-[r,if(output!="all"):macroLink("[Adv]","ShareRoll@Lib:Character","all",adv)]
-[r,if(output!="all"):macroLink("[Dis]","ShareRoll@Lib:Character","all",dis)]
+[r,if(output!="all"):macroLink("[Share Result]","character/ShareRoll@this","all",formulaNormal)]
+[r,if(output!="all"):macroLink("[Adv]","character/ShareRoll@this","all",adv)]
+[r,if(output!="all"):macroLink("[Dis]","character/ShareRoll@this","all",dis)]

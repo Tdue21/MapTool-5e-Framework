@@ -3,12 +3,7 @@
 [h:atrFont=if(listcount(attributeList)>7,6,8)]
 [h:spacing=if(listcount(attributeList)>7,3,5)]
 
-[h:outputPC=getLibProperty("PC Output", "Lib:Character")]
-[h:outputGM=getLibProperty("GM Output", "Lib:Character")]
-
-
-[h:output=if(isGM()==1,outputGM,outputPC)]
-
+[h:output= function.getOutput())]
 [h:tokenName=getStrProp(macro.args,"tokenName")]
 [h:profBonus=getStrProp(macro.args,"profBonus")]
 

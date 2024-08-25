@@ -1,15 +1,6 @@
 [h:attributeList=getLibProperty("Attributes", "Lib:Character")]
 [h:skillList=getLibProperty("Skills", "Lib:Character")]
-
-
-[h:outputPC=getLibProperty("PC Output", "Lib:Character")]
-[h:outputGM=getLibProperty("GM Output", "Lib:Character")]
-
-
-[h:output=if(isGM()==1,outputGM,outputPC)]
-
-
-
+[h:output= function.getOutput())]
 [h:tokenName=getStrProp(macro.args,"tokenName")]
 
 

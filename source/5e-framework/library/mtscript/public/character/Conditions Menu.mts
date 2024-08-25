@@ -16,7 +16,7 @@
 }]
 
 
-[dialog("Conditions", "width=380; height=450; temporary=0; noframe=0; input=1"):{
+[dialog5("Conditions", "width=380; height=450; temporary=0; noframe=0; input=1"):{
 
 <title>
 [r:tokenName] Conditions

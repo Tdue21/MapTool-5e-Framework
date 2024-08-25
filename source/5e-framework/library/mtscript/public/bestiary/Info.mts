@@ -33,7 +33,7 @@
 [h:size=length(description)]
 [h:height=if(size>1000,650,if(size>400,450,if(size>100,300,200)))]
 
-[dialog(CapitalName+" - Info", "width=450; height="+height+"; temporary=0; noframe=0; input=1"):{
+[dialog5(CapitalName+" - Info", "width=450; height="+height+"; temporary=0; noframe=0; input=1"):{
 
 <link rel="stylesheet" type="text/css" href="D&D@Lib:Campaign">
 

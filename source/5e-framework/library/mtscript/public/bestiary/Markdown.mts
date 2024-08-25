@@ -4,13 +4,10 @@
 [h:name=getStrProp(macro.args,"name")]
 [h:jsonGroup=getStrProp(macro.args,"group")]
 
-[h:outputPC=getLibProperty("PC Output", "Lib:Character")]
-[h:outputGM=getLibProperty("GM Output", "Lib:Character")]
-
 [h:id=findToken(tokenName)]
 [h,if(id==""):"";switchToken(id)]
 
-[h:output=if(isGM()==1,outputGM,outputPC)]
+[h:output= function.getOutput())]
 
 [h:entry=replace(entry,"SEMICOLONPLACEHOLDER",";")]
 

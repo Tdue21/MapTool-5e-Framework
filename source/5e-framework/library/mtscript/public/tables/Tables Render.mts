@@ -1,9 +1,7 @@
-[h:outputPC=getLibProperty("PC Output",function.getNamespace())]
-[h:outputGM=getLibProperty("GM Output",function.getNamespace())]
 [h:gameplay=getLibProperty("Gameplay",function.getNamespace())]
 [h:rollNPC=getStrProp(gameplay,"rollNPC")]
 
-[h,if(rollNPC==1):outputNPC=if(isGM()==1,outputGM,outputPC);outputNPC="none"]
+[h,if(rollNPC==1):outputNPC=function.getOutput();outputNPC="none"]
 
 <h5>Characters</h5>
 

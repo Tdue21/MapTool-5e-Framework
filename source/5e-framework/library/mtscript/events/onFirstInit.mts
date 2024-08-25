@@ -1,5 +1,7 @@
 [h:ns = "org.maptool.dnd5e"]
+
 [h:js.createNS(ns)]
+[h:js.evalUri(ns, "lib://" + ns + "/scripts/onFirstInit.js?libcache=false")]
 
 [h: audio = "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Dice%201.wav," +
             "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Dice%202.wav," +
@@ -36,105 +38,25 @@
 [h:setLibProperty("AdditionalFeats", data.getStaticData(ns, "/public/assets/data/AdditionalFeats.json"), ns)]
 [h:setLibProperty("Bestiary", data.getStaticData(ns, "/public/assets/data/Bestiary.json"), ns)]
 
+[h:tokenImage = "lib://" + ns + "/assets/images/bgtexture.jpeg"]
+[h:assetId = js.getAssetId(tokenImage)]
 
+[h:mapData = data.getStaticData(ns, "/public/assets/data/initial-maps.json")]
+[h:mapData = replace(mapData, "%bgpaint%", if(assetId == "", "#CEA883", assetId))]
+[h:maps = base64.encode(mapData)]
+[h:js.createMaps(maps)]
 
-<!-- ### create the DM map for storing tokens and other stuff for the GM only. ### -->
-[h:screenTexture = "lib://" + ns + "/assets/images/paper-background.png")]
-[h: screenId = createMap("00.DM",
-    json.set("{}",
-        "player visible", json.false,
-        "vision type", "Off",
-        "vision distance", 100,
-        "lighting style", "OVERTOP",
-        "has fog", json.false,
-        "ai rounding", "CELL_UNIT",
-        "background paint", "#C19F7C",
-        
-        "grid", json.set("{}", 
-            "type", "None",
-            "color", "#333333"
-        )
-    )
+[h:tableData = data.getStaticData(ns, "/public/assets/data/initial-tables.json")]
+[h:tableData = replace(tableData, "%ns%", ns)]
+[h:tables = base64.encode(tableData)]
+[h:js.createTables(tables)]
+
+[h:setCurrentMap("00.DM")]
+
+[h:data = json.append("", 
+    data.getStaticData(ns, "/public/assets/data/notebooks/welcome.json"), 
+    data.getStaticData(ns, "/public/assets/data/notebooks/rules.json"), 
+    data.getStaticData(ns, "/public/assets/data/notebooks/dmtools.json")
 )]
-
-<!-- ### Work-around for placing an image on the background, as createMap does not yet understand lib:// uris ### -->
-[h:tokenImage = "lib://" + ns + "/assets/images/dm-background.png")]
-[h:tokenId = createToken(
-    json.set("{}",
-        "name","Image:DmBackground",
-        "tokenImage", tokenImage,
-        "size","Free",
-        "layer", "Background"
-    )
-)]
-[h:setTokenOpacity(0.6, tokenId)]
-[h:tokenX = floor(getTokenX(1, tokenId) - (getTokenWidth(tokenId) / 2))]
-[h:tokenY = floor(getTokenY(1, tokenId) - (getTokenHeight(tokenId) / 2))]
-[h:moveToken(tokenX - 150, tokenY, 1, tokenId)]
-
-<!-- ### create the DM map for storing tokens and other stuff for the GM only. ### -->
-[h: screenId = createMap("01.Start",
-    json.set("{}",
-        "player visible", json.true,
-        "vision type", "Off",
-        "vision distance", 100,
-        "lighting style", "OVERTOP",
-        "has fog", json.false,
-        "ai rounding", "CELL_UNIT",
-        "background paint", "#C19F7C",
-        
-        "grid", json.set("{}", 
-            "type", "Square",
-            "color", "#333333"
-        )
-    )
-)]
-
-<!-- ### Work-around for placing an image on the background, as createMap does not yet understand lib:// uris ### -->
-[h:setCurrentMap("01.Start")]
-[h:tokenImage = "lib://" + ns + "/assets/images/start-background.png")]
-[h:tokenId = createToken(
-    json.set("{}",
-        "name","Image:BG",
-        "tokenImage", tokenImage,
-        "size","Free",
-        "layer", "Background"
-    )
-)]
-[h:setTokenOpacity(0.5, tokenId)]
-[h:tokenX = floor(getTokenX(1, tokenId) - (getTokenWidth(tokenId) / 2))]
-[h:tokenY = floor(getTokenY(1, tokenId) - (getTokenHeight(tokenId) / 2))]
-[h:moveToken(tokenX, tokenY, 1, tokenId)]
-
-[h:tokenImage = "lib://" + ns + "/assets/images/dnd-logo.png")]
-[h:tokenId = createToken(
-    json.set("{}",
-        "name","Image:Logo",
-        "tokenImage", tokenImage,
-        "size","Free",
-        "layer", "Background"
-    )
-)]
-[h:setTokenOpacity(1, tokenId)]
-[h:setTokenWidth(400, tokenId)]
-[h:setTokenHeight(200, tokenId)]
-[h:moveToken(-5, 2, 0, tokenId)]
-
-[h:tableData = json.set("{}", 
-    "tableName", "BlankDice",
-    "visible", json.false, 
-    "rollable", json.true, 
-    "tableRoll", "d17+3", 
-    "imageUrl", "lib://" + ns + "/assets/dice/d20.png", 
-    "entries", json.append("", 
-        json.set("{}", "start",  "1", "end",  "4", "value", "", "imageUrl", "lib://" + ns + "/assets/dice/d4.png" ),
-        json.set("{}", "start",  "5", "end",  "6", "value", "", "imageUrl", "lib://" + ns + "/assets/dice/d6.png" ),
-        json.set("{}", "start",  "7", "end",  "8", "value", "", "imageUrl", "lib://" + ns + "/assets/dice/d8.png" ),
-        json.set("{}", "start",  "9", "end", "10", "value", "", "imageUrl", "lib://" + ns + "/assets/dice/d10.png"),
-        json.set("{}", "start", "11", "end", "12", "value", "", "imageUrl", "lib://" + ns + "/assets/dice/d12.png"),
-        json.set("{}", "start", "13", "end", "20", "value", "", "imageUrl", "lib://" + ns + "/assets/dice/d20.png")
-    )
-)]
-[h:broadcast("<pre>" + json.indent(tableData, 4) + "</pre>")]
-[h:js.evalUri(ns, "lib://" + ns + "/scripts/createTable.js", base64.encode(tableData))]
-
+[h:notebooks = base64.encode(data)]
+[h:js.createNotebooks(notebooks)]

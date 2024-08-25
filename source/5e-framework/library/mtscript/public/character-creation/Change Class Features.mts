@@ -56,7 +56,7 @@
 [h:level19=json.get(object,"level19")]
 [h:level20=json.get(object,"level20")]
 
-[dialog("Edit Class Features", "width=380; height=660; temporary=1; noframe=0; input=1"):{
+[dialog5("Edit Class Features", "width=380; height=660; temporary=1; noframe=0; input=1"):{
 
 	<link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
 

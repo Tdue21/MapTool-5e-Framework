@@ -61,7 +61,7 @@
 }]
 [h,if(isGM()==1):displayList=LanguageList]
 
-[frame("Fantasy Script"):{
+[frame5("Fantasy Script"):{
 
 <link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
 

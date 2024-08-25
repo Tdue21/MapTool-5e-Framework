@@ -35,10 +35,7 @@
 }]
 
 
-[h:outputPC=getLibProperty("PC Output", "Lib:Character")]
-[h:outputGM=getLibProperty("GM Output", "Lib:Character")]
-
-[h:output=if(isGM()==1,outputGM,outputPC)]
+[h:output= function.getOutput())]
 
 [h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
 [h:autoInit=getStrProp(gameplay,"autosetInitiative")]

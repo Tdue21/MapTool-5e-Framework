@@ -1,0 +1,47 @@
+[
+    {
+        "tableName": "BlankDice",
+        "visible": false,
+        "rollable": true,
+        "tableRoll": "d17+3",
+        "imageUrl": "lib://%ns%/assets/dice/d20.png",
+        "entries": [
+            {
+                "start": "1",
+                "end": "4",
+                "value": "",
+                "imageUrl": "lib://%ns%/assets/dice/d4.png"
+            },
+            {
+                "start": "5",
+                "end": "6",
+                "value": "",
+                "imageUrl": "lib://%ns%/assets/dice/d6.png"
+            },
+            {
+                "start": "7",
+                "end": "8",
+                "value": "",
+                "imageUrl": "lib://%ns%/assets/dice/d8.png"
+            },
+            {
+                "start": "9",
+                "end": "10",
+                "value": "",
+                "imageUrl": "lib://%ns%/assets/dice/d10.png"
+            },
+            {
+                "start": "11",
+                "end": "12",
+                "value": "",
+                "imageUrl": "lib://%ns%/assets/dice/d12.png"
+            },
+            {
+                "start": "13",
+                "end": "20",
+                "value": "",
+                "imageUrl": "lib://%ns%/assets/dice/d20.png"
+            }
+        ]
+    }
+]

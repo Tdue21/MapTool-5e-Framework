@@ -1,4 +1,4 @@
-[dialog("Manage", "width=580; height=400; temporary=0; noframe=0; input=1"):{
+[dialog5("Manage", "width=580; height=400; temporary=0; noframe=0; input=1"):{
 
 <link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
 
@@ -41,10 +41,7 @@
 [h:setLibProperty("Map",getCurrentMapName(),"Lib:Bestiary")]
 
 
-[h:outputPC=getLibProperty("PC Output", "Lib:Character")]
-[h:outputGM=getLibProperty("GM Output", "Lib:Character")]
-
-[h:output=if(isGM()==1,outputGM,outputPC)]
+[h:output= function.getOutput())]
 
 [h:height=220+repeat*25]
 [h:height=if(height>600,600,height)]

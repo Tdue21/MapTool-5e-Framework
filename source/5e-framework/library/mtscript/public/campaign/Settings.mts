@@ -20,10 +20,8 @@
 };{}]
 
 [r,if(macro.args=="Output"),code:{
-
-	[h:pcOutput=getLibProperty("PC Output","Lib:Character")]
-	[h:gmOutput=getLibProperty("GM Output","Lib:Character")]
-
+	[h:pcOutput=getLibProperty("PC Output",function.getNamespace())]
+	[h:gmOutput=getLibProperty("GM Output",function.getNamespace())]
 	[h:outputList="all,self,gm,gm-self,ask"]
 	
 	[h:res=input(
@@ -31,10 +29,8 @@
 		"gmOutput|"+outputList+"|GM Output|list|value=string select="+listfind(outputList,gmOutput))]
 	[h:abort(res)]
 	
-	[h:setLibProperty("PC Output",pcOutput,"Lib:Character")]
-	[h:setLibProperty("GM Output",gmOutput,"Lib:Character")]
-
-
+	[h:setLibProperty("PC Output",pcOutput,function.getNamespace())]
+	[h:setLibProperty("GM Output",gmOutput,function.getNamespace()
 };{}]
 
 [r,if(macro.args=="Passive"),code:{

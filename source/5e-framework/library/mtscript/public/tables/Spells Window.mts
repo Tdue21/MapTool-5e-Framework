@@ -14,7 +14,7 @@
 
 }]
 
-[dialog("Spells", "width=780; height=600; temporary=1; noframe=0; input=1"):{
+[dialog5("Spells", "width=780; height=600; temporary=1; noframe=0; input=1"):{
 
 	<link rel="stylesheet" type="text/css" href="D&D@Lib:Campaign">
 	

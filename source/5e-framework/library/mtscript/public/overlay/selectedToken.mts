@@ -4,11 +4,7 @@
 [h:macroGroups=getStrProp(macro.args,"macroGroups")]
 [h:idList=getStrProp(macro.args,"id")]
 
-[h:outputPC=getLibProperty("PC Output", namespace)]
-[h:outputGM=getLibProperty("GM Output", namespace)]
-
-[h:output=if(isGM()==1,outputGM,outputPC)]
-
+[h:output= function.getOutput())]
 [h:display=getLibProperty("Display",namespace)]
 [h:darkMode=getStrProp(display,"darkMode")]
 

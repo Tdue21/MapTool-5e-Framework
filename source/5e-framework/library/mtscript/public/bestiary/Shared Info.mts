@@ -2,7 +2,7 @@
 [h:description=getStrProp(macro.args,"description")]
 [h:share=getStrProp(macro.args,"share")]
 
-[frame("Shared", "width=350; height=500; temporary=0;"):{
+[frame5("Shared", "width=350; height=500; temporary=0;"):{
 
 <link rel="stylesheet" type="text/css" href="D&D@Lib:Campaign">
 

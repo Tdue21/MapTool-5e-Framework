@@ -1,7 +1,7 @@
 [h:tokenName=getStrProp(macro.args,"tokenName")]
 [h:CharacterSpells=getLibProperty("Spells","Lib:"+tokenName)]
 
-[dialog(tokenName+" - Prepared Spells", "width=400; height=550; temporary=1; input=1; noframe=0"): {
+[dialog5(tokenName+" - Prepared Spells", "width=400; height=550; temporary=1; input=1; noframe=0"): {
 	
 	<link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
 	

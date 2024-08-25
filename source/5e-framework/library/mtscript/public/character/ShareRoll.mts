@@ -1,11 +1,6 @@
 [h:formula=macro.args]
 
-[h:outputPC=getLibProperty("PC Output", "Lib:Character")]
-[h:outputGM=getLibProperty("GM Output", "Lib:Character")]
-
-[h:output=if(isGM()==1,outputGM,outputPC)]
-
-
+[h:output= function.getOutput())]
 
 [h,if(isGM()==1):res=input("formula|"+formula+"|Value|text|width=10");res=1]
 [h:abort(res)]

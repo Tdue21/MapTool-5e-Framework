@@ -18,7 +18,7 @@
 [h,if(isGM()==1):height=listcount(maps)*31+80;height=listcount(visibleMaps)*31+60]
 
 
-[dialog("Select Map", "width=220; height="+height+"; temporary=1; input=1; noframe=0"):{
+[dialog5("Select Map", "width=220; height="+height+"; temporary=1; input=1; noframe=0"):{
 
 	<link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
 	

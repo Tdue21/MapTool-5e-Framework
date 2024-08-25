@@ -38,7 +38,7 @@
 	
 };{
 	
-	[dialog(if(share==1,"",tokenName+" - ")+CapitalName, "width=450; height="+if(identified==0,200,height)+"; temporary=0; noframe=0; input=1"):{
+	[dialog5(if(share==1,"",tokenName+" - ")+CapitalName, "width=450; height="+if(identified==0,200,height)+"; temporary=0; noframe=0; input=1"):{
 	
 		<link rel="stylesheet" type="text/css" href="D&D@Lib:Campaign">
 

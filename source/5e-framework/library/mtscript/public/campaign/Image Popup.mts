@@ -6,7 +6,7 @@
 [h:description="[![full size]("+assetId+"="+size+")](share)"]
 
 
-[dialog("Image", "width=530; height=570; temporary=1; noframe=0; input=1"):{
+[dialog5("Image", "width=530; height=570; temporary=1; noframe=0; input=1"):{
 
 <link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
 

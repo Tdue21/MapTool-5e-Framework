@@ -1,4 +1,4 @@
-[dialog("Tables", "width=700; height=600; temporary=1; noframe=0; input=1"):{
+[dialog5("Tables", "width=700; height=600; temporary=1; noframe=0; input=1"):{
 
 <link rel="stylesheet" type="text/css" href="D&D@Lib:Campaign">
 

@@ -2,11 +2,7 @@
 [h:name=getStrProp(macro.args,"name")]
 [h:source=getStrProp(macro.args,"source")]
 
-[h:outputPC=getLibProperty("PC Output", "Lib:Character")]
-[h:outputGM=getLibProperty("GM Output", "Lib:Character")]
-
-[h:output=if(isGM()==1,outputGM,outputPC)]
-
+[h:output= function.getOutput())]
 [h:spellsObj=getLibProperty("Spells","Lib:"+tokenName)]
 
 

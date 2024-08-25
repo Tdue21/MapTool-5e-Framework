@@ -26,7 +26,7 @@
 
 
 
-[dialog("Character Creation Wizard","width=650; height=525; temporary=0; input=1; noframe=0"): {
+[dialog5("Character Creation Wizard","width=650; height=525; temporary=0; input=1; noframe=0"): {
 
 <body bgcolor=#FFFFFF>
 

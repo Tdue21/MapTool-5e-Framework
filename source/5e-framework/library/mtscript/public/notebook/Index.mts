@@ -6,7 +6,7 @@
 	[h:tokenName=macro.args]
 }]
 
-[frame("Compendium", "width=150; height=500; temporary=0;"):{
+[frame5("Compendium", "width=150; height=500; temporary=0;"):{
 
 	[h:settingsObject=getLibProperty("Settings",tokenName)]
 

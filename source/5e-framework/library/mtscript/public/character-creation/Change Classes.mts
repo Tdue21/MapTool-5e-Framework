@@ -27,7 +27,7 @@
 
 [h:height=280+(listcount(subclassList)*26)]
 
-[dialog("Edit Classes", "width=380; height="+height+"; temporary=1; noframe=0; input=1"):{
+[dialog5("Edit Classes", "width=380; height="+height+"; temporary=1; noframe=0; input=1"):{
 
 	<link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
 

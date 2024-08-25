@@ -12,11 +12,7 @@
 
 [h:macroName="Change Property@Lib:Bestiary"]
 [h:args="name="+name+";json="+object+";tokenName="+token.name+";key="]
-
-[h:outputPC=getLibProperty("PC Output", "Lib:Character")]
-[h:outputGM=getLibProperty("GM Output", "Lib:Character")]
-
-[h:output=if(isGM()==1,outputGM,outputPC)]
+[h:output= function.getOutput())]
 
 <!----------------------LOAD SETTINGS----------------------->
 [h:settings=decode(json.get(object,"settings"))]

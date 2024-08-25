@@ -6,7 +6,7 @@
 
 [h:height=160+optionsCount*60]
 
-[dialog("Vote", "width=270; height="+height+"; temporary=1; noframe=0; input=1"):{
+[dialog5("Vote", "width=270; height="+height+"; temporary=1; noframe=0; input=1"):{
 
 <body bgcolor=white>
 

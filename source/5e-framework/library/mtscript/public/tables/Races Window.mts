@@ -8,7 +8,7 @@
 }]
 [h:race=lower(race)]
 
-[dialog("Race", "width=750; height=600; temporary=1; noframe=0; input=1"):{
+[dialog5("Race", "width=750; height=600; temporary=1; noframe=0; input=1"):{
 
 <link rel="stylesheet" type="text/css" href="lib://[r:function.getNamespace()]/css/D&D.css">
 

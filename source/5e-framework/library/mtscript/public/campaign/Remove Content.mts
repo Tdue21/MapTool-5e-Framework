@@ -78,7 +78,7 @@
 
 [h:height=if(height>600,600,height)]
 
-[dialog("Remove Content", "width=350; height="+height+"; temporary=1; input=1; noframe=0"):{
+[dialog5("Remove Content", "width=350; height="+height+"; temporary=1; input=1; noframe=0"):{
 
 
 <link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">

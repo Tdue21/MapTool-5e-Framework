@@ -4,7 +4,7 @@
 
 [h:object=json.get(BestiaryObj,macro.args)]
 
-[dialog(tokenName, "width=350; height=500; temporary=1; noframe=0; input=1"):{
+[dialog5(tokenName, "width=350; height=500; temporary=1; noframe=0; input=1"):{
 
 <link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
 
@@ -12,13 +12,11 @@
 
 [r,if(isGM()==1):macroLink("Edit","Edit Creature@Lib:Bestiary","none","creature="+tokenName+";prop="+object)+"&nbsp;";""]
 
-[h:outputPC=getLibProperty("PC Output","Lib:Character")]
-[h:outputGM=getLibProperty("GM Output","Lib:Character")]
-
-[h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
+[h:gameplay=getLibProperty("Gameplay" ,function.getNamespace())]
 [h:rollNPC=getStrProp(gameplay,"rollNPC")]
 
-[h,if(rollNPC==1):outputNPC=if(isGM()==1,outputGM,outputPC);outputNPC="none"]
+[h:output= function.getOutput())]
+[h,if(rollNPC==1):outputNPC=function.getOutput();outputNPC="none"]
 [r:macroLink("Make Token","Quick Monster@Lib:Bestiary",outputNPC,tokenName)]&nbsp;
 
 [r:macroLink("Info","Info@Lib:Bestiary","","name=;tokenName="+tokenName)] &nbsp;

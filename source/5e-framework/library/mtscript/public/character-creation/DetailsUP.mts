@@ -2,12 +2,7 @@
 [h:id=findToken(tokenName)]
 [h:switchToken(id)]
 
-[h:outputPC=getLibProperty("PC Output", "Lib:Character")]
-[h:outputGM=getLibProperty("GM Output", "Lib:Character")]
-
-
-[h:output=if(isGM()==1,outputGM,outputPC)]
-
+[h:output= function.getOutput())]
 [h:characterName=if(matches(tokenName,"^Lib:.*")==1,replace(tokenName,"^Lib:",""),tokenName)]
 
 [h:dice=json.get(macro.args,"HitDice")]

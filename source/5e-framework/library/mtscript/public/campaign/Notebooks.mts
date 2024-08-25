@@ -38,7 +38,7 @@
 [h:height=if(height>600,600,height)]
 
 
-[dialog("Notebooks", "width=235; height="+height+"; temporary=1; noframe=0; input=1"):{
+[dialog5("Notebooks", "width=235; height="+height+"; temporary=1; noframe=0; input=1"):{
 
 <link rel="stylesheet" type="text/css" href="GitHub@Lib:Campaign">
 
