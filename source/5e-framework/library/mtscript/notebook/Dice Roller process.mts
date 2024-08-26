@@ -5,19 +5,18 @@
 [h:iscrit=if(text=="Critical Hit!",1,0)]
 [h:output=function.getOutput()]
 
-
-<table style="border:1px solid [r:if(iscrit==1,'cca300','Black')];margin: 0px; padding: 0px" width=200>
-	<tr>
+<table style="border:1px solid [r:if(iscrit==1,'cca300','Black')];margin: 0px; padding: 0px;width:200px">
+<tr>
 	<td align=left style="margin: 0px; padding: 0px" bgcolor=[r:if(iscrit==1,"cca300","Black")]>
-	<font color=White size=[r:if(length(text)>=35,2,3)]><b>
-	[r,if(length(text)>=35):substring(text,0,35)+"...";text]
-	<tr>
+		<font color=White size=[r:if(length(text)>=35,2,3)]><b>
+		[r,if(length(text)>=35):substring(text,0,35)+"...";text]
+<tr>
 	<td align=left style="margin: 0px; padding: 0px">
-<table style="margin: 0px; padding: 0px">
-	<tr>
 
-[h:HigherLevel=matches(diceRoll,".*slot\\d.*")]
-[h,if(HigherLevel==1),code:{
+	<table style="margin: 0px; padding: 0px">
+	<tr>
+		[h:HigherLevel=matches(diceRoll,".*slot\\d.*")]
+		[h,if(HigherLevel==1),code:{
 	[h:baseLevel=replace(diceRoll,".*slot","")]
 	[h:baseLevel=replace(baseLevel,"\\D.*\$","")]
 	[h:Slots=""]

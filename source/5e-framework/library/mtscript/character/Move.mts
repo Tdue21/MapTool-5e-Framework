@@ -12,16 +12,12 @@
 
 [h:name=lower(name)]
 
-[h:Output=getLibProperty("PC Output", "Lib:Character")]
+[h:Output=function.getOutput("PC")]
 
 <!-----------------SELF--------------------->
 [h:id=findToken(tokenName)]
-
-
 [h:id=findToken(tokenName)]
 [h,if(id==""):"";switchToken(id)]
-
-
 
 <!----------List PC Libs----------->
 [h:info=getInfo("client")]

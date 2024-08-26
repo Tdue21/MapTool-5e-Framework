@@ -23,16 +23,16 @@
 [h:title=replace(title,"^\\s*","")]
 [h:title=replace(title,"\\s*\$","")]
 
-[r:currentProp=getLibProperty(group,"Lib:Compendium")]
+[r:currentProp=getLibProperty(group,function.getNamespace())]
 
-[h:Output=getLibProperty("PC Output", "Lib:Character")]
+[h:Output=function.getOutput("PC")]
 
 [r,if(index=="new"),code:{
 	[h:object=json.set("","description",value)]
 	[h:object=json.set(object,"sources",json.fromList(sources))]
 
 	[r:newProp=json.set(currentProp,title,object)]
-	[h:setLibProperty(group,newProp,"Lib:Compendium")]
+	[h:setLibProperty(group,newProp,function.getNamespace())]
 
 };{
 
@@ -42,7 +42,7 @@
 	[h:itemObj=json.set(itemObj,"sources",json.fromList(sources))]
 	[r:newProp=json.set(currentProp,title,itemObj)]
 	
-	[h,if(group=="OtherNotes" || group=="Notes" || group=="GMNotes"):"";setLibProperty(group,newProp,"Lib:Compendium")]
+	[h,if(group=="OtherNotes" || group=="Notes" || group=="GMNotes"):"";setLibProperty(group,newProp,function.getNamespace())]
 
 }]
 

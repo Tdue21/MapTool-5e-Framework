@@ -264,14 +264,10 @@ hr {
 
 <!-------------------Dice Roller------------------->
 <div class=menu>
-[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/dice.png'>","campaign/Roll Any Dice@this","")]
+	[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/dice.png'>","campaign/Roll Any Dice@this","")]
 	<div class=submenu>
-
 		<table class=border width=200>
-
 		[r,if(isGM()==1):"<tr><td colspan=5 class=center>"+macroLink("GM Output: "+output,"campaign/Quick Output@this")]
-		
-		
 		<tr>
 		<td width=50>
 		[r:macroLink("1d4","campaign/Dice Roller@this","","text=Dice Roller;color=Black;value=1d4")]

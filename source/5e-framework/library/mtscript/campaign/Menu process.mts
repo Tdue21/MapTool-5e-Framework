@@ -32,66 +32,66 @@
 
 
 [h,if(Settings==""),code:{};{
-	[macro("Campaign Settings@Lib:Campaign"):""]
+	[macro("campaign/Campaign Settings@this"):""]
 }]
 
 [h,if(Rules==""),code:{};{
-	[macro("Basic Rules@Lib:Campaign"):""]
+	[macro("campaign/Basic Rules@this"):""]
 }]
 
 [h,if(Party==""),code:{};{
-	[macro("Manage Party@Lib:Character"):""]
+	[macro("character/Manage Party@this"):""]
 }]
 
 [h,if(Search==""),code:{};{
-	[macro("Search@Lib:Campaign"):""]
+	[macro("campaign/Search@this"):""]
 }]
 
 [h,if(Distance==""),code:{};{
-	[macro("Get Distance@Lib:Campaign"):""]
+	[macro("campaign/Get Distance@this"):""]
 }]
 
 [h,if(Map==""),code:{};{
-	[macro("Select Map@Lib:Campaign"):""]
+	[macro("campaign/Select Map@this"):""]
 }]
 
 [h,if(Request==""),code:{};{
-	[macro("Request Roll@Lib:Campaign"):""]
+	[macro("campaign/Request Roll@this"):""]
 }]
 
 [h,if(Notebooks==""),code:{};{
-	[macro("Notebooks@Lib:Campaign"):""]
+	[macro("campaign/Notebooks@this"):""]
 }]
 
 [h,if(New==""),code:{};{
-	[macro("Character Creation Wizard@lib:Character Creation"):"{'route':'New'}"]
+	[macro("character-creation/Character Creation Wizard@this"):"{'route':'New'}"]
 }]
 
 [h,if(LevelUp==""),code:{};{
-	[macro("Character Creation Wizard@lib:Character Creation"):"{'route':'Level Up'}"]
+	[macro("character-creation/Character Creation Wizard@this"):"{'route':'Level Up'}"]
 }]
 [h,if(Library==""),code:{};{
-	[macro("Tables List@lib:Tables"):""]
+	[macro("tables/Tables List@this"):""]
 }]
 
 [h,if(Dice==""),code:{};{
-	[h:link=macroLinkText("Dice Roller@lib:Campaign","")]
+	[h:link=macroLinkText("campaign/Dice Roller@this","")]
 	[h:execLink(link)]
 }]
 
 [h,if(NewPin==""),code:{};{
-	[macro("Create Pin@lib:Character"):""]
+	[macro("character/Create Pin@this"):""]
 }]
 
 [h,if(NewNPC==""),code:{};{
-	[macro("NPC Wizard@lib:Bestiary"):""]
+	[macro("bestiary/NPC Wizard@this"):""]
 }]
 
 [h,if(NewNotebook==""),code:{};{
-	[macro("Set Notebook@Lib:Notebook"):""]
+	[macro("notebook/Set Notebook@this"):""]
 }]
 
 [h,if(PCMacros==""),code:{};{
-	[macro("Create Macros@lib:Character Creation"):""]
+	[macro("character-creation/Create Macros@this"):""]
 }]
 
