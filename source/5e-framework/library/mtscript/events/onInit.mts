@@ -39,6 +39,9 @@
 [h:defineFunction("function.getDistance",        "function.getDistance@this")]
 [h:defineFunction("function.getAssetId",         "function.getAssetId@this")]
 
+[h:defineFunction("function.getDiceRoll",        "diceroller/function.getDiceRoll@this")]
+[h:defineFunction("function.getHigherLevel",     "diceroller/function.getHigherLevel@this")]
+
 [h:defineFunction("function.listCharacters",     "function.listCharacters@this")]
 [h:defineFunction("function.listNotebooks",      "function.listNotebooks@this")]
 

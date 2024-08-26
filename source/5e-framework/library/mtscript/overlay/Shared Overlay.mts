@@ -12,12 +12,12 @@
 [h:CapitalName=function.Capitalize(name)]
 
 [h,if(description==""),code:{
-	[h:compendium=getLibProperty(group,"Lib:Compendium")]
+	[h:compendium=getLibProperty(group,function.getNamespace())]
 	[h:item=json.get(compendium,lower(name))]
 	[h,if(json.type(item)=="UNKNOWN"):description="";description=encode(json.get(item,"description"))]
 	[h,if(json.type(item)=="UNKNOWN"):sources="";sources=json.toList(json.get(item,"sources"))]
 };{
-	[h:compendium=getLibProperty(group,"Lib:Compendium")]
+	[h:compendium=getLibProperty(group,function.getNamespace())]
 	[h:item=json.get(compendium,name)]
 	[h,if(json.type(item)=="UNKNOWN"):sources="";sources=json.toList(json.get(item,"sources"))]
 }]
@@ -26,12 +26,12 @@
 [h:height=if(size>1000,650,if(size>400,450,if(size>100,300,200)))]
 
 [overlay("Shared","zorder=5;"):{
-
 [h:fontSize=if(size>4000,10,15)]
 
-[r:'
-
-<style>
+<!DOCTYPE html>
+<html>
+<head>
+[r:'<style>
 .footerBIG	{
 	position: absolute;
 	text-align: left;
@@ -90,26 +90,21 @@ img	{
 
 </style>
 ']
-
-[h:class=if(size>4000,'footerBIG','footer')]
-
-<div class="background">
-</div>
-<div class="[r:class]">
-
-<div class="float">[r:macroLink("X","closeOverlay@Lib:Overlay","","Shared")]</div>
-
-
-[r,if(customName=="" && CapitalName==""):"";"<h1>"+if(identified==0,if(customName=="" || customName==0,CapitalName,customName),if(customName=="" || customName==0,CapitalName,customName+" ("+CapitalName+if(identified==0," - Unidentified","")+")</font>"))+"</h1>"]
-
-
-
+</head>
+<body>
+	[h:class=if(size>4000,'footerBIG','footer')]
+	<div class="background">
+	</div>
+	<div class="[r:class]">
+		<div class="float">[r:macroLink("X","overlay/closeOverlay@this","","Shared")]</div>
+		[r,if(customName=="" && CapitalName==""):"";"<h1>"+if(identified==0,if(customName=="" || customName==0,CapitalName,customName),if(customName=="" || customName==0,CapitalName,customName+" ("+CapitalName+if(identified==0," - Unidentified","")+")</font>"))+"</h1>"]
 		[h,if(identified==0):description="*Unidentified item*";""]
 
-[macro("Markdown@Lib:Campaign"):"tokenName="+tokenName+";description="+description+";source="+source+";name="+name+";group="+group]
-
+		[macro("campaign/Markdown@this"):"tokenName="+tokenName+";description="+description+";source="+source+";name="+name+";group="+group]
+	</div>
+</body>
+</html>
 }]
-</div>
 
 
 

@@ -1,22 +1,16 @@
-[h:spellLists=getLibProperty("Spell Lists","Lib:Character Creation")]
-
+[h:spellLists=getLibProperty("Spell Lists",function.getNamespace())]
 [h:spellLists=listsort(spellLists,"A")]
 
 [h,if(macro.args==""),code:{
-
 	[h:res=input("class|"+spellLists+"|Choose Class|List|value=string")]
 	[h:abort(res)]
-
 };{
-
 	[h:class=macro.args]
-
 }]
 
-[h:spellsObject=getLibProperty(class,"Lib:Character Creation")]
+[h:spellsObject=getLibProperty(class,function.getNamespace())]
 
 [h,if(json.type(spellsObject)=="UNKNOWN"):spellsObject="{}";""]
-
 [h:level0=json.get(spellsObject,"Level 0")]
 [h:level0=json.toList(level0)]
 
@@ -47,15 +41,17 @@
 [h:level9=json.get(spellsObject,"Level 9")]
 [h:level9=json.toList(level9)]
 
-
-
-
 [dialog5("Edit Spells", "width=380; height=400; temporary=1; noframe=0; input=1"):{
 
+<!DOCTYPE html>
+<html>
+<head>
 	<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
-	[h: processorLink = macroLinkText("Change Spells process@Lib:Character Creation","")]
+</head>
+<body>
+	[h: processorLink = macroLinkText("character.creation/Change Spells process@this","")]
 	<form action="[r:processorLink]" method="json">
-	
+
 	<input type="submit" name="button" value="Save">[r,count(5,""):"&nbsp;"]
 	<input type="submit" name="cancel" value="Cancel">
 
@@ -106,5 +102,6 @@
 	<input type="text" name="level 9" value="[r:level9]" size="25">
 
 	</table>
-
+</body>
+</html>
 }]

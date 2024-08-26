@@ -2,13 +2,10 @@
 [h:prop=getStrProp(macro.args,"prop")]
 [h:spellCount=getStrProp(macro.args,"spellCount")]
 [h:spellCountTotal=getStrProp(macro.args,"spellCountTotal")]
-
 [h:levelList=lower(listsort(levelList,"A"))]
 
 [r,if(levelList==""),code:{};{
-
-	[h:SpellsProp=getLibProperty("Spells","Lib:Compendium")]
-
+	[h:SpellsProp=getLibProperty("Spells",function.getNamespace())]
 	[h:propName=prop]
 	[h,if(matches(prop,".*0.*")==1):propName="Cantrips (0 Level)";""]
 	[h,if(matches(prop,".*1.*")==1):propName="1st Level";""]
@@ -20,7 +17,6 @@
 	[h,if(matches(prop,".*7.*")==1):propName="7th Level";""]
 	[h,if(matches(prop,".*8.*")==1):propName="8th Level";""]
 	[h,if(matches(prop,".*9.*")==1):propName="9th Level";""]
-
 	
 	<h5>[r:propName]</h5>
 	
@@ -39,11 +35,11 @@
 
 		<table style="margin:0px;padding:0px;padding-left:5px"><tr><td style="margin:0px;padding:0px">
 	
-		[r:macrolink(CapitalName,"Args Dialog@Lib:Campaign","","prop=Spells;source=;name="+spellName+";description=;tokenName=Lib:Compendium")]
+		[r:macrolink(CapitalName,"campaign/Args Dialog@this","","prop=Spells;source=;name="+spellName+";description=;tokenName=Lib:Compendium")]
 
 		<td align=right style="margin:0px;padding:0px">
 		<font size=2 color="gray">
-		[r:macrolink("add","Move@Lib:Character","","tokenName=Lib:Compendium;description=;name="+spellName+";prop=Spells")]
+		[r:macrolink("add","character/Move@this","","tokenName=Lib:Compendium;description=;name="+spellName+";prop=Spells")]
 		</table>
 
 		[h:spellCount=spellCount+1]
@@ -52,11 +48,5 @@
 		[r:if(spellCount==floor(spellCountTotal/4),"<td width=25% valign=top>","")]
 		[r:if(spellCount==floor(spellCountTotal/2),"<td width=25% valign=top>","")]
 		[r:if(spellCount==floor(spellCountTotal/4)*3,"<td width=25% valign=top>","")]
-
 	}]
-
-
-	
-
-
 }]

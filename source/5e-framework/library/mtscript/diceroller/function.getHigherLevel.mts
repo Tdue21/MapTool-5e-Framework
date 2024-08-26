@@ -1,0 +1,33 @@
+[h:diceRoll = arg(0)]
+
+[h:HigherLevel=matches(diceRoll,".*slot\\d.*")]
+[h,if(HigherLevel==1),code:{
+	[h:baseLevel=replace(diceRoll,".*slot","")]
+	[h:baseLevel=replace(baseLevel,"\\D.*\$","")]
+	[h:Slots=""]
+	[h:Slots=if(baseLevel<=1,listappend(Slots,1),Slots)]
+	[h:Slots=if(baseLevel<=2,listappend(Slots,2),Slots)]
+	[h:Slots=if(baseLevel<=3,listappend(Slots,3),Slots)]
+	[h:Slots=if(baseLevel<=4,listappend(Slots,4),Slots)]
+	[h:Slots=if(baseLevel<=5,listappend(Slots,5),Slots)]
+	[h:Slots=if(baseLevel<=6,listappend(Slots,6),Slots)]
+	[h:Slots=if(baseLevel<=7,listappend(Slots,7),Slots)]
+	[h:Slots=if(baseLevel<=8,listappend(Slots,8),Slots)]
+	[h:Slots=if(baseLevel<=9,listappend(Slots,9),Slots)]
+	[h:res=input("slot|"+Slots+"|Select Higher Level|list|value=string")]
+	[h:abort(res)]
+	[h:UsedSlot=slot-baseLevel]
+	
+	[h:slotId=strfind(diceRoll,"(\\d+)d(\\d+).?[Ss]lot\\d")]
+	[h,count(getFindCount(slotId)),code:{	
+		[h:dices=getGroup(slotId,roll.count+1,1)]
+		[h:sides=getGroup(slotId,roll.count+1,2)]
+		[h:dices=number(dices*UsedSlot)]
+		[h,if(dices==0):diceRoll=replace(diceRoll,"(\\d+)d(\\d+).?[Ss]lot\\d","",1);diceRoll=replace(diceRoll,"(\\d+)d(\\d+).?[Ss]lot\\d",dices+"d"+sides,1)]
+		[h:diceRoll=replace(diceRoll,"\\+\\+","+")]
+		[h:diceRoll=replace(diceRoll,"\\+\$","")]
+		[h,if(diceRoll==""):abort(0),""]
+	}]
+};{}]
+
+[r:diceRoll]

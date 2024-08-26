@@ -40,9 +40,9 @@
 [h:spellObj=json.set(spellObj,"Level 9",level9)]
 
 
-[h:setLibProperty(class,spellObj,"Lib:Character Creation")]
+[h:setLibProperty(class,spellObj,function.getNamespace())]
 
 
 [h,if(isDialogVisible("Spells")==1),code:{
-[macro("Spells Window@Lib:Tables"):class]
+[macro("tables/Spells Window@this"):class]
 };{}]

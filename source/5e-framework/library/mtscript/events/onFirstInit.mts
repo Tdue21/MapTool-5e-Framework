@@ -38,6 +38,13 @@
 [h:setLibProperty("AdditionalFeats", data.getStaticData(ns, "/public/assets/data/AdditionalFeats.json"), ns)]
 [h:setLibProperty("Bestiary", data.getStaticData(ns, "/public/assets/data/Bestiary.json"), ns)]
 
+[h:classSpells = data.getStaticData(ns, "/public/assets/data/class-spells.json")]
+[h:classes = json.fields(classSpells)]
+[h,foreach(class, classes, ""), code: {
+    [h:spellList = json.get(classSpells, class)]
+    [h:setLibProperty(class, spellList, ns)]
+}]
+
 [h:tokenImage = "lib://" + ns + "/assets/images/bgtexture.jpeg"]
 [h:assetId = js.getAssetId(tokenImage)]
 
