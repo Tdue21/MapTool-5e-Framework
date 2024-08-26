@@ -3,7 +3,7 @@
 [h:output=decode(getStrProp(macro.args,"output"))]
 [h:window=getStrProp(macro.args,"window")]
 
-[h:processorLink=macroLinkText("campaign/Search process@this","")]
+[h:processorLink=macroLinkText("campaign/SearchProcess@this","")]
 
 <form action="[r:processorLink]" method="json">
 <input type="hidden" name="window" value="[r:window]">
@@ -134,7 +134,7 @@
 		[h:CapitalName=replace(CapitalName,"(?<=\\s)A(?=n?\\s)","a")]
 		[h:CapitalName=replace(CapitalName,"(?<=\\s)Th(?=(?:e|at|ose)\\s)","th")]
 		[h:CapitalName=replace(CapitalName,"'S(?=\\s)","'s")]
-		[r:macroLink(CapitalName,"campaign/Args Dialog@this","","prop=Spells;source=;name="+currentSpellsName+";description=;tokenName=Lib:Compendium")+"<br>"]
+		[r:macroLink(CapitalName,"campaign/Args Dialog@this","","prop=Spells;source=;name="+currentSpellsName+";description=;tokenName=compendium")+"<br>"]
 	}]
 
 
@@ -153,7 +153,7 @@
 		[h:CapitalName=replace(CapitalName,"(?<=\\s)A(?=n?\\s)","a")]
 		[h:CapitalName=replace(CapitalName,"(?<=\\s)Th(?=(?:e|at|ose)\\s)","th")]
 		[h:CapitalName=replace(CapitalName,"'S(?=\\s)","'s")]
-		[r:macroLink(CapitalName,"campaign/Args Dialog@this","","prop=Feats;source=;name="+currentFeatsName+";description=;tokenName=Lib:Compendium")+"<br>"]
+		[r:macroLink(CapitalName,"campaign/Args Dialog@this","","prop=Feats;source=;name="+currentFeatsName+";description=;tokenName=compendium")+"<br>"]
 	}]
 
 
@@ -171,7 +171,7 @@
 		[h:CapitalName=replace(CapitalName,"(?<=\\s)A(?=n?\\s)","a")]
 		[h:CapitalName=replace(CapitalName,"(?<=\\s)Th(?=(?:e|at|ose)\\s)","th")]
 		[h:CapitalName=replace(CapitalName,"'S(?=\\s)","'s")]
-		[r:macroLink(CapitalName,"campaign/Args Dialog@this","","prop=AdditionalFeats;source=;name="+currentAddFeatsName+";description=;tokenName=Lib:Compendium")+"<br>"]
+		[r:macroLink(CapitalName,"campaign/Args Dialog@this","","prop=AdditionalFeats;source=;name="+currentAddFeatsName+";description=;tokenName=compendium")+"<br>"]
 	}]
 
 	<!-------------------BESTIARY------------------->

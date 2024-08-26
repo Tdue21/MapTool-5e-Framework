@@ -2,6 +2,8 @@
 [h:results=json.get(macro.args,"results")]
 [h:window=json.get(macro.args,"window")]
 
+[h:broadcast("Entering Search process")]
+
 [h:abort(if(terms=="",0,1))]
 
 [h:output=""]
@@ -114,7 +116,7 @@
 <!-------------------CLASSES------------------->
 [h:outputClasses=""]
 [h:outputSubclasses=""]
-[h:classesObj=getLibProperty("Classes","Lib:Character Creation")]
+[h:classesObj=getLibProperty("Classes",function.getNamespace())]
 [h:classlist=json.fields(classesObj)]
 [r,count(listcount(classlist),""),code:{
 	[h:currentClass=listget(classlist,roll.count)]
@@ -139,7 +141,7 @@
 
 <!-------------------SPELL LISTS------------------->
 [h:outputSpellList=""]
-[h:spellLists=getLibProperty("Spell Lists","Lib:Character Creation")]
+[h:spellLists=getLibProperty("Spell Lists",function.getNamespace())]
 [r,count(listcount(spellLists),""),code:{
 
 	[h:currentSpellList=listget(spellLists,roll.count)]
@@ -154,7 +156,7 @@
 
 <!-------------------EQUIPMENT------------------->
 [h:outputEquip=""]
-[h:equipmentObject=getLibProperty("Equipment","Lib:Compendium")]
+[h:equipmentObject=getLibProperty("Equipment",function.getNamespace())]
 [h:equipmentNames=json.fields(equipmentObject)]
 
 [r,count(listcount(equipmentNames),""),code:{
@@ -169,7 +171,7 @@
 [h:outputEquip=listsort(outputEquip,"N")]
 
 <!------player view magic items---------->
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission",function.getNamespace())]
 [h:viewMagicItems=getStrProp(permissions,"viewMagicItems")]
 [h,if(isGM()==0 && viewMagicItems==0 && listCount(outputEquip)>0):LibProperty=getLibProperty("Equipment","Lib:Compendium")]
 
@@ -187,7 +189,7 @@
 
 <!-------------------Feats------------------->
 [h:outputFeats=""]
-[h:featsObject=getLibProperty("Feats","Lib:Compendium")]
+[h:featsObject=getLibProperty("Feats",function.getNamespace())]
 [h:featsNames=json.fields(featsObject)]
 
 [r,count(listcount(featsNames),""),code:{
@@ -205,7 +207,7 @@
 
 <!-------------------Spells------------------->
 [h:outputSpells=""]
-[h:SpellsObject=getLibProperty("Spells","Lib:Compendium")]
+[h:SpellsObject=getLibProperty("Spells",function.getNamespace())]
 [h:SpellsNames=json.fields(SpellsObject)]
 
 [r,count(listcount(SpellsNames),""),code:{
@@ -225,7 +227,7 @@
 
 <!-------------------Additional Feats------------------->
 [h:outputAddFeats=""]
-[h:AddFeatsObject=getLibProperty("AdditionalFeats","Lib:Compendium")]
+[h:AddFeatsObject=getLibProperty("AdditionalFeats",function.getNamespace())]
 [h:AddFeatsNames=json.fields(AddFeatsObject)]
 
 [r,count(listcount(AddFeatsNames),""),code:{
@@ -246,7 +248,7 @@
 [h,if(viewBestiary==1),code:{
 <!-------------------BESTIARY------------------->
 [h:outputBestiary=""]
-[r:BestiaryObj=getLibProperty("Bestiary","Lib:Compendium")]
+[r:BestiaryObj=getLibProperty("Bestiary",function.getNamespace())]
 [r:BestiaryNames=json.fields(BestiaryObj)]
 [r,count(listcount(BestiaryNames),""),code:{
 
@@ -296,8 +298,8 @@
 
 
 [h,if(window=="Search"),code:{
-[macro("Search@Lib:Campaign"):"terms="+terms+";results="+results+";output="+encode(output)]
+[macro("campaign/Search@this"):"terms="+terms+";results="+results+";output="+encode(output)]
 };{}]
 [h,if(window=="Tables List"),code:{
-[macro("Tables List@Lib:Tables"):"terms="+terms+";results="+results+";output="+encode(output)]
+[macro("tables/Tables List@this"):"terms="+terms+";results="+results+";output="+encode(output)]
 };{}]

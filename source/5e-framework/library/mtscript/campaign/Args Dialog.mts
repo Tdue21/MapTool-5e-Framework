@@ -12,14 +12,14 @@
 [h:CapitalName=function.Capitalize(name)]
 
 [h,if(description==""),code:{
-	[h:compendium=getLibProperty(group,"Lib:Compendium")]
+	[h:compendium=getLibProperty(group,function.getNamespace())]
 	[h:item=json.get(compendium,lower(name))]
 	[h,if(json.type(item)=="UNKNOWN"):description="";description=encode(json.get(item,"description"))]
 
 	[h,if(json.type(item)=="UNKNOWN"):sources="";sources=json.toList(json.get(item,"sources"))]
 };{
 
-	[h:compendium=getLibProperty(group,"Lib:Compendium")]
+	[h:compendium=getLibProperty(group,function.getNamespace())]
 	[h:item=json.get(compendium,name)]
 	[h,if(json.type(item)=="UNKNOWN"):sources="";sources=json.toList(json.get(item,"sources"))]
 
@@ -32,7 +32,7 @@
 [h,if(name=="new"),code:{
 
 
-[macro("Change Form@Lib:Character"):macro.args]
+[macro("character/Change Form@this"):macro.args]
 
 
 };{
@@ -42,16 +42,16 @@
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('D&D')]">
 
 
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission",function.getNamespace())]
 [h:edit=getStrProp(permissions,"edit")]
 [h:sharePlayer=getStrProp(permissions,"share")]
 [h,if(isGM()==1):edit=1]
 [h,if(isGM()==1):sharePlayer=1]
 
 [r,if(share==1):"";"<p class='topbar'>"]
-[r,if(share==1 || edit==0):"";macrolink("Edit","Change Form@Lib:Character","",macro.args)+" &nbsp;"]
-[r,if(share==1):"";macrolink("Move","Move@Lib:Character","",macro.args)+" &nbsp;"]
-[r,if(share==1 || sharePlayer==0):"";macrolink("Share","Share@Lib:Character","",macro.args+";share=1")+" &nbsp;"]
+[r,if(share==1 || edit==0):"";macrolink("Edit","character/Change Form@this","",macro.args)+" &nbsp;"]
+[r,if(share==1):"";macrolink("Move","character/Move@this","",macro.args)+" &nbsp;"]
+[r,if(share==1 || sharePlayer==0):"";macrolink("Share","character/Share@this","",macro.args+";share=1")+" &nbsp;"]
 
 
 
@@ -65,7 +65,7 @@
 
 
 
-[macro("Markdown@Lib:Campaign"):"tokenName="+tokenName+";description="+description+";source="+source+";name="+name+";group="+group]
+[macro("campaign/Markdown@this"):"tokenName="+tokenName+";description="+description+";source="+source+";name="+name+";group="+group]
 
 [r,if(sources==""):"";"<p><b>Sources: </b>"+sources+"</p>"]
 
