@@ -10,7 +10,7 @@
 
 </p>
 	
-	[h:BestiaryObj=getLibProperty("Bestiary","Lib:Compendium")]
+	[h:BestiaryObj=getLibProperty("Bestiary", function.getNamespace())]
 
 	[h:creatureList=json.fields(BestiaryObj)]
 

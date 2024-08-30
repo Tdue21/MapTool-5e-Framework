@@ -29,7 +29,7 @@
 
 [h:originalQuantity=Quantity]
 
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:identify=getStrProp(permissions,"identify")]
 [h,if(isGM()==1):identify=1]
 
@@ -157,7 +157,7 @@ if(identify==1,"identified|"+identified+"|Identified|check",""))]
 [h:sourceList=spellClassList+",Race,Item,Other"]
 [h:source=listfind(sourceList,source)]
 
-[h:atrList="Default,"+getLibProperty("Attributes","Lib:Character")]
+[h:atrList="Default,"+getLibProperty("Attributes", function.getNamespace())]
 [h:res=input("var|<html><h3>Spell Settings||label|span=true",
 "prep|"+prep+"|Prepared|check",
 "source|"+sourceList+"|Source|list|value=string select="+source,

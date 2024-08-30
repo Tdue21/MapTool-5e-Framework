@@ -175,7 +175,7 @@
 }]
 
 
-[h:display=getLibProperty("Display","Lib:Campaign")]
+[h:display=getLibProperty("Display", function.getNamespace())]
 [h:replaceDiceRoll=getStrProp(display,"replaceDiceRoll")]
 [h,if(replaceDiceRoll==1),code:{
 [h:entry=function.DiceRoll(entry,tokenName,output,"campaign")]
@@ -218,7 +218,7 @@
 
 
 
-[h,if(currentToken()==""):object=json.get(getLibProperty("Bestiary","Lib:Compendium"),lower(tokenName));object=getProperty("Stats")]
+[h,if(currentToken()==""):object=json.get(getLibProperty("Bestiary", function.getNamespace()),lower(tokenName));object=getProperty("Stats")]
 [h:settings=json.get(object,"settings")]
 [h:settings=decode(settings))]
 [h:spell=getStrProp(settings,"spellcasting")]

@@ -1,7 +1,7 @@
 [h:command=getStrProp(macro.args,"command")]
 [h:output=getStrProp(macro.args,"output")]
 
-[h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
+[h:gameplay=getLibProperty("Gameplay",function.getNamespace())]
 [h:rerollInit=getStrProp(gameplay,"rerollInit")]
 
 [h:initiativeList=getInitiativeList()]

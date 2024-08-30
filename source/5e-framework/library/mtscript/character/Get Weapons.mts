@@ -65,15 +65,15 @@
 
 [h:repeat=listcount(list)]
 
-[h:strValue=getStrProp(getLibProperty("Strength","Lib:"+tokenName),"value")]
+[h:strValue=getStrProp(getLibProperty("Strength", function.getNamespace())]
 [h,if(strValue==""):"";strValue=eval(string(strValue))]
-[h:dexValue=getStrProp(getLibProperty("Dexterity","Lib:"+tokenName),"value")]
+[h:dexValue=getStrProp(getLibProperty("Dexterity", function.getNamespace())]
 [h,if(dexValue==""):"";dexValue=eval(string(dexValue))]
 
 [h,if(isNumber(strValue)==1):strMod=floor(strValue/2-5);strMod=-5]
 [h,if(isNumber(dexValue)==1):dexMod=floor(dexValue/2-5);dexMod=-5]
 
-[h:EquipLib=getLibProperty("Equipment", "Lib:Compendium")]
+[h:EquipLib=getLibProperty("Equipment", function.getNamespace())]
 
 [h,if(json.type(EquipLib)=="UNKNOWN"):EquipLib="{}";""]
 
@@ -156,7 +156,7 @@
 		[h:matchDescription=objDescription]
 		[h:matchDescription=add(name,matchDescription)]
 		[h:matchDescription=lower(replace(matchDescription,"\\s",""))]
-		[h:matchString=lower(getStrProp(getLibProperty("Weapon Proficiency","Lib:"+tokenName),"value"))]
+		[h:matchString=lower(getStrProp(getLibProperty("Weapon Proficiency", function.getNamespace()))]
 		[h:matchString=replace(matchString,"\\.","")]
 		[h:matchString=replace(matchString,"(?<![Hh])and",",")]
 		[h:matchString=replace(matchString,",\\s*,",",")]

@@ -3,7 +3,7 @@
 [h:width=json.get(macro.args,"width")]
 
 [h:script="Common"]
-[h:LanguageList=getLibProperty("Languages","Lib:Languages")]
+[h:LanguageList=getLibProperty("Languages",function.getNamespace())]
 [h:script=getStrProp(LanguageList,language)]
 
 [h:id=strfind(text,"([\\w\\d\\s])|(.)")]

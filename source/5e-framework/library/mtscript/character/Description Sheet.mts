@@ -1,8 +1,8 @@
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
-[h:skillList=getLibProperty("Skills", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
 
 [h:output= function.getOutput())]
-[h:start=getLibProperty("Start","Lib:Campaign")]
+[h:start=getLibProperty("Start", function.getNamespace())]
 
 [h:tokenName=getStrProp(macro.args,"tokenName")]
 
@@ -374,7 +374,7 @@
 <!---------------------------Special Defenses----------------------------->
 <td align=left valign=top>
 
-[h:rules=getLibProperty("Value","Lib:Rules")]
+[h:rules=getLibProperty("Value", function.getNamespace())]
 
 [h:defObj=getLibProperty("Defenses","Lib:"+tokenName)]
 

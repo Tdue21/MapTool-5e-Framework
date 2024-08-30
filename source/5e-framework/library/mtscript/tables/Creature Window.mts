@@ -1,7 +1,7 @@
 [h,if(macro.args==""):sort="Name";sort=getStrProp(macro.args,"sort")]
 [h,if(macro.args==""):dir="a";dir=getStrProp(macro.args,"dir")]
 
-[h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
+[h:gameplay=getLibProperty("Gameplay", function.getNamespace())]
 [h:rollNPC=getStrProp(gameplay,"rollNPC")]
 
 [r,if(rollNPC==1):output=function.getOutput();output="none"]
@@ -21,7 +21,7 @@
 	<h1>Bestiary</h1>
 
 
-	[h:jsonNPC=getLibProperty("Bestiary","Lib:Tables")]
+	[h:jsonNPC=getLibProperty("Bestiary", function.getNamespace())]
 	
 	[h:jsonNPC=json.sort(jsonNPC,dir,sort)]
 	[h:dir=if(getStrProp(macro.args,"dir")=="a","d","a")]

@@ -1,4 +1,4 @@
-[h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
+[h:gameplay=getLibProperty("Gameplay",function.getNamespace())]
 [h:KeepPlayers=getStrProp(gameplay,"KeepPlayers")]
 
 [h:res=input("var|Do you want to clear initiative?||Label|span=true",

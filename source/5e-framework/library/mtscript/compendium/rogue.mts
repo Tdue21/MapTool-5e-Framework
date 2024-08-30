@@ -5,7 +5,7 @@
 [h:id=findToken(tokenName)]
 [h:switchToken(id)]
 
-[h:classes=getLibProperty("Classes","Lib:Character Creation")]
+[h:classes=getLibProperty("Classes", function.getNamespace())]
 
 [h:AllClassObj=json.get(classes,class)]
 
@@ -25,7 +25,7 @@
 
 
 <!-----------------Set Skills if empty------------------->
-[h:skillList=getLibProperty("Skills", "Lib:Character")]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
 [h:SkillObject=getProperty("Skills")]
 [h:array=json.fromList(skillList,";")]
 [h:object=""]
@@ -45,7 +45,7 @@
 };{}]
 <!-----------------Skill------------------->
 
-[h:attributeList=getLibProperty("Skills", "Lib:Character")]
+[h:attributeList=getLibProperty("Skills", function.getNamespace())]
 [h:repeat=countStrProp(attributeList)]
 [h:skillList=""]
 [h,count(repeat,""),code:{
@@ -91,7 +91,7 @@
 
 <!-----------------Expertise------------------->
 
-[h:attributeList=getLibProperty("Skills", "Lib:Character")]
+[h:attributeList=getLibProperty("Skills", function.getNamespace())]
 [h:repeat=countStrProp(attributeList)]
 [h:skillList=""]
 [h,count(repeat,""),code:{
@@ -132,7 +132,7 @@
 [h:setProperty("Skills",skills)]
 
 <!-----------------Set Saves if empty------------------->
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 [h:SaveObject=getProperty("SavingTrows")]
 [h:array=json.fromList(attributeList)]
 [h:object=""]
@@ -171,7 +171,7 @@
 [h:atr=getProperty("Language Proficiency")]
 [h:value=getStrProp(atr,"value")]
 
-[h:languages=getLibProperty("Languages","Lib:Character Creation")]
+[h:languages=getLibProperty("Languages", function.getNamespace())]
 
 [h:language1="Thieves' Cant"]
 [h:languages=listdelete(languages,listfind(languages,language1))]
@@ -249,12 +249,12 @@
 	"armor|Leather Armor; 2 daggers and Thieve's Tools|Armor|label")]
 	[h:abort(res)]
 
-	[h:smw=getLibProperty("Simple Melee Weapons","Lib:Character Creation")]
-	[h:mmw=getLibProperty("Martial Melee Weapons","Lib:Character Creation")]
-	[h:srw=getLibProperty("Simple Ranged Weapons","Lib:Character Creation")]
-	[h:mrw=getLibProperty("Martial Ranged Weapons","Lib:Character Creation")]
+	[h:smw=getLibProperty("Simple Melee Weapons", function.getNamespace())]
+	[h:mmw=getLibProperty("Martial Melee Weapons", function.getNamespace())]
+	[h:srw=getLibProperty("Simple Ranged Weapons", function.getNamespace())]
+	[h:mrw=getLibProperty("Martial Ranged Weapons", function.getNamespace())]
 
-	[h:AddItem="character Creation/Add Item@this"]
+	[h:AddItem="character-creation/Add Item@this"]
 
 	[h,if(weapon1==0),code:{
 		[macro(AddItem):"tokenName="+tokenName+";item=Rapier;Quantity=1;customName="]
@@ -320,7 +320,7 @@
 	
 	<!-----------------Currency------------------->
 [r,if(Equip=="Starting Money"),code:{
-[h:link=macroLinkText("character Creation/Starting Money@this","all","text="+tokenName+": Starting Money;value=4d4;tokenName="+tokenName+";multiplier=10")]
+[h:link=macroLinkText("character-creation/Starting Money@this","all","text="+tokenName+": Starting Money;value=4d4;tokenName="+tokenName+";multiplier=10")]
 
 [h:execLink(link,0,"self")]
 
@@ -334,7 +334,7 @@
 	
 	<!-----------------Skill------------------->
 	
-	[h:attributeList=getLibProperty("Skills", "Lib:Character")]
+	[h:attributeList=getLibProperty("Skills", function.getNamespace())]
 	[h:repeat=countStrProp(attributeList)]
 	[h:skillList=""]
 	[h,count(repeat,""),code:{
@@ -377,7 +377,7 @@
 	[h:atr=getProperty("Language Proficiency")]
 	[h:value=getStrProp(atr,"value")]
 	
-	[h:languages=getLibProperty("Languages","Lib:Character Creation")]
+	[h:languages=getLibProperty("Languages", function.getNamespace())]
 	
 	[h:language1="Thieves' Cant"]
 	[h:languages=listdelete(languages,listfind(languages,language1))]
@@ -435,7 +435,7 @@
 <!-----------------LEVEL 4------------------->
 [r,if(level==4),code:{
 
-	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
+	[macro("character-creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 };{}]
 
@@ -453,7 +453,7 @@
 
 	<!-----------------Expertise------------------->
 	
-	[h:attributeList=getLibProperty("Skills", "Lib:Character")]
+	[h:attributeList=getLibProperty("Skills", function.getNamespace())]
 	[h:repeat=countStrProp(attributeList)]
 	[h:skillList=""]
 	[h,count(repeat,""),code:{
@@ -506,7 +506,7 @@
 <!-----------------LEVEL 8------------------->
 [r,if(level==8),code:{
 
-	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
+	[macro("character-creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 
 };{}]
@@ -521,7 +521,7 @@
 [r,if(level==10),code:{
 
 	
-	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
+	[macro("character-creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 
 
@@ -537,7 +537,7 @@
 <!-----------------LEVEL 12------------------->
 [r,if(level==12),code:{
 
-	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
+	[macro("character-creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 
 
@@ -580,7 +580,7 @@
 <!-----------------LEVEL 16------------------->
 [r,if(level==16),code:{
 
-	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
+	[macro("character-creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 
 };{}]
@@ -601,7 +601,7 @@
 <!-----------------LEVEL 19------------------->
 [r,if(level==19),code:{
 
-	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
+	[macro("character-creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 
 };{}]

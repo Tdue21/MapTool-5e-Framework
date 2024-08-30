@@ -150,7 +150,7 @@ Pin Notes
 
 
 
-[h:EquipLib=getLibProperty("Equipment", "Lib:Compendium")]
+[h:EquipLib=getLibProperty("Equipment", function.getNamespace())]
 [h:EquipList=json.fields(EquipLib)]
 
 [h,count(repeat,""),code:{

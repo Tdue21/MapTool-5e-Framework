@@ -9,7 +9,7 @@
 [dialog5("Image", "width=530; height=570; temporary=1; noframe=0; input=1"):{
 
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:edit=getStrProp(permissions,"edit")]
 [h:sharePlayer=getStrProp(permissions,"share")]
 [h,if(isGM()==1):sharePlayer=1]

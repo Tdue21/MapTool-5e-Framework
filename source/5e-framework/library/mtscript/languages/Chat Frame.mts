@@ -3,7 +3,7 @@
 [h,if(width==""):width=10]
 [h,if(language==""):language="Common"]
 
-[h:LanguageStrList=getLibProperty("Languages","Lib:Languages")]
+[h:LanguageStrList=getLibProperty("Languages",function.getNamespace())]
 [h:LanguageList=""]
 [r,count(countStrProp(LanguageStrList),""),code:{
 

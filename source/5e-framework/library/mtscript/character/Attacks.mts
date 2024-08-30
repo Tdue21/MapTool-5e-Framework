@@ -95,7 +95,7 @@
 
 [h:color="8a61ae"]
 
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 
 [h:AtrProps=""]
 [h,count(listcount(attributeList),""),code:{

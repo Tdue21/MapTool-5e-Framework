@@ -2,7 +2,7 @@
 
 [h,if(findToken(tokenName)==""),code:{
 
-	[h:start=getLibProperty("Start","Lib:Campaign")]
+	[h:start=getLibProperty("Start", function.getNamespace())]
 	[h:setCurrentMap(start)]
 
 };{}]
@@ -25,10 +25,10 @@ Select a <b>class</b> to level up or multiclass, if you choose to multiclass, be
 <td valign=bottom style="padding:0px;margin=0px">
 
 
-[h: processorLink=macroLinkText("character Creation/Character Creation Wizard@this","")]
+[h: processorLink=macroLinkText("character-creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
-[h:classes=getLibProperty("Classes","Lib:Character Creation")]
+[h:classes=getLibProperty("Classes", function.getNamespace())]
 [h:classList=json.fields(classes)]
 
 [h:charClass=getProperty("Class&Level")]

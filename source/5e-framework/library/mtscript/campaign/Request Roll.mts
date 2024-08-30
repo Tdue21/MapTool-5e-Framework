@@ -1,4 +1,4 @@
-[h:attributeList=getLibProperty("Attributes","Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 [h:save=""]
 [h,count(listcount(attributeList)),code:{
 	[h:currentAtr=listget(attributeList,roll.count)]
@@ -11,7 +11,7 @@
 	[h:ability=listAppend(ability,"Ability: "+currentAtr)]
 }]
 
-[h:skillList=getLibProperty("Skills","Lib:Character")]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
 [h:skill=""]
 [h,count(countStrProp(skillList)),code:{
 	[h:currentSkill=indexKeyStrProp(skillList,roll.count)]

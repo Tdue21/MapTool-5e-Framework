@@ -1,5 +1,5 @@
 
-	[h:display=getLibProperty("Display","Lib:Campaign")]
+	[h:display=getLibProperty("Display", function.getNamespace())]
 	[h:HiddenOpacity=getStrProp(display,"HiddenOpacity")]
 	
 [h:token.visible = 1 - token.visible]

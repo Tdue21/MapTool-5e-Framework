@@ -4,7 +4,7 @@
 
 [overlay("Initiative"):{
 
-[h:display=getLibProperty("Display","Lib:Campaign")]
+[h:display=getLibProperty("Display",function.getNamespace())]
 [h:InitSize=getStrProp(display,"InitSize")]
 [h:darkMode=getStrProp(display,"darkMode")]
 

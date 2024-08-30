@@ -1,7 +1,7 @@
 [h:id=findToken("Lib:Character")]
 [h:switchToken(id)]
 
-[h:obj=getLibProperty("Bestiary","Lib:Compendium")]
+[h:obj=getLibProperty("Bestiary", function.getNamespace())]
 
 [h:fields=json.fields(obj)]
 
@@ -25,7 +25,7 @@
 	[h,if(sources==""):remove=if(listfind(macro.args,"NULL")==-1,0,1)]
 
 	[h,if(remove==0):"";obj=json.remove(obj,objName)]
-	[h,if(remove==0):"";setLibProperty("Bestiary",obj,"Lib:Compendium")]
+	[h,if(remove==0):"";setLibProperty("Bestiary", obj, function.getNamespace())]
 
 }]
 

@@ -22,7 +22,7 @@
 [h:createMacro("Notebook",'
 
 
-[h:value=getLibProperty("Value","'+tokenName+'")]
+[h:value=getLibProperty("Value", function.getNamespace())]
 [h:description=json.get(value,"'+name+'")]
 
 

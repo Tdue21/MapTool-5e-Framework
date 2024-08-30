@@ -2,7 +2,7 @@
 [h:tokenName=getStrProp(macro.args,"tokenName")]
 [h:profBonus=getStrProp(macro.args,"profBonus")]
 
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 
 [h:output= function.getOutput())]
 [h:tokenName=getStrProp(macro.args,"tokenName")]

@@ -1,4 +1,4 @@
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 [h:modFont=if(listcount(attributeList)>6,10,16)]
 [h:atrFont=if(listcount(attributeList)>7,6,8)]
 [h:spacing=if(listcount(attributeList)>7,3,5)]

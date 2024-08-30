@@ -28,7 +28,7 @@
 
 [h:originalQuantity=Quantity]
 
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:identify=getStrProp(permissions,"identify")]
 [h,if(isGM()==1):identify=1]
 

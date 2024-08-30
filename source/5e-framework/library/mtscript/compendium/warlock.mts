@@ -5,7 +5,7 @@
 [h:id=findToken(tokenName)]
 [h:switchToken(id)]
 
-[h:classes=getLibProperty("Classes","Lib:Character Creation")]
+[h:classes=getLibProperty("Classes",function.getNamespace())]
 
 [h:AllClassObj=json.get(classes,class)]
 
@@ -24,7 +24,7 @@
 
 
 <!-----------------Set Skills if empty------------------->
-[h:skillList=getLibProperty("Skills", "Lib:Character")]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
 [h:SkillObject=getProperty("Skills")]
 [h:array=json.fromList(skillList,";")]
 [h:object=""]
@@ -46,7 +46,7 @@
 
 
 
-[h:attributeList=getLibProperty("Skills", "Lib:Character")]
+[h:attributeList=getLibProperty("Skills", function.getNamespace())]
 [h:repeat=countStrProp(attributeList)]
 [h:skillList=""]
 [h,count(repeat,""),code:{
@@ -89,7 +89,7 @@
 	[h:setProperty("Skills",skills)]
 
 <!-----------------Set Saves if empty------------------->
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 [h:SaveObject=getProperty("SavingTrows")]
 [h:array=json.fromList(attributeList)]
 [h:object=""]
@@ -170,10 +170,10 @@
 	
 	[h,if(json.type(Property)=="UNKNOWN"):Property="{}";""]
 
-	[h:smw=getLibProperty("Simple Melee Weapons","Lib:Character Creation")]
-	[h:mmw=getLibProperty("Martial Melee Weapons","Lib:Character Creation")]
-	[h:srw=getLibProperty("Simple Ranged Weapons","Lib:Character Creation")]
-	[h:mrw=getLibProperty("Martial Ranged Weapons","Lib:Character Creation")]
+	[h:smw=getLibProperty("Simple Melee Weapons",  function.getNamespace())]
+	[h:mmw=getLibProperty("Martial Melee Weapons", function.getNamespace())]
+	[h:srw=getLibProperty("Simple Ranged Weapons", function.getNamespace())]
+	[h:mrw=getLibProperty("Martial Ranged Weapons",function.getNamespace())]
 	
 	[h:res=input("var|Starting Equipment||label|span=true",
 	"weapon1|Light Crossbow and 20 bolts,Simple Weapon|Weapon|list",
@@ -183,7 +183,7 @@
 	"armor|Leather Armor and Two Daggers|Other|label")]
 	[h:abort(res)]
 
-	[h:AddItem="character Creation/Add Item@this"]
+	[h:AddItem="character-creation/Add Item@this"]
 
 
 
@@ -241,7 +241,7 @@
 	
 	<!-----------------Currency------------------->
 [r,if(Equip=="Starting Money"),code:{
-[h:link=macroLinkText("character Creation/Starting Money@this","all","text="+tokenName+": Starting Money;value=4d4;tokenName="+tokenName+";multiplier=10")]
+[h:link=macroLinkText("character-creation/Starting Money@this","all","text="+tokenName+": Starting Money;value=4d4;tokenName="+tokenName+";multiplier=10")]
 
 [h:execLink(link,0,"self")]
 
@@ -299,10 +299,10 @@
 
 
 	<!-----------------Additional Feat------------------->
-	[h:featList=getLibProperty("AdditionalFeats", "Lib:Character Creation")]
+	[h:featList=getLibProperty("AdditionalFeats", function.getNamespace())]
 	
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Compendium")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -365,7 +365,7 @@
 
 
 
-	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
+	[macro("character-creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 
 };{}]
@@ -376,10 +376,10 @@
 
 
 	<!-----------------Additional Feat------------------->
-	[h:featList=getLibProperty("AdditionalFeats", "Lib:Character Creation")]
+	[h:featList=getLibProperty("AdditionalFeats", function.getNamespace())]
 	
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Compendium")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -434,10 +434,10 @@
 
 
 	<!-----------------Additional Feat------------------->
-	[h:featList=getLibProperty("AdditionalFeats", "Lib:Character Creation")]
+	[h:featList=getLibProperty("AdditionalFeats", function.getNamespace())]
 	
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Compendium")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -481,7 +481,7 @@
 <!-----------------LEVEL 8------------------->
 [r,if(level==8),code:{
 
-	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
+	[macro("character-creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 
 };{}]
@@ -490,7 +490,7 @@
 [r,if(level==9),code:{
 
 	<!-----------------Additional Feat------------------->
-	[h:featList=getLibProperty("AdditionalFeats", "Lib:Character Creation")]
+	[h:featList=getLibProperty("AdditionalFeats", function.getNamespace())]
 	
 	[h:group="AdditionalFeats"]
 	[h:inputList=getLibProperty(group,"Lib:Compendium")]
@@ -559,11 +559,11 @@
 <!-----------------LEVEL 12------------------->
 [r,if(level==12),code:{
 
-	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
+	[macro("character-creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 
 	<!-----------------Additional Feat------------------->
-	[h:featList=getLibProperty("AdditionalFeats", "Lib:Character Creation")]
+	[h:featList=getLibProperty("AdditionalFeats", function.getNamespace())]
 	
 	[h:group="AdditionalFeats"]
 	[h:inputList=getLibProperty(group,"Lib:Compendium")]
@@ -632,7 +632,7 @@
 
 
 	<!-----------------Additional Feat------------------->
-	[h:featList=getLibProperty("AdditionalFeats", "Lib:Character Creation")]
+	[h:featList=getLibProperty("AdditionalFeats", function.getNamespace())]
 	
 	[h:group="AdditionalFeats"]
 	[h:inputList=getLibProperty(group,"Lib:Compendium")]
@@ -687,7 +687,7 @@
 <!-----------------LEVEL 16------------------->
 [r,if(level==16),code:{
 
-	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
+	[macro("character-creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 	
 };{}]
@@ -712,7 +712,7 @@
 
 
 	<!-----------------Additional Feat------------------->
-	[h:featList=getLibProperty("AdditionalFeats", "Lib:Character Creation")]
+	[h:featList=getLibProperty("AdditionalFeats", function.getNamespace())]
 	
 	[h:group="AdditionalFeats"]
 	[h:inputList=getLibProperty(group,"Lib:Compendium")]
@@ -759,7 +759,7 @@
 <!-----------------LEVEL 19------------------->
 [r,if(level==19),code:{
 
-	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
+	[macro("character-creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 	<!-----------------Resources------------------->
 	[h:resourcesObj=getProperty("Resources")]

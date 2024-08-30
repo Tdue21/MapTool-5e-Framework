@@ -19,7 +19,7 @@
 [h:setProperty("Charisma",atr)]
 
 <!-----------------Attributes------------------->
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 
 [h:attributeList=listdelete(attributeList,listfind(attributeList,"Charisma"))]
 
@@ -44,7 +44,7 @@
 
 
 <!-----------------Set Skills if empty------------------->
-[h:skillList=getLibProperty("Skills", "Lib:Character")]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
 [h:SkillObject=getProperty("Skills")]
 [h:array=json.fromList(skillList,";")]
 [h:object=""]
@@ -64,7 +64,7 @@
 };{}]
 <!-----------------Skill------------------->
 
-[h:attributeList=getLibProperty("Skills", "Lib:Character")]
+[h:attributeList=getLibProperty("Skills", function.getNamespace())]
 [h:repeat=countStrProp(attributeList)]
 [h:skillList=""]
 [h,count(repeat,""),code:{
@@ -123,7 +123,7 @@
 [h:atr=getProperty("Language Proficiency")]
 [h:value=getStrProp(atr,"value")]
 
-[h:languages=getLibProperty("Languages","Lib:Character Creation")]
+[h:languages=getLibProperty("Languages", function.getNamespace())]
 
 [h:language1="Common"]
 [h:language2="Elvish"]

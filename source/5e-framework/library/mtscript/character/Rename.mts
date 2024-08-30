@@ -6,7 +6,7 @@
 [h:abort(res)]
 [h,if(tokenName==name):abort(0)]
 
-[h:start=getLibProperty("Start","Lib:Campaign")]
+[h:start=getLibProperty("Start", function.getNamespace())]
 [h:id=findToken("Lib:"+tokenName,start)]
 [h:setName("Lib:"+name,id,start)]
 [h:setLibProperty("LibName",name,"Lib:"+name)]

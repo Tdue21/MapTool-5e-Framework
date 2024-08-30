@@ -1,6 +1,6 @@
 [h,macro("overlay/Loading@this"):"Setting Starting Map"]
 
-[h:start=getLibProperty("Start","Lib:Campaign")]
+[h:start=getLibProperty("Start", function.getNamespace())]
 
 [h:setCurrentMap(start)]
 
@@ -18,22 +18,22 @@
 [h:defineFunction("function.GetConditions","campaign/function.GetConditions@this")]
 
 
-[h:loadAudio=getLibProperty("LoadAudio","Lib:Campaign")]
+[h:loadAudio=getLibProperty("LoadAudio", function.getNamespace())]
 [h,macro("overlay/Loading@this"):"Loading Audio Clips"]
 [h,if(loadAudio==1),code:{
-[h:clipList=getLibProperty("Audio","Lib:Campaign")]
+[h:clipList=getLibProperty("Audio", function.getNamespace())]
 	[h,count(listcount(clipList)),code:{
 		[h:clip=listget(clipList,roll.count)]
 		[h:playClip(clip,1,0)]
 	}]
 
-[h:doorClip=getLibProperty("Door","Lib:Campaign")]
+[h:doorClip=getLibProperty("Door", function.getNamespace())]
 [h:playClip(doorClip,1,0)]
 
 };{}]
 [h,macro("overlay/Loading@this"):"Loading Welcome message"]
 [h:resources="<a href='https://dnd.wizards.com/articles/features/basicrules'>dnd.wizards.com</a>"]
-[h:customMSG=getLibProperty("Welcome","Lib:Campaign")]
+[h:customMSG=getLibProperty("Welcome", function.getNamespace())]
 
 [h,macro("campaign/Markdown@this"):"description="+customMSG]
 
@@ -46,7 +46,7 @@
 
 [h:html='
 
-<font color=blue><i>Framework Version: '+getLibProperty("libversion","Lib:Campaign")+'</i></font>
+<font color=blue><i>Framework Version: '+getLibProperty("libversion", function.getNamespace())+'</i></font>
 
 <div style="background-color: #f6f8fa;border: 2px solid #ABB3A1;border-left: 1px solid #ABB3A1;border-right: 1px solid #ABB3A1; margin:5px ; padding:5px">
 
@@ -65,7 +65,7 @@
 [h,macro("overlay/Loading@this"):"Loading Interface Overlay"]
 [h,macro("overlay/OverlayMiniMenu@this"):""]
 [h,macro("overlay/OverlaySelected@this"):""]
-[h,macro("overlay/Weather@this"):getLibProperty("Weather","Lib:Campaign")]
+[h,macro("overlay/Weather@this"):getLibProperty("Weather", function.getNamespace())]
 
 [h,macro("tables/Tables List@this"):""]
 

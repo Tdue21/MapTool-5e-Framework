@@ -11,9 +11,9 @@
 [h,if(subclass=="" || subclass==0),code:{};{
 	[h:subclass=replace(subclass,"\\s*:.*","")]
 	<!-----------------Feats------------------->
-	[macro("character Creation/Add Subclass Features@this"):"tokenName="+tokenName+";class="+class+";subclass="+subclass]
+	[macro("character-creation/Add Subclass Features@this"):"tokenName="+tokenName+";class="+class+";subclass="+subclass]
 	
-	[h:macroList=getLibProperty("macroList","Lib:Compendium")]
+	[h:macroList=getLibProperty("macroList", function.getNamespace())]
 	[h:hasClassMacro=listfind(macroList,subclass)]
 
 	[h,if(hasClassMacro==-1),code:{};{
@@ -51,7 +51,7 @@ Determine [r:characterName]'s <b>HP</b> by rolling
 <td valign=bottom style="padding:0px;margin=0px">
 
 
-[h: processorLink=macroLinkText("character Creation/Character Creation Wizard@this","")]
+[h: processorLink=macroLinkText("character-creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 <table>

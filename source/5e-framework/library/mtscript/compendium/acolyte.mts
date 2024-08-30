@@ -9,7 +9,7 @@
 
 
 <!-----------------Set Skills if empty------------------->
-[h:skillList=getLibProperty("Skills", "Lib:Character")]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
 [h:SkillObject=getProperty("Skills")]
 [h:array=json.fromList(skillList,";")]
 [h:object=""]
@@ -31,7 +31,7 @@
 
 <!-----------------Skill------------------->
 
-[h:attributeList=getLibProperty("Skills", "Lib:Character")]
+[h:attributeList=getLibProperty("Skills", function.getNamespace())]
 [h:repeat=countStrProp(attributeList)]
 [h:skillList=""]
 [h,count(repeat,""),code:{
@@ -59,7 +59,7 @@
 [h:atr=getProperty("Language Proficiency")]
 [h:value=getStrProp(atr,"value")]
 
-[h:languages=getLibProperty("Languages","Lib:Character Creation")]
+[h:languages=getLibProperty("Languages", function.getNamespace())]
 
 [h,count(listcount(value),""),code:{
 	[h:item=listget(value,roll.count)]
@@ -89,7 +89,7 @@
 
 [h,if(json.type(Property)=="UNKNOWN"):Property="{}";""]
 
-[h:AddItem="character Creation/Add Item@this"]
+[h:AddItem="character-creation/Add Item@this"]
 
 [h:res=input("lang|Background Equipment||label|span=true",
 "holy|Amulet,Emblem,Reliquary|Holy Symbol|list|value=string",

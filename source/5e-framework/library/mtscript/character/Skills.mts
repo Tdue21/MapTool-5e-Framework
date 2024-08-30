@@ -1,9 +1,9 @@
 <table style="border-style: solid; border-width:2px 1px 2px 1px; margin-top:5">
 
 
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
-[h:skillList=getLibProperty("Skills", "Lib:Character")]
-[h:passiveSkillList=getLibProperty("Passive Checks", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
+[h:passiveSkillList=getLibProperty("Passive Checks", function.getNamespace())]
 
 [h:output= function.getOutput())]
 [h:tokenName=getStrProp(macro.args,"tokenName")]

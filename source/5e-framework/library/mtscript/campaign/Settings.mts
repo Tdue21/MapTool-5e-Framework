@@ -1,21 +1,21 @@
 [r,if(macro.args=="Attributes"),code:{
 
-	[h:attributeList=getLibProperty("Attributes","Lib:Character")]
+	[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 	[h:res=input("attributeList|"+attributeList+"|List of Attributes|text|width=36",
 	"default|0|Use defaults|check",
 	"var|Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma|Defaults|label")]
 	[h:abort(res)]
-	[h:setLibProperty("Attributes",if(default==1,"Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma",attributeList),"Lib:Character")]
+	[h:setLibProperty("Attributes", if(default==1, function.getNamespace())]
 
 };{}]
 
 [r,if(macro.args=="Skills"),code:{
 
-	[h:skillList=getLibProperty("Skills","Lib:Character")]
+	[h:skillList=getLibProperty("Skills", function.getNamespace())]
 	[h:res=input("skillList|"+skillList+"|List of Skills and Atributes|text|width=40",
 	"default|0|Use defaults|check")]
 	[h:abort(res)]
-	[h:setLibProperty("Skills",if(default==1,"Acrobatics=Dexterity;Animal Handling=Wisdom;Arcana=Intelligence;Athletics=Strength;Deception=Charisma;History=Intelligence;Insight=Wisdom;Intimidation=Charisma;Investigation=Intelligence;Medicine=Wisdom;Nature=Intelligence;Perception=Wisdom;Performance=Charisma;Persuasion=Charisma;Religion=Intelligence;Sleight of Hand=Dexterity;Stealth=Dexterity;Survival=Wisdom",skillList),"Lib:Character")]
+	[h:setLibProperty("Skills", if(default==1, function.getNamespace())]
 
 };{}]
 
@@ -35,68 +35,68 @@
 
 [r,if(macro.args=="Passive"),code:{
 
-	[h:checklist=getLibProperty("Passive Checks","Lib:Character")]
+	[h:checklist=getLibProperty("Passive Checks", function.getNamespace())]
 	[h:res=input("checklist|"+checklist+"|List of Attributes|text|width=20",
 	"default|0|Use defaults|check",
 	"var|Perception|Defaults|label")]
 	[h:abort(res)]
-	[h:setLibProperty("Passive Checks",if(default==1,"Perception",checklist),"Lib:Character")]
+	[h:setLibProperty("Passive Checks", if(default==1, function.getNamespace())]
 
 };{}]
 
 [r,if(macro.args=="Feats"),code:{
 
-	[h:featlist=getLibProperty("Feats","Lib:Character Creation")]
+	[h:featlist=getLibProperty("Feats", function.getNamespace())]
 	[h:res=input("featlist|"+featlist+"|List of Feats|text|width=20",
 	"default|0|Use SRD|check",
 	"var|Grappler|SRD|label")]
 	[h:abort(res)]
-	[h:setLibProperty("Feats",if(default==1,"Grappler",featlist),"Lib:Character Creation")]
+	[h:setLibProperty("Feats", if(default==1, function.getNamespace())]
 
 };{}]
 
 [r,if(macro.args=="Languages"),code:{
 
-	[h:languagelist=getLibProperty("Languages","Lib:Character Creation")]
+	[h:languagelist=getLibProperty("Languages", function.getNamespace())]
 	[h:res=input("languagelist|"+languagelist+"|List of Languages|text|width=40",
 	"default|0|Use Defaults|check",
 	"var|Common,Dwarvish,Elvish,Giant,Gnomish,Goblin,Halfling,Orc|Defaults|label",
 	"var|Abyssal,Celestial,Draconic,Deep Speech,Infernal,Primordial,Sylvan,Undercommon|Defaults|label")]
 	[h:abort(res)]
-	[h:setLibProperty("Languages",if(default==1,"Common,Dwarvish,Elvish,Giant,Gnomish,Goblin,Halfling,Orc,Abyssal,Celestial,Draconic,Deep Speech,Infernal,Primordial,Sylvan,Undercommon",languagelist),"Lib:Character Creation")]
+	[h:setLibProperty("Languages", if(default==1, function.getNamespace())]
 
 };{}]
 
 [r,if(macro.args=="Races"),code:{
 
-	[h:raceList=getLibProperty("Races","Lib:Character Creation")]
+	[h:raceList=getLibProperty("Races", function.getNamespace())]
 	[h:res=input("raceList|"+raceList+"|List of Races|text|width=40",
 	"default|0|Use SRD|check",
 	"var|Human,High Elf,Hill Dwarf,Lightfoot Halfling,Rock Gnome,Half-Elf,Half-Orc,Dragonborn,Tiefling|SRD|label")]
 	[h:abort(res)]
-	[h:setLibProperty("Races",if(default==1,"Human,High Elf,Hill Dwarf,Lightfoot Halfling,Rock Gnome,Half-Elf,Half-Orc,Dragonborn,Tiefling",raceList),"Lib:Character Creation")]
+	[h:setLibProperty("Races", if(default==1, function.getNamespace())]
 
 };{}]
 
 
 [r,if(macro.args=="Backgrounds"),code:{
 
-	[h:bgList=getLibProperty("Backgrounds","Lib:Character Creation")]
+	[h:bgList=getLibProperty("Backgrounds", function.getNamespace())]
 	[h:res=input("bgList|"+bgList+"|List of Backgrounds|text|width=40",
 	"default|0|Use SRD|check",
 	"var|Acolyte|SRD|label")]
 	[h:abort(res)]
-	[h:setLibProperty("Backgrounds",if(default==1,"Acolyte",bgList),"Lib:Character Creation")]
+	[h:setLibProperty("Backgrounds", if(default==1, function.getNamespace())]
 
 };{}]
 
 
 [r,if(macro.args=="Equipment"),code:{
 
-	[h:smw=getLibProperty("Simple Melee Weapons","Lib:Character Creation")]
-	[h:srw=getLibProperty("Simple Ranged Weapons","Lib:Character Creation")]
-	[h:mmw=getLibProperty("Martial Melee Weapons","Lib:Character Creation")]
-	[h:mrw=getLibProperty("Martial Ranged Weapons","Lib:Character Creation")]
+	[h:smw=getLibProperty("Simple Melee Weapons", function.getNamespace())]
+	[h:srw=getLibProperty("Simple Ranged Weapons", function.getNamespace())]
+	[h:mmw=getLibProperty("Martial Melee Weapons", function.getNamespace())]
+	[h:mrw=getLibProperty("Martial Ranged Weapons", function.getNamespace())]
 	
 	[h:res=input(
 		"smw|"+smw+"|Simple Melee Weapons|text|width=40",
@@ -104,22 +104,22 @@
 		"mmw|"+mmw+"|Martial Melee Weapons|text|width=40",
 		"mrw|"+mrw+"|Martial Ranged Weapons|text|width=40")]
 	[h:abort(res)]
-	[h:setLibProperty("Simple Melee Weapons",smw,"Lib:Character Creation")]
-	[h:setLibProperty("Simple Ranged Weapons",srw,"Lib:Character Creation")]
-	[h:setLibProperty("Martial Melee Weapons",mmw,"Lib:Character Creation")]
-	[h:setLibProperty("Martial Ranged Weapons",mrw,"Lib:Character Creation")]
+	[h:setLibProperty("Simple Melee Weapons", smw, function.getNamespace())]
+	[h:setLibProperty("Simple Ranged Weapons", srw, function.getNamespace())]
+	[h:setLibProperty("Martial Melee Weapons", mmw, function.getNamespace())]
+	[h:setLibProperty("Martial Ranged Weapons", mrw, function.getNamespace())]
 
 };{}]
 
 [r,if(macro.args=="Spells"),code:{
 
-	[h:spellLists=getLibProperty("Spell Lists","Lib:Character Creation")]
+	[h:spellLists=getLibProperty("Spell Lists", function.getNamespace())]
 
 	
 	[h:res=input(
 		"spellLists|"+spellLists+"|Spell Lists|text|width=40")]
 	[h:abort(res)]
-	[h:setLibProperty("Spell Lists",spellLists,"Lib:Character Creation")]
+	[h:setLibProperty("Spell Lists", spellLists, function.getNamespace())]
 
 
 };{}]
@@ -130,20 +130,20 @@
 	[h:maps=getAllMapNames()]
 	[h:maps=listsort(maps,"N")]
 
-	[h:start=getLibProperty("Start","Lib:Campaign")]
+	[h:start=getLibProperty("Start", function.getNamespace())]
 	[h:res=input("start|"+maps+"|Start map|list|value=string select="+listfind(maps,start))]
 	[h:abort(res)]
-	[h:setLibProperty("Start",start,"Lib:Campaign")]
+	[h:setLibProperty("Start", start, function.getNamespace())]
 
 };{}]
 
 [r,if(macro.args=="Welcome"),code:{
 
 
-	[h:welcome=getLibProperty("Welcome","Lib:Campaign")]
+	[h:welcome=getLibProperty("Welcome", function.getNamespace())]
 	[h:res=input("welcome|"+welcome+"|Welcome Message|text|width=40")]
 	[h:abort(res)]
-	[h:setLibProperty("Welcome",welcome,"Lib:Campaign")]
+	[h:setLibProperty("Welcome", welcome, function.getNamespace())]
 
 };{}]
 
@@ -152,7 +152,7 @@
 [r,if(macro.args=="Currency"),code:{
 
 
-	[h:currencyValue=getLibProperty("Currency","Lib:Character")]
+	[h:currencyValue=getLibProperty("Currency", function.getNamespace())]
 	[h:PP=getStrProp(currencyValue,"PP")]
 	[h:GP=getStrProp(currencyValue,"GP")]
 	[h:EP=getStrProp(currencyValue,"EP")]
@@ -176,7 +176,7 @@
 	[h:currencyValue=setStrProp(currencyValue,"weight",weight)]
 	[h:abort(res)]
 	[h,if(default==1):currencyValue="PP=10 ; GP=1 ; EP=0.5 ; SP=0.1 ; CP=0.01 ; weight=0.02"]
-	[h:setLibProperty("Currency",currencyValue,"Lib:Character")]
+	[h:setLibProperty("Currency", currencyValue, function.getNamespace())]
 
 };{}]
 
@@ -184,33 +184,33 @@
 [r,if(macro.args=="RulesLink"),code:{
 
 
-	[h:rules=getLibProperty("RulesURL","Lib:Campaign")]
+	[h:rules=getLibProperty("RulesURL", function.getNamespace())]
 	[h:res=input("rules|"+rules+"|Rules URL|text|Width=56")]
 	[h:abort(res)]
-	[h:setLibProperty("RulesURL",rules,"Lib:Campaign")]
+	[h:setLibProperty("RulesURL", rules, function.getNamespace())]
 
 };{}]
 
 [r,if(macro.args=="Clips"),code:{
 
 
-	[h:clips=getLibProperty("Audio","Lib:Campaign")]
-	[h:loadAudio=getLibProperty("LoadAudio","Lib:Campaign")]
-	[h:door=getLibProperty("Door","Lib:Campaign")]
+	[h:clips=getLibProperty("Audio", function.getNamespace())]
+	[h:loadAudio=getLibProperty("LoadAudio", function.getNamespace())]
+	[h:door=getLibProperty("Door", function.getNamespace())]
 	[h:res=input("clips|"+clips+"|Dice Audio Clips URL list|text|Width=56",
 	"door|"+door+"|Door Audio Clip URL|text|Width=56",
 	"loadAudio|"+loadAudio+"|Load on startup|Check")]
 	[h:abort(res)]
-	[h:setLibProperty("Audio",clips,"Lib:Campaign")]
-	[h:setLibProperty("loadAudio",loadAudio,"Lib:Campaign")]
-	[h:setLibProperty("door",door,"Lib:Campaign")]
+	[h:setLibProperty("Audio", clips, function.getNamespace())]
+	[h:setLibProperty("loadAudio", loadAudio, function.getNamespace())]
+	[h:setLibProperty("door", door, function.getNamespace())]
 
 };{}]
 
 [r,if(macro.args=="OutputAudio"),code:{
 
-	[h:pcOutput=getLibProperty("PC Audio","Lib:Character")]
-	[h:gmOutput=getLibProperty("GM Audio","Lib:Character")]
+	[h:pcOutput=getLibProperty("PC Audio", function.getNamespace())]
+	[h:gmOutput=getLibProperty("GM Audio", function.getNamespace())]
 
 	[h:outputList="all,self,gm,gm-self,none"]
 	
@@ -219,8 +219,8 @@
 		"gmAudio|"+outputList+"|GM Audio Output|list|value=string select="+listfind(outputList,gmOutput))]
 	[h:abort(res)]
 	
-	[h:setLibProperty("PC Audio",pcAudio,"Lib:Character")]
-	[h:setLibProperty("GM Audio",gmAudio,"Lib:Character")]
+	[h:setLibProperty("PC Audio", pcAudio, function.getNamespace())]
+	[h:setLibProperty("GM Audio", gmAudio, function.getNamespace())]
 
 
 };{}]
@@ -228,7 +228,7 @@
 
 [r,if(macro.args=="Permissions"),code:{
 
-	[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+	[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 	
 
 	[h:edit=getStrProp(permissions,"edit")]
@@ -257,7 +257,7 @@
 	[h:permissions=setStrProp(permissions,"viewMagicItems",viewMagicItems)]
 	[h:permissions=setStrProp(permissions,"applyDMG",applyDMG)]
 
-	[h:setLibProperty("PlayerPermission",permissions,"Lib:Character")]
+	[h:setLibProperty("PlayerPermission", permissions, function.getNamespace())]
 
 
 };{}]
@@ -266,7 +266,7 @@
 [r,if(macro.args=="Gameplay"),code:{
 
 
-	[h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
+	[h:gameplay=getLibProperty("Gameplay", function.getNamespace())]
 	[h:initiative=getStrProp(gameplay,"autosetInitiative")]1
 	[h:dexInit=getStrProp(gameplay,"dexInit")]
 	[h:rerollInit=getStrProp(gameplay,"rerollInit")]
@@ -296,7 +296,7 @@
 	[h:gameplay=setStrProp(gameplay,"interactDistance",interactDistance)]
 
 	
-	[h:setLibProperty("Gameplay",gameplay,"Lib:Campaign")]
+	[h:setLibProperty("Gameplay", gameplay, function.getNamespace())]
 
 };{}]
 
@@ -304,7 +304,7 @@
 [r,if(macro.args=="Display"),code:{
 
 
-	[h:display=getLibProperty("Display","Lib:Campaign")]
+	[h:display=getLibProperty("Display", function.getNamespace())]
 	[h:InitSize=getStrProp(display,"InitSize")]
 	[h:ElevScale=getStrProp(display,"ElevScale")]
 	[h:darkMode=getStrProp(display,"darkMode")]
@@ -337,7 +337,7 @@
 	[h:display=setStrProp(display,"HiddenOpacity",HiddenOpacity)]
 	[h:display=setStrProp(display,"StatblockFrame",StatblockFrame)]
 	
-	[h:setLibProperty("Display",display,"Lib:Campaign")]
+	[h:setLibProperty("Display", display, function.getNamespace())]
 
 	[h,if(isOverlayRegistered("Initiative")==1),code:{
 	[macro("overlay/Initiative Overlay@this"):"output=self"]
@@ -351,14 +351,14 @@
 [r,if(macro.args=="blacklist"),code:{
 
 
-	[h:tableblacklist=getLibProperty("blacklist","Lib:Campaign")]
+	[h:tableblacklist=getLibProperty("blacklist", function.getNamespace())]
 
 	
 	[h:res=input("tableblacklist|"+tableblacklist+"|Table Blacklist")]
 	[h:abort(res)]
 
 	
-	[h:setLibProperty("blacklist",tableblacklist,"Lib:Campaign")]
+	[h:setLibProperty("blacklist", tableblacklist, function.getNamespace())]
 
 
 };{}]

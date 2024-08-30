@@ -21,7 +21,7 @@
 	[h:tokenName=getName(id)]
 	[h:switchToken(id)]
 
-	[h:display=getLibProperty("Display","Lib:Campaign")]
+	[h:display=getLibProperty("Display", function.getNamespace())]
 	[h:NPCVisibility=getStrProp(display,"NPCVisibility")]
 	[h:HiddenOpacity=getStrProp(display,"HiddenOpacity")]
 	
@@ -56,7 +56,7 @@
 [h,if(listfind(macroList,"Range")<0):createMacro("Range","[macro('campaign/Range@this'):'']", "minWidth=120;sortBy=1;color=orange;group=Other Macros")]
 [h,if(listfind(macroList,"Light")<0):createMacro("Light","[macro('campaign/Light@this'):'']", "minWidth=120;sortBy=2;color=yellow;group=Other Macros")]
 
-[h:BestiaryObj=getLibProperty("Bestiary","Lib:Compendium")]
+[h:BestiaryObj=getLibProperty("Bestiary", function.getNamespace())]
 [h:list=json.fields(BestiaryObj)]
 
 [h:list=listSort(list,"A")]
@@ -98,7 +98,7 @@
 	[h:hpRoll=replace(hp,".*\\(|\\).*|\\s","")]
 	[h:hp=replace(hp,"\\s.*","")]
 
-	[h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
+	[h:gameplay=getLibProperty("Gameplay", function.getNamespace())]
 	[h:rollNPC=getStrProp(gameplay,"rollNPC")]
 	
 	[r,if(rollNPC==1),code:{

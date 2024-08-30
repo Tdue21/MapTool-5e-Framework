@@ -30,7 +30,7 @@ if(value=="Skill","half|none,round down (jack of all trades),round up (remarkabl
 [h:res=input("var|<html>Warning!<br>This action will override current "+if(value=="Skill","Skill","Saving Throws")+" values for bonuses"+if(value=="Skill"," and half proficiencies","")+".<br>This will not change proficiency"+if(value=="Skill"," and expertise","")+".<br>Continue?</html>||Label|span=true")]
 [h:abort(res)]
 
-[h:setLibProperty(if(value=="Skill","Skills","SavingTrows"),if(value=="Skill",SkillObject,SaveObject),"Lib:"+tokenName)]
+[h:setLibProperty(if(value=="Skill", "Skills", function.getNamespace()),if(value=="Skill",SkillObject,SaveObject),"Lib:"+tokenName)]
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
 [macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]

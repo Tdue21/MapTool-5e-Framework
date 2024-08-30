@@ -1,9 +1,9 @@
 
-[h:featsList=getLibProperty("Feats","Lib:Character Creation")]
+[h:featsList=getLibProperty("Feats", function.getNamespace())]
 
 [h:featsList=lower(featsList)]
 
-[h:featProps=getLibProperty("Feats","Lib:Compendium")]
+[h:featProps=getLibProperty("Feats", function.getNamespace())]
 
 
 

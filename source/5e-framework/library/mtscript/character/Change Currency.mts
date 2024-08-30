@@ -16,7 +16,7 @@
 [h:originalSP=if(SP=="",0,SP)]
 [h:originalCP=if(CP=="",0,CP)]
 
-[h:currencyValue=getLibProperty("Currency","Lib:Character")]
+[h:currencyValue=getLibProperty("Currency", function.getNamespace())]
 [h:PPW=getStrProp(currencyValue,"PP")]
 [h:GPW=getStrProp(currencyValue,"GP")]
 [h:EPW=getStrProp(currencyValue,"EP")]

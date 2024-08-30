@@ -1,5 +1,5 @@
 
-[h:bgList=getLibProperty("Backgrounds","Lib:Character Creation")]
+[h:bgList=getLibProperty("Backgrounds", function.getNamespace())]
 
 [r,count(listcount(bgList),""),code:{
 

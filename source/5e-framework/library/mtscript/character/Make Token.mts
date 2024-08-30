@@ -6,7 +6,7 @@
 
 	
 	
-	[h:start=getLibProperty("Start","Lib:Campaign")]
+	[h:start=getLibProperty("Start", function.getNamespace())]
 	
 	[h:id=findToken("Monster","00.DM")]
 	[h:center=getViewCenter(0,";")]

@@ -10,7 +10,7 @@
 
 [h,if(id==""):"";switchToken(id)]
 
-[h:Output=getLibProperty("PC Output", "Lib:Character")]
+[h:Output=getLibProperty("PC Output", function.getNamespace())]
 
 [h:currentProp=getLibProperty(group,"Lib:"+tokenName)]
 [h:newProp=json.remove(currentProp,name)]

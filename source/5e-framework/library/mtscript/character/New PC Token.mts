@@ -5,7 +5,7 @@
 "image|"+iconList+"|<html>Token Image<span title='This can be changed later'> (<b>?</b>)</span></html>|List|icon=true value=string","wizard|1|<html>Launch setup wizard<span title='Can be accessed later from the player menu'> (<b>?</b>)</span></html>|check")]
 [h:abort(res)]
 
-[h:start=getLibProperty("Start","Lib:Campaign")]
+[h:start=getLibProperty("Start", function.getNamespace())]
 [h:setCurrentMap(start)]
 
 [h:id=findToken("Monster","00.DM")]
@@ -25,13 +25,13 @@
 
 
 
-[macro("character Creation/Create Macros@this"):"id="+newId]
+[macro("character-creation/Create Macros@this"):"id="+newId]
 
 
 
 [h,if(wizard==1),code:{
 
-[macro("character Creation/Character Creation Wizard@this"):"{'route':'New'}"]
+[macro("character-creation/Character Creation Wizard@this"):"{'route':'New'}"]
 
 }]
 

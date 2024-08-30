@@ -2,7 +2,7 @@
 
 [h:pinName=getStrProp(macro.args,"tokenName")]
 
-[h:output=getLibProperty("PC Output", "Lib:Character")]
+[h:output=getLibProperty("PC Output", function.getNamespace())]
 
 [h,if(pinName=="Select Pin"):pinName=""]
 
@@ -72,7 +72,7 @@
 
 <title>[r:tokenName]</title>
 
-[h:startMap=getLibProperty("Start","Lib:Campaign")]
+[h:startMap=getLibProperty("Start", function.getNamespace())]
 [h:CurrentMap=getCurrentMapName()]
 
 <p class='topbar'>
@@ -177,7 +177,7 @@ Party
 <!-----------------Currency------------------->
 		<td valign=top align=right>
 		[h:playerCurrency=getLibProperty("currency","Lib:"+tokenName)]
-		[h:conversion=getLibProperty("currency","Lib:Character")]
+		[h:conversion=getLibProperty("currency", function.getNamespace())]
 		
 		[h:PlayerPP=getStrProp(playerCurrency,"PP")]
 		[h:PlayerPP=if(PlayerPP=="",0,PlayerPP)]
@@ -318,7 +318,7 @@ Party
 
 
 
-[h:EquipLib=getLibProperty("Equipment", "Lib:Compendium")]
+[h:EquipLib=getLibProperty("Equipment", function.getNamespace())]
 [h:EquipList=json.fields(EquipLib)]
 
 [h,count(repeat,""),code:{

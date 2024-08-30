@@ -1,8 +1,8 @@
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
-[h:skillList=getLibProperty("Skills", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
 
 [h:output= function.getOutput())]
-[h:start=getLibProperty("Start","Lib:Campaign")]
+[h:start=getLibProperty("Start", function.getNamespace())]
 
 [h:tokenName=macro.args]
 
@@ -128,7 +128,7 @@ Armor Class
 [r,if(TotalHP==""),code:{
 	Hit Points
 	};{
-	[h:setLibProperty("HP",CurrentHP+"/"+TotalHP+if(TempHP<0," ("+TempHP+")",""),"Lib:"+tokenName)]
+	[h:setLibProperty("HP", CurrentHP+"/"+TotalHP+if(TempHP<0, function.getNamespace())",""),"Lib:"+tokenName)]
 	
 	Hit Points
 	</b>
@@ -365,7 +365,7 @@ Armor Class
 <br>
 
 <!---------------------------Special Defenses----------------------------->
-[h:rules=getLibProperty("Value","Lib:Rules")]
+[h:rules=getLibProperty("Value", function.getNamespace())]
 [h:defObj=getLibProperty("Defenses","Lib:"+tokenName)]
 
 [h,if(json.type(defObj)=="OBJECT"),code:{

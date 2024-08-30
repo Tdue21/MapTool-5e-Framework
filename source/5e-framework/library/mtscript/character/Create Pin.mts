@@ -49,7 +49,7 @@
 
 [h:setTokenSnapToGrid(0)]
 [h:token.visible=0]
-[h:display=getLibProperty("Display","Lib:Campaign")]
+[h:display=getLibProperty("Display", function.getNamespace())]
 [h:HiddenOpacity=getStrProp(display,"HiddenOpacity")]
 [h:setTokenOpacity(HiddenOpacity*0.01)]
 [h:setSize("Large")]

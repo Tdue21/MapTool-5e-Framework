@@ -2,7 +2,7 @@
 
 
 
-[h:display=getLibProperty("Display","Lib:Campaign")]
+[h:display=getLibProperty("Display", function.getNamespace())]
 [h:StatblockFrame=getStrProp(display,"StatblockFrame")]
 
 [h,switch(StatblockFrame):

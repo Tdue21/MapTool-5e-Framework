@@ -10,7 +10,7 @@
 };{
 	[h:background=lower(json.get(macro.args,"background"))]
 
-[h:macroList=getLibProperty("macroList","Lib:Compendium")]
+[h:macroList=getLibProperty("macroList", function.getNamespace())]
 [h:hasClassMacro=listfind(macroList,background)]
 
 [h,if(hasClassMacro==-1),code:{
@@ -63,10 +63,10 @@ Select a <b>class</b> from the following, and select if you want starting equipm
 <td valign=bottom style="padding:0px;margin=0px">
 
 
-[h: processorLink=macroLinkText("character Creation/Character Creation Wizard@this","")]
+[h: processorLink=macroLinkText("character-creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
-[h:classes=getLibProperty("Classes","Lib:Character Creation")]
+[h:classes=getLibProperty("Classes", function.getNamespace())]
 [h:classList=json.fields(classes)]
 
 <select name="CaracterClass" size="[r:if(hasClassMacro==-1,9,12)]">

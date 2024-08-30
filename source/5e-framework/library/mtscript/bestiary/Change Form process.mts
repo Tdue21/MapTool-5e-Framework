@@ -17,7 +17,7 @@
 
 [h:name=getProperty("CreatureName")]
 
-[h,if(name==""):"";BestiaryObj=getLibProperty("Bestiary","Lib:Compendium")]
+[h,if(name==""):"";BestiaryObj=getLibProperty("Bestiary",function.getNamespace())]
 
 [h,if(name==""):object=getProperty("Stats");object=json.get(BestiaryObj,name)]
 
@@ -48,7 +48,7 @@
 
 [h:object=json.set(object,group,CurrentObject)]
 
-[h,if(name==""):setProperty("Stats",object);setLibProperty("Bestiary",json.set(BestiaryObj,name,object),"Lib:Compendium")]
+[h,if(name==""):setProperty("Stats",object);setLibProperty("Bestiary",json.set(BestiaryObj,name,object),function.getNamespace())]
 
 [macro("bestiary/Macro Frame@this"):tokenName]
 

@@ -1,5 +1,5 @@
-[h:jsonConditions=getLibProperty("Value","Lib:Rules")]
-[h:jsonRules=getLibProperty("Value","Lib:Rules")]
+[h:jsonConditions=getLibProperty("Value", function.getNamespace())]
+[h:jsonRules=getLibProperty("Value", function.getNamespace())]
 
 [h:death        = json.get(jsonRules,"9g. Dropping to 0 Hit Points")]
 [h:blinded      = json.get(jsonConditions,"Blinded")]

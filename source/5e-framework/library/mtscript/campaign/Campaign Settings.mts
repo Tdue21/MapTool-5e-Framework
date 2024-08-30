@@ -2,7 +2,7 @@
 [h:tokenName="Lib:Character"]
 
 [h:macroList=getMacros(",",findToken("Lib:Compendium"),"00.DM")]
-[h:setLibProperty("macroList",macroList,"Lib:Compendium")]
+[h:setLibProperty("macroList", macroList, function.getNamespace())]
 
 
 [dialog5("Settings", "width=350; height=600; temporary=0; noframe=0; input=1"):{
@@ -83,7 +83,7 @@ Compendium
 <span title="Manage Equipment">
 [r:macroLink("Equipment","character/Manage Equipment@this")]
 <td align=right>
-[h:value=getLibProperty("Equipment","Lib:Compendium")]
+[h:value=getLibProperty("Equipment", function.getNamespace())]
 [h:fields=json.fields(value)]
 [r:listcount(fields)]
 
@@ -91,7 +91,7 @@ Compendium
 <span title="Manage Feats">
 [r:macroLink("Feats","character/Manage Feats@this")]
 <td align=right>
-[h:value=getLibProperty("Feats","Lib:Compendium")]
+[h:value=getLibProperty("Feats", function.getNamespace())]
 [h:fields=json.fields(value)]
 [r:listcount(fields)]
 
@@ -99,7 +99,7 @@ Compendium
 <span title="Manage Additional Feats">
 [r:macroLink("Additional Feats","character/Manage Additional Feats@this")]
 <td align=right>
-[h:value=getLibProperty("AdditionalFeats","Lib:Compendium")]
+[h:value=getLibProperty("AdditionalFeats", function.getNamespace())]
 [h:fields=json.fields(value)]
 [r:listcount(fields)]
 
@@ -107,7 +107,7 @@ Compendium
 <span title="Manage Spells">
 [r:macroLink("Manage Spells","character/Manage Spells@this")]
 <td align=right>
-[h:value=getLibProperty("Spells","Lib:Compendium")]
+[h:value=getLibProperty("Spells", function.getNamespace())]
 [h:fields=json.fields(value)]
 [r:listcount(fields)]
 
@@ -116,7 +116,7 @@ Compendium
 <span title="Manage Bestiary">
 [r:macroLink("Bestiary","bestiary/Manage@this")]
 <td align=right>
-[h:value=getLibProperty("Bestiary","Lib:Compendium")]
+[h:value=getLibProperty("Bestiary", function.getNamespace())]
 [h:fields=json.fields(value)]
 [r:listcount(fields)]
 
@@ -131,14 +131,14 @@ Character Sheet
 <span title="Define custom atributes">
 [r:macrolink("Attributes", "campaign/Settings@this")"","Attributes")]
 <td align=right>
-[h:value=getLibProperty("Attributes","Lib:Character")]
+[h:value=getLibProperty("Attributes", function.getNamespace())]
 [r:listcount(value)]
 
 <tr><td>
 <span title="Define custom skills">
 [r:macrolink("Skills", "campaign/Settings@this")"","Skills")]
 <td align=right>
-[h:value=getLibProperty("Skills","Lib:Character")]
+[h:value=getLibProperty("Skills", function.getNamespace())]
 [r:listcount(value,";")]
 
 
@@ -146,42 +146,42 @@ Character Sheet
 <span title="Define passive checks to display on the Character Sheet">
 [r:macrolink("Passive Checks", "campaign/Settings@this")"","Passive")]
 <td align=right>
-[h:value=getLibProperty("Passive Checks","Lib:Character")]
+[h:value=getLibProperty("Passive Checks", function.getNamespace())]
 [r:listcount(value)]
 
 <tr><td>
 <span title="Define list of Feat Options">
 [r:macrolink("Feat Options", "campaign/Settings@this")"","Feats")]
 <td align=right>
-[h:value=getLibProperty("Feats","Lib:Character Creation")]
+[h:value=getLibProperty("Feats", function.getNamespace())]
 [r:listcount(value)]
 
 <tr class=bg><td>
 <span title="Define default languages">
 [r:macrolink("Languages", "campaign/Settings@this")"","Languages")]
 <td align=right>
-[h:value=getLibProperty("Languages","Lib:Character Creation")]
+[h:value=getLibProperty("Languages", function.getNamespace())]
 [r:listcount(value)]
 
 <tr><td>
 <span title="Define races">
 [r:macrolink("Races", "campaign/Settings@this")"","Races")]
 <td align=right>
-[h:value=getLibProperty("Races","Lib:Character Creation")]
+[h:value=getLibProperty("Races", function.getNamespace())]
 [r:listcount(value)]
 
 <tr class=bg><td>
 <span title="Define backgrounds">
 [r:macrolink("Backgrounds", "campaign/Settings@this")"","Backgrounds")]
 <td align=right>
-[h:value=getLibProperty("Backgrounds","Lib:Character Creation")]
+[h:value=getLibProperty("Backgrounds", function.getNamespace())]
 [r:listcount(value)]
 
 <tr><td>
 <span title="Manage Classes and Subclasses">
-[r:macrolink("Classes", "character Creation/Change Classes@this")"")]
+[r:macrolink("Classes", "character-creation/Change Classes@this")"")]
 <td align=right>
-[h:value=getLibProperty("Classes","Lib:Character Creation")]
+[h:value=getLibProperty("Classes", function.getNamespace())]
 [h:fields=json.fields(value)]
 [r:total=listcount(fields)]
 [h:sum=0]
@@ -208,7 +208,7 @@ Character Sheet
 <tr class=bg><td>
 
 <span title="Define spells by class and level">
-[r:macrolink("Spells", "character Creation/Change Spells@this")"")]
+[r:macrolink("Spells", "character-creation/Change Spells@this")"")]
 
 
 </table>
@@ -237,7 +237,7 @@ Player Permissions
 <span title="Define link to audio clips and set audio to preload on startup or when required, multiple links delimited by comma">
 [r:macrolink("Audio Clips", "campaign/Settings@this")"","Clips")]
 <td align=right>
-[r:listcount(getLibProperty("Audio","Lib:Campaign"))]
+[r:listcount(getLibProperty("Audio", function.getNamespace()))]
 
 <tr><td>
 <span title="Define what players are allowed to access or edit">
@@ -248,7 +248,7 @@ Player Permissions
 <span title="Define tables to be ignored on the compendium, delimited by comma">
 [r:macrolink("Table Blacklist", "campaign/Settings@this")"","blacklist")]
 <td align=right>
-[r:listcount(getLibProperty("blacklist","Lib:Campaign"))]
+[r:listcount(getLibProperty("blacklist", function.getNamespace()))]
 
 
 </table>

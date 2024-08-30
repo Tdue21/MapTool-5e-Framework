@@ -1,4 +1,4 @@
-[h:BestiaryObj=getLibProperty("Bestiary","Lib:Compendium")]
+[h:BestiaryObj=getLibProperty("Bestiary",function.getNamespace())]
 [h:BestiaryNames=json.fields(BestiaryObj)]
 
 [h:jsonNPC=json.fromList(BestiaryNames)]
@@ -33,7 +33,7 @@
 
 }]
 
-[h:setLibProperty("Bestiary",jsonNPC,"Lib:Tables")]
+[h:setLibProperty("Bestiary", jsonNPC, function.getNamespace())]
 
 [h,if(isDialogVisible("Bestiary")==1),code:{
 [macro("tables/Creature Window@this"):""]

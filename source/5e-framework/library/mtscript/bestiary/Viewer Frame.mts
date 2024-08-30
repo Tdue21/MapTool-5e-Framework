@@ -1,6 +1,6 @@
 [h:tokenName=macro.args]
 
-[h:BestiaryObj=getLibProperty("Bestiary","Lib:Compendium")]
+[h:BestiaryObj=getLibProperty("Bestiary", function.getNamespace())]
 
 [h:object=json.get(BestiaryObj,macro.args)]
 
@@ -21,7 +21,7 @@
 
 [r:macrolink("Info", "bestiary/Info@this")"","name=;tokenName="+tokenName)] &nbsp;
 
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:sharePlayer=getStrProp(permissions,"share")]
 [h,if(isGM()==1):sharePlayer=1]
 

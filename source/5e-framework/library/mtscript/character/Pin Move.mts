@@ -9,7 +9,7 @@
 
 [h:name=lower(name)]
 
-[h:Output=getLibProperty("PC Output", "Lib:Character")]
+[h:Output=getLibProperty("PC Output", function.getNamespace())]
 
 <!-----------------SELF--------------------->
 [h:id=findToken(tokenName)]

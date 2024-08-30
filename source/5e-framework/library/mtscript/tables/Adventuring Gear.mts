@@ -1,7 +1,7 @@
 <h5>Adventuring Gear [r:macrolink("+", "character/Args Dialog@this")"","prop=Equipment;index=new;name=new;description=new;tokenName=Lib:Compendium")]</h5>
 
 
-[h:LibProperty=getLibProperty("Equipment","Lib:Compendium")]
+[h:LibProperty=getLibProperty("Equipment",function.getNamespace())]
 
 [h:fields=json.fields(LibProperty)]
 

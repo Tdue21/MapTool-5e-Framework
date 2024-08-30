@@ -54,7 +54,7 @@
 
 		[h:atr=replace(roll,"^.*?:\\s","")]
 
-		[h:skills=getLibProperty("Skills","Lib:Character")]
+		[h:skills=getLibProperty("Skills", function.getNamespace())]
 	
 		[h:skillName=replace(roll,"^.*?:\\s","")]
 	
@@ -163,7 +163,7 @@
 	[h:profBonus=ceil(totalLevel/4)+1]
 	
 	<!------------------Set Vars----------------->
-	[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+	[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 	[h:AtrProps=""]
 	[h,count(listcount(attributeList),""),code:{
 		[h:attribute=listget(attributeList,roll.count)]

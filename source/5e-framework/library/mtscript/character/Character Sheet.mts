@@ -1,8 +1,8 @@
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
-[h:skillList=getLibProperty("Skills", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
 
 [h:output= function.getOutput())]
-[h:start=getLibProperty("Start","Lib:Campaign")]
+[h:start=getLibProperty("Start", function.getNamespace())]
 
 [h:tokenName=getStrProp(macro.args,"tokenName")]
 
@@ -504,7 +504,7 @@ default:bonus=0]
 };{
 
 	[h,if(id==""):"";setProperty("HP",CurrentHP+"/"+TotalHP+if(TempHP<0," ("+TempHP+")",""))]
-	[h:setLibProperty("HP",CurrentHP+"/"+TotalHP+if(TempHP<0," ("+TempHP+")",""),"Lib:"+tokenName)]
+	[h:setLibProperty("HP", CurrentHP+"/"+TotalHP+if(TempHP<0, function.getNamespace())",""),"Lib:"+tokenName)]
 
 
 
@@ -867,7 +867,7 @@ default:sizemod=1]
 
 [h:coinWeight=if(isNumber(PP)==1,PP,0)+if(isNumber(GP)==1,GP,0)+if(isNumber(EP)==1,EP,0)+if(isNumber(SP)==1,SP,0)+if(isNumber(CP)==1,CP,0)]
 
-[h:currencyValue=getLibProperty("Currency","Lib:Character")]
+[h:currencyValue=getLibProperty("Currency", function.getNamespace())]
 [h:currencyWeight=getStrProp(currencyValue,"weight")]
 [h:totalWeight=totalWeight+floor(coinWeight*currencyWeight)]
 

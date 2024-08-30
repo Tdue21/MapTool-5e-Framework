@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:closeShared=getStrProp(permissions,"closeShared")]
 [h,if(isGM()==1):closeShared=1]
 

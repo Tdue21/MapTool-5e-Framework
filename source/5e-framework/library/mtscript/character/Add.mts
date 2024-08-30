@@ -10,9 +10,9 @@
 [h:source=listget(classList,0)]
 [h:source=if(source=="","Race",source)]
 
-[h:Output=getLibProperty("PC Output", "Lib:Character")]
+[h:Output=getLibProperty("PC Output", function.getNamespace())]
 
-[h:inputList=getLibProperty(group,"Lib:Compendium")]
+[h:inputList=getLibProperty(group,function.getNamespace())]
 
 [h:inputList=json.fields(inputList)]
 
@@ -32,9 +32,9 @@
 }]
 
 
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission",function.getNamespace())]
 [h:viewMagicItems=getStrProp(permissions,"viewMagicItems")]
-[h,if(isGM()==0 && viewMagicItems==0 && group=="Equipment"):LibProperty=getLibProperty("Equipment","Lib:Compendium")]
+[h,if(isGM()==0 && viewMagicItems==0 && group=="Equipment"):LibProperty=getLibProperty("Equipment",function.getNamespace())]
 
 [h,if(isGM()==0 && viewMagicItems==0 && group=="Equipment"),count(listcount(inputList)),code:{
 

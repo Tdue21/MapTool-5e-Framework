@@ -13,7 +13,7 @@
 	[h:switchToken(currentId)]
 
 
-	[h:display=getLibProperty("Display","Lib:Campaign")]
+	[h:display=getLibProperty("Display", function.getNamespace())]
 	[h:HiddenOpacity=getStrProp(display,"HiddenOpacity")]
 [h:opacity=if(visible==1,1,HiddenOpacity*0.01)]
 [h:setVisible(visible)]

@@ -19,7 +19,7 @@
 }]
 [h:atr=setStrProp("","text",Specialty)]
 [h:setProperty("Background",atr)]
-[h:skillList=getLibProperty("Skills", "Lib:Character")]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
 [h:SkillObject=getProperty("Skills")]
 [h:array=json.fromList(skillList,";")]
 [h:object=""]
@@ -36,7 +36,7 @@
 	[h:setProperty("Skills",array)]
 	[h:SkillObject=array]
 };{}]
-[h:attributeList=getLibProperty("Skills", "Lib:Character")]
+[h:attributeList=getLibProperty("Skills", function.getNamespace())]
 [h:repeat=countStrProp(attributeList)]
 [h:skillList=""]
 [h,count(repeat,""),code:{
@@ -138,7 +138,7 @@
 <!------------------------------------------------------------------>
 [h:atr=getProperty("Language Proficiency")]
 [h:value=getStrProp(atr,"value")]
-[h:languages=getLibProperty("Languages","Lib:Character Creation")]
+[h:languages=getLibProperty("Languages", function.getNamespace())]
 [h,count(listcount(value),""),code:{
 	[h:item=listget(value,roll.count)]
 	[h:itemFind=listfind(languages,item)]
@@ -164,7 +164,7 @@ if(languageChoices>1,"language2|Choose one,"+languages+"|Language 2|list|value=s
 
 
 <!-----------------FEATURE------------------->
-[h:BGs=getLibProperty("Backgrounds","Lib:Character")]
+[h:BGs=getLibProperty("Backgrounds", function.getNamespace())]
 [h:featureName=getStrProp(BGs,BackgroundName)]
 [h:group="Feats"]
 [h:inputList=getLibProperty(group,"Lib:Compendium")]
@@ -186,7 +186,7 @@ if(languageChoices>1,"language2|Choose one,"+languages+"|Language 2|list|value=s
 
 [h,if(json.type(Property)=="UNKNOWN"):Property="{}";""]
 
-[h:AddItem="character Creation/Add Item@this"]
+[h:AddItem="character-creation/Add Item@this"]
 
 [h:res=input("lang|Background Equipment||label|span=true",
 "holy|Amulet,Emblem,Reliquary|Holy Symbol|list|value=string",

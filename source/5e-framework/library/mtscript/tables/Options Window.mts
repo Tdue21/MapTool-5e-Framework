@@ -1,4 +1,4 @@
-[h:AddFeats=getLibProperty("AdditionalFeats","Lib:Compendium")]
+[h:AddFeats=getLibProperty("AdditionalFeats", function.getNamespace())]
 [h:addFeatList=json.fields(AddFeats)]
 
 [h:OtherObj="{}"]

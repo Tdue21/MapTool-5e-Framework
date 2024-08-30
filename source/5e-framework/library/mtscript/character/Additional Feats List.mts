@@ -1,6 +1,6 @@
 [h:tokenName=getStrProp(macro.args,"tokenName")]
 
-[h:itemObject=getLibProperty("AdditionalFeats","Lib:Compendium")]
+[h:itemObject=getLibProperty("AdditionalFeats", function.getNamespace())]
 
 [h:itemList=json.fields(itemObject)]
 

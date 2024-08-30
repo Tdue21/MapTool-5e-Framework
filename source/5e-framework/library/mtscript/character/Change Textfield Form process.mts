@@ -2,7 +2,7 @@
 [r:cancel=if(cancel=="cancel",0,1)]
 [h:abort(cancel)]
 
-[h:start=getLibProperty("Start","Lib:Campaign")]
+[h:start=getLibProperty("Start", function.getNamespace())]
 
 [r:title=json.get(macro.args,"title")]
 [r:oldName=json.get(macro.args,"oldName")]
@@ -23,19 +23,19 @@
 
 [r:currentProp=getLibProperty(group,"Lib:Compendium")]
 
-[h:Output=getLibProperty("PC Output", "Lib:Character")]
+[h:Output=getLibProperty("PC Output", function.getNamespace())]
 
 [r,if(index=="new"),code:{
 	[h:object=value]
 
 	[r:newProp=json.set(currentProp,title,object)]
-	[h:setLibProperty(group,newProp,"Lib:Compendium")]
+	[h:setLibProperty(group, newProp, function.getNamespace())]
 
 };{
 
 	[h,if(group=="OtherNotes" || group=="Notes" || group=="GMNotes"):"";object=json.get(currentProp,title)]
 	[r:newProp=json.set(currentProp,title,value)]
-	[h,if(group=="OtherNotes" || group=="Notes" || group=="GMNotes"):"";setLibProperty(group,newProp,"Lib:Compendium")]
+	[h,if(group=="OtherNotes" || group=="Notes" || group=="GMNotes"):"";setLibProperty(group, newProp, function.getNamespace())]
 
 }]
 

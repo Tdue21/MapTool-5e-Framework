@@ -184,7 +184,7 @@
 }]
 
 
-[h:display=getLibProperty("Display","Lib:Campaign")]
+[h:display=getLibProperty("Display", function.getNamespace())]
 [h:replaceDiceRoll=getStrProp(display,"replaceDiceRoll")]
 [h,if(replaceDiceRoll==1),code:{
 [h:entry=function.DiceRoll(entry,tokenName,output,"character",jsonGroup,name,customName)]

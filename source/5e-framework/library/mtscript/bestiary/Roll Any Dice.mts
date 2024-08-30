@@ -7,7 +7,7 @@
 
 [h:name=getProperty("CreatureName")]
 
-[h,if(name==""):object=getProperty("Stats");object=json.get(getLibProperty("Bestiary","Lib:Compendium"),name)]
+[h,if(name==""):object=getProperty("Stats");object=json.get(getLibProperty("Bestiary", function.getNamespace()),name)]
 
 [h:cr=json.get(object,"challenge")]
 [h,if(cr==""):challenge="";challenge=substring(cr,0,indexOf(cr," "))]

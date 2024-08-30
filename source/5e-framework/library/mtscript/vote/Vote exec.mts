@@ -7,7 +7,7 @@
 
 [h:player=getPlayerName()]
 
-[h:value=getLibProperty("Value","Lib:Vote")]
+[h:value=getLibProperty("Value", function.getNamespace())]
 
 [h:results=decode(getStrProp(value,"results"))]
 
@@ -25,5 +25,5 @@
 
 [h:value=setStrProp(value,"options",options)]
 
-[h:setLibProperty("Value",value,"Lib:Vote")]
+[h:setLibProperty("Value", value, function.getNamespace())]
 

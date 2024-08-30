@@ -58,10 +58,10 @@
 [h:save=getStrProp(macro.return,"save")]
 [h:template=getStrProp(macro.return,"template")]
 
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 
 <!------Needs Concentration?------->
-[h:allSpells=getLibProperty("Spells","Lib:Compendium")]
+[h:allSpells=getLibProperty("Spells", function.getNamespace())]
 [h:SpellObj=json.get(allSpells,name)]
 [h:description=json.get(SpellObj,"description")]
 [h:needsConcentration=matches(description,"[\\w\\W]*[Cc]oncentration[\\w\\W]*")]

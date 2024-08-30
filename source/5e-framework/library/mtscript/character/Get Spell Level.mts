@@ -6,7 +6,7 @@
 
 [h,if(group=="Spells"),code:{
 
-	[h:PropertyObj=getLibProperty("Spells","Lib:Compendium")]
+	[h:PropertyObj=getLibProperty("Spells", function.getNamespace())]
 	[h:spellObj=json.get(PropertyObj,name)]
 	[h:description=json.get(spellObj,"description")]
 

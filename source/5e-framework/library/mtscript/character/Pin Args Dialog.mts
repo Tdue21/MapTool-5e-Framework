@@ -47,7 +47,7 @@
 		[r,if(share==1):"";"<p class='topbar'>"]
 		
 		
-		[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+		[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 		[h:edit=getStrProp(permissions,"edit")]
 		[h:sharePlayer=getStrProp(permissions,"share")]
 		[h,if(isGM()==1):edit=1]

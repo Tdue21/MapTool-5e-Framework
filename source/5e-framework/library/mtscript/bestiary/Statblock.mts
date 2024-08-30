@@ -4,7 +4,7 @@
 
 [h:name=getProperty("CreatureName")]
 
-[h,if(name==""):object=getProperty("Stats");object=json.get(getLibProperty("Bestiary","Lib:Compendium"),name)]
+[h,if(name==""):object=getProperty("Stats");object=json.get(getLibProperty("Bestiary", function.getNamespace()),name)]
 
 [h,if(json.type(object)=="UNKNOWN"):object="{}"]
 
@@ -40,7 +40,7 @@
 [r:macrolink("Info", "bestiary/Info@this")"","name="+name+";tokenName="+tokenName)] &nbsp;
 
 
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:sharePlayer=getStrProp(permissions,"share")]
 [h,if(isGM()==1):sharePlayer=1]
 

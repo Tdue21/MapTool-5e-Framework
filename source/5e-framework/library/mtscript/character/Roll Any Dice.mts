@@ -2,7 +2,7 @@
 [h:rolltype=getStrProp(macro.args,"rolltype")]
 [h:randomBonus=getStrProp(macro.args,"randomBonus")]
 
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 
 [h:classes=getLibProperty("Class&Level","Lib:"+tokenName)]
 [h:totalLevel=0]

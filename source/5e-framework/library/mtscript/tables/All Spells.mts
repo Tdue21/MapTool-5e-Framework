@@ -6,7 +6,7 @@
 
 [h:spellLevel="Spells"]
 
-[h:itemObject=getLibProperty(spellLevel,"Lib:Compendium")]
+[h:itemObject=getLibProperty(spellLevel,function.getNamespace())]
 
 [h:itemList=json.fields(itemObject)]
 

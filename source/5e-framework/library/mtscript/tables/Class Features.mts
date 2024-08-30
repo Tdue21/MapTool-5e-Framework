@@ -96,8 +96,8 @@
 	[h:CapitalName=replace(CapitalName,"(?<=\\s)Th(?=(?:e|at|ose)\\s)","th")]
 	[h:CapitalName=replace(CapitalName,"'S(?=\\s)","'s")]
 
-	[h:featProps=getLibProperty("Feats","Lib:Compendium")]
-	[h:addFeatProps=getLibProperty("AdditionalFeats","Lib:Compendium")]
+	[h:featProps=getLibProperty("Feats", function.getNamespace())]
+	[h:addFeatProps=getLibProperty("AdditionalFeats", function.getNamespace())]
 
 	<!--------------------------CLASS------------------------------->
 	[h:description=json.get(featProps,name)]

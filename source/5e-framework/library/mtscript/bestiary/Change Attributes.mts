@@ -35,9 +35,9 @@
 
 };{
 
-	[h:BestiaryObj=getLibProperty("Bestiary","Lib:Compendium")]
+	[h:BestiaryObj=getLibProperty("Bestiary",function.getNamespace())]
 	[h:BestiaryObj=json.set(BestiaryObj,name,object)]
-	[h:setLibProperty("Bestiary",BestiaryObj,"Lib:Compendium")]
+	[h:setLibProperty("Bestiary",BestiaryObj,function.getNamespace())]
 
 }]
 

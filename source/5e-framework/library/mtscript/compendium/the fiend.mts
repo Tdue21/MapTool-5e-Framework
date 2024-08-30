@@ -5,7 +5,7 @@
 [h:id=findToken(tokenName)]
 [h:switchToken(id)]
 
-[h:classes=getLibProperty("Classes","Lib:Character Creation")]
+[h:classes=getLibProperty("Classes", function.getNamespace())]
 
 [h:AllClassObj=json.get(classes,class)]
 

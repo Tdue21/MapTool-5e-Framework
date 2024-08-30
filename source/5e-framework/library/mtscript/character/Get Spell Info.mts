@@ -2,7 +2,7 @@
 [h:tokenName=getStrProp(macro.args,"tokenName")]
 [h:source=getStrProp(macro.args,"source")]
 
-[h:AllSpells=getLibProperty("Spells","Lib:Compendium")]
+[h:AllSpells=getLibProperty("Spells", function.getNamespace())]
 [h:spellObj=json.get(AllSpells,name)]
 [h:description=json.get(spellObj,"description")]
 

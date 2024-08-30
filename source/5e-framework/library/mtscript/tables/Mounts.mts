@@ -1,7 +1,7 @@
 
 
 
-[h:LibProperty=getLibProperty("Equipment","Lib:Compendium")]
+[h:LibProperty=getLibProperty("Equipment", function.getNamespace())]
 
 [h:fields=json.fields(LibProperty)]
 

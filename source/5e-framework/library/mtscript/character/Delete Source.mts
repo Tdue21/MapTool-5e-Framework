@@ -13,7 +13,7 @@
 
 [h:currentProp=getLibProperty(group,"Lib:Compendium")]
 [h:newProp=json.remove(currentProp,name)]
-[h:setLibProperty(group,newProp,"Lib:Compendium")]
+[h:setLibProperty(group, newProp, function.getNamespace())]
 
 
 [h,if(isDialogVisible("Manage Additional Feats")==1),code:{

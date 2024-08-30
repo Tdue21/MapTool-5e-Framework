@@ -1,4 +1,4 @@
-[h:Value=getLibProperty("Value","Lib:Vote")]
+[h:Value=getLibProperty("Value", function.getNamespace())]
 
 [h:options=getStrProp(Value,"options")]
 

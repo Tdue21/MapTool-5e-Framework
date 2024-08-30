@@ -1,6 +1,6 @@
 [h:tokenName=getStrProp(macro.args,"tokenName")]
 [h:currentClass=getStrProp(macro.args,"class")]
-[h:atrList="-,"+getLibProperty("Attributes","Lib:Character")]
+[h:atrList="-,"+getLibProperty("Attributes", function.getNamespace())]
 
 [h:id=findToken(tokenName)]
 

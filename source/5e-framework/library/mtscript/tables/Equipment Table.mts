@@ -1,4 +1,4 @@
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:viewMagicItems=getStrProp(permissions,"viewMagicItems")]
 
 [h,if(macro.args==""),code:{

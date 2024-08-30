@@ -1,5 +1,5 @@
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
-[h:skillList=getLibProperty("Skills", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
 [h:output= function.getOutput())]
 [h:tokenName=getStrProp(macro.args,"tokenName")]
 

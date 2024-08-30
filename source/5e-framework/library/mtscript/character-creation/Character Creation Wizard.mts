@@ -46,7 +46,7 @@
 	<td valign=top style="padding:0px;margin:0px;margin-left:10px">
 
 
-[macro(window+"character Creation/@this"):macro.args]
+[macro(window+"character-creation/@this"):macro.args]
 
 
 

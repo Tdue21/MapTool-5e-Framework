@@ -1,6 +1,6 @@
 [h:statblock=macro.args]
 
-[h:BestiaryObj=getLibProperty("Bestiary","Lib:Compendium")]
+[h:BestiaryObj=getLibProperty("Bestiary", function.getNamespace())]
 
 [h:statblockValue=json.get(BestiaryObj,statblock)]
 
@@ -108,7 +108,7 @@
 [h,if(listfind(macroList,"Elev +")<0):createMacro("Elev +","[macro('character/Elevation@this'):'elevation=1;tokenName='+token.name]", "minWidth=53;sortBy=5;group=Other Macros")]
 
 
-[h:list=getLibProperty("List","Lib:Bestiary")]
+[h:list=getLibProperty("List", function.getNamespace())]
 
 [h:closeFrame(macro.args)]
 
@@ -125,7 +125,7 @@
 [h:hpRoll=replace(hp,".*\\(|\\).*|\\s","")]
 [h:hp=replace(hp,"\\s.*","")]
 
-[h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
+[h:gameplay=getLibProperty("Gameplay", function.getNamespace())]
 [h:rollNPC=getStrProp(gameplay,"rollNPC")]
 
 [r,if(rollNPC==1),code:{
@@ -144,7 +144,7 @@
 
 [h:setProperty("Elevation",0)]
 
-[h:display=getLibProperty("Display","Lib:Campaign")]
+[h:display=getLibProperty("Display", function.getNamespace())]
 [h:NPCVisibility=getStrProp(display,"NPCVisibility")]
 [h:HiddenOpacity=getStrProp(display,"HiddenOpacity")]
 

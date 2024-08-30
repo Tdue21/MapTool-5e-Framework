@@ -15,7 +15,7 @@
 [h,if(pinName==""),code:{
 
 	
-	[h,if(getLibProperty("Map","Lib:Bestiary")==getCurrentMapName() && getLibProperty("Encounter","Lib:Bestiary")!="" && reload!=1):idList=getLibProperty("Encounter","Lib:Bestiary");idList=getSelected()]
+	[h,if(getLibProperty("Map", function.getNamespace())==getCurrentMapName() && getLibProperty("Encounter", function.getNamespace())!="" && reload!=1):idList=getLibProperty("Encounter", function.getNamespace());idList=getSelected()]
 
 };{
 
@@ -37,8 +37,8 @@
 	[h,if(json.type(Stats)=="UNKNOWN" || json.fields(Stats)==""):idList=listdelete(idList,roll.count);""]
 }]
 
-[h,if(repeat==0):"";setLibProperty("Encounter",idList,"Lib:Bestiary")]
-[h:setLibProperty("Map",getCurrentMapName(),"Lib:Bestiary")]
+[h,if(repeat==0):"";setLibProperty("Encounter", idList, function.getNamespace())]
+[h:setLibProperty("Map", getCurrentMapName(), function.getNamespace())]
 
 
 [h:output= function.getOutput())]
@@ -129,7 +129,7 @@ Encounter
 		[h:switchToken(currentId)]
 		[h:name=getName(currentId)]
 		[h:CName=getProperty("CreatureName",currentId)]
-		[h,if(CName!=""):Bestiary=getLibProperty("Bestiary","Lib:Compendium")]
+		[h,if(CName!=""):Bestiary=getLibProperty("Bestiary", function.getNamespace())]
 		[h,if(CName!=""):Stats=json.get(Bestiary,CName);Stats=getProperty("Stats",currentId)]
 		[h:hp=getProperty("Hit Points",currentId)]
 

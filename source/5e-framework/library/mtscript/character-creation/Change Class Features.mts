@@ -1,4 +1,4 @@
-[h:classes=getLibProperty("Classes","Lib:Character Creation")]
+[h:classes=getLibProperty("Classes", function.getNamespace())]
 
 [h:class=getStrProp(macro.args,"class")]
 [h:subclass=getStrProp(macro.args,"subclass")]
@@ -25,7 +25,7 @@
 
 	[h:classObj=json.set(classObj,"subclass",subclassesObj)]
 	[h:classes=json.set(classes,class,classObj)]
-	[h:setLibProperty("Classes",classes,"Lib:Character Creation")]
+	[h:setLibProperty("Classes", classes, function.getNamespace())]
 
 };{}]
 
@@ -59,7 +59,7 @@
 [dialog5("Edit Class Features", "width=380; height=660; temporary=1; noframe=0; input=1"):{
 
 	<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
-	[h: processorLink = macroLinkText("character Creation/Change Class Features process@this","")]
+	[h: processorLink = macroLinkText("character-creation/Change Class Features process@this","")]
 	<form action="[r:processorLink]" method="json">
 	<input type="submit" name="button" value="Save">[r,count(5,""):"&nbsp;"]
 	<input type="submit" name="cancel" value="Cancel">[r,count(40,""):"&nbsp;"]

@@ -1,6 +1,6 @@
 [h:tokenName=macro.args]
 
-[h:BestiaryObj=getLibProperty("Bestiary","Lib:Compendium")]
+[h:BestiaryObj=getLibProperty("Bestiary", function.getNamespace())]
 
 [h:object=json.get(BestiaryObj,lower(tokenName))]
 

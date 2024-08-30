@@ -3,7 +3,7 @@
 [h,if(macro.args==""),code:{
 
 	[h:tableList=getTableNames()]
-	[h:tableblacklist=getLibProperty("blacklist","Lib:Campaign")]
+	[h:tableblacklist=getLibProperty("blacklist", function.getNamespace())]
 	[h,count(listcount(tableblacklist)):tableList=listdelete(tableList,listfind(tableList,listget(tableblacklist,roll.count)))]
 	
 	[h:playerTableList=""]

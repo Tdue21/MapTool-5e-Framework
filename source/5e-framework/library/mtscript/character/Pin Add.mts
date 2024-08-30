@@ -5,7 +5,7 @@
 [h:id=findToken(tokenName)]
 [h:switchToken(id)]
 
-[h:Output=getLibProperty("PC Output", "Lib:Character")]
+[h:Output=getLibProperty("PC Output", function.getNamespace())]
 
 [h:inputList=getLibProperty(group,"Lib:Compendium")]
 

@@ -37,7 +37,7 @@
 
 [h:output= function.getOutput())]
 
-[h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
+[h:gameplay=getLibProperty("Gameplay",function.getNamespace())]
 [h:autoInit=getStrProp(gameplay,"autosetInitiative")]
 
 [h,if(autoInit==1 && matches(text,"Initiative.*")==1),code:{

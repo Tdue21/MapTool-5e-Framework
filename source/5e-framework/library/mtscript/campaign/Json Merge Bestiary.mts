@@ -13,7 +13,7 @@
 
 		[h:value=json.get(json2,currentItem)]
 		
-		[h:setLibProperty(currentItem,value,"Lib:Bestiary")]
+		[h:setLibProperty(currentItem, value, function.getNamespace())]
 	
 	}]
 

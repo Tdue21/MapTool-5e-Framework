@@ -10,7 +10,7 @@
 [h:TokenList=json.get(macro.args,"TokenList")]
 [h:distribute=json.get(macro.args,"distribute")]
 
-[h:output=getLibProperty("PC Output", "Lib:Character")]
+[h:output=getLibProperty("PC Output", function.getNamespace())]
 
 <!-----------------------Experience------------------------->
 

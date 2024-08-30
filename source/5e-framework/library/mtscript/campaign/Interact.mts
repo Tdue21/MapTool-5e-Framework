@@ -11,7 +11,7 @@
 
 }]
 
-[h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
+[h:gameplay=getLibProperty("Gameplay", function.getNamespace())]
 [h:interactDistance=getStrProp(gameplay,"interactDistance")]
 
 [h:server=getInfo("server")]

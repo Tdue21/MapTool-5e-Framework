@@ -1,8 +1,8 @@
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
-[h:skillList=getLibProperty("Skills", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
 
 [h:output= function.getOutput())]
-[h:start=getLibProperty("Start","Lib:Campaign")]
+[h:start=getLibProperty("Start", function.getNamespace())]
 
 [h:tokenName=getStrProp(macro.args,"tokenName")]
 
@@ -15,7 +15,7 @@
 [r:macrolink("Info", "character/Info@this")"","tokenName="+tokenName)]&nbsp;
 
 
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:sharePlayer=getStrProp(permissions,"share")]
 [h,if(isGM()==1):sharePlayer=1]
 
@@ -147,7 +147,7 @@
 };{
 	<b>	
 	[h,if(id==""):"";setProperty("HP",CurrentHP+"/"+TotalHP+if(TempHP<0," ("+TempHP+")",""))]
-	[h:setLibProperty("HP",CurrentHP+"/"+TotalHP+if(TempHP<0," ("+TempHP+")",""),"Lib:"+tokenName)]
+	[h:setLibProperty("HP", CurrentHP+"/"+TotalHP+if(TempHP<0, function.getNamespace())",""),"Lib:"+tokenName)]
 	
 	[r:macrolink("<span title='Edit Hit Points'>Hit Points</span>", "character/Damage@this")output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
 	</b>
@@ -407,7 +407,7 @@ default:bonus=0]
 [r:if(prof==0,"",macrolink("<span title='Roll "+skillName+"'>"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+"</span>", "character/d20 Roller@this")"","text="+atr+" ("+skillName+");value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";id="+id+";tokenName="+tokenName+";color=0099cc"))]}]
 <br>
 <!---------------------------Special Defenses----------------------------->
-[h:rules=getLibProperty("Value","Lib:Rules")]
+[h:rules=getLibProperty("Value", function.getNamespace())]
 [h:defObj=getLibProperty("Defenses","Lib:"+tokenName)]
 
 [h,if(json.type(defObj)=="OBJECT"),code:{

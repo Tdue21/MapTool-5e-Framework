@@ -1,4 +1,4 @@
-[h:bgPropList=getLibProperty("Backgrounds","Lib:Character Creation")]
+[h:bgPropList=getLibProperty("Backgrounds",function.getNamespace())]
 
 [h:bgList=""]
 [h,count(countStrProp(bgPropList)):bgList=listappend(bgList,indexKeyStrProp(bgPropList,roll.count))]
@@ -27,7 +27,7 @@
 <table>
 <tr><td width=150 valign=top>
 
-[h:bgList=getLibProperty("Backgrounds","Lib:Character Creation")]
+[h:bgList=getLibProperty("Backgrounds",function.getNamespace())]
 
 [r,count(listcount(bgList),""),code:{
 
@@ -39,7 +39,7 @@
 }]
 
 
-[h:featProps=getLibProperty("Feats","Lib:Compendium")]
+[h:featProps=getLibProperty("Feats",function.getNamespace())]
 
 
 

@@ -10,7 +10,7 @@
 };{
 	[h:race=lower(json.get(macro.args,"race"))]
 
-[h:macroList=getLibProperty("macroList","Lib:Compendium")]
+[h:macroList=getLibProperty("macroList", function.getNamespace())]
 [h:hasClassMacro=listfind(macroList,race)]
 
 [h,if(hasClassMacro==-1),code:{
@@ -62,10 +62,10 @@ Select a <b>background</b> from the following list.
 <td valign=bottom style="padding:0px;margin=0px">
 
 
-[h: processorLink=macroLinkText("character Creation/Character Creation Wizard@this","")]
+[h: processorLink=macroLinkText("character-creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
-[h:bg=getLibProperty("Backgrounds","Lib:Character Creation")]
+[h:bg=getLibProperty("Backgrounds", function.getNamespace())]
 
 
 <select name="background" size="[r:if(hasClassMacro==-1,12,15)]">

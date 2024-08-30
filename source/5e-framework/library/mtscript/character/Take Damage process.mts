@@ -4,7 +4,7 @@
 [h:idList=getSelected()]
 [h:nameList=getSelectedNames()]
 
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:applyDMG=getStrProp(permissions,"applyDMG")]
 [h,if(isGM()==0 && applyDMG==0):applyDMG=0;applyDMG=1]
 
@@ -137,7 +137,7 @@
 		
 		[h:setLibProperty("Total Hit Points",maxInput,"Lib:"+tokenName)]
 
-		[h:setLibProperty("HP",currentInput+"/"+maxInput+if(tempInput<0," ("+tempInput+")",""),"Lib:"+tokenName)]
+		[h:setLibProperty("HP", currentInput+"/"+maxInput+if(tempInput<0, function.getNamespace())",""),"Lib:"+tokenName)]
 
 		[h:findId=findToken(tokenName)]
 

@@ -44,11 +44,11 @@ Select a <b>race</b>, <b>subrace</b> or <b>variant race</b> from the following l
 <td valign=bottom style="padding:0px;margin=0px">
 
 
-[h: processorLink=macroLinkText("character Creation/Character Creation Wizard@this","")]
+[h: processorLink=macroLinkText("character-creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 
-[h:races=getLibProperty("Races","Lib:Character Creation")]
+[h:races=getLibProperty("Races", function.getNamespace())]
 
 
 <select name="race" size="15">

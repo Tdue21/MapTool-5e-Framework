@@ -14,7 +14,7 @@
 	[h,if(find==-1):"";list=listdelete(list,find)]
 	[h:list=listappend(list,currentItem)]
 }]
-[h:setLibProperty(value,list,"Lib:Character Creation")]
+[h:setLibProperty(value, list, function.getNamespace())]
 
 <!-------------Backgrounds--------------->
 [h:value="Backgrounds"]
@@ -26,7 +26,7 @@
 	[h,if(find==-1):"";list=listdelete(list,find)]
 	[h:list=listappend(list,currentItem)]
 }]
-[h:setLibProperty(value,list,"Lib:Character Creation")]
+[h:setLibProperty(value, list, function.getNamespace())]
 
 <!-------------Languages--------------->
 [h:value="Languages"]
@@ -38,7 +38,7 @@
 	[h,if(find==-1):"";list=listdelete(list,find)]
 	[h:list=listappend(list,currentItem)]
 }]
-[h:setLibProperty(value,list,"Lib:Character Creation")]
+[h:setLibProperty(value, list, function.getNamespace())]
 
 <!-------------Simple Melee Weapons--------------->
 [h:value="Simple Melee Weapons"]
@@ -50,7 +50,7 @@
 	[h,if(find==-1):"";list=listdelete(list,find)]
 	[h:list=listappend(list,currentItem)]
 }]
-[h:setLibProperty(value,list,"Lib:Character Creation")]
+[h:setLibProperty(value, list, function.getNamespace())]
 
 <!-------------Simple Ranged Weapons--------------->
 [h:value="Simple Ranged Weapons"]
@@ -62,7 +62,7 @@
 	[h,if(find==-1):"";list=listdelete(list,find)]
 	[h:list=listappend(list,currentItem)]
 }]
-[h:setLibProperty(value,list,"Lib:Character Creation")]
+[h:setLibProperty(value, list, function.getNamespace())]
 
 <!-------------Martial Melee Weapons--------------->
 [h:value="Martial Melee Weapons"]
@@ -74,7 +74,7 @@
 	[h,if(find==-1):"";list=listdelete(list,find)]
 	[h:list=listappend(list,currentItem)]
 }]
-[h:setLibProperty(value,list,"Lib:Character Creation")]
+[h:setLibProperty(value, list, function.getNamespace())]
 
 <!-------------Martial Ranged Weapons--------------->
 [h:value="Martial Ranged Weapons"]
@@ -86,7 +86,7 @@
 	[h,if(find==-1):"";list=listdelete(list,find)]
 	[h:list=listappend(list,currentItem)]
 }]
-[h:setLibProperty(value,list,"Lib:Character Creation")]
+[h:setLibProperty(value, list, function.getNamespace())]
 
 <!-------------Spell Lists--------------->
 [h:value="Spell Lists"]
@@ -98,7 +98,7 @@
 	[h,if(find==-1):"";list=listdelete(list,find)]
 	[h:list=listappend(list,currentItem)]
 }]
-[h:setLibProperty(value,list,"Lib:Character Creation")]
+[h:setLibProperty(value, list, function.getNamespace())]
 
 [h,count(listcount(list)),code:{
 
@@ -259,7 +259,7 @@
 
 	
 	[h:jsonMerged=json.merge(json2,jsonImport)]
-	[h:setLibProperty(currentList,jsonMerged,"Lib:Character Creation")]
+	[h:setLibProperty(currentList, jsonMerged, function.getNamespace())]
 
 }]
 
@@ -274,7 +274,7 @@
 	[h,if(find==-1):"";list=listdelete(list,find)]
 	[h:list=listappend(list,currentItem)]
 }]
-[h:setLibProperty(value,list,"Lib:Character Creation")]
+[h:setLibProperty(value, list, function.getNamespace())]
 
 <!-------------Classes--------------->
 [h:value="Classes"]
@@ -282,7 +282,7 @@
 [h:json2=getLibProperty(value,"Lib:Character Creation")]
 [h,if(json.type(json2)=="UNKNOWN"):json2="{}"]
 [h:jsonMerged=json.merge(json2,jsonImport)]
-[h:setLibProperty(value,jsonMerged,"Lib:Character Creation")]
+[h:setLibProperty(value, jsonMerged, function.getNamespace())]
 
 <!-------------Feats--------------->
 [h:value="Feats"]
@@ -290,7 +290,7 @@
 [h:json2=getLibProperty(value,"Lib:Compendium")]
 
 [h:jsonMerged=json.merge(json2,jsonImport)]
-[h:setLibProperty(value,jsonMerged,"Lib:Compendium")]
+[h:setLibProperty(value, jsonMerged, function.getNamespace())]
 
 <!-------------AdditionalFeats--------------->
 [h:value="AdditionalFeats"]
@@ -298,7 +298,7 @@
 [h:json2=getLibProperty(value,"Lib:Compendium")]
 
 [h:jsonMerged=json.merge(json2,jsonImport)]
-[h:setLibProperty(value,jsonMerged,"Lib:Compendium")]
+[h:setLibProperty(value, jsonMerged, function.getNamespace())]
 
 <!-------------Spells--------------->
 [h:value="Spells"]
@@ -306,7 +306,7 @@
 [h:json2=getLibProperty(value,"Lib:Compendium")]
 
 [h:jsonMerged=json.merge(json2,jsonImport)]
-[h:setLibProperty(value,jsonMerged,"Lib:Compendium")]
+[h:setLibProperty(value, jsonMerged, function.getNamespace())]
 
 
 <!-------------Equipment--------------->
@@ -315,7 +315,7 @@
 [h:json2=getLibProperty(value,"Lib:Compendium")]
 
 [h:jsonMerged=json.merge(json2,jsonImport)]
-[h:setLibProperty(value,jsonMerged,"Lib:Compendium")]
+[h:setLibProperty(value, jsonMerged, function.getNamespace())]
 
 <!-------------Bestiary--------------->
 [h:value="Bestiary"]
@@ -323,7 +323,7 @@
 [h:json2=getLibProperty(value,"Lib:Compendium")]
 
 [h:jsonMerged=json.merge(json2,jsonImport)]
-[h:setLibProperty(value,jsonMerged,"Lib:Compendium")]
+[h:setLibProperty(value, jsonMerged, function.getNamespace())]
 
 
 

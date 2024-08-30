@@ -12,7 +12,7 @@
 [h:CapitalName=function.Capitalize(name)]
 
 [h,if(description==""),code:{
-	[h:compendium=getLibProperty(group,"Lib:Compendium")]
+	[h:compendium=getLibProperty(group,function.getNamespace())]
 	[h:item=json.get(compendium,lower(name))]
 	[h,if(json.type(item)=="UNKNOWN"):description="";description=encode(json.get(item,"description"))]
 
@@ -20,7 +20,7 @@
 	
 };{
 
-	[h:compendium=getLibProperty(group,"Lib:Compendium")]
+	[h:compendium=getLibProperty(group,function.getNamespace())]
 	[h:item=json.get(compendium,name)]
 	[h,if(json.type(item)=="UNKNOWN"):sources="";sources=json.toList(json.get(item,"sources"))]
 
@@ -43,7 +43,7 @@
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('D&D')]">
 
 
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission",function.getNamespace())]
 [h:edit=getStrProp(permissions,"edit")]
 [h:sharePlayer=getStrProp(permissions,"share")]
 [h,if(isGM()==1):edit=1]

@@ -7,7 +7,7 @@
 [h:id=findToken(tokenName)]
 [h,if(id==""):"";switchToken(id)]
 
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 [h:AtrProps=""]
 [h,count(listcount(attributeList),""),code:{
 	[h:attribute=listget(attributeList,roll.count)]
@@ -84,7 +84,7 @@ Current HP: <b>[r:currentInput]</b>/<b>[r:maxInput]</b> [r:if(tempInput==0,"","(
 
 
 [h,if(id==""):"";setProperty("HP",currentInput+"/"+maxInput+if(tempInput<0," ("+tempInput+")",""))]
-[h:setLibProperty("HP",currentInput+"/"+maxInput+if(tempInput<0," ("+tempInput+")",""),"Lib:"+tokenName)]
+[h:setLibProperty("HP", currentInput+"/"+maxInput+if(tempInput<0, function.getNamespace())",""),"Lib:"+tokenName)]
 
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
