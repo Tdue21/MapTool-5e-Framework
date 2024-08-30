@@ -96,14 +96,14 @@
 [h:setLibProperty("Class&Level",classes,"Lib:"+tokenName)]
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Spellcasting Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Spellcasting Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Spellcasting Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Description Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Description Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Description Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Statblock")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Statblock;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Statblock;tokenName="+tokenName]
 };{}]

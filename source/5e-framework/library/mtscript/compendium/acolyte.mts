@@ -89,7 +89,7 @@
 
 [h,if(json.type(Property)=="UNKNOWN"):Property="{}";""]
 
-[h:AddItem="Add Item@Lib:Character Creation"]
+[h:AddItem="character Creation/Add Item@this"]
 
 [h:res=input("lang|Background Equipment||label|span=true",
 "holy|Amulet,Emblem,Reliquary|Holy Symbol|list|value=string",

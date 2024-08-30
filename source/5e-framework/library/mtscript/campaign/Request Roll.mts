@@ -100,7 +100,7 @@
 	[h:owners=getOwners(",",currentId)]
 	[h,if(owners==""):owners="GM"]
 	
-	[h:link=macroLinkText("Request Roll Process@Lib:Campaign","","tokenName="+tokenName+";roll="+roll+";diceRoll="+diceRoll+";color="+color+";text="+text+";player="+getPlayerName()+";message="+message)]
+	[h:link=macroLinkText("campaign/Request Roll Process@this","","tokenName="+tokenName+";roll="+roll+";diceRoll="+diceRoll+";color="+color+";text="+text+";player="+getPlayerName()+";message="+message)]
 	[h:execLink(link,0,owners)]
 
 }]

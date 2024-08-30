@@ -11,7 +11,7 @@ Select in the list below the <b>Token</b> to level up, the list shows only <b>PC
 <td valign=bottom style="padding:0px;margin=0px;margin-left:10px">
 
 
-[h: processorLink=macroLinkText("Character Creation Wizard@Lib:Character Creation","")]
+[h: processorLink=macroLinkText("character Creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 

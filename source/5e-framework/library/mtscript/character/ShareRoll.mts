@@ -18,7 +18,7 @@
 <td style="margin: 0px; padding: 0px" align=center>
 <font size=6 color=red style="text-decoration:none"><b>
 
-[r:macroLink(formula,"Take Damage@Lib:Character",output,formula)]
+[r:macroLink(formula,"character/Take Damage@this",output,formula)]
 
 		
 </table>

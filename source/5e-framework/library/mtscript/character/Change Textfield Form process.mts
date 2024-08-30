@@ -79,42 +79,42 @@
 
 [h,if(oldName!=title && isDialogVisible(tokenName+" - "+oldName)==1),code:{
 [h:closeDialog(tokenName+" - "+oldName)]
-[macro("Args Dialog@Lib:Character"):"prop="+group+";index="+index+";source="+source+";name="+title+";customName="+customName+";description="+encode(value)+";tokenName="+tokenName]
+[macro("character/Args Dialog@this"):"prop="+group+";index="+index+";source="+source+";name="+title+";customName="+customName+";description="+encode(value)+";tokenName="+tokenName]
 };{}]
 
 [h,if(isDialogVisible(tokenName+" - "+oldName)==1),code:{
-[macro("Args Dialog@Lib:Character"):"prop="+group+";index="+index+";source="+source+";name="+title+";customName="+customName+";description="+encode(value)+";tokenName="+tokenName]
+[macro("character/Args Dialog@this"):"prop="+group+";index="+index+";source="+source+";name="+title+";customName="+customName+";description="+encode(value)+";tokenName="+tokenName]
 };{}]
 
 [h,if(isDialogVisible(tokenName+" - Info")==1),code:{
-[macro("Info@Lib:Character"):"tokenName="+tokenName]
+[macro("character/Info@this"):"tokenName="+tokenName]
 };{}]
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Spellcasting Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Spellcasting Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Spellcasting Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Description Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Description Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Description Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Statblock")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Statblock;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Statblock;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Pin Notes")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Pin Notes;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Pin Notes;tokenName="+tokenName]
 };{}]
 
 [h,if(isDialogVisible("Manage Additional Feats")==1),code:{
-[macro("Manage Additional Feats@Lib:Character"):""]
+[macro("character/Manage Additional Feats@this"):""]
 };{}]
 [h,if(isDialogVisible("Manage Feats")==1),code:{
-[macro("Manage Feats@Lib:Character"):""]
+[macro("character/Manage Feats@this"):""]
 };{}]
 [h,if(isDialogVisible("Manage Equipment")==1),code:{
-[macro("Manage Equipment@Lib:Character"):""]
+[macro("character/Manage Equipment@this"):""]
 };{}]
 [h,if(isDialogVisible("Manage Spells")==1),code:{
-[macro("Manage Spells@Lib:Character"):""]
+[macro("character/Manage Spells@this"):""]
 };{}]

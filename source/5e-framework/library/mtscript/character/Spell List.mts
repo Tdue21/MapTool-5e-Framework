@@ -52,13 +52,13 @@
 
 <p>
 
-[r:lvltext] level (<span title='Edit Spell Slots'>[r:macroLink(available+if(available==1," slot"," slots"),"Change Slots@Lib:Character","","level="+level+";tokenName="+tokenName)]</span>):
+[r:lvltext] level (<span title='Edit Spell Slots'>[r:macroLink(available+if(available==1," slot"," slots"),"character/Change Slots@this","","level="+level+";tokenName="+tokenName)]</span>):
 
 [r,count(repeat,","),code:{
 	[h:objName=listGet(preplist,roll.count)]
 	[h:objData=json.get(obj,objName)]
 	[h:source=json.get(objData,"source")]
-	[r:macrolink(objName,"Args Dialog@Lib:Character","","prop=Spells;source="+source+";name="+objName+";description=;tokenName="+tokenName)]
+	[r:macrolink(objName,"character/Args Dialog@this","","prop=Spells;source="+source+";name="+objName+";description=;tokenName="+tokenName)]
 }]
 </p>
 

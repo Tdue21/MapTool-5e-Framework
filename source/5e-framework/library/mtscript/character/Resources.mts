@@ -47,7 +47,7 @@
 <td bgcolor=#DCDCDC valign=middle style="margin:0px; padding:0px; font-size:8px">
 
 
-[r:macroLink("<span title='Change "+function.Capitalize(name)+"'>"+function.Capitalize(name)+"</span>","Change Resource@Lib:Character","","name="+name+";tokenName="+tokenName)]
+[r:macrolink("<span title='Change "+function.Capitalize(name)+"'>"+function.Capitalize(name)+"</span>", "character/Change Resource@this")"","name="+name+";tokenName="+tokenName)]
 
 <td align=center bgcolor=#DCDCDC valign=middle style="margin:0px; padding:0px; font-size:10px">
 
@@ -72,7 +72,7 @@
 
 <!-----------------BUFFS------------------->
 
-[r:macroLink("<span title='Edit temporary effects'>Buffs</span>","Buffs@Lib:Character",Output,tokenName,tokenName)]:
+[r:macrolink("<span title='Edit temporary effects'>Buffs</span>", "character/Buffs@this")Output,tokenName,tokenName)]:
 
 [h:buffs=getLibProperty("Buffs","Lib:"+tokenName)]
 
@@ -91,7 +91,7 @@
 <br>
 
 <!-----------------CONDITIONS------------------->
-[r:macroLink("<span title='Edit Conditions'>Conditions</span>","Conditions Menu@Lib:Character","","tokenName="+tokenName)]:
+[r:macrolink("<span title='Edit Conditions'>Conditions</span>", "character/Conditions Menu@this")"","tokenName="+tokenName)]:
 
 [r,if(id==""),code:{};{
 
@@ -102,17 +102,17 @@
 }]
 
 <br>
-[r:macroLink("<span title='Use Reaction'>Reaction","Reaction@Lib:Character",Output,"tokenName="+tokenName)]:
+[r:macrolink("<span title='Use Reaction'>Reaction", "character/Reaction@this")Output,"tokenName="+tokenName)]:
 [r,if(id==""):"";if(getState("Reaction Used")==0,"Available","Used")]
 
 <br>
 [h:concentrationSpell=getLibProperty("Concentration","Lib:"+tokenName)]
-[r:macroLink("<span title='Set Concentration Spell'>Concentration","Concentration@Lib:Character",Output,"tokenName="+tokenName)]:
+[r:macrolink("<span title='Set Concentration Spell'>Concentration", "character/Concentration@this")Output,"tokenName="+tokenName)]:
 [r,if(id==""):"";if(getState("Concentration")==0,"Not concentrating",concentrationSpell)]
 
 <tr>
 <td colspan=3 align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macroLink("<span title='Add Resources'>RESOURCES</span>","Change Resource@Lib:Character","","name=NEW RESOURCE;tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Add Resources'>RESOURCES</span>", "character/Change Resource@this")"","name=NEW RESOURCE;tokenName="+tokenName)]
 
 
 

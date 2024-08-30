@@ -102,7 +102,7 @@
 
 <!--------------------------------DICE SOUNDS---------------------------------->
 [h,if(group3==100),code:{
-	[macro("Dice Sounds@Lib:Campaign"):""]
+	[macro("campaign/Dice Sounds@this"):""]
 };{}]
 
 
@@ -111,7 +111,7 @@
 
 
 <!--------------------------------DICE SOUNDS---------------------------------->
-[macro("Dice Sounds@Lib:Campaign"):""]
+[macro("campaign/Dice Sounds@this"):""]
 
 		[h:dice=roll(1,group3)]
 		[h:dice=if(group1=="-",dice*-1,if(firstRoll==0,"","+")+dice)]
@@ -189,7 +189,7 @@
 <td style="margin: 0px; padding: 0px">
 <font size=4 color=red style="text-decoration:none"><b>
 
-[r:macroLink(formula,"Take Damage@Lib:Character","",formula)]
+[r:macroLink(formula,"character/Take Damage@this","",formula)]
 
 </b>
 <font size=3 color=gray>
@@ -203,8 +203,8 @@
 </table>
 [h:crit=critFormula+"+"+formula]
 <font color=gray size=2 style="text-decoration:none">
-[r,if(iscrit!=1):macroLink("[roll crit]","Dice Roller@Lib:Character","","group="+group+";name="+name+";customName="+customName+";text=Critical Hit!;value="+crit+";tokenName="+tokenName),1)]
+[r,if(iscrit!=1):macrolink("[roll crit]", "character/Dice Roller@this")"","group="+group+";name="+name+";customName="+customName+";text=Critical Hit!;value="+crit+";tokenName="+tokenName),1)]
 
-[r,if(output!="all"):macroLink("[Share Result]","ShareRoll@Lib:Character","all",formula)]
+[r,if(output!="all"):macrolink("[Share Result]", "character/ShareRoll@this")"all",formula)]
 
-[r,if(name==""):"";macroLink("[info]","Args Dialog@Lib:Character","","prop="+group+";name="+name+";customName="+customName+";tokenName="+tokenName)]
+[r,if(name==""):"";macrolink("[info]", "character/Args Dialog@this")"","prop="+group+";name="+name+";customName="+customName+";tokenName="+tokenName)]

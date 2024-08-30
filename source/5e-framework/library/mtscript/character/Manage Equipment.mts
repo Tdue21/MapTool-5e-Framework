@@ -6,13 +6,13 @@
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 <p class='topbar'>
 
-[r:macroLink("Settings","Campaign Settings@Lib:Campaign")]&nbsp;
-[r:macroLink("Import","Json Merge@Lib:Campaign","","macroName=Manage Equipment;lib=Lib:Compendium;value=Equipment")]&nbsp;
-[r:macroLink("Export","Json Export@Lib:Campaign","","lib=Lib:Compendium;value=Equipment")]&nbsp;
+[r:macroLink("Settings","campaign/Campaign Settings@this")]&nbsp;
+[r:macrolink("Import", "campaign/Json Merge@this")"","macroName=Manage Equipment;lib=Lib:Compendium;value=Equipment")]&nbsp;
+[r:macrolink("Export", "campaign/Json Export@this")"","lib=Lib:Compendium;value=Equipment")]&nbsp;
 
 </p>
 
 <h5>Equipment</h5>
-[macro("Equipment List@Lib:Character"):"tokenName="+tokenName]
+[macro("character/Equipment List@this"):"tokenName="+tokenName]
 
 }]

@@ -13,7 +13,7 @@
 	<p bgcolor=white style="border-bottom: 1px solid gray;padding:0px;margin:0px;font-family:sans;font-size:10px">
 
 
-	[r:macroLink("Build Table","Build Bestiary Table@Lib:Tables","")]
+	[r:macrolink("Build Table", "tables/Build Bestiary Table@this")"")]
 
 
 	</p>
@@ -31,13 +31,13 @@
 	<table>
 	<tr>
 	<th>
-	[r:macroLink("Name","Creature Window@Lib:Tables","","sort=Name;dir="+dir)]
+	[r:macrolink("Name", "tables/Creature Window@this")"","sort=Name;dir="+dir)]
 	<th>
-	[r:macroLink("Type","Creature Window@Lib:Tables","","sort=Type;dir="+dir)]
+	[r:macrolink("Type", "tables/Creature Window@this")"","sort=Type;dir="+dir)]
 	<th width=10% align=center>
-	[r:macroLink("CR","Creature Window@Lib:Tables","","sort=numericCR;dir="+dir)]
+	[r:macrolink("CR", "tables/Creature Window@this")"","sort=numericCR;dir="+dir)]
 	<th width=10% align=center>
-	[r:macroLink("Sources","Creature Window@Lib:Tables","","sort=Sources;dir="+dir)]
+	[r:macrolink("Sources", "tables/Creature Window@this")"","sort=Sources;dir="+dir)]
 	
 	[h:odd=1]
 	[r,count(listcount(fields),"<br>"),code:{
@@ -54,7 +54,7 @@
 
 
 		
-		[r:macroLink(CapitalName,"Viewer Frame@Lib:Bestiary","",name)]
+		[r:macroLink(CapitalName,"bestiary/Viewer Frame@this","",name)]
 		<td>
 		[r:type=json.get(currentObj,"Type")]
 		<td align=center>
@@ -62,7 +62,7 @@
 		<td align=center>
 		[r:sources=json.get(currentObj,"Sources")]
 		<td width=0%>
-		[r:macroLink("Make Token","Quick Monster@Lib:Bestiary",output,name)]
+		[r:macrolink("Make Token", "bestiary/Quick Monster@this")output,name)]
 	
 	}]
 

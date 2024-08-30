@@ -154,7 +154,7 @@
 	[h,if(matches(group2,".*share=?\\d*\$")==1),code:{
 		[h:size=replace(group2,"share","")]
 		[h:imgSize=replace(group1,"width='?\\d*'","width"+size)]
-		[h:group2=macroLinkText("Share@Lib:Character","","share=1;description="+imgSize)]
+		[h:group2=macroLinkText("character/Share@this","","share=1;description="+imgSize)]
 	}]
 	
 	[h:entry=replace(entry,"(?<!!)\\[(.*?)\\]\\((.*?)\\)","<a href='"+group2+"' >"+group1+"</a>",1)]
@@ -201,7 +201,7 @@
 		[h,if(getGroup(idSpell,1,1)==""):name=getGroup(idSpell,1,3);name=getGroup(idSpell,1,1)]
 		[h:text=getGroup(idSpell,1,2)]
 		
-		[h:objLink='<span title="Spell: '+lower(name)+'">' +macroLink(name,"Args Dialog@Lib:Bestiary","","prop=Spells;source=;name="+lower(name)+";description=;tokenName="+tokenName)+"</span>"+text]
+		[h:objLink='<span title="Spell: '+lower(name)+'">' +macroLink(name,"bestiary/Args Dialog@this","","prop=Spells;source=;name="+lower(name)+";description=;tokenName="+tokenName)+"</span>"+text]
 		[h:entry=replace(entry,currentSpell,objLink,1)]
 	}]
 	
@@ -238,7 +238,7 @@
 	[h:group2=replace(group2,"\\s","")]
 	[h:group2=replace(group2,"spell",spell)]
 
-	[h:entry=replace(entry,"ROLLPLACEHOLDER\\d+","<span title='roll: "+group2+"'>"+macroLink(group1,"Dice Roller@Lib:Bestiary","","text="+group1+";value="+group2+";tokenName="+tokenName+";group="+jsonGroup+";name="+name)+"</span>",1)]
+	[h:entry=replace(entry,"ROLLPLACEHOLDER\\d+","<span title='roll: "+group2+"'>"+macroLink(group1,"bestiary/Dice Roller@this","","text="+group1+";value="+group2+";tokenName="+tokenName+";group="+jsonGroup+";name="+name)+"</span>",1)]
 }]
 
 
@@ -256,7 +256,7 @@
 	[h:text=replace(tokenName,"<a.*?>","")]
 	[h:text=replace(text,".</a>","")]
 
-	[h:entry=replace(entry,"TOHITPLACEHOLDER\\d+","<span title='to hit: "+group2+"'>"+macroLink(group1,"d20 Roller@Lib:Bestiary","","text="+text+";value=("+if(group2<0,group2,"+"+group2)+");tokenName="+tokenName+";color=red")+"</span>",1)]
+	[h:entry=replace(entry,"TOHITPLACEHOLDER\\d+","<span title='to hit: "+group2+"'>"+macroLink(group1,"bestiary/d20 Roller@this","","text="+text+";value=("+if(group2<0,group2,"+"+group2)+");tokenName="+tokenName+";color=red")+"</span>",1)]
 }]
 
 [h:entry=replace(entry,"PLUSPLACEHOLDER","+")]

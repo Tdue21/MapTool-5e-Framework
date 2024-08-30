@@ -61,7 +61,7 @@
 [h,if(feat==1):abort(res);""]
 
 [h,if(item=="Add New"),code:{
-[macro("Change Form@Lib:Character"):"prop="+group+";index=new;name=new;description=new;tokenName="+tokenName]
+[macro("character/Change Form@this"):"prop="+group+";index=new;name=new;description=new;tokenName="+tokenName]
 };{
 	[h:Property=json.set(Property,item,"Feat")]
 	[h,if(feat==1):setProperty(group,Property)]

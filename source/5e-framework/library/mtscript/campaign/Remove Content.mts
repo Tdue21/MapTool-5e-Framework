@@ -82,7 +82,7 @@
 
 
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
-[h:processorLink=macroLinkText("Remove Content process@Lib:Campaign","")]
+[h:processorLink=macroLinkText("campaign/Remove Content process@this","")]
 <form action="[r:processorLink]" method="json">
 
 

@@ -59,7 +59,7 @@
 [dialog5("Edit Class Features", "width=380; height=660; temporary=1; noframe=0; input=1"):{
 
 	<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
-	[h: processorLink = macroLinkText("Change Class Features process@Lib:Character Creation","")]
+	[h: processorLink = macroLinkText("character Creation/Change Class Features process@this","")]
 	<form action="[r:processorLink]" method="json">
 	<input type="submit" name="button" value="Save">[r,count(5,""):"&nbsp;"]
 	<input type="submit" name="cancel" value="Cancel">[r,count(40,""):"&nbsp;"]

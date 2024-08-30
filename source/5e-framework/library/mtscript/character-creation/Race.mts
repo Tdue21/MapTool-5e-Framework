@@ -44,7 +44,7 @@ Select a <b>race</b>, <b>subrace</b> or <b>variant race</b> from the following l
 <td valign=bottom style="padding:0px;margin=0px">
 
 
-[h: processorLink=macroLinkText("Character Creation Wizard@Lib:Character Creation","")]
+[h: processorLink=macroLinkText("character Creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 

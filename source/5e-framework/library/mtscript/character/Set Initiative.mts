@@ -40,5 +40,5 @@
 
 [h:sortInitiative()]
 
-[macro("Initiative Overlay@Lib:Overlay"):"output=all"]
+[macro("overlay/Initiative Overlay@this"):"output=all"]
 }]

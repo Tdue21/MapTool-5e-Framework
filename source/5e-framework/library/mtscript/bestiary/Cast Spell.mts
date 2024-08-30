@@ -4,7 +4,7 @@
 
 [h:output= function.getOutput())]
 
-[macro("Get Spell Level@Lib:Character"):"group=Spells;name="+name]
+[macro("character/Get Spell Level@this"):"group=Spells;name="+name]
 [h:level=macro.return]
 
 [h:slotList=level]
@@ -22,7 +22,7 @@
 [h:abort(res)]
 
 [h,if(template==1),code:{
-	[macro("Drop Template@Lib:Character"):tokenName]
+	[macro("character/Drop Template@this"):tokenName]
 }]
 
 
@@ -56,9 +56,9 @@
 
 
 [h:level=if(isNumber(UseSlot)==1," using a "+UseSlot+ordinal+" level slot.",".")]
-[h:broadcast("<font style='text-decoration:none'>"+tokenName+" casts <b>"+macroLink(function.Capitalize(name),"Args Dialog@Lib:Bestiary","","prop=Spells;name="+name+";tokenName="+tokenName)+"</b>"+level,Output)]
+[h:broadcast("<font style='text-decoration:none'>"+tokenName+" casts <b>"+macroLink(function.Capitalize(name),"bestiary/Args Dialog@this","","prop=Spells;name="+name+";tokenName="+tokenName)+"</b>"+level,Output)]
 
 
 [h,if(isFrameVisible(tokenName+" - Statblock")==1),code:{
-[macro("Macro Frame@Lib:Bestiary"):tokenName]
+[macro("bestiary/Macro Frame@this"):tokenName]
 };{}]

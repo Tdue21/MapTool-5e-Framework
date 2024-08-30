@@ -1,1 +1,1 @@
-[macro("Manage@Lib:Bestiary"):""]
+[macro("bestiary/Manage@this"):""]

@@ -12,11 +12,11 @@
 
 
 <p bgcolor=white style="border-bottom: 1px solid gray;padding:0px;margin:0px;font-family:sans;font-size:10px">
-<font style="text-decoration:none">[r:macroLink("Post","Broadcast Results@Lib:Vote","")]
+<font style="text-decoration:none">[r:macrolink("Post", "vote/Broadcast Results@this")"")]
 </p>
 
 
-[macro("Results@Lib:Vote"):""]
+[macro("vote/Results@this"):""]
 
 
 }]

@@ -25,16 +25,16 @@
 
 
 
-[macro("Create Macros@lib:Character Creation"):"id="+newId]
+[macro("character Creation/Create Macros@this"):"id="+newId]
 
 
 
 [h,if(wizard==1),code:{
 
-[macro("Character Creation Wizard@lib:Character Creation"):"{'route':'New'}"]
+[macro("character Creation/Character Creation Wizard@this"):"{'route':'New'}"]
 
 }]
 
-[macro("Tables List@Lib:Tables"):""]
+[macro("tables/Tables List@this"):""]
 
 [h:macro.return=name]

@@ -49,7 +49,7 @@ if(identify==1,"identified|"+identified+"|Identified|check",""))]
 [h,if(isNumber(Quantity)==0):res=input("var|Quantity must be a number||label|span=true");""]
 [h:abort(res)]
 
-[macro("Get Equipment Info@Lib:Character"):"group="+group+";name="+name]
+[macro("character/Get Equipment Info@this"):"group="+group+";name="+name]
 [h:equipInfo=macro.return]
 
 [h:object=json.fromStrProp(equipInfo+";Quantity="+Quantity+";ammo="+ammo+";Equiped="+Equiped+";offHand="+offHand+";customName="+customName+";bonusAtk="+bonusAtk+";bonusDmg="+bonusDmg+";identified="+identified)]
@@ -151,7 +151,7 @@ if(identify==1,"identified|"+identified+"|Identified|check",""))]
 [h:bonusAtk=json.get(obj,"bonusAtk")]
 [h:bonusDmg=json.get(obj,"bonusDmg")]
 
-[macro("Get Spell Level@Lib:Character"):"group="+group+";name="+name]
+[macro("character/Get Spell Level@this"):"group="+group+";name="+name]
 [h:level=macro.return]
 
 [h:sourceList=spellClassList+",Race,Item,Other"]
@@ -202,32 +202,32 @@ if(identify==1,"identified|"+identified+"|Identified|check",""))]
 
 
 [h,if(isDialogVisible(tokenName+" - "+CapitalName)==1),code:{
-[macro("Args Dialog@Lib:Character"):"prop="+group+";index="+index+";source="+source+";name="+name+";description=;tokenName="+tokenName+";customName="+customName+";identified="+identified]
+[macro("character/Args Dialog@this"):"prop="+group+";index="+index+";source="+source+";name="+name+";description=;tokenName="+tokenName+";customName="+customName+";identified="+identified]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(originalToken+" - Character Sheet")==1 && originalToken!=tokenName),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+originalToken]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+originalToken]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Spellcasting Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Spellcasting Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Spellcasting Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(originalToken+" - Spellcasting Sheet")==1 && originalToken!=tokenName),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Spellcasting Sheet;tokenName="+originalToken]
+[macro("character/Macro Frame@this"):"macro=Spellcasting Sheet;tokenName="+originalToken]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Description Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Description Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Description Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(originalToken+" - Description Sheet")==1 && originalToken!=tokenName),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Description Sheet;tokenName="+originalToken]
+[macro("character/Macro Frame@this"):"macro=Description Sheet;tokenName="+originalToken]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Statblock")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Statblock;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Statblock;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(originalToken+" - Statblock")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Statblock;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Statblock;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(originalToken+" - Pin Notes")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Pin Notes;tokenName="+originalToken]
+[macro("character/Macro Frame@this"):"macro=Pin Notes;tokenName="+originalToken]
 };{}]

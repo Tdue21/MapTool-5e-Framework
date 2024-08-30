@@ -12,11 +12,11 @@
 
 <p class='topbar'>
 
-[r:macroLink("Close Shared","Close Shared@Lib:Campaign")]
+[r:macroLink("Close Shared","campaign/Close Shared@this")]
 
 </p>
 };{}]
 
-[macro("Viewer@Lib:Bestiary"):tokenName]
+[macro("bestiary/Viewer@this"):tokenName]
 
 }]

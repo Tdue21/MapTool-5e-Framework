@@ -81,7 +81,7 @@
 
 
 
-[h:link=macroLinkText("Broadcast@Lib:Languages","","text="+encode(text)+";language="+language+";translated="+encode(translated)+";broadcastText="+encode(broadcastText)+";tokenName="+tokenName)]
+[h:link=macroLinkText("languages/Broadcast@this","","text="+encode(text)+";language="+language+";translated="+encode(translated)+";broadcastText="+encode(broadcastText)+";tokenName="+tokenName)]
 [h:execLink(link,0,"all")]
 
-[macro("Chat Frame@Lib:Languages"):"width="+width+";language="+language]
+[macro("languages/Chat Frame@this"):"width="+width+";language="+language]

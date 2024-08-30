@@ -108,5 +108,5 @@
 }]
 
 [h,if(isDialogVisible("Settings")==1),code:{
-[macro("Campaign Settings@Lib:Campaign"):""]
+[macro("campaign/Campaign Settings@this"):""]
 };{}]

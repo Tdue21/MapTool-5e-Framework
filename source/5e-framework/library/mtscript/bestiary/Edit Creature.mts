@@ -35,5 +35,5 @@
 
 
 [h,if(isDialogVisible("Manage Bestiary")==1),code:{
-[macro("Manage@Lib:Bestiary"):""]
+[macro("bestiary/Manage@this"):""]
 };{}]

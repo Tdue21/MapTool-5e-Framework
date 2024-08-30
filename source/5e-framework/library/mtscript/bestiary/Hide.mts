@@ -1,1 +1,1 @@
-[macro('Show Hide All@Lib:Campaign'):'idList='+getSelected()]
+[macro('campaign/Show Hide All@this'):'idList='+getSelected()]

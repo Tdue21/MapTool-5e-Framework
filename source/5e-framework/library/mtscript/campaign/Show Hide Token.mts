@@ -8,6 +8,6 @@
 [h:sendToBack()]
 [h:setProperty("hidden",1 - token.visible)]
 [h,if(isOverlayRegistered("Initiative")==1),code:{
-[macro("Initiative Overlay@Lib:Overlay"):"output=all"]
+[macro("overlay/Initiative Overlay@this"):"output=all"]
 };{}]
 

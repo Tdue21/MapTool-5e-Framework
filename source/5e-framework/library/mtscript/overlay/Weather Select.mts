@@ -8,6 +8,6 @@
 
 [h:setLibProperty("Weather",args,"Lib:Campaign")]
 
-[h:link=macroLinkText("Weather@Lib:Overlay","",args)]
+[h:link=macroLinkText("overlay/Weather@this","",args)]
 
 [h:execLink(link,0,"all")]

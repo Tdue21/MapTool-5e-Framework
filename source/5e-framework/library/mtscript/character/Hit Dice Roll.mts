@@ -14,7 +14,7 @@
 [h:formula=if(isNumber(spend)==1,spend+"d"+sides,"1d"+sides)]
 [h,if(isNumber(spend)==1):con=con*spend;""]
 
-[h:link=macroLinkText("Dice Roller@Lib:Character","","text=Rest;value="+formula+if(bonus=="" || bonus==0,"","+"+bonus)+"+"+con+";tokenName="+tokenName)]
+[h:link=macroLinkText("character/Dice Roller@this","","text=Rest;value="+formula+if(bonus=="" || bonus==0,"","+"+bonus)+"+"+con+";tokenName="+tokenName)]
 
 [r:execLink(link,0)]
 
@@ -27,5 +27,5 @@
 
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]
 };{}]

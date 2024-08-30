@@ -8,7 +8,7 @@
 
 
 
-[h:macroName="Change Property@Lib:Bestiary"]
+[h:macroName="bestiary/Change Property@this"]
 [h:args="name="+tokenName+";json="+object+";tokenName=;key="]
 [h:output= function.getOutput())]
 
@@ -23,7 +23,7 @@
 [h:currentItem="Features"]
 [h:currentDescription=json.get(CurrentObject,currentItem)]
 
-[h:featureLink=macroLink("Features","Action Type@Lib:Bestiary","","group="+group+";name="+currentItem+";tokenName="+tokenName+";object="+object)]
+[h:featureLink=macrolink("Features", "bestiary/Action Type@this")"","group="+group+";name="+currentItem+";tokenName="+tokenName+";object="+object)]
 
 <!----------------------LOAD VARIANT----------------------->
 [h:show=getStrProp(settings,"variant")]
@@ -35,7 +35,7 @@
 	[h:currentItem="Variant Rules"]
 	[h:currentDescription=json.get(CurrentObject,currentItem)]
 	
-	[h:variantLink=macroLink("Variant","Change Form@Lib:Bestiary","","group="+group+";name="+currentItem+";tokenName="+tokenName+";description="+currentDescription)]
+	[h:variantLink=macrolink("Variant", "bestiary/Change Form@this")"","group="+group+";name="+currentItem+";tokenName="+tokenName+";description="+currentDescription)]
 };{}]
 
 
@@ -229,7 +229,7 @@
 
 [h:featureLink="Features"]
 
-[macro("Markdown@Lib:Campaign"):"link="+featureLink+";tokenName="+tokenName+";description="+encode(currentDescription)]
+[macro("campaign/Markdown@this"):"link="+featureLink+";tokenName="+tokenName+";description="+encode(currentDescription)]
 
 
 
@@ -251,7 +251,7 @@
 	[r:link=capitalize(currentItem)]
 	</h5>
 	
-	[macro("Markdown@Lib:Campaign"):"link="+link+";tokenName="+tokenName+";description="+encode(currentDescription)]
+	[macro("campaign/Markdown@this"):"link="+link+";tokenName="+tokenName+";description="+encode(currentDescription)]
 	
 }]
 
@@ -278,7 +278,7 @@
 	
 	[h:variantLink="Variant"]
 	
-	[macro("Markdown@Lib:Campaign"):"link="+featureLink+";tokenName="+tokenName+";description="+encode(currentDescription)]
+	[macro("campaign/Markdown@this"):"link="+featureLink+";tokenName="+tokenName+";description="+encode(currentDescription)]
 
 	</div>
 

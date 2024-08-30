@@ -50,10 +50,10 @@
 
 [h,if(name==""):setProperty("Stats",object);setLibProperty("Bestiary",json.set(BestiaryObj,name,object),"Lib:Compendium")]
 
-[macro("Macro Frame@Lib:Bestiary"):tokenName]
+[macro("bestiary/Macro Frame@this"):tokenName]
 
 [h:CapitalName=function.Capitalize(tokenName)]
 
 [h,if(isDialogVisible(CapitalName+" - Info")==1),code:{
-[macro("Info@Lib:Bestiary"):"name="+name+";tokenName="+tokenName]
+[macro("bestiary/Info@this"):"name="+name+";tokenName="+tokenName]
 };{}]

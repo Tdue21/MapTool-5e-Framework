@@ -52,5 +52,5 @@
 [h:color=if(roll=="Save","ff9900","0099cc")]
 [h:text=if(roll=="Save",name+" save",atr+" ("+name+")")]
 
-[macro("d20 Roller@Lib:Character"):"text="+text+";value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";id=;tokenName="+tokenName+";color="+color]
+[macro("character/d20 Roller@this"):"text="+text+";value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";id=;tokenName="+tokenName+";color="+color]
 

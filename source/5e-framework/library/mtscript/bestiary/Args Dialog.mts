@@ -33,7 +33,7 @@
 [h,if(name=="new"),code:{
 
 
-[macro("Change Form@Lib:Character"):macro.args]
+[macro("character/Change Form@this"):macro.args]
 
 
 };{
@@ -55,10 +55,10 @@
 
 [h:args=setStrProp(macro.args,"tokenName","Lib:Compendium")]
 
-[r,if(share==1 || edit==0):"";macrolink("Edit","Change Form@Lib:Character","",args)+" &nbsp;"]
-[r,if(share==1):"";macrolink("Move","Move@Lib:Character","",args)+" &nbsp;"]
-[r,if(share==1 || sharePlayer==0):"";macrolink("Share","Share@Lib:Character","",args+";share=1")+" &nbsp;"]
-[r,if(share==1 || sharePlayer==0 || group!="Spells"):"";macrolink("Cast","Cast Spell@Lib:Bestiary","",macro.args)+" &nbsp;"]
+[r,if(share==1 || edit==0):"";macrolink("Edit", "character/Change Form@this")"",args)+" &nbsp;"]
+[r,if(share==1):"";macrolink("Move", "character/Move@this")"",args)+" &nbsp;"]
+[r,if(share==1 || sharePlayer==0):"";macrolink("Share", "character/Share@this")"",args+";share=1")+" &nbsp;"]
+[r,if(share==1 || sharePlayer==0 || group!="Spells"):"";macrolink("Cast", "bestiary/Cast Spell@this")"",macro.args)+" &nbsp;"]
 
 
 [r,if(share==1):"";"</p>"]
@@ -71,7 +71,7 @@
 
 
 
-[macro("Markdown@Lib:Bestiary"):"tokenName="+tokenName+";description="+description+";source="+source+";name="+name+";group="+group]
+[macro("bestiary/Markdown@this"):"tokenName="+tokenName+";description="+description+";source="+source+";name="+name+";group="+group]
 
 [r,if(sources==""):"";"<p><b>Sources: </b>"+sources+"</p>"]
 

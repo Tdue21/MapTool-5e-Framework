@@ -33,7 +33,7 @@
 [h,if(name=="new"),code:{
 	
 	
-	[macro("Change Form@Lib:Character"):macro.args]
+	[macro("character/Change Form@this"):macro.args]
 	
 	
 };{
@@ -53,12 +53,12 @@
 		[h,if(isGM()==1):edit=1]
 		[h,if(isGM()==1):sharePlayer=1]
 		
-		[r,if(share==1 || edit==0):"";macrolink("Edit","Change Form@Lib:Character","",macro.args)+" &nbsp;"]
-		[r,if(share==1):"";macrolink("Remove","Pin Delete@Lib:Character","",macro.args)+" &nbsp;"]
-		[r,if(share==1 || tokenName=="Lib:Character"):"";macrolink("Settings","Pin Metadata@Lib:Character","",macro.args)+" &nbsp;"]
-		[r,if(share==1):"";macrolink("Move","Pin Move@Lib:Character","",macro.args)+" &nbsp;"]
+		[r,if(share==1 || edit==0):"";macrolink("Edit", "character/Change Form@this")"",macro.args)+" &nbsp;"]
+		[r,if(share==1):"";macrolink("Remove", "character/Pin Delete@this")"",macro.args)+" &nbsp;"]
+		[r,if(share==1 || tokenName=="Lib:Character"):"";macrolink("Settings", "character/Pin Metadata@this")"",macro.args)+" &nbsp;"]
+		[r,if(share==1):"";macrolink("Move", "character/Pin Move@this")"",macro.args)+" &nbsp;"]
 		
-		[r,if(share==1 || sharePlayer==0):"";macrolink("Share","Share@Lib:Character","",macro.args+";share=1")+" &nbsp;"]
+		[r,if(share==1 || sharePlayer==0):"";macrolink("Share", "character/Share@this")"",macro.args+";share=1")+" &nbsp;"]
 		
 		
 		
@@ -76,7 +76,7 @@
 		[h,if(identified==0 && isGM()==0):description="*Unidentified item*";""]
 
 		
-		[macro("Markdown@Lib:Campaign"):"tokenName="+tokenName+";description="+description+";source="+source+";name="+name+";group="+group]
+		[macro("campaign/Markdown@this"):"tokenName="+tokenName+";description="+description+";source="+source+";name="+name+";group="+group]
 
 		[r,if(sources==""):"";"<p><b>Sources: </b>"+sources+"</p>"]
 	

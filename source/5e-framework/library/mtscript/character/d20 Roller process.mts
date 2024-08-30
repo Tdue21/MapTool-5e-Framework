@@ -60,8 +60,8 @@
 [h:roll1=1d20]
 [h:roll2=1d20]
 <!--------------------------------DICE SOUNDS---------------------------------->
-[macro("Dice Sounds@Lib:Campaign"):""]
-[macro("Dice Sounds@Lib:Campaign"):""]
+[macro("campaign/Dice Sounds@this"):""]
+[macro("campaign/Dice Sounds@this"):""]
 
 
 [h:img=tableImage("BlankDice",20)]
@@ -183,19 +183,19 @@
 
 [r,if(autoInit==1 && matches(text,"Initiative.*")==1),code:{
 
-	[h,macro("Set Initiative@Lib:Character"):"tokenName="+tokenName+";value="+if(roll==0,formulaNormal,if(roll==1,adv,dis))]
+	[h,macro("character/Set Initiative@this"):"tokenName="+tokenName+";value="+if(roll==0,formulaNormal,if(roll==1,adv,dis))]
 
 };{
 
-	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macroLink("[Set initiative]","Set Initiative@Lib:Character","","tokenName="+tokenName+";value="+formulaNormal),"")]
-	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macroLink("[Adv]","Set Initiative@Lib:Character","","tokenName="+tokenName+";value="+adv),"")]
-	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macroLink("[Dis]","Set Initiative@Lib:Character","","tokenName="+tokenName+";value="+dis),"")]
+	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macrolink("[Set initiative]", "character/Set Initiative@this")"","tokenName="+tokenName+";value="+formulaNormal),"")]
+	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macrolink("[Adv]", "character/Set Initiative@this")"","tokenName="+tokenName+";value="+adv),"")]
+	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macrolink("[Dis]", "character/Set Initiative@this")"","tokenName="+tokenName+";value="+dis),"")]
 	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1 && output!="all","<br>","")]
 
 }]
 
-[r,if(output!="all"):macroLink("[Share Result]","ShareRoll@Lib:Character","all",formulaNormal)]
-[r,if(output!="all"):macroLink("[Adv]","ShareRoll@Lib:Character","all",adv)]
-[r,if(output!="all"):macroLink("[Dis]","ShareRoll@Lib:Character","all",dis)]
+[r,if(output!="all"):macrolink("[Share Result]", "character/ShareRoll@this")"all",formulaNormal)]
+[r,if(output!="all"):macrolink("[Adv]", "character/ShareRoll@this")"all",adv)]
+[r,if(output!="all"):macrolink("[Dis]", "character/ShareRoll@this")"all",dis)]
 
-[r,if(name==""):"";macroLink("[info]","Args Dialog@Lib:Character","","prop="+group+";name="+name+";customName="+customName+";tokenName="+tokenName)]
+[r,if(name==""):"";macrolink("[info]", "character/Args Dialog@this")"","prop="+group+";name="+name+";customName="+customName+";tokenName="+tokenName)]

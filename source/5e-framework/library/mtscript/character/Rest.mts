@@ -120,7 +120,7 @@ case "1":{
 	[h,if(heal==0):healText="";healText="<font color=green><b>"+tokenName+"</b> recovered <b>"+heal+"</b> HP<br>"]
 	[h:text="Current HP: <b>"+total+"</b>/<b>"+total+"</b> "+if(temp==0 || temp=="","","(<b>"+temp+"</b>)")]
 	[h,if(total==0):total=1]
-	[h:broadcast(healText+text+execMacro('[macro("HP Bar@Lib:Character"):"MaxLen=65;MaxValue='+total+';Value='+total+';Color=Green"]'),output)]
+	[h:broadcast(healText+text+execMacro('[macro("character/HP Bar@this"):"MaxLen=65;MaxValue='+total+';Value='+total+';Color=Green"]'),output)]
 
 	[h,token(id):setBar("Health", total/total)]
 	[h,token(id):setBarVisible("Health",0)]
@@ -214,7 +214,7 @@ default:{
 	[h,if(heal==0):healText="";healText="<font color=green><b>"+tokenName+"</b> recovered <b>"+heal+"</b> HP<br>"]
 	[h:text="Current HP: <b>"+total+"</b>/<b>"+total+"</b> "+if(temp==0 || temp=="","","(<b>"+temp+"</b>)")]
 	[h,if(total==0):total=1]
-	[h:broadcast(healText+text+execMacro('[macro("HP Bar@Lib:Character"):"MaxLen=65;MaxValue='+total+';Value='+total+';Color=Green"]'),output)]
+	[h:broadcast(healText+text+execMacro('[macro("character/HP Bar@this"):"MaxLen=65;MaxValue='+total+';Value='+total+';Color=Green"]'),output)]
 
 	[h,token(id):setBar("Health", total/total)]
 	[h,token(id):setBarVisible("Health",0)]
@@ -226,14 +226,14 @@ default:{
 
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Spellcasting Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Spellcasting Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Spellcasting Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Description Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Description Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Description Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Statblock")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Statblock;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Statblock;tokenName="+tokenName]
 };{}]

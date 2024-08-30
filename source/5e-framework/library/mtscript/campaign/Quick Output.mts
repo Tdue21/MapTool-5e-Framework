@@ -2,4 +2,4 @@
 
 [h:setLibProperty("GM Output",if(gmOutput=="All","Self","All"),"Lib:Character")]
 
-[h,macro("OverlayMiniMenu@Lib:Overlay"):""]
+[h,macro("overlay/OverlayMiniMenu@this"):""]

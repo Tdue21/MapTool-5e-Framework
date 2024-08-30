@@ -40,5 +40,5 @@
 [h:find=listfind(replace(list,"Lib:",""),tokenName)]
 
 
-[macro("Roll Any Dice@Lib:"+if(find==-1,"Bestiary","Character")):"tokenName="+tokenName+";rolltype="+rolltype+";randomBonus="+randomBonus]
+[macro(""+if(find==-1,"Bestiary","Character/Roll Any Dice@this")):"tokenName="+tokenName+";rolltype="+rolltype+";randomBonus="+randomBonus]
 

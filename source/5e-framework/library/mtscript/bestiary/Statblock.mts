@@ -10,7 +10,7 @@
 
 [h:setProperty("Stats",object)]
 
-[h:macroName="Change Property@Lib:Bestiary"]
+[h:macroName="bestiary/Change Property@this"]
 [h:args="name="+name+";json="+object+";tokenName="+token.name+";key="]
 [h:output= function.getOutput())]
 
@@ -28,23 +28,23 @@
 [h:currentItem="Features"]
 [h:currentDescription=json.get(CurrentObject,currentItem)]
 
-[h:featureLink=macroLink("Features","Action Type@Lib:Bestiary","","group="+group+";name="+currentItem+";tokenName="+tokenName+";object="+object)]
+[h:featureLink=macrolink("Features", "bestiary/Action Type@this")"","group="+group+";name="+currentItem+";tokenName="+tokenName+";object="+object)]
 
 
 <!-----------------MENU------------------->
 
 <p class='topbar'>
-[r,if(isGM()==1):macroLink("Edit","Edit Creature@Lib:Bestiary","none","creature="+name+";prop="+object)+"&nbsp;";""]
-[r:macroLink("Settings","Edit@Lib:Bestiary","","json="+encode(object)+";tokenName="+tokenName+";name="+name)] &nbsp;
+[r,if(isGM()==1):macrolink("Edit", "bestiary/Edit Creature@this")"none","creature="+name+";prop="+object)+"&nbsp;";""]
+[r:macrolink("Settings", "bestiary/Edit@this")"","json="+encode(object)+";tokenName="+tokenName+";name="+name)] &nbsp;
 [r:featureLink] &nbsp;
-[r:macroLink("Info","Info@Lib:Bestiary","","name="+name+";tokenName="+tokenName)] &nbsp;
+[r:macrolink("Info", "bestiary/Info@this")"","name="+name+";tokenName="+tokenName)] &nbsp;
 
 
 [h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
 [h:sharePlayer=getStrProp(permissions,"share")]
 [h,if(isGM()==1):sharePlayer=1]
 
-[r,if(sharePlayer==1):macroLink("Share","Share@Lib:Bestiary","none",json.get(object,"name"))]
+[r,if(sharePlayer==1):macrolink("Share", "bestiary/Share@this")"none",json.get(object,"name"))]
 </p>
 
 <table style="margin:0px;padding:0px">
@@ -90,13 +90,13 @@
 
 [r,count(getFindCount(findId)),code:{
 	[h:group1=getGroup(findId,roll.count+1,1)]
-	[h:hpRollLink=macroLink(group1,"Dice Roller@Lib:Bestiary","","text=HP Roll;value="+group1+";tokenName="+tokenName)]
+	[h:hpRollLink=macroLink(group1,"bestiary/Dice Roller@this","","text=HP Roll;value="+group1+";tokenName="+tokenName)]
 	[h:hp=replace(hp,"\\((.*)\\)","("+hpRollLink+")",1)]
 }]
 
 [r:hp] |
 [h:currentHP=getProperty("Hit Points")]
-[r:macroLink(if(currentHP=="","+",currentHP),"Damage@Lib:Bestiary",output,"value="+currentHP+";tokenName="+tokenName)]
+[r:macroLink(if(currentHP=="","+",currentHP),"bestiary/Damage@this",output,"value="+currentHP+";tokenName="+tokenName)]
 <br>
 [h:speed=json.get(object,"speed")]
 <b>[r:macroLink("Speed",macroName,"none",args+"speed")]</b> [r:speed]
@@ -107,7 +107,7 @@
 [h:dex=json.get(object,"dex")]
 [h,if(isNumber(dex)==1):dex=floor(dex/2-5);dex=-5]
 
-[r:macroLink(if(dex<=0,dex,"+"+dex)+"<br><font size=2><b>INIT</b>","d20 Roller@Lib:Bestiary","","text=Initiative;value=+"+if(dex<0,dex,"+"+dex)+";tokenName="+token.name+";color=blue")]
+[r:macroLink(if(dex<=0,dex,"+"+dex)+"<br><font size=2><b>INIT</b>","bestiary/d20 Roller@this","","text=Initiative;value=+"+if(dex<0,dex,"+"+dex)+";tokenName="+token.name+";color=blue")]
 
 
 </table>
@@ -130,9 +130,9 @@
 	[h:val=json.get(object,atr)]
 	[h,if(isNumber(val)==1):mod=floor(val/2-5);mod=-5]
 	[h:modtext=if(mod<0," ("+mod+")"," (+"+mod+")")]
-	<b>[r:macroLink(upper(atr),"Change Attributes@Lib:Bestiary","none","name="+name+";tokenName="+tokenName+";json="+object)]</b>
+	<b>[r:macroLink(upper(atr),"bestiary/Change Attributes@this","none","name="+name+";tokenName="+tokenName+";json="+object)]</b>
 	<br>
-	[r:macroLink(val+modtext,"d20 Roller@Lib:Bestiary","","text="+upper(atr,1)+";value="+modtext+";tokenName="+token.name+";color=0099cc")]
+	[r:macroLink(val+modtext,"bestiary/d20 Roller@this","","text="+upper(atr,1)+";value="+modtext+";tokenName="+token.name+";color=0099cc")]
 
 
 }]
@@ -144,14 +144,14 @@
 
 [h:save=json.get(object,"save")]
 [h:show=if(save=="" || save==0,0,1)]
-<b>[r,if(show==1):macroLink("Saving Throw","Skills and Saves@Lib:Bestiary","",args+"save")]</b>
+<b>[r,if(show==1):macrolink("Saving Throw", "bestiary/Skills and Saves@this")"",args+"save")]</b>
 [r,if(show==1),count(listcount(save),""),code:{
 
 	[r:if(roll.count==0,"",",")]
 	[h:currentItem=listget(save,roll.count)]
 	[r:text=replace(currentItem,"\\s[+-]?\\d*"," ")]
 	[h:mod=replace(currentItem,text,"")]
-	[r:macroLink(if(mod<0,mod,"+"+mod),"d20 Roller@Lib:Bestiary","","text="+text+";value=("+if(mod<0,mod,"+"+mod)+");tokenName="+token.name+";color=ff9900")]
+	[r:macroLink(if(mod<0,mod,"+"+mod),"bestiary/d20 Roller@this","","text="+text+";value=("+if(mod<0,mod,"+"+mod)+");tokenName="+token.name+";color=ff9900")]
 
 };{}]
 
@@ -161,14 +161,14 @@
 
 [h:skill=json.get(object,"skill")]
 [h:show=if(skill=="" || skill==0,0,1)]
-<b>[r,if(show==1):macroLink("Skills","Skills and Saves@Lib:Bestiary","",args+"skill")]</b>
+<b>[r,if(show==1):macrolink("Skills", "bestiary/Skills and Saves@this")"",args+"skill")]</b>
 [r,if(show==1),count(listcount(skill),""),code:{
 
 	[r:if(roll.count==0,"",",")]
 	[h:currentItem=listget(skill,roll.count)]
 	[r:text=replace(currentItem,"\\s[+-]?\\d*"," ")]
 	[h:mod=replace(currentItem,text,"")]
-	[r:macroLink(if(mod<0,mod,"+"+mod),"d20 Roller@Lib:Bestiary","","text="+text+";value=("+if(mod<0,mod,"+"+mod)+");tokenName="+token.name+";color=0099cc")]
+	[r:macroLink(if(mod<0,mod,"+"+mod),"bestiary/d20 Roller@this","","text="+text+";value=("+if(mod<0,mod,"+"+mod)+");tokenName="+token.name+";color=0099cc")]
 
 };{}]
 
@@ -230,7 +230,7 @@
 
 [h:featureLink="Features"]
 
-[macro("Markdown@Lib:Bestiary"):"link="+featureLink+";tokenName="+tokenName+";description="+encode(currentDescription)]
+[macro("bestiary/Markdown@this"):"link="+featureLink+";tokenName="+tokenName+";description="+encode(currentDescription)]
 
 
 
@@ -248,15 +248,15 @@
 	[h:currentDescription=json.get(CurrentObject,currentItem)]
 
 	<h5 style="border-bottom: 2px solid">
-	[r:link=macroLink(capitalize(currentItem),"Change Form@Lib:Bestiary","","group="+group+";name="+currentItem+";tokenName="+tokenName+";description="+currentDescription)]
+	[r:link=macroLink(capitalize(currentItem),"bestiary/Change Form@this","","group="+group+";name="+currentItem+";tokenName="+tokenName+";description="+currentDescription)]
 	</h5>
 	
-	[macro("Markdown@Lib:Bestiary"):"link="+link+";tokenName="+tokenName+";description="+encode(currentDescription)]
+	[macro("bestiary/Markdown@this"):"link="+link+";tokenName="+tokenName+";description="+encode(currentDescription)]
 }]
 
 <!-----------------RESOURCES------------------->
 <h5 style="border-bottom: 2px solid">
-[r:macroLink("Resources","Change Resource@Lib:Bestiary","","name=NEW RESOURCE;tokenName="+tokenName)]
+[r:macrolink("Resources", "bestiary/Change Resource@this")"","name=NEW RESOURCE;tokenName="+tokenName)]
 </h5>
 
 
@@ -285,7 +285,7 @@
 	[h:value=json.get(currentObj,"value")]
 	[h:total=json.get(currentObj,"total")]
 
-	<b><i>[r:macroLink(name+".","Change Resource@Lib:Bestiary","","name="+name+";tokenName="+tokenName)]</i></b>
+	<b><i>[r:macroLink(name+".","bestiary/Change Resource@this","","name="+name+";tokenName="+tokenName)]</i></b>
 	[r:value][r:if(total==0 || total=="","","/"+total)]
 }]
 </table>
@@ -296,7 +296,7 @@
 
 <p style="margin-top: 3px; margin-bottom: 6px">
 <!-----------------REACTION------------------->
-<b><i>[r:macroLink("Reaction.","Reaction@Lib:Bestiary",Output,"tokenName="+tokenName)]</b></i>
+<b><i>[r:macrolink("Reaction.", "bestiary/Reaction@this")Output,"tokenName="+tokenName)]</b></i>
 [r:if(getState("Reaction Used")==0,"Available","Used")]
 
 </p>
@@ -305,7 +305,7 @@
 <p style="margin-top: 3px; margin-bottom: 6px">
 <!-----------------BUFFS------------------->
 
-<b><i>[r:macroLink("Buffs.","Buffs@Lib:Bestiary",Output,"",tokenName)]</b></i>
+<b><i>[r:macrolink("Buffs.", "bestiary/Buffs@this")Output,"",tokenName)]</b></i>
 
 [h:buffs=getProperty("Buffs")]
 
@@ -324,7 +324,7 @@
 
 <p style="margin-top: 3px; margin-bottom: 6px">
 <!-----------------CONDITIONS------------------->
-<b><i>[r:macroLink("Conditions.","Conditions Menu@Lib:Character","","tokenName="+tokenName)]</b></i>
+<b><i>[r:macrolink("Conditions.", "character/Conditions Menu@this")"","tokenName="+tokenName)]</b></i>
 
 [r:function.GetConditions()]
 
@@ -339,10 +339,10 @@
 	
 	[h:description=getGMNotes()]
 	<h5 style="border-bottom: 2px solid">
-	[r:macroLink("GM Notes","Change Form@Lib:Bestiary","","group=GMNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+	[r:macrolink("GM Notes", "bestiary/Change Form@this")"","group=GMNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 	</h5>
 	
-	[macro("Markdown@Lib:Bestiary"):"tokenName="+tokenName+";description="+encode(description)]
+	[macro("bestiary/Markdown@this"):"tokenName="+tokenName+";description="+encode(description)]
 	
 
 	

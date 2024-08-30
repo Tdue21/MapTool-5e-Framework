@@ -36,7 +36,7 @@
 		[h:dex=json.get(stats,"dex")]
 		[h,if(isNumber(dex)==1):dex=floor(dex/2-5);dex=-5]
 		
-		[macro("d20 Roller@Lib:Bestiary"):"text=Initiative;value=+"+if(dex<0,dex,"+"+dex)+";tokenName="+tokenName+";color=blue")]
+		[macro("bestiary"):"text=Initiative;value=+"+if(dex<0,dex,"+"+dex)+";tokenName="+tokenName+";color=blue/d20 Roller@this")]
 	
 	};
 	case "Death Save":{
@@ -47,7 +47,7 @@
 		[h:res=input(input1,"var|<html><h1>"+rollName+"</h1></html>||label|span=true",input2)]
 		[h:abort(res)]
 	
-		[macro("d20 Roller@Lib:Bestiary"):"text="+tokenName+" - Death Save;value=;tokenName="+tokenName+";color=death"]
+		[macro("bestiary/d20 Roller@this"):"text="+tokenName+" - Death Save;value=;tokenName="+tokenName+";color=death"]
 	
 	};
 	case "Skill":{
@@ -75,7 +75,7 @@
 		[h:res=input(input1,"var|<html><h1>"+rollName+"</h1></html>||label|span=true",input2)]
 		[h:abort(res)]
 
-		[macro("d20 Roller@Lib:Bestiary"):";text="+tokenName+" - "+skillName+";value=+"+if(mod<0,mod,"+"+mod)+";tokenName="+tokenName+";color="+color]
+		[macro("bestiary/d20 Roller@this"):";text="+tokenName+" - "+skillName+";value=+"+if(mod<0,mod,"+"+mod)+";tokenName="+tokenName+";color="+color]
 	
 	};
 	case "Save":{
@@ -99,7 +99,7 @@
 		[h:mod=floor(number(eval(string(atrValue)))/2-5)]
 		[h,if(save==""):mod=mod;mod=save]
 
-		[macro("d20 Roller@Lib:Bestiary"):";text="+tokenName+" - "+upper(atr,1)+";value=+"+if(mod<0,mod,"+"+mod)+";tokenName="+tokenName+";color="+color]
+		[macro("bestiary/d20 Roller@this"):";text="+tokenName+" - "+upper(atr,1)+";value=+"+if(mod<0,mod,"+"+mod)+";tokenName="+tokenName+";color="+color]
 	
 	};
 	case "Ability":{
@@ -118,7 +118,7 @@
 		[h,if(isNumber(atrValue)==0):atrValue=eval(atrValue);""]
 		[h:mod=floor(number(eval(string(atrValue)))/2-5)]
 
-		[macro("d20 Roller@Lib:Bestiary"):";text="+tokenName+" - "+upper(atr,1)+";value=+"+if(mod<0,mod,"+"+mod)+";tokenName="+tokenName+";color="+color]
+		[macro("bestiary/d20 Roller@this"):";text="+tokenName+" - "+upper(atr,1)+";value=+"+if(mod<0,mod,"+"+mod)+";tokenName="+tokenName+";color="+color]
 	
 	};
 	default:{
@@ -129,7 +129,7 @@
 		[h:res=input(input1,"var|<html><h1>"+rollName+"</h1></html>||label|span=true",input2)]
 		[h:abort(res)]
 	
-		[macro("Dice Roller@Lib:Bestiary"):"text="+tokenName+" - Dice Roll;value="+diceRoll+";id=;tokenName="+tokenName+";color="+color]
+		[macro("bestiary/Dice Roller@this"):"text="+tokenName+" - Dice Roll;value="+diceRoll+";id=;tokenName="+tokenName+";color="+color]
 	
 	}]
 
@@ -215,7 +215,7 @@
 	
 		[h:init=number(init+bonus+mod)]
 		
-		[macro("d20 Roller@Lib:Character"):"text=Initiative"+if(text=="" || text==0,""," | "+text)+";value=+"+if(init<0,init,"+"+init)+";tokenName="+tokenName+";color=blue")]
+		[macro("character"):"text=Initiative"+if(text=="" || text==0,""," | "+text)+";value=+"+if(init<0,init,"+"+init)+";tokenName="+tokenName+";color=blue/d20 Roller@this")]
 	
 	};
 	case "Death Save":{
@@ -225,7 +225,7 @@
 		[h:res=input(input1,"var|<html><h1>"+rollName+"</h1></html>||label|span=true",input2)]
 		[h:abort(res)]
 	
-		[macro("d20 Roller@Lib:Character"):"text=Death Save;value=;tokenName="+tokenName+";color=death"]
+		[macro("character/d20 Roller@this"):"text=Death Save;value=;tokenName="+tokenName+";color=death"]
 	
 	};
 	case "Skill":{
@@ -257,7 +257,7 @@
 		[h:res=input(input1,"var|<html><h1>"+rollName+"</h1></html>||label|span=true",input2)]
 		[h:abort(res)]
 	
-		[macro("d20 Roller@Lib:Character"):"text="+upper(substring(attribute,0,3),1)+" ("+skill+")"+";value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";id=;tokenName="+tokenName+";color="+color]
+		[macro("character"):"text="+upper(substring(attribute,0,3),1)+" ("+skill+/d20 Roller@this")"+";value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";id=;tokenName="+tokenName+";color="+color]
 	
 	};
 	case "Save":{
@@ -288,7 +288,7 @@
 		[h:res=input(input1,"var|<html><h1>"+rollName+"</h1></html>||label|span=true",input2)]
 		[h:abort(res)]
 	
-		[macro("d20 Roller@Lib:Character"):"text="+save+" save;value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";id=;tokenName="+tokenName+";color="+color]
+		[macro("character/d20 Roller@this"):"text="+save+" save;value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";id=;tokenName="+tokenName+";color="+color]
 	
 	};
 	case "Ability":{
@@ -318,7 +318,7 @@
 		[h:res=input(input1,"var|<html><h1>"+rollName+"</h1></html>||label|span=true",input2)]
 		[h:abort(res)]
 	
-		[macro("d20 Roller@Lib:Character"):"text="+rollName+";value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";id=;tokenName="+tokenName+";color="+color]
+		[macro("character/d20 Roller@this"):"text="+rollName+";value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";id=;tokenName="+tokenName+";color="+color]
 	
 	};
 	default:{
@@ -329,7 +329,7 @@
 		[h:res=input(input1,"var|<html><h1>"+rollName+"</h1></html>||label|span=true",input2)]
 		[h:abort(res)]
 	
-		[macro("Dice Roller@Lib:Character"):"text="+tokenName+" - Dice Roll;value="+diceRoll+";id=;tokenName="+tokenName+";color="+color]
+		[macro("character/Dice Roller@this"):"text="+tokenName+" - Dice Roll;value="+diceRoll+";id=;tokenName="+tokenName+";color="+color]
 	
 	}]
 

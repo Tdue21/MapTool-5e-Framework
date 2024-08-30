@@ -194,7 +194,7 @@
 	"pack|An Explorer's Pack, and four javelins|Pack|label")]
 	[h:abort(res)]
 
-	[h:AddItem="Add Item@Lib:Character Creation"]
+	[h:AddItem="character Creation/Add Item@this"]
 	[h:smw=getLibProperty("Simple Melee Weapons","Lib:Character Creation")]
 	[h:mmw=getLibProperty("Martial Melee Weapons","Lib:Character Creation")]
 	[h:srw=getLibProperty("Simple Ranged Weapons","Lib:Character Creation")]
@@ -245,7 +245,7 @@
 [h:multiplier=10]
 <!------------------------------------------------------------------>
 [r,if(Equip=="Starting Money"),code:{
-[h:link=macroLinkText("Starting Money@Lib:Character Creation","all","text="+tokenName+": Starting Money;value="+moneyDiceFormula+";tokenName="+tokenName+";multiplier="+multiplier)]
+[h:link=macroLinkText("character Creation/Starting Money@this","all","text="+tokenName+": Starting Money;value="+moneyDiceFormula+";tokenName="+tokenName+";multiplier="+multiplier)]
 [h:execLink(link,0,"self")]
 };{}]
 <!------------------------------------------------------------------>
@@ -294,7 +294,7 @@
 [r,if(level==4),code:{
 
 <!--------------ABILITY SCORE IMPROVEMENT OR FEAT------------------->
-	[macro("Ability Score Improvement@Lib:Character Creation"):"tokenName="+tokenName]
+	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 };{}]
 
@@ -331,7 +331,7 @@
 [r,if(level==8),code:{
 
 <!--------------ABILITY SCORE IMPROVEMENT OR FEAT------------------->
-	[macro("Ability Score Improvement@Lib:Character Creation"):"tokenName="+tokenName]
+	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 };{}]
 
@@ -365,7 +365,7 @@
 [r,if(level==12),code:{
 
 <!--------------ABILITY SCORE IMPROVEMENT OR FEAT------------------->
-	[macro("Ability Score Improvement@Lib:Character Creation"):"tokenName="+tokenName]
+	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 };{}]
 
@@ -399,7 +399,7 @@
 [r,if(level==16),code:{
 
 <!--------------ABILITY SCORE IMPROVEMENT OR FEAT------------------->
-	[macro("Ability Score Improvement@Lib:Character Creation"):"tokenName="+tokenName]
+	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 };{}]
 
@@ -426,7 +426,7 @@
 [r,if(level==19),code:{
 
 <!--------------ABILITY SCORE IMPROVEMENT OR FEAT------------------->
-	[macro("Ability Score Improvement@Lib:Character Creation"):"tokenName="+tokenName]
+	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 };{}]
 

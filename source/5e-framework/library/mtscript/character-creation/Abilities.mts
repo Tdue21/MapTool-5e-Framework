@@ -21,7 +21,7 @@
 
 <p style="margin-top: 10px; margin-bottom: 10px;">
 <font style="text-decoration:none">
-The main methods to determine your ability scores are Rolling [r:macroLink("4d6 and dropping the lowest","Stat Roll@Lib:Character Creation",output,"",tokenName)] for each ability, using Standard Array (<b>15, 14, 13, 12, 10, 8</b>) or spending points (usually 27) to customize your ability score individually using the <a href="https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf#page=10">Ability Score Point Cost</a> table, at your Dungeon Master’s option.
+The main methods to determine your ability scores are Rolling [r:macrolink("4d6 and dropping the lowest", "character Creation/Stat Roll@this")output,"",tokenName)] for each ability, using Standard Array (<b>15, 14, 13, 12, 10, 8</b>) or spending points (usually 27) to customize your ability score individually using the <a href="https://media.wizards.com/2018/dnd/downloads/DnD_BasicRules_2018.pdf#page=10">Ability Score Point Cost</a> table, at your Dungeon Master’s option.
 </p>
 
 
@@ -29,7 +29,7 @@ The main methods to determine your ability scores are Rolling [r:macroLink("4d6 
 <td valign=bottom style="padding:0px;margin=0px;margin-left:10px">
 
 
-[h: processorLink=macroLinkText("Character Creation Wizard@Lib:Character Creation","")]
+[h: processorLink=macroLinkText("character Creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 

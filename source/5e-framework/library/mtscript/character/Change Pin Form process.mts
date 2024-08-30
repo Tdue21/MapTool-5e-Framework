@@ -80,5 +80,5 @@
 
 
 [h,if(isDialogVisible("Manage")==1),code:{
-[macro("Pin Notes@Lib:Character"):"tokenName="+tokenName]
+[macro("character/Pin Notes@this"):"tokenName="+tokenName]
 };{}]

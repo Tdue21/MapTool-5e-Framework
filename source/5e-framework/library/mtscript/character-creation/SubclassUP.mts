@@ -7,14 +7,14 @@
 [h:class=lower(replace(class,"\\*|\\s\\(Level Up\\)",""))]
 
 <!-----------------Feats------------------->
-[macro("Add Class Features@Lib:Character Creation"):"tokenName="+tokenName+";class="+class]
+[macro("character Creation/Add Class Features@this"):"tokenName="+tokenName+";class="+class]
 
 [h:macroList=getLibProperty("macroList","Lib:Compendium")]
 [h:hasClassMacro=listfind(macroList,class)]
 
 [h,if(hasClassMacro==-1),code:{};{
 	<!-----------------Class------------------->	
-	[macro(class+"@Lib:Compendium"):"tokenName="+tokenName+";class="+class]
+	[macro(class+"compendium/@this"):"tokenName="+tokenName+";class="+class]
 }]
 
 
@@ -82,7 +82,7 @@
 <td valign=bottom style="padding:0px;margin=0px">
 
 
-[h: processorLink=macroLinkText("Character Creation Wizard@Lib:Character Creation","")]
+[h: processorLink=macroLinkText("character Creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 

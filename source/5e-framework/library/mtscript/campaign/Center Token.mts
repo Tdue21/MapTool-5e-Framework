@@ -14,7 +14,7 @@
 [h,if(tokenName==0 || settings==1),code:{
 
 	[h:closeDialog("Manage Party")]
-	[macro("Manage Party@Lib:Character"):""]
+	[macro("character/Manage Party@this"):""]
 
 };{}]
 

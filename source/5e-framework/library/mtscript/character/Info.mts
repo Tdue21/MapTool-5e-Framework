@@ -34,10 +34,10 @@
 
 [h:args=setStrProp(macro.args,"tokenName","Lib:Compendium")]
 
-[r,if(share==1 || edit==0):"";macrolink("Backstory","Change Textfield Form@Lib:Character","","prop=OtherNotes;name=Backstory;description="+Backstory+";tokenName="+tokenName)+" &nbsp;"]
-[r,if(share==1 || edit==0):"";macrolink("Allies","Change Textfield Form@Lib:Character","","prop=OtherNotes;name=Allies;description="+Allies+";tokenName="+tokenName)+" &nbsp;"]
-[r,if(share==1 || edit==0):"";macrolink("Treasure","Change Textfield Form@Lib:Character","","prop=OtherNotes;name=Treasure;description="+Treasure+";tokenName="+tokenName)+" &nbsp;"]
-[r,if(share==1 || sharePlayer==0):"";macrolink("Share","Share Info@Lib:Character","","share=1;description="+Backstory+";tokenName="+tokenName+";allies="+Allies+";treasure="+Treasure)+" &nbsp;"]
+[r,if(share==1 || edit==0):"";macrolink("Backstory", "character/Change Textfield Form@this")"","prop=OtherNotes;name=Backstory;description="+Backstory+";tokenName="+tokenName)+" &nbsp;"]
+[r,if(share==1 || edit==0):"";macrolink("Allies", "character/Change Textfield Form@this")"","prop=OtherNotes;name=Allies;description="+Allies+";tokenName="+tokenName)+" &nbsp;"]
+[r,if(share==1 || edit==0):"";macrolink("Treasure", "character/Change Textfield Form@this")"","prop=OtherNotes;name=Treasure;description="+Treasure+";tokenName="+tokenName)+" &nbsp;"]
+[r,if(share==1 || sharePlayer==0):"";macrolink("Share", "character/Share Info@this")"","share=1;description="+Backstory+";tokenName="+tokenName+";allies="+Allies+";treasure="+Treasure)+" &nbsp;"]
 
 
 [r,if(share==1):"";"</p>"]
@@ -48,7 +48,7 @@
 
 </h1>
 
-[macro("Markdown@Lib:Character"):"tokenName="+tokenName+";description="+encode(Backstory)]
+[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(Backstory)]
 
 [r,if(Allies==""),code:{};{
 	
@@ -59,7 +59,7 @@
 	
 	</h4>
 	
-	[macro("Markdown@Lib:Character"):"tokenName="+tokenName+";description="+encode(Allies)]
+	[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(Allies)]
 
 }]
 
@@ -71,7 +71,7 @@
 	
 	</h4>
 	
-	[macro("Markdown@Lib:Character"):"tokenName="+tokenName+";description="+encode(Treasure)]
+	[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(Treasure)]
 
 }]
 

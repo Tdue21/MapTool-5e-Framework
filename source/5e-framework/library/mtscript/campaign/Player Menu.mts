@@ -5,7 +5,7 @@
 
 
 
-[h:processorLink=macroLinkText("Menu process@Lib:Campaign","")]
+[h:processorLink=macroLinkText("campaign/Menu process@this","")]
 <form action="[r:processorLink]" method="json">
 
 <table>

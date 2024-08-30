@@ -41,9 +41,9 @@
 
 [h:macroList=getMacros()]
 
-[h,if(listfind(macroList,"Focus")<0):createMacro("Focus","[macro('Set Map@Lib:Campaign'):''][h: xcoord=getTokenX(0)][h: ycoord=getTokenY(0)][h:width=getTokenWidth()][h:height=getTokenHeight()][h:setViewArea(xcoord-5, ycoord-5, xcoord+5, ycoord+5, 0, 1)]", "minWidth=120;fontColor=black;color=lime;sortBy=0;playerEditable=0")]
+[h,if(listfind(macroList,"Focus")<0):createMacro("Focus","[macro('campaign/Set Map@this'):''][h: xcoord=getTokenX(0)][h: ycoord=getTokenY(0)][h:width=getTokenWidth()][h:height=getTokenHeight()][h:setViewArea(xcoord-5, ycoord-5, xcoord+5, ycoord+5, 0, 1)]", "minWidth=120;fontColor=black;color=lime;sortBy=0;playerEditable=0")]
 
-[h,if(listfind(macroList,"Notes")<0):createMacro("Notes","[macro('Pin Notes@Lib:Character'):'tokenName='+token.name]", "minWidth=120;fontColor=black;color=yellow;sortBy=0")]
+[h,if(listfind(macroList,"Notes")<0):createMacro("Notes","[macro('character/Pin Notes@this'):'tokenName='+token.name]", "minWidth=120;fontColor=black;color=yellow;sortBy=0")]
 
 [h,if(listfind(macroList,"Send to Hidden")<0):createMacro("Send to Hidden","[h:setLayer('GM')]", "minWidth=120;sortBy=3")]
 
@@ -57,5 +57,5 @@
 [h:setHasSight(0)]
 
 [h,if(isDialogVisible("Manage")==1),code:{
-[macro("Pin Notes@Lib:Character"):"tokenName="+tokenName)]
+[macro("character/Pin Notes@this"):"tokenName="+tokenName)]
 };{}]

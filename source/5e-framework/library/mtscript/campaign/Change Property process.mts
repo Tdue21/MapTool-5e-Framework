@@ -15,5 +15,5 @@
 
 
 [h,if(isDialogVisible("Settings")==1),code:{
-[macro("Campaign Settings@lib:Campaign"):""]
+[macro("campaign/Campaign Settings@this"):""]
 };{}]

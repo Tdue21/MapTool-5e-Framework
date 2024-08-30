@@ -162,7 +162,7 @@ Armor Class
 [h:value=dex+getStrProp(string(init),"value")]
 [h:text=getStrProp(string(init),"text")]
 
-[r:macroLink(if(value>0,"+"+value,value)+"<br><font size=2><b>INIT</b>","d20 Roller@Lib:Character","","text=Initiative"+if(text=="" || text==0,""," | "+text)+";value=+"+if(value<0,value,"+"+value)+";tokenName="+tokenName+";color=blue")]
+[r:macroLink(if(value>0,"+"+value,value)+"<br><font size=2><b>INIT</b>","character/d20 Roller@this","","text=Initiative"+if(text=="" || text==0,""," | "+text)+";value=+"+if(value<0,value,"+"+value)+";tokenName="+tokenName+";color=blue")]
 
 
 
@@ -203,7 +203,7 @@ Armor Class
 	[h:evalAtr=number(eval(string(propValue)))]
 
 	[h:mod=getStrProp(AtrProps,subStr)]
-	[h:modlink=macroLink(evalAtr+" ("+if(mod<0,mod,"+"+mod)+")","d20 Roller@Lib:Character","","text="+attribute+" check;value="+subStr+";tokenName="+tokenName+";color=0099cc")]
+	[h:modlink=macroLink(evalAtr+" ("+if(mod<0,mod,"+"+mod)+")","character/d20 Roller@this","","text="+attribute+" check;value="+subStr+";tokenName="+tokenName+";color=0099cc")]
 
 
 	<b>[r:substring(upper(attribute),0,3)]</b>
@@ -276,7 +276,7 @@ Armor Class
 	
 	[r:if(prof==0,"",substring(name,0,3))]
 
-	[r:if(prof==0,"",macroLink(if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay),"d20 Roller@Lib:Character","","text="+name+" save;value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+if(other==0,"",if(other<0,other,"+"+other))+";id="+id+";tokenName="+tokenName+";color=ff9900"))]
+	[r:if(prof==0,"",macroLink(if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay),"character/d20 Roller@this","","text="+name+" save;value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+if(other==0,"",if(other<0,other,"+"+other))+";id="+id+";tokenName="+tokenName+";color=ff9900"))]
 	
 
 	[r:if(prof==0,"",if(other==0,"",if(other>0,"+","-")))]
@@ -349,7 +349,7 @@ Armor Class
 
 	[r:if(prof==0,"",skillName)]
 
-	[r:if(prof==0,"",macroLink(if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay),"d20 Roller@Lib:Character","","text="+atr+" ("+skillName+");value=+"+if(skillBonus<0,skillBonus,"+"+skillBonus)+if(other==0,"",if(other<0,other,"+"+other))+";id="+id+";tokenName="+tokenName+";color=0099cc"))]
+	[r:if(prof==0,"",macroLink(if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay),"character/d20 Roller@this","","text="+atr+" ("+skillName+");value=+"+if(skillBonus<0,skillBonus,"+"+skillBonus)+if(other==0,"",if(other<0,other,"+"+other))+";id="+id+";tokenName="+tokenName+";color=0099cc"))]
 
 
 	[h:atr=if(skillAttribute==getStrProp(skillList,skillName),atr,"<font color=red>"+atr+"</font>")]
@@ -380,7 +380,7 @@ Armor Class
 	
 		[h:currentCondition=listget(condition,roll.count)]
 		[h:ConditionText=json.get(rules,capitalize(currentCondition))]
-		[h,if(ConditionText!=""):currentCondition=macroLink(currentCondition,"Content@Lib:Notebook","","key="+capitalize(currentCondition)+";description="+encode(ConditionText)+";tokenName=Lib:Rules")]
+		[h,if(ConditionText!=""):currentCondition=macroLink(currentCondition,"notebook/Content@this","","key="+capitalize(currentCondition)+";description="+encode(ConditionText)+";tokenName=Lib:Rules")]
 		[h,if(ConditionText!=""):condition=listReplace(condition,roll.count,currentCondition)]
 	
 	}]
@@ -446,7 +446,7 @@ passive Perception [r:getLibProperty("Passive Perception","Lib:"+tokenName)]
 <!---------------------------CAPITALIZE----------------------------->
 [h:CapitalName=function.Capitalize(objName)]
 
-	[r:macrolink(if(CapitalName=="","Untitled",CapitalName),"Args Dialog@Lib:Character","","prop="+object+";index="+roll.count+";name="+objName+";description=;tokenName="+tokenName)]
+	[r:macrolink(if(CapitalName=="","Untitled",CapitalName),"character/Args Dialog@this","","prop="+object+";index="+roll.count+";name="+objName+";description=;tokenName="+tokenName)]
 
 
 }][r:if(repeat==0,"",".")]
@@ -474,7 +474,7 @@ passive Perception [r:getLibProperty("Passive Perception","Lib:"+tokenName)]
 [h:CapitalName=function.Capitalize(objName)]
 
 
-	[r:macrolink(if(CapitalName=="","Untitled",CapitalName),"Args Dialog@Lib:Character","","prop="+object+";index="+roll.count+";name="+objName+";description=;tokenName="+tokenName)]
+	[r:macrolink(if(CapitalName=="","Untitled",CapitalName),"character/Args Dialog@this","","prop="+object+";index="+roll.count+";name="+objName+";description=;tokenName="+tokenName)]
 
 
 }][r,if(repeat==0):"";".</p>"]
@@ -540,7 +540,7 @@ passive Perception [r:getLibProperty("Passive Perception","Lib:"+tokenName)]
 	[h:spellDC=8+profBonus+atrVar]
 	
 
-	[r:linkDC=macroLink(spellDC,"Dice Roller@Lib:Character","","text=Spell Save DC;value="+spellDC+";tokenName="+tokenName)]
+	[r:linkDC=macroLink(spellDC,"character/Dice Roller@this","","text=Spell Save DC;value="+spellDC+";tokenName="+tokenName)]
 
 	[h:listDC=listappend(listDC,linkDC," /")]
 }]
@@ -556,7 +556,7 @@ passive Perception [r:getLibProperty("Passive Perception","Lib:"+tokenName)]
 	[h:atrVar=eval(atrVar)]
 	[h:spellAtk=profBonus+atrVar]
 	
-	[h:atkList=listappend(atkList,macroLink(if(spellAtk<0,spellAtk,"+"+spellAtk),"d20 Roller@Lib:Character","","text="+substring(listget(spellAtributeList,roll.count," /"),0,3)+" Spell Attack;value=+"+if(spellAtk<0,spellAtk,"+"+spellAtk)+";tokenName="+tokenName+";color=8a61ae")," /")]
+	[h:atkList=listappend(atkList,macroLink(if(spellAtk<0,spellAtk,"+"+spellAtk),"character/d20 Roller@this","","text="+substring(listget(spellAtributeList,roll.count," /"),0,3)+" Spell Attack;value=+"+if(spellAtk<0,spellAtk,"+"+spellAtk)+";tokenName="+tokenName+";color=8a61ae")," /")]
 }]
 
 [h:ordinal=if(SpellcasterLevel==1,"st",if(SpellcasterLevel==2,"nd",if(SpellcasterLevel==3,"rd","th")))]
@@ -622,21 +622,21 @@ passive Perception [r:getLibProperty("Passive Perception","Lib:"+tokenName)]
 
 [r,count(repeat,","),code:{
 	[h:objName=listGet(level0,roll.count)]
-	[r:macrolink(objName,"Args Dialog@Lib:Character","","prop=Spells;source="+object+";name="+objName+";description=;tokenName="+tokenName)]
+	[r:macrolink(objName,"character/Args Dialog@this","","prop=Spells;source="+object+";name="+objName+";description=;tokenName="+tokenName)]
 }]
 
 	
 [r,if(repeat==0):"";"</p>"]
 
-[macro("Spell List@Lib:Character"):"profBonus="+profBonus+";level=1;list="+level1+";tokenName="+tokenName]
-[macro("Spell List@Lib:Character"):"profBonus="+profBonus+";level=2;list="+level2+";tokenName="+tokenName]
-[macro("Spell List@Lib:Character"):"profBonus="+profBonus+";level=3;list="+level3+";tokenName="+tokenName]
-[macro("Spell List@Lib:Character"):"profBonus="+profBonus+";level=4;list="+level4+";tokenName="+tokenName]
-[macro("Spell List@Lib:Character"):"profBonus="+profBonus+";level=5;list="+level5+";tokenName="+tokenName]
-[macro("Spell List@Lib:Character"):"profBonus="+profBonus+";level=6;list="+level6+";tokenName="+tokenName]
-[macro("Spell List@Lib:Character"):"profBonus="+profBonus+";level=7;list="+level7+";tokenName="+tokenName]
-[macro("Spell List@Lib:Character"):"profBonus="+profBonus+";level=8;list="+level8+";tokenName="+tokenName]
-[macro("Spell List@Lib:Character"):"profBonus="+profBonus+";level=9;list="+level9+";tokenName="+tokenName]
+[macro("character/Spell List@this"):"profBonus="+profBonus+";level=1;list="+level1+";tokenName="+tokenName]
+[macro("character/Spell List@this"):"profBonus="+profBonus+";level=2;list="+level2+";tokenName="+tokenName]
+[macro("character/Spell List@this"):"profBonus="+profBonus+";level=3;list="+level3+";tokenName="+tokenName]
+[macro("character/Spell List@this"):"profBonus="+profBonus+";level=4;list="+level4+";tokenName="+tokenName]
+[macro("character/Spell List@this"):"profBonus="+profBonus+";level=5;list="+level5+";tokenName="+tokenName]
+[macro("character/Spell List@this"):"profBonus="+profBonus+";level=6;list="+level6+";tokenName="+tokenName]
+[macro("character/Spell List@this"):"profBonus="+profBonus+";level=7;list="+level7+";tokenName="+tokenName]
+[macro("character/Spell List@this"):"profBonus="+profBonus+";level=8;list="+level8+";tokenName="+tokenName]
+[macro("character/Spell List@this"):"profBonus="+profBonus+";level=9;list="+level9+";tokenName="+tokenName]
 
 <h5 style="border-bottom: 2px solid">Actions</h5>
 
@@ -801,7 +801,7 @@ passive Perception [r:getLibProperty("Passive Perception","Lib:"+tokenName)]
 Notes
 </h5>
 
-[macro("Markdown@Lib:Character"):"tokenName="+tokenName+";description="+encode(description)]
+[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(description)]
 
 
 
@@ -815,10 +815,10 @@ Notes
 	
 	[h,token("Lib:"+tokenName):description=getGMNotes("Lib:"+tokenName,start)]
 	<h5 style="border-bottom: 2px solid">
-	[r:macroLink("GM Notes","Change Form@Lib:Character","","prop=GMNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+	[r:macrolink("GM Notes", "character/Change Form@this")"","prop=GMNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 	</h5>
 	
-	[macro("Markdown@Lib:Character"):"tokenName="+tokenName+";description="+encode(description)]
+	[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(description)]
 	
 
 	

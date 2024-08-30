@@ -28,11 +28,11 @@
 	[h:odd=if(odd==1,0,1)]
 	<td>
 	
-	[r:macroLink(CapitalName,"Args Dialog@Lib:Character","","prop=Level 0;name="+name+";description="+encode(description)+";tokenName="+tokenName)]
+	[r:macroLink(CapitalName,"character/Args Dialog@this","","prop=Level 0;name="+name+";description="+encode(description)+";tokenName="+tokenName)]
 	<td width=0%>
-	<font size=2 color=red>[r:macroLink("X","Delete Source@Lib:Character","","prop=Level 0;name="+name+";tokenName="+tokenName)]</font>
+	<font size=2 color=red>[r:macrolink("X", "character/Delete Source@this")"","prop=Level 0;name="+name+";tokenName="+tokenName)]</font>
 	
 }]
 </table>
 
-[r:macrolink("+","Args Dialog@Lib:Character","","prop=Level 0;index=new;name=new;description=new;tokenName="+tokenName)]
+[r:macrolink("+", "character/Args Dialog@this")"","prop=Level 0;index=new;name=new;description=new;tokenName="+tokenName)]

@@ -28,7 +28,7 @@
 
 [h,if(isGM()==1):share=0;share=1]
 
-[macro("Content@Lib:Notebook"):"key='+name+';description="+encode(description)+";tokenName='+tokenName+';share="+share]
+[macro("notebook/Content@this"):"key='+name+';description="+encode(description)+";tokenName='+tokenName+';share="+share]
 
 
 ', "minWidth=;sortBy=;group=")]

@@ -32,6 +32,6 @@
 
 [h,if(attribute=="-"):atrText="";atrText=upper(substring(attribute,0,3),1)+" - "]
 
-[h:linkText=macroLinkText("d20 Roller@Lib:Character","","text="+atrText+upper(entry,1)+";value=+"+mod+";tokenName="+tokenName+";color=0099cc")]
+[h:linkText=macroLinkText("character/d20 Roller@this","","text="+atrText+upper(entry,1)+";value=+"+mod+";tokenName="+tokenName+";color=0099cc")]
 
 [h:execLink(linkText)]

@@ -50,7 +50,7 @@
 	[h:CapitalNameCurrent=function.Capitalize(currentOption)]
 	
 	[r,if(feat==currentOption):"<b>"]
-	[r:macroLink(CapitalNameCurrent,"Options Window@Lib:Tables","",currentOption)]
+	[r:macroLink(CapitalNameCurrent,"tables/Options Window@this","",currentOption)]
 	[r,if(feat==currentOption):"</b>"]
 }]
 
@@ -70,13 +70,13 @@
 
 		<h4>[r:CapitalName]
 		<font size=3>
-	[r:macroLink("Edit","Change Form@Lib:Character","","prop=AdditionalFeats;source=;name="+feat+": "+currentFeature+";description=;tokenName=Lib:Campaign")] |
-	[r:macrolink("Move","Move@Lib:Character","","tokenName=Lib:Compendium;description=;name="+feat+": "+currentFeature+";prop=AdditionalFeats")]</h4>
+	[r:macrolink("Edit", "character/Change Form@this")"","prop=AdditionalFeats;source=;name="+feat+": "+currentFeature+";description=;tokenName=Lib:Campaign")] |
+	[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+feat+": "+currentFeature+";prop=AdditionalFeats")]</h4>
 
 		[h:currentObj=json.get(AddFeats,feat+": "+currentFeature)]
 		[h:description=json.get(currentObj,"description")]
 
-		[macro("Markdown@Lib:Campaign"):"tokenName=Lib:Tables;description="+encode(description)+";source=Class;name="+currentFeature+";group=AdditionalFeats"]
+		[macro("campaign/Markdown@this"):"tokenName=Lib:Tables;description="+encode(description)+";source=Class;name="+currentFeature+";group=AdditionalFeats"]
 		
 	
 	}]

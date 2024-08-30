@@ -50,7 +50,7 @@
         <input type="hidden" name="tokenName" value="[r:tokenName]">
         <input type="hidden" name="id" value="[r:id]">
 
-        <input type="submit" name="cancel" value="Cancel">[r,count(10,""):"&nbsp;"]<span title="<html><h1><font size=5># Heading</h1><b>**Bold**</b> | <i>*Italic*</i> | <s>~~striketrough~~</s> | _ <u>underline</u> _ | <u>&#91;link](url)</u></html>">[r:macroLink("Help","Help@Lib:Notebook")]</span>[r,count(11,""):"&nbsp;"]Sources: <input type="text" name="sources" value="[r:sources]" size="28">
+        <input type="submit" name="cancel" value="Cancel">[r,count(10,""):"&nbsp;"]<span title="<html><h1><font size=5># Heading</h1><b>**Bold**</b> | <i>*Italic*</i> | <s>~~striketrough~~</s> | _ <u>underline</u> _ | <u>&#91;link](url)</u></html>">[r:macroLink("Help","notebook/Help@this")]</span>[r,count(11,""):"&nbsp;"]Sources: <input type="text" name="sources" value="[r:sources]" size="28">
         <input type="text" name="title" value="[r:if(name=='new','',CapitalName)]" size="55">
 
         <textarea name="value" cols="55" rows="27">[r:if(decode(name)=="new","",decode(description))]</textarea>

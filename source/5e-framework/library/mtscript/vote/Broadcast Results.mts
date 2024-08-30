@@ -1,1 +1,1 @@
-[h:broadcast(execMacro("[macro('Results@Lib:Vote'):'']"),"all")]
+[h:broadcast(execMacro("[macro('vote/Results@this'):'']"),"all")]

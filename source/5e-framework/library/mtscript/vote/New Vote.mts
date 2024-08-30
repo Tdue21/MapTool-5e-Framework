@@ -3,5 +3,5 @@
 
 [h:setLibProperty("Value","","Lib:Vote")]
 
-[h:link=macroLinkText("Vote exec@Lib:Vote","","options="+options+";name="+name)]
+[h:link=macroLinkText("vote/Vote exec@this","","options="+options+";name="+name)]
 [h:execLink(link,1,"not-gm")]

@@ -15,11 +15,11 @@
 
 [h,if(hasClassMacro==-1),code:{
 	
-	[macro("custom background@Lib:Compendium"):"tokenName="+tokenName+";name="+background]
+	[macro("compendium/custom background@this"):"tokenName="+tokenName+";name="+background]
 	
 	};{
 		
-	[macro(background+"@Lib:Compendium"):tokenName]
+	[macro(background+"compendium/@this"):tokenName]
 	
 }]
 
@@ -63,7 +63,7 @@ Select a <b>class</b> from the following, and select if you want starting equipm
 <td valign=bottom style="padding:0px;margin=0px">
 
 
-[h: processorLink=macroLinkText("Character Creation Wizard@Lib:Character Creation","")]
+[h: processorLink=macroLinkText("character Creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 [h:classes=getLibProperty("Classes","Lib:Character Creation")]

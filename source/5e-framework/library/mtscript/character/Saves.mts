@@ -83,13 +83,13 @@
 	<td width=0% align=center style="margin:0px; padding:0px; font-size:8px">
 
 
-	[r:macroLink(profDisplay,"Change Save@Lib:Character","","index="+roll.count+";id="+id+";tokenName="+tokenName)]
+	[r:macroLink(profDisplay,"character/Change Save@this","","index="+roll.count+";id="+id+";tokenName="+tokenName)]
 
 	
 	<td width=20 align=center style="margin:0px; padding:0px; font-size:8px; border-bottom: 1px solid gray;">
 	
 	<span title='[r:name] Saving Throw'>
-	[r:macroLink(if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay),"d20 Roller@Lib:Character","","text="+name+" save;value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";id="+id+";tokenName="+tokenName+";color=ff9900")]
+	[r:macroLink(if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay),"character/d20 Roller@this","","text="+name+" save;value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";id="+id+";tokenName="+tokenName+";color=ff9900")]
 	
 	<td style="margin:0px; padding:0px; font-size:8px">
 	
@@ -105,6 +105,6 @@
 <tr>
 <td align=center colspan=3 style="margin:0px; padding:0px; margin-top:5; font-size:6px">
 
-<b>[r:macroLink("SAVES","Global Mod@Lib:Character","","tokenName="+tokenName+";value=Save")]
+<b>[r:macrolink("SAVES", "character/Global Mod@this")"","tokenName="+tokenName+";value=Save")]
 
 </table>

@@ -17,17 +17,17 @@
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
 [h:closeFrame(tokenName+" - Character Sheet")]
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+name]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+name]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Spellcasting Sheet")==1),code:{
 [h:closeFrame(tokenName+" - Spellcasting Sheet")]
-[macro("Macro Frame@Lib:Character"):"macro=Spellcasting Sheet;tokenName="+name]
+[macro("character/Macro Frame@this"):"macro=Spellcasting Sheet;tokenName="+name]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Description Sheet")==1),code:{
 [h:closeFrame(tokenName+" - Description Sheet")]
-[macro("Macro Frame@Lib:Character"):"macro=Description Sheet;tokenName="+name]
+[macro("character/Macro Frame@this"):"macro=Description Sheet;tokenName="+name]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Statblock")==1),code:{
 [h:closeFrame(tokenName+" - Statblock")]
-[macro("Macro Frame@Lib:Character"):"macro=Statblock;tokenName="+name]
+[macro("character/Macro Frame@this"):"macro=Statblock;tokenName="+name]
 };{}]

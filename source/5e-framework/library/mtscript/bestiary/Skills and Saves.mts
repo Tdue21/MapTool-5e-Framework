@@ -55,5 +55,5 @@
 
 
 
-[macro("d20 Roller@Lib:Bestiary"):";text="+text+";value=+"+if(mod<0,mod,"+"+mod)+";tokenName="+tokenName+";color="+color]
+[macro("bestiary/d20 Roller@this"):";text="+text+";value=+"+if(mod<0,mod,"+"+mod)+";tokenName="+tokenName+";color="+color]
 

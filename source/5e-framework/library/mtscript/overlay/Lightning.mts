@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Canvas Lightning Effect</title>
-<link rel="stylesheet" type="text/css" href="RainCSS@Lib:WeatherGirl">
+<link rel="stylesheet" type="text/css" href="weatherGirl/RainCSS@this">
 </head>
 <body>
 <canvas id="canvas"></canvas>

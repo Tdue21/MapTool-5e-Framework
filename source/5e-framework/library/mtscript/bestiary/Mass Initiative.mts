@@ -60,7 +60,7 @@
 		
 		[h:init=init+bonus]
 	
-		[h,macro("d20 Roller@Lib:Character"):"text=Initiative"+if(text=="" || text==0,""," | "+text)+";value=+"+if(init<0,init,"+"+init)+";tokenName="+tokenName+";color=blue"]
+		[h,macro("character/d20 Roller@this"):"text=Initiative"+if(text=="" || text==0,""," | "+text)+";value=+"+if(init<0,init,"+"+init)+";tokenName="+tokenName+";color=blue"]
 		
 	};{}]
 	
@@ -70,7 +70,7 @@
 		[h:dex=json.get(object,"dex")]
 		[h,if(isNumber(dex)==1):dex=floor(dex/2-5);dex=-5]
 	
-		[h,macro("d20 Roller@Lib:Bestiary"):"text=Initiative;value=+"+if(dex<0,dex,"+"+dex)+";tokenName="+token.name+";color=blue"]
+		[h,macro("bestiary/d20 Roller@this"):"text=Initiative;value=+"+if(dex<0,dex,"+"+dex)+";tokenName="+token.name+";color=blue"]
 	
 	};{}]
 

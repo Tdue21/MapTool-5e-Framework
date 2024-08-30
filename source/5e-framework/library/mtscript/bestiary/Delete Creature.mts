@@ -7,4 +7,4 @@
 
 [h:setLibProperty("Bestiary",BestiaryObj,"Lib:Compendium")]
 
-[macro("Manage@Lib:Bestiary"):""]
+[macro("bestiary/Manage@this"):""]

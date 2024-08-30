@@ -9,7 +9,7 @@
 [h:setInitiativeRound(-1)]
 [h:setCurrentInitiative(-1)]
 
-[h:link=macroLinkText("Initiative Render@Lib:Overlay","",macro.args)]
+[h:link=macroLinkText("overlay/Initiative Render@this","",macro.args)]
 
 [h:execLink(link,0,"all")]
 
@@ -21,14 +21,14 @@
 [h: removeAllNPCsFromInitiative()]
 
 [h,if(isOverlayRegistered("Initiative")==1),code:{
-[macro("Initiative Overlay@Lib:Overlay"):"output=all"]
+[macro("overlay/Initiative Overlay@this"):"output=all"]
 };{}]
 
 };{
 
 [h:removeAllFromInitiative()]
 
-[h:link=macroLinkText("closeOverlay@Lib:Overlay","","Initiative")]
+[h:link=macroLinkText("overlay/closeOverlay@this","","Initiative")]
 
 [h:execLink(link,0,"all")]
 

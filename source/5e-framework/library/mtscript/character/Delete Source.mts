@@ -17,14 +17,14 @@
 
 
 [h,if(isDialogVisible("Manage Additional Feats")==1),code:{
-[macro("Manage Additional Feats@Lib:Character"):""]
+[macro("character/Manage Additional Feats@this"):""]
 };{}]
 [h,if(isDialogVisible("Manage Feats")==1),code:{
-[macro("Manage Feats@Lib:Character"):""]
+[macro("character/Manage Feats@this"):""]
 };{}]
 [h,if(isDialogVisible("Manage Equipment")==1),code:{
-[macro("Manage Equipment@Lib:Character"):""]
+[macro("character/Manage Equipment@this"):""]
 };{}]
 [h,if(isDialogVisible("Manage Spells")==1),code:{
-[macro("Manage Spells@Lib:Character"):""]
+[macro("character/Manage Spells@this"):""]
 };{}]

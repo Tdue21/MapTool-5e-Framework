@@ -15,11 +15,11 @@
 
 [h,if(hasClassMacro==-1),code:{
 
-	[macro("custom race@Lib:Compendium"):"tokenName="+tokenName+";name="+race]
+	[macro("compendium/custom race@this"):"tokenName="+tokenName+";name="+race]
 
 	};{
 	[h:macro.return=""]
-	[macro(race+"@Lib:Compendium"):tokenName]
+	[macro(race+"compendium/@this"):tokenName]
 	
 }]
 [h,if(macro.return==""):"";race=macro.return]
@@ -62,7 +62,7 @@ Select a <b>background</b> from the following list.
 <td valign=bottom style="padding:0px;margin=0px">
 
 
-[h: processorLink=macroLinkText("Character Creation Wizard@Lib:Character Creation","")]
+[h: processorLink=macroLinkText("character Creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 [h:bg=getLibProperty("Backgrounds","Lib:Character Creation")]

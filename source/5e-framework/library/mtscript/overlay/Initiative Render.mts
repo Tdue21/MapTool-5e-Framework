@@ -121,23 +121,23 @@ body	{
 	
 	<table width=100%>
 		<tr><td valign=top>
-		<span title="Refresh">[r:macroLink("<img style='filter:invert(100%);' src='asset://db583448ed08a5abc19f514310294ee4-15' >","Initiative Overlay@Lib:Overlay","","output=all")]</span>
+		<span title="Refresh">[r:macrolink("<img style='filter:invert(100%);' src='asset://db583448ed08a5abc19f514310294ee4-15' >", "overlay/Initiative Overlay@this")"","output=all")]</span>
 
-		<span title="Roll Initiative">[r:macroLink("<img style='filter:invert(100%);' src='asset://274cb2ad110af815ee7c7d5b47989b0b-19' >","Mass Initiative@Lib:Bestiary","","output=all")]</span>
+		<span title="Roll Initiative">[r:macrolink("<img style='filter:invert(100%);' src='asset://274cb2ad110af815ee7c7d5b47989b0b-19' >", "bestiary/Mass Initiative@this")"","output=all")]</span>
 
 		
-		[r,if(isGM()==1):macroLink("<span title='Clear initiative Tracker'>Clear","Remove Initiative@Lib:Overlay")+"</span>"]
+		[r,if(isGM()==1):macroLink("<span title='Clear initiative Tracker'>Clear","overlay/Remove Initiative@this")+"</span>"]
 
 		<td align=right><span title="Close">
-		[r:macroLink("<b>X</b>","closeOverlay@Lib:Overlay","","Initiative")]
+		[r:macrolink("<b>X</b>", "overlay/closeOverlay@this")"","Initiative")]
 
 		<tr><td colspan=2 align=center>
 		
-		[r,if(isGM()==1):"<span title='Previous'>"+macroLink("<img style='filter:invert(100%);transform:rotate(180deg)' src=asset://8ccc215a396b748332ddc89046fb9fd7-17>","Initiative Overlay@Lib:Overlay","","command=Previous;output=all")+"</span>"]
+		[r,if(isGM()==1):"<span title='Previous'>"+macrolink("<img style='filter:invert(100%);transform:rotate(180deg)' src=asset://8ccc215a396b748332ddc89046fb9fd7-17>", "overlay/Initiative Overlay@this")"","command=Previous;output=all")+"</span>"]
 		
-		<b>[r,if(isGM()==1):macroLink("<span title='Reset Round'>Round:","Initiative Overlay@Lib:Overlay","","command=Reset;output=all")+"</span>";"Round:"]</b> [r:round]
+		<b>[r,if(isGM()==1):macrolink("<span title='Reset Round'>Round:", "overlay/Initiative Overlay@this")"","command=Reset;output=all")+"</span>";"Round:"]</b> [r:round]
 		
-		[r,if(isGM()==1):"<span title='Next'>"+macroLink("<img style='filter:invert(100%);' src=asset://8ccc215a396b748332ddc89046fb9fd7-17>","Initiative Overlay@Lib:Overlay","","command=Next;output=all")+"</span>"]
+		[r,if(isGM()==1):"<span title='Next'>"+macrolink("<img style='filter:invert(100%);' src=asset://8ccc215a396b748332ddc89046fb9fd7-17>", "overlay/Initiative Overlay@this")"","command=Next;output=all")+"</span>"]
 			
 		
 		
@@ -173,7 +173,7 @@ body	{
 <table>
 <tr>
 
-[r,count(listcount(fields),""),code:{[h:currentJson=json.get(tokens,roll.count)][h:id=json.get(currentJson,"tokenId")][r,if(getVisible(id)==1 || isGM()==1):"<td style='margin:0;padding:0'><table style='margin:0;padding:0'><tr><td align=center "+if(current==roll.count," id=init"," id=wait")+" valign=bottom width="+size+">";""][h,if(current==roll.count):setState("Initiative",1,id);setState("Initiative",0,id)][h,if(current==roll.count && command=="Next" && focus==1):goto(id)][h:name=getName(id)][h:out=if(getState("Dead",id)==1 || getState("Dying",id)==1,1,0)]<a href='[r:macroLinkText("Focus@Lib:Overlay","","id="+id)]'><span title="[r:name]: [r:json.get(currentJson,"initiative")]">[r,if(current==roll.count):if(getVisible(id)==1 || isGM()==1,"<img"+if(getVisible(id)==0," id='hidden'","")+if(out==1," class='out'","")+" src="+getImage(name)+"-"+size+">","");"<img"+if(getVisible(id)==0," id='hidden'","")+if(out==1," class='out'","")+" src="+getImage(name)+"-"+size+">"]</a>[r,if(getVisible(id)==1 || isGM()==1):"</table>";""]}]
+[r,count(listcount(fields),""),code:{[h:currentJson=json.get(tokens,roll.count)][h:id=json.get(currentJson,"tokenId")][r,if(getVisible(id)==1 || isGM()==1):"<td style='margin:0;padding:0'><table style='margin:0;padding:0'><tr><td align=center "+if(current==roll.count," id=init"," id=wait")+" valign=bottom width="+size+">";""][h,if(current==roll.count):setState("Initiative",1,id);setState("Initiative",0,id)][h,if(current==roll.count && command=="Next" && focus==1):goto(id)][h:name=getName(id)][h:out=if(getState("Dead",id)==1 || getState("Dying",id)==1,1,0)]<a href='[r:macroLinkText("overlay/Focus@this","","id="+id)]'><span title="[r:name]: [r:json.get(currentJson,"initiative")]">[r,if(current==roll.count):if(getVisible(id)==1 || isGM()==1,"<img"+if(getVisible(id)==0," id='hidden'","")+if(out==1," class='out'","")+" src="+getImage(name)+"-"+size+">","");"<img"+if(getVisible(id)==0," id='hidden'","")+if(out==1," class='out'","")+" src="+getImage(name)+"-"+size+">"]</a>[r,if(getVisible(id)==1 || isGM()==1):"</table>";""]}]
 
 </table>
 

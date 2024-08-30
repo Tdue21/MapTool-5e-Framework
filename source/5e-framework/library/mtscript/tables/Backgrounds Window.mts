@@ -34,7 +34,7 @@
 	[h:currentBG=listget(bgList,roll.count)]
 	
 	[r,if(background==currentBG):"<b>"]
-	[r:macroLink(currentBG,"Backgrounds Window@Lib:Tables","",currentBG)]<br>
+	[r:macroLink(currentBG,"tables/Backgrounds Window@this","",currentBG)]<br>
 	[r,if(background==currentBG):"</b>"]
 }]
 
@@ -54,9 +54,9 @@
 [h:object=json.get(featProps,background)]
 [h,if(json.type(object)=="UNKNOWN"):description="";description=json.get(object,"description")]
 <h1>[r:CapitalName]<font size=3>
-	[r:macroLink("Edit","Change Form@Lib:Character","","prop=Feats;source=;name="+background+";description=;tokenName=Lib:Campaign")] |
-[r:macrolink("Move","Move@Lib:Character","","tokenName=Lib:Compendium;description=;name="+background+";prop=Feats")]</h1>
-[macro("Markdown@Lib:Campaign"):"tokenName=Lib:Tables;description="+encode(description)+";source=Background;name="+background+";group=Feats"]
+	[r:macrolink("Edit", "character/Change Form@this")"","prop=Feats;source=;name="+background+";description=;tokenName=Lib:Campaign")] |
+[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+background+";prop=Feats")]</h1>
+[macro("campaign/Markdown@this"):"tokenName=Lib:Tables;description="+encode(description)+";source=Background;name="+background+";group=Feats"]
 
 
 

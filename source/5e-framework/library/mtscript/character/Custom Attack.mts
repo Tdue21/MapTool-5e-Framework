@@ -58,9 +58,9 @@
 
 
 <!---------------------Replace Atk----------------------->
-[h:atkMod=evalMacro("[macro('Find Mod@Lib:Character'):'tokenName='+tokenName+';currentMod='+atkMod]")]
+[h:atkMod=evalMacro("[macro('character/Find Mod@this'):'tokenName='+tokenName+';currentMod='+atkMod]")]
 [h,if(isProf==0 && atkMod=="-" || atkMod==""):"";atkMod=atkMod+if(isProf==1,profBonus,0)]
-[h,if(atkMod=="-" || atkMod==""):atklink="-";atklink=macroLink(if(atkMod<0,atkMod,"+"+atkMod),if(ammo=="" || ammo==0,"d20 Roller@Lib:Character","Ammo Attack@Lib:Character"),"","text="+name+";value=+"+if(atkMod<0,atkMod,"+"+atkMod)+";tokenName="+tokenName+";color="+if(matches(range,".*Spell")==0,"red","8a61ae")+if(ammo=="" || ammo==0,"",";ammo="+ammo))]
+[h,if(atkMod=="-" || atkMod==""):atklink="-";atklink=macroLink(if(atkMod<0,atkMod,"+"+atkMod),if(ammo=="" || ammo==0,"character/d20 Roller@this","character/Ammo Attack@this"),"","text="+name+";value=+"+if(atkMod<0,atkMod,"+"+atkMod)+";tokenName="+tokenName+";color="+if(matches(range,".*Spell")==0,"red","8a61ae")+if(ammo=="" || ammo==0,"",";ammo="+ammo))]
 
 
 
@@ -69,7 +69,7 @@
 [h:modId=strfind(atkDmg1,"\\d*d\\d+[+-]*(.*?)[+-]*\\d*d\\d+|\\d*d\\d+[+-]*(.*)\$")]
 [h,if(getFindCount(modId)>=1):currentMod=getGroup(modId,1,1)+getGroup(modId,1,2);currentMod=atkDmg1]
 [h:totalMod=currentMod)]
-[h:evalMod=evalMacro("[macro('Find Mod@Lib:Character'):'tokenName='+tokenName+';currentMod='+totalMod]")]
+[h:evalMod=evalMacro("[macro('character/Find Mod@this'):'tokenName='+tokenName+';currentMod='+totalMod]")]
 [h:group2mod=encode(atkDmg1)]
 [h:currentMod=encode(currentMod)]
 [h:group2mod=replace(group2mod,currentMod,evalMod)]
@@ -80,7 +80,7 @@
 
 
 
-[h:dmglink=macroLink(group2mod,"Dice Roller@Lib:Character","","text="+atkDmg1+" "+listget(dmgType,0)+";value="+atkDmg1+";tokenName="+tokenName)]
+[h:dmglink=macroLink(group2mod,"character/Dice Roller@this","","text="+atkDmg1+" "+listget(dmgType,0)+";value="+atkDmg1+";tokenName="+tokenName)]
 
 
 
@@ -90,7 +90,7 @@
 [h:modId=strfind(atkDmg2,"\\d*d\\d+[+-]*(.*?)[+-]*\\d*d\\d+|\\d*d\\d+[+-]*(.*)\$")]
 [h,if(getFindCount(modId)>=1):currentMod=getGroup(modId,1,1)+getGroup(modId,1,2);currentMod=atkDmg2]
 [h:totalMod=currentMod)]
-[h:evalMod=evalMacro("[macro('Find Mod@Lib:Character'):'tokenName='+tokenName+';currentMod='+totalMod]")]
+[h:evalMod=evalMacro("[macro('character/Find Mod@this'):'tokenName='+tokenName+';currentMod='+totalMod]")]
 [h:group2mod=encode(atkDmg2)]
 [h:currentMod=encode(currentMod)]
 [h:group2mod=replace(group2mod,currentMod,evalMod)]
@@ -99,14 +99,14 @@
 [h:group2mod=replace(group2mod,"\\+0","")]
 [h:group2mod=replace(group2mod,"\\+-","-")]
 
-[h:dmglink2=macroLink(group2mod,"Dice Roller@Lib:Character","","text="+atkDmg2+" "+if(listcount(dmgType)>1,listget(dmgType,1),listget(dmgType,0))+";value="+atkDmg2+";tokenName="+tokenName)]
+[h:dmglink2=macroLink(group2mod,"character/Dice Roller@this","","text="+atkDmg2+" "+if(listcount(dmgType)>1,listget(dmgType,1),listget(dmgType,0))+";value="+atkDmg2+";tokenName="+tokenName)]
 
 
 <!---------------------------CAPITALIZE----------------------------->
 [h:CapitalName=function.Capitalize(name)]
 
 
-[r:nameLink=macroLink(CapitalName,"Custom Attack@Lib:Character","","profBonus="+profBonus+";tokenName="+tokenName+";name="+name)]
+[r:nameLink=macroLink(CapitalName,"character/Custom Attack@this","","profBonus="+profBonus+";tokenName="+tokenName+";name="+name)]
 
 [h:obj=json.set(obj,"nameLink",nameLink)]
 [h:obj=json.set(obj,"atklink",atklink)]
@@ -120,8 +120,8 @@
 [h:setLibProperty("Attacks",AttacksObj,"Lib:"+tokenName)]
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Statblock")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Statblock;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Statblock;tokenName="+tokenName]
 };{}]

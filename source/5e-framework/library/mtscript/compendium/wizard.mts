@@ -165,7 +165,7 @@
 	"weapon2|A Spellbook|Other|label")]
 	[h:abort(res)]
 
-	[h:AddItem="Add Item@Lib:Character Creation"]
+	[h:AddItem="character Creation/Add Item@this"]
 
 	[h:smw=getLibProperty("Simple Melee Weapons","Lib:Character Creation")]
 	[h:mmw=getLibProperty("Martial Melee Weapons","Lib:Character Creation")]
@@ -217,7 +217,7 @@
 	
 	<!-----------------Currency------------------->
 [r,if(Equip=="Starting Money"),code:{
-[h:link=macroLinkText("Starting Money@Lib:Character Creation","all","text="+tokenName+": Starting Money;value=4d4;tokenName="+tokenName+";multiplier=10")]
+[h:link=macroLinkText("character Creation/Starting Money@this","all","text="+tokenName+": Starting Money;value=4d4;tokenName="+tokenName+";multiplier=10")]
 
 [h:execLink(link,0,"self")]
 
@@ -250,7 +250,7 @@
 
 
 
-	[macro("Ability Score Improvement@Lib:Character Creation"):"tokenName="+tokenName]
+	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 
 };{}]
@@ -279,7 +279,7 @@
 <!-----------------LEVEL 8------------------->
 [r,if(level==8),code:{
 
-	[macro("Ability Score Improvement@Lib:Character Creation"):"tokenName="+tokenName]
+	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 };{}]
 
@@ -304,7 +304,7 @@
 <!-----------------LEVEL 12------------------->
 [r,if(level==12),code:{
 
-	[macro("Ability Score Improvement@Lib:Character Creation"):"tokenName="+tokenName]
+	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 
 };{}]
@@ -330,7 +330,7 @@
 <!-----------------LEVEL 16------------------->
 [r,if(level==16),code:{
 	
-	[macro("Ability Score Improvement@Lib:Character Creation"):"tokenName="+tokenName]
+	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 
 };{}]
@@ -351,7 +351,7 @@
 <!-----------------LEVEL 19------------------->
 [r,if(level==19),code:{
 
-	[macro("Ability Score Improvement@Lib:Character Creation"):"tokenName="+tokenName]
+	[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 
 

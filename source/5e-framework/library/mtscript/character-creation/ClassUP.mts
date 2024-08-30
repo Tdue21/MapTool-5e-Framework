@@ -25,7 +25,7 @@ Select a <b>class</b> to level up or multiclass, if you choose to multiclass, be
 <td valign=bottom style="padding:0px;margin=0px">
 
 
-[h: processorLink=macroLinkText("Character Creation Wizard@Lib:Character Creation","")]
+[h: processorLink=macroLinkText("character Creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 [h:classes=getLibProperty("Classes","Lib:Character Creation")]

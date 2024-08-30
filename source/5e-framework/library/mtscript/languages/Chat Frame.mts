@@ -64,7 +64,7 @@
 [frame5("Fantasy Script"):{
 
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
-	[h: processorLink = macroLinkText("Render@Lib:Languages", "")]
+	[h: processorLink = macroLinkText("languages/Render@this", "")]
 
 <form action="[r:processorLink]" method="json">
 
@@ -72,8 +72,8 @@
 
 
 	
-	[r:macroLink("&lt;","Chat Frame@Lib:Languages","","width="+number(width-1)+";language="+language)]
-	[r:macroLink(">","Chat Frame@Lib:Languages","","width="+number(width+1)+";language="+language)]
+	[r:macrolink("&lt;", "languages/Chat Frame@this")"","width="+number(width-1)+";language="+language)]
+	[r:macrolink(">", "languages/Chat Frame@this")"","width="+number(width+1)+";language="+language)]
 	<input type="text" name="text" value="" size="[r:width]">
 	
 	&nbsp;

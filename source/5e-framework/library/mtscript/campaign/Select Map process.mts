@@ -11,5 +11,5 @@
 
 [h:overValue=json.get(macro.args,map)]
 [h,if(overValue==""),code:{};{
-	[h,macro("OverlayMiniMenu@Lib:Overlay"):""]
+	[h,macro("overlay/OverlayMiniMenu@this"):""]
 }]

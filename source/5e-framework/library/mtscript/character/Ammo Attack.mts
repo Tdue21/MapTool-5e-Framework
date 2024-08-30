@@ -46,15 +46,15 @@
 [h:equip=json.set(equip,ammo,equipProps)]
 [h,if(equipJsonType=="UNKNOWN" || action==1):"";setLibProperty("Equipment",equip,"Lib:"+tokenName)]
 
-[macro("d20 Roller@Lib:Character"):macro.args]
+[macro("character/d20 Roller@this"):macro.args]
 
-[h,if(customName=="" || customName==0):link=macroLink(ammo,"Args Dialog@Lib:Character","","prop=Equipment;name="+ammo+";customName="+customName+";tokenName="+tokenName);link=macroLink(customName+" ("+ammo+")","Args Dialog@Lib:Character","","prop=Equipment;name="+ammo+";customName="+customName+";tokenName="+tokenName)]
+[h,if(customName=="" || customName==0):link=macroLink(ammo,"character/Args Dialog@this","","prop=Equipment;name="+ammo+";customName="+customName+";tokenName="+tokenName);link=macroLink(customName+" ("+ammo+")","character/Args Dialog@this","","prop=Equipment;name="+ammo+";customName="+customName+";tokenName="+tokenName)]
 
 [h,if(quantityChange==0 || equipJsonType=="UNKNOWN" || action==1):"";broadcast(tokenName+if(quantityChange<0," lost<font color=red>"," got<font color=green>")+" <b style='text-decoration:none'>"+link+"</b></font>"+if(Quantity==newQuantity,""," x"+if(quantityChange<0,quantityChange*-1,quantityChange))+".")]
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Statblock")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Statblock;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Statblock;tokenName="+tokenName]
 };{}]

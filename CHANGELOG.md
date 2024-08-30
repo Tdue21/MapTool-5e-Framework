@@ -12,3 +12,13 @@ The format is based on [keep-a-changelog][keepachangelog].
 
 [keepachangelog]: https://keepachangelog.com/en/1.1.0/
 [5eFramework]: https://github.com/rtakehara/5e-Framework
+
+```
+macrolink\("(?<text>.*)","(?<macro>.*)@lib:(?<lib>.*?)",
+
+
+\[macro\("(?<macro>.*)@lib:(?<lib>.*)"\)
+
+.+(?<sep>['|"])(?<macro>.*)@lib:(?<lib>.*?)['|"]
+
+```

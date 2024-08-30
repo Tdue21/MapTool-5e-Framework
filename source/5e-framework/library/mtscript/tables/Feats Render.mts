@@ -22,9 +22,9 @@
 		[h,if(json.type(object)=="UNKNOWN"):description="";description=json.get(object,"description")]
 		<h3>[r:CapitalName]
 		<font size=3>
-		[r:macroLink("Edit","Change Form@Lib:Character","","prop=Feats;source=;name="+name+";description=;tokenName=Lib:Campaign")] |
-	[r:macrolink("Move","Move@Lib:Character","","tokenName=Lib:Compendium;description=;name="+name+";prop=Feats")]</h3>
-		[macro("Markdown@Lib:Campaign"):"tokenName=Lib:Tables;description="+encode(description)+";source=Class;name="+name+";group=Feats"]
+		[r:macrolink("Edit", "character/Change Form@this")"","prop=Feats;source=;name="+name+";description=;tokenName=Lib:Campaign")] |
+	[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+name+";prop=Feats")]</h3>
+		[macro("campaign/Markdown@this"):"tokenName=Lib:Tables;description="+encode(description)+";source=Class;name="+name+";group=Feats"]
 	
 
 

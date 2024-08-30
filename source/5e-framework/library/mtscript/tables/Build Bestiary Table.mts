@@ -36,5 +36,5 @@
 [h:setLibProperty("Bestiary",jsonNPC,"Lib:Tables")]
 
 [h,if(isDialogVisible("Bestiary")==1),code:{
-[macro("Creature Window@Lib:Tables"):""]
+[macro("tables/Creature Window@this"):""]
 };{}]

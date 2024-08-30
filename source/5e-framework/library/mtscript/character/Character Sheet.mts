@@ -19,7 +19,7 @@
 <table width=100%>
 <tr bgcolor=#DCDCDC>
 <td style="margin:0px; padding:0px; font-size:8px" align=left>
-[r:macroLink("Load","Selector@Lib:Character","","macro=Character Sheet;tokenName="+tokenName)]
+[r:macrolink("Load", "character/Selector@this")"","macro=Character Sheet;tokenName="+tokenName)]
 <td style="margin:0px; padding:0px; font-size:8px" align=right><b>DUNGEONS & DRAGONS
 <tr>
 <td colspan=2 style="border-style: double none double solid; border-width:3px;font-size:15px;margin:0px; padding:0px" align=center>
@@ -51,7 +51,7 @@
 
 
 <tr style="font-size:6px">
-<td style="margin:0px; padding:0px"><span title="Edit Name">[r:macroLink("CHARACTER NAME","Rename@Lib:Character","","tokenName="+tokenName)]</span>
+<td style="margin:0px; padding:0px"><span title="Edit Name">[r:macrolink("CHARACTER NAME", "character/Rename@this")"","tokenName="+tokenName)]</span>
 <td bgcolor=#DCDCDC>
 
 </table>
@@ -89,7 +89,7 @@
 [h:CapitalName=function.Capitalize(name)]
 	
 	<i>
-	[h:link=macroLink(CapitalName+" "+level,"Change Class@Lib:Character","","class="+name+";tokenName="+tokenName)]
+	[h:link=macroLink(CapitalName+" "+level,"character/Change Class@this","","class="+name+";tokenName="+tokenName)]
 
 <!---------------------------CAPITALIZE----------------------------->
 [h:CapitalName=function.Capitalize(subclass)]
@@ -139,9 +139,9 @@
 
 <tr style="font-size:6px; border-top: 1px solid gray;">
 <td style="margin:0px; padding:0px">
-[r:macroLink("<span title='Add Class'>CLASS & LEVEL</span>","Change Class@Lib:Character","","class=New Class;tokenName="+tokenName)]
+[r:macrolink("<span title='Add Class'>CLASS & LEVEL</span>", "character/Change Class@this")"","class=New Class;tokenName="+tokenName)]
 <td style="margin:0px; padding:0px">
-[r:macroLink("<span title='Edit Background'>BACKGROUND</span>","Change Property@Lib:Character","","name=Background;value="+encode(background)+";id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Background'>BACKGROUND</span>", "character/Change Property@this")"","name=Background;value="+encode(background)+";id="+id+";tokenName="+tokenName)]
 <td style="margin:0px; padding:0px">PLAYER NAME
 <tr>
 <td style="margin:0px; padding:0px">
@@ -184,13 +184,13 @@
 
 <tr style="font-size:6px; border-top: 1px solid gray;">
 <td style="margin:0px; padding:0px">
-[r:macroLink("<span title='Edit Race'>RACE</span>","Change Property@Lib:Character","","name=Race;value="+encode(race)+";id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Race'>RACE</span>", "character/Change Property@this")"","name=Race;value="+encode(race)+";id="+id+";tokenName="+tokenName)]
 
 <td style="margin:0px; padding:0px">
-[r:macroLink("<span title='Edit Alignment'>ALIGNMENT</span>","Change Property@Lib:Character","","name=Alignment;value="+encode(alignment)+";id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Alignment'>ALIGNMENT</span>", "character/Change Property@this")"","name=Alignment;value="+encode(alignment)+";id="+id+";tokenName="+tokenName)]
 <td style="margin:0px; padding:0px">
 
-[r:macroLink("<span title='Edit Experience Points'>EXPERIENCE POINTS</span>","Change Property@Lib:Character","","name=XP;value="+encode(xp)+";id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Experience Points'>EXPERIENCE POINTS</span>", "character/Change Property@this")"","name=XP;value="+encode(xp)+";id="+id+";tokenName="+tokenName)]
 
 </table>
 
@@ -209,7 +209,7 @@
 
 
 <!-----------------ATTRIBUTES------------------->
-[macro("Attributes@Lib:Character"):"profBonus="+profBonus+";tokenName="+tokenName]
+[macro("character/Attributes@this"):"profBonus="+profBonus+";tokenName="+tokenName]
 
 
 
@@ -222,7 +222,7 @@
 
 [h:inspiration=getLibProperty("Inspiration","Lib:"+tokenName)]
 
-[r:macroLink(if(inspiration=="" || inspiration==0,"O","<b>X"),"Toogle Inspiration@Lib:Character","",tokenName)]
+[r:macroLink(if(inspiration=="" || inspiration==0,"O","<b>X"),"character/Toogle Inspiration@this","",tokenName)]
 
 <td align=center valign=middle style="border-style: double; border-width:3px; margin:0px; padding:0px;font-size:6px">
 INSPIRATION
@@ -242,18 +242,18 @@ PROFICIENCY BONUS
 
 
 <!-----------------SAVES------------------->
-[macro("Saves@Lib:Character"):"tokenName="+tokenName]
+[macro("character/Saves@this"):"tokenName="+tokenName]
 
 
 
 <!-----------------SKILLS------------------->
-[macro("Skills@Lib:Character"):"tokenName="+tokenName]
+[macro("character/Skills@this"):"tokenName="+tokenName]
 
 <tr>
 <td colspan=2 style="margin:0px; padding:0px">
 
 
-[macro("Passive Skills@Lib:Character"):"tokenName="+tokenName]
+[macro("character/Passive Skills@this"):"tokenName="+tokenName]
 
 
 <tr>
@@ -277,41 +277,41 @@ PROFICIENCY BONUS
 [h:ArmorProf=getLibProperty("Armor Proficiency","Lib:"+tokenName)]
 [h:value=getStrProp(string(ArmorProf),"value")]
 [h:text=getStrProp(string(ArmorProf),"text")]
-[r:macroLink("<span title='Edit Armor Proficiency'>Armor</span>","Change Property@Lib:Character","","name=Armor Proficiency;value="+encode(ArmorProf)+";id="+id+";tokenName="+tokenName)]: 
+[r:macrolink("<span title='Edit Armor Proficiency'>Armor</span>", "character/Change Property@this")"","name=Armor Proficiency;value="+encode(ArmorProf)+";id="+id+";tokenName="+tokenName)]: 
 <!-----------------ARMOR PROFICIENCIES------------------->
 [h:value=replace(value,"\\.","")]
 [h:value=replace(value,"(?<![\\w\\d])and",",")]
 [r,count(listcount(value)),code:{
 	[h:entry=listget(value,roll.count)]
-	[r:macroLink("<span title='Roll "+entry+"'>"+entry+"<span>","Other Proficiencies@Lib:Character","","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
+	[r:macrolink("<span title='Roll "+entry+"'>"+entry+"<span>", "character/Other Proficiencies@this")"","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
 }]
 
 <br>
 [h:WeaponProf=getLibProperty("Weapon Proficiency","Lib:"+tokenName)]
 [h:value=getStrProp(string(WeaponProf),"value")]
 [h:text=getStrProp(string(WeaponProf),"text")]
-[r:macroLink("<span title='Edit Weapon Proficiency'>Weapon</span>","Change Property@Lib:Character","","name=Weapon Proficiency;value="+encode(WeaponProf)+";id="+id+";tokenName="+tokenName)]:
+[r:macrolink("<span title='Edit Weapon Proficiency'>Weapon</span>", "character/Change Property@this")"","name=Weapon Proficiency;value="+encode(WeaponProf)+";id="+id+";tokenName="+tokenName)]:
 
 <!-----------------WEAPON PROFICIENCIES------------------->
 [h:value=replace(value,"\\.","")]
 [h:value=replace(value,"(?<![\\w\\d])and",",")]
 [r,count(listcount(value)),code:{
 	[h:entry=listget(value,roll.count)]
-	[r:macroLink("<span title='Roll "+entry+"'>"+entry+"<span>","Other Proficiencies@Lib:Character","","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
+	[r:macrolink("<span title='Roll "+entry+"'>"+entry+"<span>", "character/Other Proficiencies@this")"","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
 }]
 
 <br>
 [h:ToolProf=getLibProperty("Tool Proficiency","Lib:"+tokenName)]
 [h:value=getStrProp(string(ToolProf),"value")]
 [h:text=getStrProp(string(ToolProf),"text")]
-[r:macroLink("<span title='Edit Tool Proficiencies'>Tools</span>","Change Property@Lib:Character","","name=Tool Proficiency;value="+encode(ToolProf)+";id="+id+";tokenName="+tokenName)]:
+[r:macrolink("<span title='Edit Tool Proficiencies'>Tools</span>", "character/Change Property@this")"","name=Tool Proficiency;value="+encode(ToolProf)+";id="+id+";tokenName="+tokenName)]:
 
 <!-----------------TOOL PROFICIENCIES------------------->
 [h:value=replace(value,"\\.","")]
 [h:value=replace(value,"(?<![\\w\\d])and",",")]
 [r,count(listcount(value)),code:{
 	[h:entry=listget(value,roll.count)]
-	[r:macroLink("<span title='Roll "+entry+"'>"+entry+"<span>","Other Proficiencies@Lib:Character","","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
+	[r:macrolink("<span title='Roll "+entry+"'>"+entry+"<span>", "character/Other Proficiencies@this")"","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
 }]
 
 <br>
@@ -319,27 +319,27 @@ PROFICIENCY BONUS
 [h:value=getStrProp(string(LanguageProf),"value")]
 [h:setLibProperty("Languages",value,"Lib:"+tokenName)]
 [h:text=getStrProp(string(LanguageProf),"text")]
-[r:macroLink("<span title='Edit Language Proficiencies'>Languages</span>","Change Property@Lib:Character","","name=Language Proficiency;value="+encode(LanguageProf)+";id="+id+";tokenName="+tokenName)]:
+[r:macrolink("<span title='Edit Language Proficiencies'>Languages</span>", "character/Change Property@this")"","name=Language Proficiency;value="+encode(LanguageProf)+";id="+id+";tokenName="+tokenName)]:
 
 <!-----------------LANGUAGE PROFICIENCIES------------------->
 [h:value=replace(value,"\\.","")]
 [h:value=replace(value,"(?<![\\w\\d])and",",")]
 [r,count(listcount(value)),code:{
 	[h:entry=listget(value,roll.count)]
-	[r:macroLink("<span title='Roll "+entry+"'>"+entry+"<span>","Other Proficiencies@Lib:Character","","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
+	[r:macrolink("<span title='Roll "+entry+"'>"+entry+"<span>", "character/Other Proficiencies@this")"","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
 }]
 
 <br>
 [h:OtherProf=getLibProperty("Other Proficiency","Lib:"+tokenName)]
 [h:value=getStrProp(string(OtherProf),"value")]
 [h:text=getStrProp(string(OtherProf),"text")]
-[r:macroLink("<span title='Edit Other Proficiencies'>Other</span>","Change Property@Lib:Character","","name=Other Proficiency;value="+encode(OtherProf)+";id="+id+";tokenName="+tokenName)]: 
+[r:macrolink("<span title='Edit Other Proficiencies'>Other</span>", "character/Change Property@this")"","name=Other Proficiency;value="+encode(OtherProf)+";id="+id+";tokenName="+tokenName)]: 
 <!-----------------OTHER PROFICIENCIES------------------->
 [h:value=replace(value,"\\.","")]
 [h:value=replace(value,"(?<![\\w\\d])and",",")]
 [r,count(listcount(value)),code:{
 	[h:entry=listget(value,roll.count)]
-	[r:macroLink("<span title='Roll "+entry+"'>"+entry+"<span>","Other Proficiencies@Lib:Character","","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
+	[r:macrolink("<span title='Roll "+entry+"'>"+entry+"<span>", "character/Other Proficiencies@this")"","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
 }]
 
 
@@ -389,7 +389,7 @@ PROFICIENCY BONUS
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 <b>
-[r:macroLink("<span title='Edit Armor Class'>ARMOR<br>CLASS</span>","Change Property@Lib:Character","","value="+encode(AC)+";name=AC;id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Armor Class'>ARMOR<br>CLASS</span>", "character/Change Property@this")"","value="+encode(AC)+";name=AC;id="+id+";tokenName="+tokenName)]
 </table>
 [h,if(id==""):"";setProperty("Armor Class",totalValue+if(text=="" || text==0,""," ("+text+")"))]
 
@@ -420,7 +420,7 @@ default:bonus=0]
 
 [h:init=init+bonus]
 
-[h:link=macroLink(if(init>0,"+"+init,init),"d20 Roller@Lib:Character","","text=Initiative"+if(text=="" || text==0,""," | "+text)+";value=+"+if(init<0,init,"+"+init)+";tokenName="+tokenName+";color=blue")]
+[h:link=macroLink(if(init>0,"+"+init,init),"character/d20 Roller@this","","text=Initiative"+if(text=="" || text==0,""," | "+text)+";value=+"+if(init<0,init,"+"+init)+";tokenName="+tokenName+";color=blue")]
 
 [h:numberValue=getStrProp(string(value),"value")]
 [h:numberValue=if(numberValue==0,"",numberValue)]
@@ -432,7 +432,7 @@ default:bonus=0]
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 
 <br>
-<b>[r:macroLink(if(text=="" && isNumber(numberValue)==0,"<span title='Edit Initiative Bonus'>INITIATIVE</span>","<span title='"+if(isNumber(numberValue)==0,"",numberValue)+if(text=="","",if(isNumber(numberValue)==0,""," | ")+text)+"'>INITIATIVE</span>"),"Change Initiative@Lib:Character","","value="+encode(value)+";name=Initiative;id="+id+";tokenName="+tokenName)]
+<b>[r:macroLink(if(text=="" && isNumber(numberValue)==0,"<span title='Edit Initiative Bonus'>INITIATIVE</span>","<span title='"+if(isNumber(numberValue)==0,"",numberValue)+if(text=="","",if(isNumber(numberValue)==0,""," | ")+text)+"'>INITIATIVE</span>"),"character/Change Initiative@this","","value="+encode(value)+";name=Initiative;id="+id+";tokenName="+tokenName)]
 
 </table>
 
@@ -462,7 +462,7 @@ default:bonus=0]
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 
 <br>
-<b>[r:macroLink("<span title='Edit Movement Speed'>SPEED</span>","Change Property@Lib:Character","","value="+encode(Spd)+";name=Speed;id="+id+";tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Edit Movement Speed'>SPEED</span>", "character/Change Property@this")"","value="+encode(Spd)+";name=Speed;id="+id+";tokenName="+tokenName)]
 
 </table>
 
@@ -499,7 +499,7 @@ default:bonus=0]
 
 [r,if(TotalHP==""),code:{
 
-	 [r:macroLink("+","Damage@Lib:Character",output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
+	 [r:macrolink("+", "character/Damage@this")output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
 
 };{
 
@@ -509,7 +509,7 @@ default:bonus=0]
 
 
 	 
-	 [r:macroLink(TotalHP,"Damage@Lib:Character",output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
+	 [r:macroLink(TotalHP,"character/Damage@this",output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
 	
 
 
@@ -524,20 +524,20 @@ default:bonus=0]
 		<tr>
 			<td style="font-size:10px;font-size:15px; margin:0px; padding:0px">
 
-			[r:macroLink("-","Quick HP@Lib:Character",output,"heal=-1;current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
+			[r:macrolink("-", "character/Quick HP@this")output,"heal=-1;current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
 
 			<td align=center style="font-size:10px;font-size:15px; margin:0px; padding:0px">
 		
-			[r:macroLink(CurrentHP,"Damage@Lib:Character",output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
+			[r:macroLink(CurrentHP,"character/Damage@this",output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
 		
 			<td align=right style="font-size:10px;font-size:15px; margin:0px; padding:0px">
-			[r:macroLink("+","Quick HP@Lib:Character",output,"heal=1;current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
+			[r:macrolink("+", "character/Quick HP@this")output,"heal=1;current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
 
 	</table>
 
 <tr>
 <td colspan=2 align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macroLink("CURRENT HIT POINTS","Damage@Lib:Character",output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
+<b>[r:macrolink("CURRENT HIT POINTS", "character/Damage@this")output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
 
 </table>
 
@@ -549,14 +549,14 @@ default:bonus=0]
 
 
 <!-----------------TEMP HP------------------->
-[r:if(TempHP=="" || TempHP==0,"<br>",macroLink(TempHP,"Damage@Lib:Character",output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName))]
+[r:if(TempHP=="" || TempHP==0,"<br>",macroLink(TempHP,"character/Damage@this",output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName))]
 
 
 
 
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macroLink("TEMPORARY HIT POINTS","Damage@Lib:Character",output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
+<b>[r:macrolink("TEMPORARY HIT POINTS", "character/Damage@this")output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
 
 </table>
 
@@ -604,7 +604,7 @@ default:bonus=0]
 	[h:sides=indexKeyStrProp(totalHitDice,roll.count)]
 	[h:currentHitDice=dices+sides]
 	
-	[r:macroLink("<span title='Roll Hit Dice'>"+currentHitDice+"</span>","Hit Dice Roll@Lib:Character","","dices="+dices+";sides="+replace(sides,"d","")+";tokenName="+tokenName+";output="+output+";conMod="+con)]
+	[r:macrolink("<span title='Roll Hit Dice'>"+currentHitDice+"</span>", "character/Hit Dice Roll@this")"","dices="+dices+";sides="+replace(sides,"d","")+";tokenName="+tokenName+";output="+output+";conMod="+con)]
 }]
 <tr>
 <td colspan=2 align=center style="font-size:11px; margin:0px; padding:0px">
@@ -627,7 +627,7 @@ default:bonus=0]
 <tr>
 <td colspan=2 align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 <b>
-[r:macroLink("<span title='Edit Hit Dice'>HIT DICE</span>","Change Hit Die@Lib:Character","","totalHitDice="+encode(totalHitDice)+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Hit Dice'>HIT DICE</span>", "character/Change Hit Die@this")"","totalHitDice="+encode(totalHitDice)+";tokenName="+tokenName)]
 
 
 </table>
@@ -651,24 +651,24 @@ default:bonus=0]
 SUCCESSES
 
 <td width=55 align=center style="font-size:9px; margin:0px; padding:0px; margin-bottom:1px">
-[r:macroLink(if(successes>0,"X","O"),"Death Saves@Lib:Character","","successes="+if(successes>0,successes-1,successes+1)+";tokenName="+tokenName)]
-[r:macroLink(if(successes>1,"X","O"),"Death Saves@Lib:Character","","successes="+if(successes>1,successes-1,successes+1)+";tokenName="+tokenName)]
-[r:macroLink(if(successes>2,"X","O"),"Death Saves@Lib:Character","","successes="+if(successes>2,successes-1,successes+1)+";tokenName="+tokenName)]
+[r:macroLink(if(successes>0,"X","O"),"character/Death Saves@this","","successes="+if(successes>0,successes-1,successes+1)+";tokenName="+tokenName)]
+[r:macroLink(if(successes>1,"X","O"),"character/Death Saves@this","","successes="+if(successes>1,successes-1,successes+1)+";tokenName="+tokenName)]
+[r:macroLink(if(successes>2,"X","O"),"character/Death Saves@this","","successes="+if(successes>2,successes-1,successes+1)+";tokenName="+tokenName)]
 
 <tr>
 <td align=right valign=middle style="font-size:6px; margin:0px; padding:0px">
 FAILURES
 
 <td align=center style="font-size:9px; margin:0px; padding:0px margin-bottom:1px">
-[r:macroLink(if(failures>0,"X","O"),"Death Saves@Lib:Character","","failures="+if(failures>0,failures-1,failures+1)+";tokenName="+tokenName)]
-[r:macroLink(if(failures>1,"X","O"),"Death Saves@Lib:Character","","failures="+if(failures>1,failures-1,failures+1)+";tokenName="+tokenName)]
-[r:macroLink(if(failures>2,"X","O"),"Death Saves@Lib:Character","","failures="+if(failures>2,failures-1,failures+1)+";tokenName="+tokenName)]
+[r:macroLink(if(failures>0,"X","O"),"character/Death Saves@this","","failures="+if(failures>0,failures-1,failures+1)+";tokenName="+tokenName)]
+[r:macroLink(if(failures>1,"X","O"),"character/Death Saves@this","","failures="+if(failures>1,failures-1,failures+1)+";tokenName="+tokenName)]
+[r:macroLink(if(failures>2,"X","O"),"character/Death Saves@this","","failures="+if(failures>2,failures-1,failures+1)+";tokenName="+tokenName)]
 
 <tr>
 <td colspan=2 align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 <b>
 
-[r:macroLink("<span title='Roll Death Saving Throw'>DEATH SAVES</span>","d20 Roller@Lib:Character","","text=Death Save;value=;tokenName="+tokenName+";color=death")]
+[r:macrolink("<span title='Roll Death Saving Throw'>DEATH SAVES</span>", "character/d20 Roller@this")"","text=Death Save;value=;tokenName="+tokenName+";color=death")]
 
 
 </table>
@@ -693,13 +693,13 @@ FAILURES
 
 <!-----------------ATTACKS------------------->
 
-[macro("Attacks@Lib:Character"):"profBonus="+profBonus+";tokenName="+tokenName]
+[macro("character/Attacks@this"):"profBonus="+profBonus+";tokenName="+tokenName]
 <br>
 
 
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macroLink("<span title='Add Custom Attacks'>ATTACKS & SPELLCASTING</span>","Custom Attack@Lib:Character","","profBonus="+profBonus+";tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Add Custom Attacks'>ATTACKS & SPELLCASTING</span>", "character/Custom Attack@this")"","profBonus="+profBonus+";tokenName="+tokenName)]
 
 </table>
 
@@ -736,19 +736,19 @@ FAILURES
 [r:if(CP==0,"",CP)]
 
 <td rowspan=2 valign=middle style="margin:0px; padding:0px">
-[r:macrolink("<span title='Send to other Token'>Trade</span>","Trade Currency@Lib:Character",output,"tokenName="+tokenName)]
+[r:macrolink("<span title='Send to other Token'>Trade</span>", "character/Trade Currency@this")output,"tokenName="+tokenName)]
 
 <tr>
 <td align=center style="font-size:8px; border-style: solid; border-width:1px; margin:0px; padding:0px">
-[r:macrolink("PP","Change Currency@Lib:Character",output,"tokenName="+tokenName)]
+[r:macrolink("PP", "character/Change Currency@this")output,"tokenName="+tokenName)]
 <td align=center style="font-size:8px; border-style: solid; border-width:1px; margin:0px; padding:0px">
-[r:macrolink("GP","Change Currency@Lib:Character",output,"tokenName="+tokenName)]
+[r:macrolink("GP", "character/Change Currency@this")output,"tokenName="+tokenName)]
 <td align=center style="font-size:8px; border-style: solid; border-width:1px; margin:0px; padding:0px">
-[r:macrolink("EP","Change Currency@Lib:Character",output,"tokenName="+tokenName)]
+[r:macrolink("EP", "character/Change Currency@this")output,"tokenName="+tokenName)]
 <td align=center style="font-size:8px; border-style: solid; border-width:1px; margin:0px; padding:0px">
-[r:macrolink("SP","Change Currency@Lib:Character",output,"tokenName="+tokenName)]
+[r:macrolink("SP", "character/Change Currency@this")output,"tokenName="+tokenName)]
 <td align=center style="font-size:8px; border-style: solid; border-width:1px; margin:0px; padding:0px">
-[r:macrolink("CP","Change Currency@Lib:Character",output,"tokenName="+tokenName)]
+[r:macrolink("CP", "character/Change Currency@this")output,"tokenName="+tokenName)]
 
 </table>
 
@@ -806,11 +806,11 @@ FAILURES
 	<tr>
 	<td style="font-size:8px; margin:0px; padding:0px">
 	
-	[r:macrolink(equipIcon,"Quick Equip@Lib:Character","","object="+currentObj+";name="+objName+";tokenName="+tokenName)]
+	[r:macrolink(equipIcon,"character/Quick Equip@this","","object="+currentObj+";name="+objName+";tokenName="+tokenName)]
 	
 	<td style="font-size:8px; margin:0px; padding:0px">
 	
-	[r:macrolink(if(name=="","Untitled",name),"Args Dialog@Lib:Character","","prop="+object+";index="+roll.count+";name="+objName+";customName="+customName+";identified="+identified+";description=;tokenName="+tokenName)]
+	[r:macrolink(if(name=="","Untitled",name),"character/Args Dialog@this","","prop="+object+";index="+roll.count+";name="+objName+";customName="+customName+";identified="+identified+";description=;tokenName="+tokenName)]
 	
 	
 	[h,if(isNumber(weight)==1 && isNumber(Quantity)==1),code:{
@@ -823,7 +823,7 @@ FAILURES
 	<td style="font-size:8px; margin:0px; padding:0px">
 	
 	
-	[r:"x "+macroLink(Quantity,"Quick Quantity@Lib:Character","","tokenName="+tokenName+";item="+objName+";name="+name)]
+	[r:"x "+macroLink(Quantity,"character/Quick Quantity@this","","tokenName="+tokenName+";item="+objName+";name="+name)]
 	
 	<td align=right style="font-size:8px; margin:0px; padding:0px">
 	
@@ -873,13 +873,13 @@ default:sizemod=1]
 
 [h:carryMod=StrengthValue*sizemod]
 
-[r:macroLink("Total weight","Carry Capacity Calculation@Lib:Character","","tokenName="+tokenName)]: [r:totalWeight]/[r:carryMod*15)]
+[r:macrolink("Total weight", "character/Carry Capacity Calculation@this")"","tokenName="+tokenName)]: [r:totalWeight]/[r:carryMod*15)]
 
 [r:if(totalWeight>carryMod*15,"(<span title='You can not carry that much weight'>Can't carry)",if(totalWeight>carryMod*10,"(<span title='speed drops by 20 ft., disadvantage on ability checks, attack rolls, and saving throws that use STR, DEX, or CON'>Heavily encumbered</span>)",if(totalWeight>carryMod*5,"(<span title='speed drops by 10 ft.'>Encumbered</span>)","")))]
 
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macrolink("<span title='Add Equipment'>EQUIPMENT</span>","Add@Lib:Character","","prop="+object+";tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Add Equipment'>EQUIPMENT</span>", "character/Add@this")"","prop="+object+";tokenName="+tokenName)]
 
 
 </table>
@@ -915,14 +915,14 @@ default:sizemod=1]
 	[h:description=json.get(value,key)]
 }]
 
-[macro("Markdown@Lib:Character"):"tokenName="+tokenName+";description="+encode(description)]
+[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(description)]
 
 
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 <b>
 
-[r:macroLink("<span title='Edit Personality Traits'>PERSONALITY TRAITS</span>","Change Textfield Form@Lib:Character","","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Personality Traits'>PERSONALITY TRAITS</span>", "character/Change Textfield Form@this")"","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 </table>
 
 
@@ -935,14 +935,14 @@ default:sizemod=1]
 
 [h:description=json.get(value,key)]
 
-[macro("Markdown@Lib:Character"):"tokenName="+tokenName+";description="+encode(description)]
+[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(description)]
 
 
 
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 <b>
-[r:macroLink("<span title='Edit Ideals'>IDEALS</span>","Change Textfield Form@Lib:Character","","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Ideals'>IDEALS</span>", "character/Change Textfield Form@this")"","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 
 </table>
 
@@ -955,13 +955,13 @@ default:sizemod=1]
 
 [h:description=json.get(value,key)]
 
-[macro("Markdown@Lib:Character"):"tokenName="+tokenName+";description="+encode(description)]
+[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(description)]
 
 
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 <b>
-[r:macroLink("<span title='Edit Bonds'>BONDS</span>","Change Textfield Form@Lib:Character","","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Bonds'>BONDS</span>", "character/Change Textfield Form@this")"","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 
 </table>
 
@@ -975,7 +975,7 @@ default:sizemod=1]
 
 [h:description=json.get(value,key)]
 
-[macro("Markdown@Lib:Character"):"tokenName="+tokenName+";description="+encode(description)]
+[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(description)]
 
 
 
@@ -983,7 +983,7 @@ default:sizemod=1]
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 <b>
 
-[r:macroLink("<span title='Edit Flaws'>FLAWS</span>","Change Textfield Form@Lib:Character","","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Flaws'>FLAWS</span>", "character/Change Textfield Form@this")"","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 
 </table>
 
@@ -992,7 +992,7 @@ default:sizemod=1]
 <td style="margin:0px; padding:0px">
 
 
-[macro("Resources@Lib:Character"):"tokenName="+tokenName]
+[macro("character/Resources@this"):"tokenName="+tokenName]
 
 <table style="border-style: solid double solid double; border-width:2px 3px 2px 3px;">
 <tr>
@@ -1046,7 +1046,7 @@ default:sizemod=1]
 	[h:source=json.get(obj,objName)]
 	<p style="margin:0px;padding:0px;margin-bottom:2px">
 	<font size=3>
-	[r:macrolink(if(CapitalName=="","Untitled",CapitalName),"Args Dialog@Lib:Character","","prop="+object+";index="+roll.count+";name="+objName+";description=;tokenName="+tokenName)]</font>
+	[r:macrolink(if(CapitalName=="","Untitled",CapitalName),"character/Args Dialog@this","","prop="+object+";index="+roll.count+";name="+objName+";description=;tokenName="+tokenName)]</font>
  [r:source]
 	
 	</p>
@@ -1058,7 +1058,7 @@ default:sizemod=1]
 
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macrolink("<span title='Add Features'>FEATURES & TRAITS</span>","Add@Lib:Character","","prop="+object+";tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Add Features'>FEATURES & TRAITS</span>", "character/Add@this")"","prop="+object+";tokenName="+tokenName)]
 
 
 </table>

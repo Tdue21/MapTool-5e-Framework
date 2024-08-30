@@ -35,14 +35,14 @@
 
 	[h,if(item=="Add New"),code:{
 
-		[macro("Change Form@Lib:Character"):"prop="+group+";index=new;name=new;description=new;tokenName="+tokenName]
+		[macro("character/Change Form@this"):"prop="+group+";index=new;name=new;description=new;tokenName="+tokenName]
 	
 	
 	};{
 
-		[macro("Get Spell Level@Lib:Character"):"group="+group+";name="+item]
+		[macro("character/Get Spell Level@this"):"group="+group+";name="+item]
 		[h:level=macro.return]
-		[macro("Get Equipment Info@Lib:Character"):"group="+group+";name="+item]
+		[macro("character/Get Equipment Info@this"):"group="+group+";name="+item]
 		[h:equipInfo=macro.return]
 	
 		[h:Property=json.set(Property,item,json.fromStrProp(equipInfo+";Quantity=1;Equiped=1;offHand=0;identified=1"))]
@@ -63,10 +63,10 @@
 	
 		[h:currentItem=lower(listget(list,roll.count))]
 
-		[macro("Get Spell Level@Lib:Character"):"group="+group+";name="+currentItem]
+		[macro("character/Get Spell Level@this"):"group="+group+";name="+currentItem]
 		[h:level=macro.return]
 
-		[macro("Get Equipment Info@Lib:Character"):"group="+group+";name="+currentItem]
+		[macro("character/Get Equipment Info@this"):"group="+group+";name="+currentItem]
 		[h:equipInfo=macro.return]
 
 		[h:Property=json.set(Property,currentItem,json.fromStrProp(equipInfo+";Quantity=1;Equiped=1;offHand=0;identified=1"))]
@@ -83,24 +83,24 @@
 
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Spellcasting Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Spellcasting Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Spellcasting Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Description Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Description Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Description Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Statblock")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Statblock;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Statblock;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Pin Notes")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Pin Notes;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Pin Notes;tokenName="+tokenName]
 };{}]
 [h,if(isDialogVisible("Manage Party")==1),code:{
 [h:closeDialog("Manage Party")]
-[macro("Manage Party@Lib:Character"):"tokenName="+tokenName]
+[macro("character/Manage Party@this"):"tokenName="+tokenName]
 };{}]
 [h,if(isDialogVisible("Manage")==1),code:{
-[macro("Pin Notes@Lib:Character"):"tokenName="+tokenName]
+[macro("character/Pin Notes@this"):"tokenName="+tokenName]
 };{}]

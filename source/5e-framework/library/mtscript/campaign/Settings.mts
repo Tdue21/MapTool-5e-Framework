@@ -340,10 +340,10 @@
 	[h:setLibProperty("Display",display,"Lib:Campaign")]
 
 	[h,if(isOverlayRegistered("Initiative")==1),code:{
-	[macro("Initiative Overlay@Lib:Overlay"):"output=self"]
+	[macro("overlay/Initiative Overlay@this"):"output=self"]
 	};{}]
 	[h,if(isOverlayRegistered("Framework Macros")==1),code:{
-	[macro("OverlayMiniMenu@Lib:Overlay"):"output=self"]
+	[macro("overlay/OverlayMiniMenu@this"):"output=self"]
 	};{}]
 
 };{}]
@@ -365,5 +365,5 @@
 
 
 [h,if(isDialogVisible("Settings")==1),code:{
-[macro("Campaign Settings@Lib:Campaign"):""]
+[macro("campaign/Campaign Settings@this"):""]
 };{}]

@@ -81,4 +81,4 @@
 [h:classes=json.set(classes,class,classObj)]
 [h:setLibProperty("Classes",classes,"Lib:Character Creation")]
 
-[macro("Change Classes@Lib:Character Creation"):class]
+[macro("character Creation/Change Classes@this"):class]

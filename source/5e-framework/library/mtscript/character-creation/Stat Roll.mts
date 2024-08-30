@@ -13,10 +13,10 @@
 [h:dice3=1d6]
 [h:dice4=1d6]
 <!--------------------------------DICE SOUNDS---------------------------------->
-[macro("Dice Sounds@Lib:Campaign"):""]
-[macro("Dice Sounds@Lib:Campaign"):""]
-[macro("Dice Sounds@Lib:Campaign"):""]
-[macro("Dice Sounds@Lib:Campaign"):""]
+[macro("campaign/Dice Sounds@this"):""]
+[macro("campaign/Dice Sounds@this"):""]
+[macro("campaign/Dice Sounds@this"):""]
+[macro("campaign/Dice Sounds@this"):""]
 [h:diceList=listsort(dice1+","+dice2+","+dice3+","+dice4,"N-")]
 
 <table width=200>

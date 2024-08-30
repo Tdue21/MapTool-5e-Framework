@@ -23,10 +23,10 @@
 </title>
 
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
-[h: link = macroLinkText("Conditions Menu@Lib:Character", "none","","tokenName="+tokenName)]
+[h: link = macroLinkText("character/Conditions Menu@this", "none","","tokenName="+tokenName)]
 <link rel="onChangeSelection" type="macro" href="[r:link]">
 
-[h:processorLink=macroLinkText("Conditions process@Lib:Character","")]
+[h:processorLink=macroLinkText("character/Conditions process@this","")]
 <form action="[r:processorLink]" method="json">
 
 <table>

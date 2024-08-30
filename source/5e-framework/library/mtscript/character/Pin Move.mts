@@ -85,7 +85,7 @@ if(group=="Equipment","moveQuantity|1|Quantity|text|width=6",""))]
 	[h:customName=json.get(currentObject,"customName")]
 	[h:identified=json.get(currentObject,"identified")]
 
-	[macro("Get Equipment Info@Lib:Character"):"group="+group+";name="+name]
+	[macro("character/Get Equipment Info@this"):"group="+group+";name="+name]
 	[h:equipInfo=macro.return]
 	
 	[h:newProp=json.remove(currentProp,name)]
@@ -148,7 +148,7 @@ if(group=="Equipment","moveQuantity|1|Quantity|text|width=6",""))]
 	[h:offHand=json.get(currentObject,"offHand")]
 	[h:prereq=json.get(currentObject,"prereq")]
 
-	[macro("Get Equipment Info@Lib:Character"):"group="+group+";name="+name]
+	[macro("character/Get Equipment Info@this"):"group="+group+";name="+name]
 	[h:equipInfo=macro.return]
 
 	[h:object=json.fromStrProp(equipInfo+";Quantity="+number(Quantity+moveQuantity)+";Equiped="+Equiped+";offHand="+offHand+";customName="+customName+";identified="+identified)]
@@ -160,7 +160,7 @@ if(group=="Equipment","moveQuantity|1|Quantity|text|width=6",""))]
 	
 };{
 
-	[macro("Get Equipment Info@Lib:Character"):"group="+group+";name="+name]
+	[macro("character/Get Equipment Info@this"):"group="+group+";name="+name]
 	[h:equipInfo=macro.return]
 
 	[h,if(group=="Equipment"):object=json.fromStrProp(equipInfo+";Quantity="+moveQuantity+";Equiped="+Equiped+";offHand="+offHand+";customName="+customName+";identified="+identified);object=""]
@@ -209,5 +209,5 @@ if(group=="Equipment","moveQuantity|1|Quantity|text|width=6",""))]
 
 
 [h,if(isDialogVisible("Manage")==1),code:{
-[macro("Manage Party@Lib:Character"):"tokenName="+originalToken)]
+[macro("character/Manage Party@this"):"tokenName="+originalToken)]
 };{}]

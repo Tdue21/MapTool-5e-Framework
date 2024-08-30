@@ -17,8 +17,8 @@
 [h:roll1=1d20]
 [h:roll2=1d20]
 <!--------------------------------DICE SOUNDS---------------------------------->
-[macro("Dice Sounds@Lib:Campaign"):""]
-[macro("Dice Sounds@Lib:Campaign"):""]
+[macro("campaign/Dice Sounds@this"):""]
+[macro("campaign/Dice Sounds@this"):""]
 
 [h:img=tableImage("BlankDice",20)]
 [h:color=getStrProp(macro.args,"color")]
@@ -138,6 +138,6 @@
 
 
 
-[r,if(output!="all"):macroLink("[Share Result]","ShareRoll@Lib:Character","all",formulaNormal)]
-[r,if(output!="all"):macroLink("[Adv]","ShareRoll@Lib:Character","all",adv)]
-[r,if(output!="all"):macroLink("[Dis]","ShareRoll@Lib:Character","all",dis)]
+[r,if(output!="all"):macrolink("[Share Result]", "character/ShareRoll@this")"all",formulaNormal)]
+[r,if(output!="all"):macrolink("[Adv]", "character/ShareRoll@this")"all",adv)]
+[r,if(output!="all"):macrolink("[Dis]", "character/ShareRoll@this")"all",dis)]

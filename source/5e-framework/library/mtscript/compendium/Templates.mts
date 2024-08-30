@@ -51,7 +51,7 @@
 <!------------------------------------------------------------------>
 <!--------------ABILITY SCORE IMPROVEMENT OR FEAT------------------->
 <!------------------------------------------------------------------>
-[macro("Ability Score Improvement@Lib:Character Creation"):"tokenName="+tokenName]
+[macro("character Creation/Ability Score Improvement@this"):"tokenName="+tokenName]
 
 
 

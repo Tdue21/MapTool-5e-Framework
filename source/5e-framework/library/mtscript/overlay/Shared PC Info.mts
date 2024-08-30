@@ -80,7 +80,7 @@ img	{
 </div>
 <div class="[r:class]">
 
-<div class="float">[r:macroLink("X","closeOverlay@Lib:Overlay","","Shared")]</div>
+<div class="float">[r:macrolink("X", "overlay/closeOverlay@this")"","Shared")]</div>
 
 
 <h1 style="padding-bottom:0px;margin-bottom:0px;">
@@ -89,7 +89,7 @@ img	{
 
 </h1>
 
-[macro("Markdown@Lib:Character"):"tokenName="+tokenName+";description="+encode(description)]
+[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(description)]
 
 [r,if(allies==""),code:{};{
 	
@@ -100,7 +100,7 @@ img	{
 	
 	</h4>
 	
-	[macro("Markdown@Lib:Character"):"tokenName="+tokenName+";description="+encode(allies)]
+	[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(allies)]
 
 }]
 
@@ -112,7 +112,7 @@ img	{
 	
 	</h4>
 	
-	[macro("Markdown@Lib:Character"):"tokenName="+tokenName+";description="+encode(treasure)]
+	[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(treasure)]
 
 }]
 

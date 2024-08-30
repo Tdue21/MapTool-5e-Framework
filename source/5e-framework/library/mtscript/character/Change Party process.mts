@@ -179,8 +179,8 @@
 
 [h:args=if(pin=="Select Pin","","tokenName="+pin)]
 
-[macro("Manage Party@Lib:Character"):args]
+[macro("character/Manage Party@this"):args]
 
 [h,if(isFrameVisible(pin+" - Pin Notes")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Pin Notes;tokenName="+pin]
+[macro("character/Macro Frame@this"):"macro=Pin Notes;tokenName="+pin]
 };{}]

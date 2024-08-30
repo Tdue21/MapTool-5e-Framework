@@ -13,7 +13,7 @@
 <table width=100%>
 <tr bgcolor=#DCDCDC>
 <td style="margin:0px; padding:0px; font-size:8px" align=left>
-[r:macroLink("Load","Selector@Lib:Character","","macro=Spellcasting Sheet;tokenName="+tokenName)]
+[r:macrolink("Load", "character/Selector@this")"","macro=Spellcasting Sheet;tokenName="+tokenName)]
 <td style="margin:0px; padding:0px; font-size:8px" align=right><b>D&D
 <tr>
 <td colspan=2 height=35 style="border-style: double none double solid; border-width:3px;font-size:15px;margin:0px; padding:0px" align=center>
@@ -71,7 +71,7 @@
 	[h,if(spellAtr=="-"),code:{};{
 		
 		[h:spellClassList=listappend(spellClassList,name," /")]
-		[h:spellClassLinks=listappend(spellClassLinks,"<span title='"+capitalize(name)+" Spells'>"+macroLink(capitalize(name),"Spells Window@Lib:Tables","",capitalize(name))+"</span>"," /")]
+		[h:spellClassLinks=listappend(spellClassLinks,"<span title='"+capitalize(name)+" Spells'>"+macroLink(capitalize(name),"tables/Spells Window@this","",capitalize(name))+"</span>"," /")]
 	
 	}]
 
@@ -134,7 +134,7 @@ SPELLCASTING ABILITY
 	[h,if(spellmod==""):atrVar=0;atrVar=eval(atrVar)]
 	[h:spellDC=8+profBonus+atrVar]
 
-	[h:linkDC=macroLink(spellDC,"Dice Roller@Lib:Character","","text="+listget(spellClassList,roll.count,"/")+" DC;value="+spellDC+";tokenName="+tokenName)]
+	[h:linkDC=macroLink(spellDC,"character/Dice Roller@this","","text="+listget(spellClassList,roll.count,"/")+" DC;value="+spellDC+";tokenName="+tokenName)]
 	
 	[h:listDC=listappend(listDC,linkDC," /")]
 
@@ -168,7 +168,7 @@ SPELL SAVE DC
 	[h:atrVar=eval(atrVar)]
 	[h:spellAtk=profBonus+atrVar]
 	<span title='Roll Spell Attack'>
-	[r:macroLink(if(spellAtk<0,spellAtk,"+"+spellAtk),"d20 Roller@Lib:Character","","text="+substring(listget(spellAtributeList,roll.count," /"),0,3)+" Spell Attack;value=+"+if(spellAtk<0,spellAtk,"+"+spellAtk)+";tokenName="+tokenName+";color=8a61ae")]
+	[r:macroLink(if(spellAtk<0,spellAtk,"+"+spellAtk),"character/d20 Roller@this","","text="+substring(listget(spellAtributeList,roll.count," /"),0,3)+" Spell Attack;value=+"+if(spellAtk<0,spellAtk,"+"+spellAtk)+";tokenName="+tokenName+";color=8a61ae")]
 </span>
 }]
 </table>
@@ -230,7 +230,7 @@ SPELL ATTACK BONUS
 [r,count(listcount(missing)),code:{
 	[r:if(roll.count==0,"Missing or broken:","")]
 	[h:objName=listget(missing,roll.count)]
-	[r:macrolink(objName,"Args Dialog@Lib:Character","","prop="+object+";source=;name="+objName+";description=;tokenName="+tokenName)]
+	[r:macrolink(objName,"character/Args Dialog@this","","prop="+object+";source=;name="+objName+";description=;tokenName="+tokenName)]
 }]
 
 
@@ -260,7 +260,7 @@ SPELL ATTACK BONUS
 <tr>
 <td align=center bgcolor=white style="font-size:13px; margin:0px; padding:0px;padding-left:3px">
 <b>
-[r:macrolink("<span title='Add Spell'>0</span>","Add@Lib:Character","","prop="+object+";tokenName="+tokenName)]
+[r:macrolink("<span title='Add Spell'>0</span>", "character/Add@this")"","prop="+object+";tokenName="+tokenName)]
 </table>
 
 <td width=15 align=center style="border-style: solid double solid none; border-width:2px 3px 2px 3px;font-size:13px;margin:0px; padding:0px">
@@ -318,16 +318,16 @@ CANTRIPS
 [h:CapitalName=function.Capitalize(objName)]
 
 	
-	[r:macrolink(if(CapitalName=="","Untitled",CapitalName),"Args Dialog@Lib:Character","","prop="+object+";source="+source+";name="+objName+";description=;tokenName="+tokenName)]
+	[r:macrolink(if(CapitalName=="","Untitled",CapitalName),"character/Args Dialog@this","","prop="+object+";source="+source+";name="+objName+";description=;tokenName="+tokenName)]
 	
 	<td align=right>
 	};{}]
 
 	[r,if(customAtr==0 || customAtr=="" || match==0),code:{};{
 		[h:spellMod=atrMod+profBonus]
-		DC [r:macroLink(8+spellMod,"Dice Roller@Lib:Character",output,"text="+objName+" DC;value="+number(8+spellMod)+";tokenName="+tokenName)] -
+		DC [r:macroLink(8+spellMod,"character/Dice Roller@this",output,"text="+objName+" DC;value="+number(8+spellMod)+";tokenName="+tokenName)] -
 		
-		Atk [r:macroLink(if(spellMod<0,spellMod,"+"+spellMod),"d20 Roller@Lib:Character","","text="+objName+";value=+"+if(spellMod<0,spellMod,"+"+spellMod)+";id="+id+";tokenName="+tokenName+";color=8a61ae")] -
+		Atk [r:macroLink(if(spellMod<0,spellMod,"+"+spellMod),"character/d20 Roller@this","","text="+objName+";value=+"+if(spellMod<0,spellMod,"+"+spellMod)+";id="+id+";tokenName="+tokenName+";color=8a61ae")] -
 	}]
 
 	[r,if(match==1),code:{
@@ -355,9 +355,9 @@ CANTRIPS
 
 
 
-[macro("Spells@Lib:Character"):"profBonus="+profBonus+";level=1;list="+level1+";tokenName="+tokenName]
+[macro("character/Spells@this"):"profBonus="+profBonus+";level=1;list="+level1+";tokenName="+tokenName]
 <br>
-[macro("Spells@Lib:Character"):"profBonus="+profBonus+";level=2;list="+level2+";tokenName="+tokenName]
+[macro("character/Spells@this"):"profBonus="+profBonus+";level=2;list="+level2+";tokenName="+tokenName]
 
 </table>
 
@@ -371,11 +371,11 @@ CANTRIPS
 <td align=left valign=middle style="border-style: double solid double solid; border-width:3px 1px 3px 1px; border-color:#DCDCDC">
 
 
-[macro("Spells@Lib:Character"):"profBonus="+profBonus+";level=3;list="+level3+";tokenName="+tokenName]
+[macro("character/Spells@this"):"profBonus="+profBonus+";level=3;list="+level3+";tokenName="+tokenName]
 <br>
-[macro("Spells@Lib:Character"):"profBonus="+profBonus+";level=4;list="+level4+";tokenName="+tokenName]
+[macro("character/Spells@this"):"profBonus="+profBonus+";level=4;list="+level4+";tokenName="+tokenName]
 <br>
-[macro("Spells@Lib:Character"):"profBonus="+profBonus+";level=5;list="+level5+";tokenName="+tokenName]
+[macro("character/Spells@this"):"profBonus="+profBonus+";level=5;list="+level5+";tokenName="+tokenName]
 
 </table>
 
@@ -390,13 +390,13 @@ CANTRIPS
 <td align=left valign=middle style="border-style: double solid double solid; border-width:3px 1px 3px 1px; border-color:#DCDCDC">
 
 
-[macro("Spells@Lib:Character"):"profBonus="+profBonus+";level=6;list="+level6+";tokenName="+tokenName]
+[macro("character/Spells@this"):"profBonus="+profBonus+";level=6;list="+level6+";tokenName="+tokenName]
 <br>
-[macro("Spells@Lib:Character"):"profBonus="+profBonus+";level=7;list="+level7+";tokenName="+tokenName]
+[macro("character/Spells@this"):"profBonus="+profBonus+";level=7;list="+level7+";tokenName="+tokenName]
 <br>
-[macro("Spells@Lib:Character"):"profBonus="+profBonus+";level=8;list="+level8+";tokenName="+tokenName]
+[macro("character/Spells@this"):"profBonus="+profBonus+";level=8;list="+level8+";tokenName="+tokenName]
 <br>
-[macro("Spells@Lib:Character"):"profBonus="+profBonus+";level=9;list="+level9+";tokenName="+tokenName]
+[macro("character/Spells@this"):"profBonus="+profBonus+";level=9;list="+level9+";tokenName="+tokenName]
 
 
 

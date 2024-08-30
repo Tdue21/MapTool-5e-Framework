@@ -2,7 +2,7 @@
 [h:id=findToken(tokenName)]
 [h:switchToken(id)]
 
-[macro("Set Spell Slots@Lib:Character Creation"):"tokenName="+tokenName]
+[macro("character Creation/Set Spell Slots@this"):"tokenName="+tokenName]
 
 [h:HP=json.get(macro.args,"HP")]
 
@@ -47,7 +47,7 @@ Click <b>Finish</b> to close the Wizard.
 <td valign=bottom style="padding:0px;margin=0px">
 
 
-[h: processorLink=macroLinkText("Character Creation Wizard@Lib:Character Creation","")]
+[h: processorLink=macroLinkText("character Creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 

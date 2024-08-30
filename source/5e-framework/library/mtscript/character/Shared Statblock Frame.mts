@@ -21,12 +21,12 @@
 
 <p class='topbar'>
 
-[r:macroLink("Close Shared","Close Shared@Lib:Campaign")]
+[r:macroLink("Close Shared","campaign/Close Shared@this")]
 
 </p>
 };{}]
 
-[macro("Statblock Viewer@Lib:Character"):tokenName]
+[macro("character/Statblock Viewer@this"):tokenName]
 
 }]
 

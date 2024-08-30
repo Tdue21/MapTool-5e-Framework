@@ -20,9 +20,9 @@
 }]
 
 <p bgcolor=white style='border-bottom: 1px solid gray;padding:0px;margin:0px;font-family:sans;font-size:10px'>
-[r:macrolink("Party","Manage Party@Lib:Character","","tokenName="+tokenName)]&nbsp;
-[r:macrolink("Encounter","Manage Encounter@Lib:Bestiary","","tokenName="+tokenName+";reload=1")]&nbsp;
-<span title="Open the current loaded Pin ([r:tokenName])">[r:macroLink("Pin","Pin Notes@Lib:Character","","tokenName="+tokenName)]</span>&nbsp;
+[r:macrolink("Party", "character/Manage Party@this")"","tokenName="+tokenName)]&nbsp;
+[r:macrolink("Encounter", "bestiary/Manage Encounter@this")"","tokenName="+tokenName+";reload=1")]&nbsp;
+<span title="Open the current loaded Pin ([r:tokenName])">[r:macrolink("Pin", "character/Pin Notes@this")"","tokenName="+tokenName)]</span>&nbsp;
 </p>
 
 
@@ -35,20 +35,20 @@
 Pin Notes
 </b>
 <font size=3>
-[r,if(tokenName==""):macroLink("Create Pin","Create Pin@Lib:Character","");macroLink("Select","Center Token@Lib:Campaign","","tokenName="+tokenName+";map="+getCurrentMapName())]
+[r,if(tokenName==""):macrolink("Create Pin","character/Create Pin@this","");macroLink("Select", "campaign/Center Token@this")"","tokenName="+tokenName+";map="+getCurrentMapName())]
 
 [r,if(tokenName==""):"";"| "+macroLink("Focus","Focus@Token","","",tokenName)]
 
 [h,if(tokenName==""):descriptionGMNotes="";descriptionGMNotes=getGMNotes()]
 
-[r,if(tokenName==""):"";"| "+macroLink("GM Notes","Change Pin Form@Lib:Character","","prop=GMNotes;name=GMNotes;description="+descriptionGMNotes+";tokenName="+tokenName)]
+[r,if(tokenName==""):"";"| "+macrolink("GM Notes", "character/Change Pin Form@this")"","prop=GMNotes;name=GMNotes;description="+descriptionGMNotes+";tokenName="+tokenName)]
 
 
 <td align=right>
 
 <!-----------------Load Pin------------------->
 
-	[h: processorLink = macroLinkText("Load Pin Notes@Lib:Character", "")]
+	[h: processorLink = macroLinkText("character/Load Pin Notes@this", "")]
 	<form action="[r:processorLink]" method="json">
 
 
@@ -89,7 +89,7 @@ Pin Notes
 
 	<b>[r:key]:</b>
 	
-	[macro("Markdown@Lib:Campaign"):"tokenName="+tokenName+";description="+encode(descriptionNotes)]
+	[macro("campaign/Markdown@this"):"tokenName="+tokenName+";description="+encode(descriptionNotes)]
 
 	
 	
@@ -109,7 +109,7 @@ Pin Notes
 
 	
 	
-	[macro("Markdown@Lib:Campaign"):"tokenName="+tokenName+";description="+encode(descriptionGMNotes)]
+	[macro("campaign/Markdown@this"):"tokenName="+tokenName+";description="+encode(descriptionGMNotes)]
 
 
 };{}]
@@ -126,7 +126,7 @@ Pin Notes
 [h:text=getStrProp(string(xp),"text")]
 
 <b><i>
-[r,if(tokenName==""):"";macroLink("Experience Points.","Pin Change Property@Lib:Character","","name=XP;value="+encode(xp)+";id="+id+";tokenName="+tokenName)]</b></i>
+[r,if(tokenName==""):"";macrolink("Experience Points.", "character/Pin Change Property@this")"","name=XP;value="+encode(xp)+";id="+id+";tokenName="+tokenName)]</b></i>
 
 [r,if(tokenName==""):"";if(value=="","0",value))]
 
@@ -137,7 +137,7 @@ Pin Notes
 [h:object="Equipment"]
 <p>
 <b><i>
-[r,if(tokenName==""):"";macrolink("Items.","Pin Add@Lib:Character","","prop="+object+";tokenName="+tokenName)]
+[r,if(tokenName==""):"";macrolink("Items.", "character/Pin Add@this")"","prop="+object+";tokenName="+tokenName)]
 </i></b>
 
 
@@ -178,7 +178,7 @@ Pin Notes
 	
 	[r:Quantity]
 	
-	[r:macrolink(lower(if(name=="","Untitled",name)),"Pin Args Dialog@Lib:Character","","prop="+object+";index="+roll.count+";name="+objName+";customName="+customName+";description=;tokenName="+tokenName+";identified="+identified)][r:if(repeat==roll.count+2," and ",if(repeat==roll.count+1,".",", "))]
+	[r:macrolink(lower(if(name=="","Untitled",name)),"character/Pin Args Dialog@this","","prop="+object+";index="+roll.count+";name="+objName+";customName="+customName+";description=;tokenName="+tokenName+";identified="+identified)][r:if(repeat==roll.count+2," and ",if(repeat==roll.count+1,".",", "))]
 
 
 }]
@@ -192,7 +192,7 @@ Pin Notes
 
 [h,if(tokenName==""):currency="";currency=getProperty("Currency")]
 
-<i><b>[r,if(tokenName==""):"";macrolink("Treasure.","Pin Change Currency@Lib:Character","","tokenName="+tokenName)]</b></i>
+<i><b>[r,if(tokenName==""):"";macrolink("Treasure.", "character/Pin Change Currency@this")"","tokenName="+tokenName)]</b></i>
 
 [h:PP=getStrProp(currency,"PP")]
 [h,if(PP==0 || PP==""):currency=deleteStrProp(currency,"PP");""]

@@ -15,7 +15,7 @@
 
 [h:item=lower(item)]
 
-[macro("Get Equipment Info@Lib:Character"):"group="+group+";name="+item]
+[macro("character/Get Equipment Info@this"):"group="+group+";name="+item]
 [h:equipInfo=macro.return]
 
 [h:currentObj=json.get(Property,item)]
