@@ -1,4 +1,4 @@
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:viewMagicItems=getStrProp(permissions,"viewMagicItems")]
 
 [h,if(macro.args==""),code:{
@@ -21,21 +21,21 @@
 
 <p bgcolor=white style="border-bottom: 1px solid gray;padding:0px;margin:0px;font-family:sans;font-size:10px">
 
-[r:macroLink("Weapons","Equipment Table@Lib:Tables","","Weapons")+" &nbsp;"]
-[r:macroLink("Armor","Equipment Table@Lib:Tables","","Armor")+" &nbsp;"]
-[r:macroLink("Adventuring Gear","Equipment Table@Lib:Tables","","Adventuring Gear")+" &nbsp;"]
-[r:macroLink("Equipment Packs","Equipment Table@Lib:Tables","","Equipment Packs")+" &nbsp;"]
-[r:macroLink("Tools","Equipment Table@Lib:Tables","","Tools")+" &nbsp;"]
-[r:macroLink("Mounts & Vehicles","Equipment Table@Lib:Tables","","Mounts")+" &nbsp;"]
-[r:macroLink("Other","Equipment Table@Lib:Tables","","Other")+" &nbsp;"]
-[r,if(isGM()==0 && viewMagicItems==0):"";macroLink("Magic Items","Equipment Table@Lib:Tables","","Magic Items")+" &nbsp;"]
+[r:macrolink("Weapons", "tables/Equipment Table@this")"","Weapons")+" &nbsp;"]
+[r:macrolink("Armor", "tables/Equipment Table@this")"","Armor")+" &nbsp;"]
+[r:macrolink("Adventuring Gear", "tables/Equipment Table@this")"","Adventuring Gear")+" &nbsp;"]
+[r:macrolink("Equipment Packs", "tables/Equipment Table@this")"","Equipment Packs")+" &nbsp;"]
+[r:macrolink("Tools", "tables/Equipment Table@this")"","Tools")+" &nbsp;"]
+[r:macrolink("Mounts & Vehicles", "tables/Equipment Table@this")"","Mounts")+" &nbsp;"]
+[r:macrolink("Other", "tables/Equipment Table@this")"","Other")+" &nbsp;"]
+[r,if(isGM()==0 && viewMagicItems==0):"";macrolink("Magic Items", "tables/Equipment Table@this")"","Magic Items")+" &nbsp;"]
 
 </p>
 
 
 
 
-[macro(equip+"@Lib:Tables"):""]
+[macro(equip+"tables/@this"):""]
 
 
 }]

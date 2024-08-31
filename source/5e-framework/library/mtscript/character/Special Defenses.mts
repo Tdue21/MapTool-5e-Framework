@@ -30,8 +30,8 @@
 
 
 [h,if(isFrameVisible(tokenName+" - Description Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Description Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Description Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Statblock")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Statblock;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Statblock;tokenName="+tokenName]
 };{}]

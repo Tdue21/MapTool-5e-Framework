@@ -17,4 +17,4 @@
 
 [h,if(Save!=""):setProperty("Encounter",idList);""]
 
-[macro("Manage Encounter@Lib:Bestiary"):"tokenName="+Pin]
+[macro("bestiary/Manage Encounter@this"):"tokenName="+Pin]

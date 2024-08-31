@@ -26,11 +26,11 @@
 	[h:tokenName=getName(currentId)]
 
 	[h,if(Dead==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Dead"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Dead"]
 	}]
 
 	[h,if(Dying==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Dying"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Dying"]
 	}]
 
 	[h,if(Concentrating==""),code:{};{
@@ -39,67 +39,67 @@
 	}]
 
 	[h,if(Blinded==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Blinded"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Blinded"]
 	}]
 
 	[h,if(Grappled==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Grappled"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Grappled"]
 	}]
 
 	[h,if(Poisoned==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Poisoned"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Poisoned"]
 	}]
 
 	[h,if(Charmed==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Charmed"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Charmed"]
 	}]
 
 	[h,if(Incapacitated==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Incapacitated"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Incapacitated"]
 	}]
 
 	[h,if(Prone==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Prone"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Prone"]
 	}]
 
 	[h,if(Deafened==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Deafened"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Deafened"]
 	}]
 
 	[h,if(Invisible==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Invisible"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Invisible"]
 	}]
 
 	[h,if(Restrained==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Restrained"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Restrained"]
 	}]
 
 	[h,if(Exhaustion==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Exhaustion"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Exhaustion"]
 	}]
 
 	[h,if(Paralyzed==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Paralyzed"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Paralyzed"]
 	}]
 
 	[h,if(Stunned==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Stunned"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Stunned"]
 	}]
 
 	[h,if(Frightened==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Frightened"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Frightened"]
 	}]
 
 	[h,if(Petrified==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Petrified"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Petrified"]
 	}]
 
 	[h,if(Unconscious==""),code:{};{
-		[macro("Conditions@Lib:Character"):"tokenName="+tokenName+";condition=Unconscious"]
+		[macro("character/Conditions@this"):"tokenName="+tokenName+";condition=Unconscious"]
 	}]
 	
 
 }]
 
 
-[macro("Conditions Menu@Lib:Character"):""]
+[macro("character/Conditions Menu@this"):""]

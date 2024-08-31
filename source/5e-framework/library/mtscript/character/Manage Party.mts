@@ -2,7 +2,7 @@
 
 [h:pinName=getStrProp(macro.args,"tokenName")]
 
-[h:output=getLibProperty("PC Output", "Lib:Character")]
+[h:output=getLibProperty("PC Output", function.getNamespace())]
 
 [h,if(pinName=="Select Pin"):pinName=""]
 
@@ -72,14 +72,14 @@
 
 <title>[r:tokenName]</title>
 
-[h:startMap=getLibProperty("Start","Lib:Campaign")]
+[h:startMap=getLibProperty("Start", function.getNamespace())]
 [h:CurrentMap=getCurrentMapName()]
 
 <p class='topbar'>
 
-[r:macrolink("Party","Manage Party@Lib:Character","","tokenName="+tokenName)]&nbsp;
-<span title="Open the encounter manager">[r:macrolink("Encounter","Manage Encounter@Lib:Bestiary","","tokenName="+pinName+";reload=1")]</span>&nbsp;
-<span title="Open the current loaded Pin ([r:pinName])">[r:macroLink("Pin","Pin Notes@Lib:Character","","tokenName="+pinName)]</span>&nbsp;
+[r:macrolink("Party", "character/Manage Party@this")"","tokenName="+tokenName)]&nbsp;
+<span title="Open the encounter manager">[r:macrolink("Encounter", "bestiary/Manage Encounter@this")"","tokenName="+pinName+";reload=1")]</span>&nbsp;
+<span title="Open the current loaded Pin ([r:pinName])">[r:macrolink("Pin", "character/Pin Notes@this")"","tokenName="+pinName)]</span>&nbsp;
 
 </p>
 
@@ -96,17 +96,17 @@ Party
 </b>
 <font size=3>
 
-<span title="Make or move tokens to the current map">[r:macroLink("Make tokens","Move Tokens@Lib:Campaign","")]</span>
+<span title="Make or move tokens to the current map">[r:macrolink("Make tokens", "campaign/Move Tokens@this")"")]</span>
 |
-[r:macroLink("Create Poll","New Vote@Lib:Vote")]
+[r:macroLink("Create Poll","vote/New Vote@this")]
 |
-[r:macroLink("Results","Open Results@Lib:Vote")]
+[r:macroLink("Results","vote/Open Results@this")]
 
 <td align=right>
 
 <!-----------------Load Pin------------------->
 
-	[h: processorLink = macroLinkText("Load Pin@Lib:Character", "")]
+	[h: processorLink = macroLinkText("character/Load Pin@this", "")]
 	<form action="[r:processorLink]" method="json">
 
 
@@ -160,7 +160,7 @@ Party
 		[r:if(level=="",0,level)]
 <!-----------------NAME------------------->
 		<td valign=top>
-		[r:macroLink(tokenName,"Macro Frame@Lib:Character","","macro=Character Sheet;tokenName="+tokenName)]
+		[r:macroLink(tokenName,"character/Macro Frame@this","","macro=Character Sheet;tokenName="+tokenName)]
 <!-----------------OWNERS------------------->
 		<td valign=top>
 		[r:getOwners(",","Lib:"+tokenName,startMap)]
@@ -172,12 +172,12 @@ Party
 		[h:TotalHP=getLibProperty("Total Hit Points","Lib:"+tokenName)]
 		[h:TempHP=getLibProperty("Temporary Hit Points","Lib:"+tokenName)]
 
-		 [r:macroLink(if(tokenHP=="","0/0",tokenHP),"Damage@Lib:Character",getLibProperty("PC Output"),"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id=;tokenName="+tokenName+";pinName="+pinName)]
+		 [r:macroLink(if(tokenHP=="","0/0",tokenHP),"character/Damage@this",getLibProperty("PC Output"),"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id=;tokenName="+tokenName+";pinName="+pinName)]
 		
 <!-----------------Currency------------------->
 		<td valign=top align=right>
 		[h:playerCurrency=getLibProperty("currency","Lib:"+tokenName)]
-		[h:conversion=getLibProperty("currency","Lib:Character")]
+		[h:conversion=getLibProperty("currency", function.getNamespace())]
 		
 		[h:PlayerPP=getStrProp(playerCurrency,"PP")]
 		[h:PlayerPP=if(PlayerPP=="",0,PlayerPP)]
@@ -208,7 +208,7 @@ Party
 
 		[h:partyGold=partyGold+totalGP]
 
-		[r:macrolink(totalGP,"Change Currency@Lib:Character",output,"tokenName="+tokenName)]
+		[r:macrolink(totalGP,"character/Change Currency@this",output,"tokenName="+tokenName)]
 
 
 
@@ -218,7 +218,7 @@ Party
 		
 		[h:value=getStrProp(string(tokenXP),"value")]
 
-		[r:macroLink(if(value=="","0",value),"Change Property@Lib:Character","","name=XP;value="+encode(tokenXP)+";id=;tokenName="+tokenName)]
+		[r:macroLink(if(value=="","0",value),"character/Change Property@this","","name=XP;value="+encode(tokenXP)+";id=;tokenName="+tokenName)]
 
 		
 
@@ -238,7 +238,7 @@ Party
 
 <div>
 
-	[h: processorLink = macroLinkText("Change Party process@Lib:Character", "")]
+	[h: processorLink = macroLinkText("character/Change Party process@this", "")]
 	<form action="[r:processorLink]" method="json">
 
 <!-----------------XP------------------->
@@ -272,7 +272,7 @@ Party
 <b>Copper
 </table>
 
-	[h: processorLink = macroLinkText("Change Party process@Lib:Character", "")]
+	[h: processorLink = macroLinkText("character/Change Party process@this", "")]
 	<form action="[r:processorLink]" method="json">
 
 <!-----------------GOLD------------------->
@@ -318,7 +318,7 @@ Party
 
 
 
-[h:EquipLib=getLibProperty("Equipment", "Lib:Compendium")]
+[h:EquipLib=getLibProperty("Equipment", function.getNamespace())]
 [h:EquipList=json.fields(EquipLib)]
 
 [h,count(repeat,""),code:{
@@ -356,11 +356,11 @@ Party
 
 	
 	
-	[r:macrolink(if(name=="","Untitled",CapitalName),"Pin Args Dialog@Lib:Character","","prop=Equipment;index="+roll.count+";name="+objName+";customName="+customName+";description=;tokenName="+pinName+";identified="+identified)]
+	[r:macrolink(if(name=="","Untitled",CapitalName),"character/Pin Args Dialog@this","","prop=Equipment;index="+roll.count+";name="+objName+";customName="+customName+";description=;tokenName="+pinName+";identified="+identified)]
 	x
 	[r:Quantity]
 	
-	([r:macrolink("Move","Pin Move@Lib:Character","","prop=Equipment;index="+roll.count+";name="+objName+";customName="+customName+";description=;tokenName="+pinName+";identified="+identified)])
+	([r:macrolink("Move", "character/Pin Move@this")"","prop=Equipment;index="+roll.count+";name="+objName+";customName="+customName+";description=;tokenName="+pinName+";identified="+identified)])
 	
 
 	

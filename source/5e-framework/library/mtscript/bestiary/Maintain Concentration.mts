@@ -25,5 +25,5 @@
 [h,if(hasSave==1):"";value=con]
 
 
-[macro("d20 Roller@Lib:Bestiary"):"text=Con;value=++"+value+";tokenName="+tokenName+";color=ff9900")]
+[macro("bestiary"):"text=Con;value=++"+value+";tokenName="+tokenName+";color=ff9900/d20 Roller@this")]
 

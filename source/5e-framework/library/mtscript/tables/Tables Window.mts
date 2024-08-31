@@ -5,7 +5,7 @@
 
 <p bgcolor=white style="border-bottom: 1px solid gray;padding:0px;margin:0px;font-family:sans;font-size:10px">
 
-[r:macroLink("Open Table","Tables Window@Lib:Tables","","")+" &nbsp;"]
+[r:macrolink("Open Table", "tables/Tables Window@this")"","")+" &nbsp;"]
 
 </p>
 
@@ -13,7 +13,7 @@
 
 
 
-[macro("Rollable Tables@Lib:Tables"):macro.args]
+[macro("tables/Rollable Tables@this"):macro.args]
 
 
 }]

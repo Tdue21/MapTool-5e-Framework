@@ -1,6 +1,6 @@
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
-[h:skillList=getLibProperty("Skills", "Lib:Character")]
-[h:passiveSkillList=getLibProperty("Passive Checks", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
+[h:passiveSkillList=getLibProperty("Passive Checks", function.getNamespace())]
 
 
 

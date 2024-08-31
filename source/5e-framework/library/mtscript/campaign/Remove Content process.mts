@@ -7,6 +7,6 @@
 [h:abort(res)]
 
 
-[macro("Remove Source@Lib:Bestiary"):remove]
+[macro("bestiary/Remove Source@this"):remove]
 
-[macro("Remove Source@Lib:Character"):remove]
+[macro("character/Remove Source@this"):remove]

@@ -1,7 +1,7 @@
 [h:output= function.getOutput())]
 
 
-[macro("Dice Roller process@Lib:Notebook"):macro.args]
+[macro("notebook/Dice Roller process@this"):macro.args]
 
 [h:tableName=getStrProp(macro.args,"text")]
 

@@ -1,4 +1,4 @@
-[h:rules=getLibProperty("RulesURL","Lib:Campaign")]
+[h:rules=getLibProperty("RulesURL", function.getNamespace())]
 
 
 

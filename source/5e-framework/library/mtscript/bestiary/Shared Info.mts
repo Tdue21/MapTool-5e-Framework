@@ -6,7 +6,7 @@
 
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('D&D')]">
 
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:closeShared=getStrProp(permissions,"closeShared")]
 [h,if(isGM()==1):closeShared=1]
 
@@ -14,7 +14,7 @@
 
 <p class='topbar'>
 
-[r:macroLink("Close Shared","Close Shared@Lib:Campaign")]
+[r:macroLink("Close Shared","campaign/Close Shared@this")]
 
 </p>
 };{}]
@@ -26,6 +26,6 @@
 </h1>
 
 
-[macro("Markdown@Lib:Bestiary"):macro.args]
+[macro("bestiary/Markdown@this"):macro.args]
 
 }]

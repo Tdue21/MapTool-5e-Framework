@@ -136,7 +136,7 @@
 <!------------------------------------------------------------------>
 <!--------------------------SKILLS PROCESS-------------------------->
 <!------------------------------------------------------------------>
-	[h:skillList=getLibProperty("Skills", "Lib:Character")]
+	[h:skillList=getLibProperty("Skills", function.getNamespace())]
 	[h:SkillObject=getProperty("Skills")]
 	[h:array=json.fromList(skillList,";")]
 	[h:object=""]
@@ -153,7 +153,7 @@
 		[h:setProperty("Skills",array)]
 		[h:SkillObject=array]
 	};{}]
-	[h:attributeList=getLibProperty("Skills", "Lib:Character")]
+	[h:attributeList=getLibProperty("Skills", function.getNamespace())]
 	[h:repeat=countStrProp(attributeList)]
 	[h:skillList=""]
 	[h,count(repeat,""),code:{

@@ -78,7 +78,7 @@ img	{
 </div>
 <div class="[r:class]">
 
-<div class="float">[r:macroLink("X","closeOverlay@Lib:Overlay","","Shared")]</div>
+<div class="float">[r:macrolink("X", "overlay/closeOverlay@this")"","Shared")]</div>
 
 
 <h1 style="padding-bottom:0px;margin-bottom:0px;">
@@ -88,7 +88,7 @@ img	{
 </h1>
 
 
-[macro("Markdown@Lib:Bestiary"):macro.args]
+[macro("bestiary/Markdown@this"):macro.args]
 
 }]
 </div>

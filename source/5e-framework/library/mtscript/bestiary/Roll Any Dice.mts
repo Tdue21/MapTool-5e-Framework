@@ -7,7 +7,7 @@
 
 [h:name=getProperty("CreatureName")]
 
-[h,if(name==""):object=getProperty("Stats");object=json.get(getLibProperty("Bestiary","Lib:Compendium"),name)]
+[h,if(name==""):object=getProperty("Stats");object=json.get(getLibProperty("Bestiary", function.getNamespace()),name)]
 
 [h:cr=json.get(object,"challenge")]
 [h,if(cr==""):challenge="";challenge=substring(cr,0,indexOf(cr," "))]
@@ -19,13 +19,13 @@
 
 [h:setProperty("Stats",object)]
 
-[h:macroName="Change Property@Lib:Bestiary"]
+[h:macroName="bestiary/Change Property@this"]
 [h:args="name="+name+";json="+object+";tokenName="+token.name+";key="]
 
 [h,switch(rolltype),code:
 case "1":{
 
-	[macro("Skills and Saves@Lib:Bestiary"):args+"skill"]
+	[macro("bestiary/Skills and Saves@this"):args+"skill"]
 
 };
 case "2":{
@@ -39,12 +39,12 @@ case "2":{
 	[h:val=json.get(object,atr)]
 	[h,if(isNumber(val)==1):mod=floor(val/2-5);mod=-5]
 
-	[macro("d20 Roller@Lib:Bestiary"):"text="+attribute+" check;value=+"+if(mod<0,mod,"+"+mod)+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=0099cc"]
+	[macro("bestiary/d20 Roller@this"):"text="+attribute+" check;value=+"+if(mod<0,mod,"+"+mod)+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=0099cc"]
 
 };
 case "3":{
 
-	[macro("Skills and Saves@Lib:Bestiary"):args+"save"]
+	[macro("bestiary/Skills and Saves@this"):args+"save"]
 };
 case "4":{
 
@@ -55,7 +55,7 @@ case "4":{
 	[h:init=dex]
 	
 
-	[h,macro("d20 Roller@Lib:Bestiary"):"text=Initiative;value=+"+if(init<0,init,"+"+init)+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=blue"]
+	[h,macro("bestiary/d20 Roller@this"):"text=Initiative;value=+"+if(init<0,init,"+"+init)+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=blue"]
 
 };
 case "5":{
@@ -72,7 +72,7 @@ case "5":{
 	[h,if(isNumber(val)==1):mod=floor(val/2-5);mod=-5]
 	[h:mod=mod+prof]
 
-	[h,macro("d20 Roller@Lib:Bestiary"):"text="+capitalize(atkName)+" Attack;value=++"+mod+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=red"]
+	[h,macro("bestiary/d20 Roller@this"):"text="+capitalize(atkName)+" Attack;value=++"+mod+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=red"]
 
 };
 case "6":{
@@ -88,7 +88,7 @@ case "6":{
 	[h,if(isNumber(val)==1):mod=floor(val/2-5);mod=-5]
 	[h:mod=mod+prof]
 
-	[h,macro("d20 Roller@Lib:Bestiary"):"text="+capitalize(atr)+" Spell Attack;value=++"+mod+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=8a61ae"]
+	[h,macro("bestiary/d20 Roller@this"):"text="+capitalize(atr)+" Spell Attack;value=++"+mod+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=8a61ae"]
 
 };
 default:{
@@ -124,7 +124,7 @@ default:{
 	[h:diceRoll=replace(diceRoll,"^\\+","")]
 
 
-	[h,macro("Dice Roller@Lib:Bestiary"):"text=Custom Dice Roll;value="+diceRoll+";tokenName="+tokenName+";color=Black"]
+	[h,macro("bestiary/Dice Roller@this"):"text=Custom Dice Roll;value="+diceRoll+";tokenName="+tokenName+";color=Black"]
 
 }]
 

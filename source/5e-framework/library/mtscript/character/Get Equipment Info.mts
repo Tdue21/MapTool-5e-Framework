@@ -6,7 +6,7 @@
 
 [h,if(group=="Equipment"),code:{
 
-	[h:PropertyObj=getLibProperty("Equipment","Lib:Compendium")]
+	[h:PropertyObj=getLibProperty("Equipment", function.getNamespace())]
 	[h:equipObj=json.get(PropertyObj,name)]
 	[h,if(json.type(equipObj)=="UNKNOWN"):description="";description=json.get(equipObj,"description")]
 

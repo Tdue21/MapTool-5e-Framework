@@ -1,4 +1,4 @@
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 [h:modFont=if(listcount(attributeList)>6,10,16)]
 [h:atrFont=if(listcount(attributeList)>7,6,8)]
 [h:spacing=if(listcount(attributeList)>7,3,5)]
@@ -65,10 +65,10 @@
 
 	[h:bonusDisplay=mod+bonus]
 	
-	[h:modlink=macroLink(if(mod<0,mod,"+"+mod),"d20 Roller@Lib:Character","","text="+attribute+" check;value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";tokenName="+tokenName+";color=0099cc")]
+	[h:modlink=macroLink(if(mod<0,mod,"+"+mod),"character/d20 Roller@this","","text="+attribute+" check;value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";tokenName="+tokenName+";color=0099cc")]
 
 
-	[r:macroLink("<span title='Edit "+attribute+"'>"+upper(attribute)+"</span>","Change Attribute@Lib:Character","","value="+encode(prop)+";name="+attribute+";id="+id+";tokenName="+tokenName)]
+	[r:macrolink("<span title='Edit "+attribute+"'>"+upper(attribute)+"</span>", "character/Change Attribute@this")"","value="+encode(prop)+";name="+attribute+";id="+id+";tokenName="+tokenName)]
 	
 	<tr>
 	<td style="margin:0px; padding:0px;font-size:[r:modFont]px" align=center>

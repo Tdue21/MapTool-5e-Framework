@@ -3,7 +3,7 @@
 [h:id=findToken(tokenName)]
 [h:switchToken(id)]
 
-[r,macro("Dice Roller@Lib:Character"):macro.args]
+[r,macro("character/Dice Roller@this"):macro.args]
 
 
 [h:startingGP=macro.return*multiplier]

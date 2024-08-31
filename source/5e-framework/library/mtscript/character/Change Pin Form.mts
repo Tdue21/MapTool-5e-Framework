@@ -17,11 +17,11 @@
 [dialog5(tokenName+" - "+name+" - Edit", "width=650; height=550; temporary=1; input=1; noframe=0"): {
 
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
-[h: processorLink = macroLinkText("Change Pin Form process@Lib:Character", "")]
+[h: processorLink = macroLinkText("character/Change Pin Form process@this", "")]
 <form action="[r:processorLink]" method="json">
 
 <input type="submit" name="button" value="Save">[r,count(10,""):"&nbsp;"]
-<input type="submit" name="cancel" value="Cancel">[r,count(10,""):"&nbsp;"]<span title="<html><h1><font size=5># Heading</h1><b>**Bold**</b> | <i>*Italic*</i> | <s>~~striketrough~~</s> | _ <u>underline</u> _ | <u>&#91;link](url)</u></html>">[r:macroLink("Help","Help@Lib:Notebook")]</span>
+<input type="submit" name="cancel" value="Cancel">[r,count(10,""):"&nbsp;"]<span title="<html><h1><font size=5># Heading</h1><b>**Bold**</b> | <i>*Italic*</i> | <s>~~striketrough~~</s> | _ <u>underline</u> _ | <u>&#91;link](url)</u></html>">[r:macroLink("Help","notebook/Help@this")]</span>
 
 <input type="hidden" name="prop" value="[r:group]">
 <input type="hidden" name="name" value="[r:name]">

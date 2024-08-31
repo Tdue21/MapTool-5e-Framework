@@ -7,7 +7,7 @@
 [h:id=findToken(tokenName)]
 [h,if(id==""):"";switchToken(id)]
 
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 [h:AtrProps=""]
 [h,count(listcount(attributeList),""),code:{
 	[h:attribute=listget(attributeList,roll.count)]
@@ -63,11 +63,11 @@ Current HP: <b>[r:currentInput]</b>/<b>[r:maxInput]</b> [r:if(tempInput==0,"","(
 
 
 
-[macro("HP Bar@Lib:Character"):"MaxLen=65;MaxValue="+maxInput+";Value="+currentInput+";Color=Green"]
+[macro("character/HP Bar@this"):"MaxLen=65;MaxValue="+maxInput+";Value="+currentInput+";Color=Green"]
 
 [h,if(id==""):concentration=0;concentration=getState("Concentration")]
 
-[r,if(concentration==1 && effectiveDmg<0):"<font size=2>Concentration DC: <font color=red><b>"+if(floor(number((effectiveDmg*-1)/2))>10,floor(number((effectiveDmg*-1)/2)),10)+"</b> <font color=gray style='text-decoration:none'>"+macroLink("[roll con]","Maintain Concentration@Lib:Character","","tokenName="+tokenName+";dmg="+number(effectiveDmg*-1))+"</font>";""]
+[r,if(concentration==1 && effectiveDmg<0):"<font size=2>Concentration DC: <font color=red><b>"+if(floor(number((effectiveDmg*-1)/2))>10,floor(number((effectiveDmg*-1)/2)),10)+"</b> <font color=gray style='text-decoration:none'>"+macrolink("[roll con]", "character/Maintain Concentration@this")"","tokenName="+tokenName+";dmg="+number(effectiveDmg*-1))+"</font>";""]
 
 
 
@@ -84,20 +84,20 @@ Current HP: <b>[r:currentInput]</b>/<b>[r:maxInput]</b> [r:if(tempInput==0,"","(
 
 
 [h,if(id==""):"";setProperty("HP",currentInput+"/"+maxInput+if(tempInput<0," ("+tempInput+")",""))]
-[h:setLibProperty("HP",currentInput+"/"+maxInput+if(tempInput<0," ("+tempInput+")",""),"Lib:"+tokenName)]
+[h:setLibProperty("HP", currentInput+"/"+maxInput+if(tempInput<0, function.getNamespace())",""),"Lib:"+tokenName)]
 
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Statblock")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Statblock;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Statblock;tokenName="+tokenName]
 };{}]
 [h,if(isDialogVisible("Manage")==1),code:{
 [h:pinName=getStrProp(macro.args,"pinName")]
-[macro("Manage Party@Lib:Character"):"tokenName="+pinName]
+[macro("character/Manage Party@this"):"tokenName="+pinName]
 };{}]
 
 [h,if(isOverlayRegistered("Initiative")==1),code:{
-[macro("Initiative Overlay@Lib:Overlay"):"output=all"]
+[macro("overlay/Initiative Overlay@this"):"output=all"]
 };{}]

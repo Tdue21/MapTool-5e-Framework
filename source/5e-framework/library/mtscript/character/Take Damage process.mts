@@ -4,7 +4,7 @@
 [h:idList=getSelected()]
 [h:nameList=getSelectedNames()]
 
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:applyDMG=getStrProp(permissions,"applyDMG")]
 [h,if(isGM()==0 && applyDMG==0):applyDMG=0;applyDMG=1]
 
@@ -70,10 +70,10 @@
 		[r,if(outputGM=="all" || isGM()==1):"Current HP: <b>"+new+"</b>/<b>"+total+"</b> ";""]
 		
 		
-		[if(outputGM=="all" || isGM()==1),macro("HP Bar@Lib:Character"):"MaxLen=65;MaxValue="+total+";Value="+new+";Color=Green";"MaxLen=0;MaxValue="+total+";Value="+new+";Color=Green"]
+		[if(outputGM=="all" || isGM()==1),macro("character/HP Bar@this"):"MaxLen=65;MaxValue="+total+";Value="+new+";Color=Green";"MaxLen=0;MaxValue="+total+";Value="+new+";Color=Green"]
 
 
-		[r,if(getState("Concentration")==1 && dmg<0):"<font size=2>Concentration DC: <font color=red><b>"+if(floor(number((dmg*-1)/2))>10,floor(number((dmg*-1)/2)),10)+"</b> <font color=gray style='text-decoration:none'>"+macroLink("[roll con]","Maintain Concentration@Lib:Bestiary","","tokenName="+tokenName+";dmg="+number(dmg*-1))+"</font>";""]
+		[r,if(getState("Concentration")==1 && dmg<0):"<font size=2>Concentration DC: <font color=red><b>"+if(floor(number((dmg*-1)/2))>10,floor(number((dmg*-1)/2)),10)+"</b> <font color=gray style='text-decoration:none'>"+macrolink("[roll con]", "bestiary/Maintain Concentration@this")"","tokenName="+tokenName+";dmg="+number(dmg*-1))+"</font>";""]
 
 		[h,if(new/total==1):barNPC=1]
 		[h,if(new/total<1):barNPC=0.9]
@@ -86,7 +86,7 @@
 		[h:setProperty("Hit Points",value)]
 		
 		
-		[h,if(isFrameVisible(tokenName+" - Statblock")==1):evalMacro("[macro('Macro Frame@Lib:Bestiary'):tokenName]");""]
+		[h,if(isFrameVisible(tokenName+" - Statblock")==1):evalMacro("[macro('bestiary/Macro Frame@this'):tokenName]");""]
 	
 	};{
 		
@@ -122,9 +122,9 @@
 		Current HP: <b>[r:currentInput]</b>/<b>[r:maxInput]</b> [r:if(tempInput==0,"","(<b>"+tempInput+"</b>)")]
 		
 		
-		[macro("HP Bar@Lib:Character"):"MaxLen=65;MaxValue="+maxInput+";Value="+currentInput+";Color=Green"]
+		[macro("character/HP Bar@this"):"MaxLen=65;MaxValue="+maxInput+";Value="+currentInput+";Color=Green"]
 
-		[r,if(getState("Concentration")==1 && effectiveDmg<0):"<font size=2>Concentration DC: <font color=red><b>"+if(floor(number((effectiveDmg*-1)/2))>10,floor(number((effectiveDmg*-1)/2)),10)+"</b> <font color=gray style='text-decoration:none'>"+macroLink("[roll con]","Maintain Concentration@Lib:Character","","tokenName="+tokenName+";dmg="+number(effectiveDmg*-1))+"</font>";""]
+		[r,if(getState("Concentration")==1 && effectiveDmg<0):"<font size=2>Concentration DC: <font color=red><b>"+if(floor(number((effectiveDmg*-1)/2))>10,floor(number((effectiveDmg*-1)/2)),10)+"</b> <font color=gray style='text-decoration:none'>"+macrolink("[roll con]", "character/Maintain Concentration@this")"","tokenName="+tokenName+";dmg="+number(effectiveDmg*-1))+"</font>";""]
 		
 		
 
@@ -137,15 +137,15 @@
 		
 		[h:setLibProperty("Total Hit Points",maxInput,"Lib:"+tokenName)]
 
-		[h:setLibProperty("HP",currentInput+"/"+maxInput+if(tempInput<0," ("+tempInput+")",""),"Lib:"+tokenName)]
+		[h:setLibProperty("HP", currentInput+"/"+maxInput+if(tempInput<0, function.getNamespace())",""),"Lib:"+tokenName)]
 
 		[h:findId=findToken(tokenName)]
 
 		[h,if(findId==""):"";setProperty("HP",currentInput+"/"+maxInput)]
 		
 		
-		[h,if(isFrameVisible(tokenName+" - Character Sheet")==1):evalmacro("[macro('Macro Frame@Lib:Character'):'macro=Character Sheet;tokenName='+tokenName]");""]
-		[h,if(isFrameVisible(tokenName+" - Statblock")==1):evalmacro("[macro('Macro Frame@Lib:Character'):'macro=Statblock;tokenName='+tokenName]");""]
+		[h,if(isFrameVisible(tokenName+" - Character Sheet")==1):evalmacro("[macro('character/Macro Frame@this'):'macro=Character Sheet;tokenName='+tokenName]");""]
+		[h,if(isFrameVisible(tokenName+" - Statblock")==1):evalmacro("[macro('character/Macro Frame@this'):'macro=Statblock;tokenName='+tokenName]");""]
 	
 	
 	}]
@@ -157,5 +157,5 @@
 
 
 [h,if(isOverlayRegistered("Initiative")==1),code:{
-[macro("Initiative Overlay@Lib:Overlay"):"output=all"]
+[macro("overlay/Initiative Overlay@this"):"output=all"]
 };{}]

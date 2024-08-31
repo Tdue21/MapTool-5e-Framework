@@ -5,7 +5,7 @@
 
 [h,if(macroName=="Statblock"),code:{
 
-	[h:display=getLibProperty("Display","Lib:Campaign")]
+	[h:display=getLibProperty("Display", function.getNamespace())]
 	[h:StatblockFrame=getStrProp(display,"StatblockFrame")]
 
 	[h,switch(StatblockFrame):
@@ -22,6 +22,6 @@
 [token(tokenName),frame(frameName,"width="+if(macroName=="Statblock",350,750)+"; height=500; temporary=0;"):{
 
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
-[macro(macroName+"@Lib:Character"):"tokenName="+tokenName]
+[macro(macroName+"character/@this"):"tokenName="+tokenName]
 
 }]

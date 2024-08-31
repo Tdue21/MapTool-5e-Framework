@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 
 
-[h: processorLink = macroLinkText("Change Property process@Lib:Campaign", "")]
+[h: processorLink = macroLinkText("campaign/Change Property process@this", "")]
 <form action="[r:processorLink]" method="json">
 
 
@@ -18,7 +18,7 @@
 
 [r,count(10,""):"&nbsp;"]
 
-<input type="submit" name="cancel" value="Cancel">[r,count(10,""):"&nbsp;"]<span title="<html><h1><font size=5># Heading</h1><b>**Bold**</b> | <i>*Italic*</i> | <s>~~striketrough~~</s> | _ <u>underline</u> _ | <u>&#91;link](url)</u></html>">[r:macroLink("Help","Help@Lib:Notebook")]</span>
+<input type="submit" name="cancel" value="Cancel">[r,count(10,""):"&nbsp;"]<span title="<html><h1><font size=5># Heading</h1><b>**Bold**</b> | <i>*Italic*</i> | <s>~~striketrough~~</s> | _ <u>underline</u> _ | <u>&#91;link](url)</u></html>">[r:macroLink("Help","notebook/Help@this")]</span>
 
 </div>
 

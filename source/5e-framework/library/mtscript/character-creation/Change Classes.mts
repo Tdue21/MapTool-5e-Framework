@@ -1,4 +1,4 @@
-[h:classes=getLibProperty("Classes","Lib:Character Creation")]
+[h:classes=getLibProperty("Classes", function.getNamespace())]
 [h:fields=json.fields(classes)]
 
 [h:fields=listsort(fields,"a")]
@@ -30,7 +30,7 @@
 [dialog5("Edit Classes", "width=380; height="+height+"; temporary=1; noframe=0; input=1"):{
 
 	<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
-	[h: processorLink = macroLinkText("Change Classes process@Lib:Character Creation","")]
+	[h: processorLink = macroLinkText("character-creation/Change Classes process@this","")]
 	<form action="[r:processorLink]" method="json">
 	
 	<input type="submit" name="button" value="Save">[r,count(5,""):"&nbsp;"]
@@ -45,7 +45,7 @@
 	<td>
 	<input type="text" name="class" value="[r:class]" size="20">
 
-	<br>[r:macroLink("Change Class Features","Change Class Features@Lib:Character Creation","","class="+class)]
+	<br>[r:macrolink("Change Class Features", "character-creation/Change Class Features@this")"","class="+class)]
 
 	<tr><td valign=top>
 	<b>Subclasses</b>
@@ -56,12 +56,12 @@
 
 		[h:currentSubclass=listget(subclassList,roll.count)]
 
-		[r:macroLink(currentSubclass,"Change Class Features@Lib:Character Creation","","class="+class+";subclass="+currentSubclass)]
+		[r:macroLink(currentSubclass,"character-creation/Change Class Features@this","","class="+class+";subclass="+currentSubclass)]
 		<br>
 
 	}]
 	
-	[r:macroLink("+","Change Class Features@Lib:Character Creation","","class="+class+";subclass=add new")]
+	[r:macrolink("+", "character-creation/Change Class Features@this")"","class="+class+";subclass=add new")]
 
 
 	<tr><td>
@@ -84,14 +84,14 @@
 	<tr><td valign=top>
 	<b>Spellcasting</b>
 	<td>
-	[h:atrList=getLibProperty("Attributes","Lib:Character")]
+	[h:atrList=getLibProperty("Attributes", function.getNamespace())]
 	
 	<select name="spellcasting" size="1">
 		<option [r:if(spellcasting=="","selected='selected'","")]>-</option>
 		[r,count(listcount(atrList),""):"<option "+if(spellcasting==listget(atrList,roll.count),"selected='selected'","")+">"+listget(atrList,roll.count)+"</option>"]
 	</select>
 
-	<br>[r:macroLink("Change Spell List","Change Spells@Lib:Character Creation","",class)]
+	<br>[r:macrolink("Change Spell List", "character-creation/Change Spells@this")"",class)]
 	
 	<input type="hidden" name="name" value="[r:class]">
 

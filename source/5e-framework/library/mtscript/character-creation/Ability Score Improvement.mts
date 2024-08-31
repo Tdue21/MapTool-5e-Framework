@@ -4,7 +4,7 @@
 [h:switchToken(id)]
 
 <!-----------------Attributes------------------->
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 
 
 [h:res=input("var|Choose two (you can choose the same)||label|span=true",
@@ -41,7 +41,7 @@
 
 
 	<!-----------------Feat------------------->
-[h:featList=getLibProperty("Feats", "Lib:Character Creation")]
+[h:featList=getLibProperty("Feats", function.getNamespace())]
 
 [h:group="Feats"]
 [h:inputList=getLibProperty(group,"Lib:Character")]
@@ -61,7 +61,7 @@
 [h,if(feat==1):abort(res);""]
 
 [h,if(item=="Add New"),code:{
-[macro("Change Form@Lib:Character"):"prop="+group+";index=new;name=new;description=new;tokenName="+tokenName]
+[macro("character/Change Form@this"):"prop="+group+";index=new;name=new;description=new;tokenName="+tokenName]
 };{
 	[h:Property=json.set(Property,item,"Feat")]
 	[h,if(feat==1):setProperty(group,Property)]

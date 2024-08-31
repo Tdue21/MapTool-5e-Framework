@@ -6,7 +6,7 @@
 
 	
 	
-	[h:start=getLibProperty("Start","Lib:Campaign")]
+	[h:start=getLibProperty("Start", function.getNamespace())]
 	
 	[h:id=findToken("Monster","00.DM")]
 	[h:center=getViewCenter(0,";")]
@@ -24,23 +24,23 @@
 	
 	[h:macroList=getMacros()]
 	
-	[h,if(listfind(macroList,"Character")<0):createMacro("Character","[macro('Macro Frame@Lib:Character'):'macro=Character Sheet;tokenName='+token.name]", "minWidth=120;sortBy=1")]
-	[h,if(listfind(macroList,"Spellcasting")<0):createMacro("Spellcasting","[macro('Macro Frame@Lib:Character'):'macro=Spellcasting Sheet;tokenName='+token.name]", "minWidth=120;sortBy=3")]
-	[h,if(listfind(macroList,"Description")<0):createMacro("Description","[macro('Macro Frame@Lib:Character'):'macro=Description Sheet;tokenName='+token.name]", "minWidth=120;sortBy=2")]
-	[h,if(listfind(macroList,"Statblock")<0):createMacro("Statblock","[macro('Macro Frame@Lib:Character'):'macro=Statblock;tokenName='+token.name]", "minWidth=120;fontColor=black;color=maroon;fontColor=white;sortBy=0")]
+	[h,if(listfind(macroList,"Character")<0):createMacro("Character","[macro('character/Macro Frame@this'):'macro=Character Sheet;tokenName='+token.name]", "minWidth=120;sortBy=1")]
+	[h,if(listfind(macroList,"Spellcasting")<0):createMacro("Spellcasting","[macro('character/Macro Frame@this'):'macro=Spellcasting Sheet;tokenName='+token.name]", "minWidth=120;sortBy=3")]
+	[h,if(listfind(macroList,"Description")<0):createMacro("Description","[macro('character/Macro Frame@this'):'macro=Description Sheet;tokenName='+token.name]", "minWidth=120;sortBy=2")]
+	[h,if(listfind(macroList,"Statblock")<0):createMacro("Statblock","[macro('character/Macro Frame@this'):'macro=Statblock;tokenName='+token.name]", "minWidth=120;fontColor=black;color=maroon;fontColor=white;sortBy=0")]
 	
-	[h,if(listfind(macroList,"Interact")<0):createMacro("Interact","[macro('Interact@Lib:Campaign'):'']", "minWidth=120;sortBy=1;color=teal;fontColor=white;group=Other Macros")]
+	[h,if(listfind(macroList,"Interact")<0):createMacro("Interact","[macro('campaign/Interact@this'):'']", "minWidth=120;sortBy=1;color=teal;fontColor=white;group=Other Macros")]
 
-	[h,if(listfind(macroList,"Rest")<0):createMacro("Rest","[macro('Rest@Lib:Character'):token.name]", "minWidth=120;sortBy=2;color=cyan;fontColor=black;group=Other Macros")]
+	[h,if(listfind(macroList,"Rest")<0):createMacro("Rest","[macro('character/Rest@this'):token.name]", "minWidth=120;sortBy=2;color=cyan;fontColor=black;group=Other Macros")]
 
-	[h,if(listfind(macroList,"Area Template")<0):createMacro("Area Template","[macro('Drop Template@Lib:Character'):token.name]", "minWidth=120;sortBy=3;fontColor=red;group=Other Macros")]
+	[h,if(listfind(macroList,"Area Template")<0):createMacro("Area Template","[macro('character/Drop Template@this'):token.name]", "minWidth=120;sortBy=3;fontColor=red;group=Other Macros")]
 	
-	[h,if(listfind(macroList,"Range")<0):createMacro("Range","[macro('Range@Lib:Campaign'):'']", "minWidth=120;sortBy=4;color=orange;group=Other Macros")]
-	[h,if(listfind(macroList,"Light")<0):createMacro("Light","[macro('Light@Lib:Campaign'):'']", "minWidth=120;sortBy=5;color=yellow;group=Other Macros")]
+	[h,if(listfind(macroList,"Range")<0):createMacro("Range","[macro('campaign/Range@this'):'']", "minWidth=120;sortBy=4;color=orange;group=Other Macros")]
+	[h,if(listfind(macroList,"Light")<0):createMacro("Light","[macro('campaign/Light@this'):'']", "minWidth=120;sortBy=5;color=yellow;group=Other Macros")]
 	
 	
-	[h,if(listfind(macroList,"- Elev")<0):createMacro("- Elev","[macro('Elevation@Lib:Character'):'elevation=-1;tokenName='+token.name]", "minWidth=53;sortBy=6;group=Other Macros")]
-	[h,if(listfind(macroList,"Elev +")<0):createMacro("Elev +","[macro('Elevation@Lib:Character'):'elevation=1;tokenName='+token.name]", "minWidth=53;sortBy=7;group=Other Macros")]
+	[h,if(listfind(macroList,"- Elev")<0):createMacro("- Elev","[macro('character/Elevation@this'):'elevation=-1;tokenName='+token.name]", "minWidth=53;sortBy=6;group=Other Macros")]
+	[h,if(listfind(macroList,"Elev +")<0):createMacro("Elev +","[macro('character/Elevation@this'):'elevation=1;tokenName='+token.name]", "minWidth=53;sortBy=7;group=Other Macros")]
 	
 	[h:setName(name)]
 	
@@ -71,19 +71,19 @@
 	
 	[h,if(isFrameVisible(name+" - Character Sheet")==1),code:{
 		[h:closeFrame(name+" - Character Sheet")]
-		[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+name]
+		[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+name]
 	};{}]
 	[h,if(isFrameVisible(name+" - Spellcasting Sheet")==1),code:{
 		[h:closeFrame(name+" - Spellcasting Sheet")]
-		[macro("Macro Frame@Lib:Character"):"macro=Spellcasting Sheet;tokenName="+name]
+		[macro("character/Macro Frame@this"):"macro=Spellcasting Sheet;tokenName="+name]
 	};{}]
 	[h,if(isFrameVisible(name+" - Description Sheet")==1),code:{
 		[h:closeFrame(name+" - Description Sheet")]
-		[macro("Macro Frame@Lib:Character"):"macro=Description Sheet;tokenName="+name]
+		[macro("character/Macro Frame@this"):"macro=Description Sheet;tokenName="+name]
 	};{}]
 	[h,if(isFrameVisible(name+" - Statblock")==1),code:{
 		[h:closeFrame(name+" - Statblock")]
-		[macro("Macro Frame@Lib:Character"):"macro=Statblock;tokenName="+name]
+		[macro("character/Macro Frame@this"):"macro=Statblock;tokenName="+name]
 	};{}]
 	
 

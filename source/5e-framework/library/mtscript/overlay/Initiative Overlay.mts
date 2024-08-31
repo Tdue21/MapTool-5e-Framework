@@ -1,7 +1,7 @@
 [h:command=getStrProp(macro.args,"command")]
 [h:output=getStrProp(macro.args,"output")]
 
-[h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
+[h:gameplay=getLibProperty("Gameplay",function.getNamespace())]
 [h:rerollInit=getStrProp(gameplay,"rerollInit")]
 
 [h:initiativeList=getInitiativeList()]
@@ -14,7 +14,7 @@
 
 [h,if(rerollInit==1 && command=="Next" && current==max-1),code:{
 
-	[macro("Reroll Initiative@Lib:Overlay"):""]
+	[macro("overlay/Reroll Initiative@this"):""]
 	[h:round=json.get(initiativeList,"round")]
 	[h:setInitiativeRound(round+1)]
 	[h:setCurrentInitiative(0)]
@@ -44,6 +44,6 @@
 
 [h,if(command=="Focus"):selectTokens(id)]
 
-[h:link=macroLinkText("Initiative Render@Lib:Overlay","",macro.args)]
+[h:link=macroLinkText("overlay/Initiative Render@this","",macro.args)]
 
 [h:execLink(link,1,output)]

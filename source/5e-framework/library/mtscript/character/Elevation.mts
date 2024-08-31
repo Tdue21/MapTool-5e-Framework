@@ -10,7 +10,7 @@
 
 [h:setProperty("Elevation",elev)]
 
-[h:display=getLibProperty("Display","Lib:Campaign")]
+[h:display=getLibProperty("Display", function.getNamespace())]
 [h:ElevScale=getStrProp(display,"ElevScale")]
 
 [h:scale=ElevScale]

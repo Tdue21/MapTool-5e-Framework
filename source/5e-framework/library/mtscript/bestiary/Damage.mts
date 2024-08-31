@@ -33,7 +33,7 @@
 Current HP: <b>[r:new]</b>/<b>[r:total]</b> 
 
 
-[macro("HP Bar@Lib:Character"):"MaxLen=65;MaxValue="+total+";Value="+new+";Color=Green"]
+[macro("character/HP Bar@this"):"MaxLen=65;MaxValue="+total+";Value="+new+";Color=Green"]
 
 
 [h,if(new/total==1):barNPC=1]
@@ -48,14 +48,14 @@ Current HP: <b>[r:new]</b>/<b>[r:total]</b>
 [h:setProperty("Hit Points",value)]
 
 [h,if(isFrameVisible(tokenName+" - Statblock")==1),code:{
-[macro("Macro Frame@Lib:Bestiary"):tokenName]
+[macro("bestiary/Macro Frame@this"):tokenName]
 };{}]
 
 [h,if(isOverlayRegistered("Initiative")==1),code:{
-[macro("Initiative Overlay@Lib:Overlay"):"output=all"]
+[macro("overlay/Initiative Overlay@this"):"output=all"]
 };{}]
 
 [h,if(isDialogVisible("Manage")==1),code:{
 [h:pinName=getStrProp(macro.args,"pinName")]
-[macro("Manage Encounter@Lib:Bestiary"):"tokenName="+pinName]
+[macro("bestiary/Manage Encounter@this"):"tokenName="+pinName]
 };{}]

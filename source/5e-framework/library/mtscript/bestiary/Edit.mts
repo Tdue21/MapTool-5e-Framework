@@ -97,7 +97,7 @@
 	[h,if(instanceOriginal==instance),code:{};{
 	
 		[r:setProperty("CreatureName",lower(json.get(object,"name")))]
-		[macro("Edit Creature@Lib:Bestiary"):"creature="+json.get(object,"name")+";prop="+encode(object)]
+		[macro("bestiary"):"creature="+json.get(object,"name/Edit Creature@this")+";prop="+encode(object)]
 	
 	}]
 
@@ -117,10 +117,10 @@
 
 };{
 
-	[h:BestiaryObj=getLibProperty("Bestiary","Lib:Compendium")]
+	[h:BestiaryObj=getLibProperty("Bestiary", function.getNamespace())]
 	[h:BestiaryObj=json.set(BestiaryObj,name,object)]
-	[h:setLibProperty("Bestiary",BestiaryObj,"Lib:Compendium")]
+	[h:setLibProperty("Bestiary", BestiaryObj, function.getNamespace())]
 
 }]
 
-[macro("Macro Frame@Lib:Bestiary"):tokenName]
+[macro("bestiary/Macro Frame@this"):tokenName]

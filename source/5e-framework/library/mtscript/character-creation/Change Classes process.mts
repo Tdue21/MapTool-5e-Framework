@@ -14,7 +14,7 @@
 [h:class=replace(class,"\\s*\$","")]
 
 
-[h:classesObj=getLibProperty("Classes","Lib:Character Creation")]
+[h:classesObj=getLibProperty("Classes", function.getNamespace())]
 
 [h:classObj=json.get(classesObj,class)]
 
@@ -44,9 +44,9 @@
 
 [h,if(class!=name || delete=="Delete"):classesObj=json.remove(classesObj,name);""]
 
-[h:setLibProperty("Classes",classesObj,"Lib:Character Creation")]
+[h:setLibProperty("Classes", classesObj, function.getNamespace())]
 
 
 [h,if(isDialogVisible("Settings")==1),code:{
-[macro("Campaign Settings@Lib:Campaign"):""]
+[macro("campaign/Campaign Settings@this"):""]
 };{}]

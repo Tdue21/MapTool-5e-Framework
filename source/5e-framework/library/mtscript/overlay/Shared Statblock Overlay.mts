@@ -62,14 +62,14 @@ table	{
 </div>
 <div class="footer">
 
-<div class="float">[r:macroLink("X","closeOverlay@Lib:Overlay","","Shared")]</div>
+<div class="float">[r:macrolink("X", "overlay/closeOverlay@this")"","Shared")]</div>
 
 
 
 
 
 
-[macro("Statblock Viewer@Lib:Character"):tokenName]
+[macro("character/Statblock Viewer@this"):tokenName]
 
 }]
 </div>

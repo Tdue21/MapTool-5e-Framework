@@ -14,7 +14,7 @@
 
 [h,if(id==""),code:{
 	
-	[h:compendium=getLibProperty("Bestiary","Lib:Compendium")]
+	[h:compendium=getLibProperty("Bestiary", function.getNamespace())]
 	[h:object=json.get(compendium,lower(tokenName))]
 	
 };{
@@ -38,7 +38,7 @@
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('D&D')]">
 
 
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:edit=getStrProp(permissions,"edit")]
 [h:sharePlayer=getStrProp(permissions,"share")]
 [h,if(isGM()==1):edit=1]
@@ -50,8 +50,8 @@
 
 [h:args=setStrProp(macro.args,"tokenName","Lib:Compendium")]
 
-[r,if(share==1 || edit==0):"";macrolink("Edit","Change Form@Lib:Bestiary","","group=info;name=Info;tokenName="+tokenName+";description="+description)+" &nbsp;"]
-[r,if(share==1 || sharePlayer==0):"";macrolink("Share","Share Info@Lib:Bestiary","","share=1;description="+description+";tokenName="+tokenName)+" &nbsp;"]
+[r,if(share==1 || edit==0):"";macrolink("Edit", "bestiary/Change Form@this")"","group=info;name=Info;tokenName="+tokenName+";description="+description)+" &nbsp;"]
+[r,if(share==1 || sharePlayer==0):"";macrolink("Share", "bestiary/Share Info@this")"","share=1;description="+description+";tokenName="+tokenName)+" &nbsp;"]
 
 
 [r,if(share==1):"";"</p>"]
@@ -64,7 +64,7 @@
 
 
 
-[macro("Markdown@Lib:Bestiary"):"tokenName="+tokenName+";description="+encode(description)+";name="+name]
+[macro("bestiary/Markdown@this"):"tokenName="+tokenName+";description="+encode(description)+";name="+name]
 
 
 }]

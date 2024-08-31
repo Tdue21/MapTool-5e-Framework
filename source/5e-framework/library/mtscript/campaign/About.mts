@@ -17,7 +17,7 @@
 
 <br>
 
-<b>Framework Version:</b> [r:getLibProperty("libversion","Lib:Campaign")]
+<b>Framework Version:</b> [r:getLibProperty("libversion", function.getNamespace())]
 
 </p>
 

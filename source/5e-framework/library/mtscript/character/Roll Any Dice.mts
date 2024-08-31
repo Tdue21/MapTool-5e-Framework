@@ -2,7 +2,7 @@
 [h:rolltype=getStrProp(macro.args,"rolltype")]
 [h:randomBonus=getStrProp(macro.args,"randomBonus")]
 
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 
 [h:classes=getLibProperty("Class&Level","Lib:"+tokenName)]
 [h:totalLevel=0]
@@ -45,7 +45,7 @@
 [h,switch(rolltype),code:
 case "1":{
 
-	[macro("Skills and Saves@Lib:Character"):"Roll=Skill;randomBonus="+randomBonus+";tokenName="+tokenName+";profBonus="+profBonus]
+	[macro("character/Skills and Saves@this"):"Roll=Skill;randomBonus="+randomBonus+";tokenName="+tokenName+";profBonus="+profBonus]
 
 };
 case "2":{
@@ -81,12 +81,12 @@ case "2":{
 
 	[h:bonusDisplay=mod+bonus]
 
-	[macro("d20 Roller@Lib:Character"):"text="+attribute+" check;value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=0099cc"]
+	[macro("character/d20 Roller@this"):"text="+attribute+" check;value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=0099cc"]
 
 };
 case "3":{
 
-	[macro("Skills and Saves@Lib:Character"):"Roll=Save;randomBonus="+randomBonus+";tokenName="+tokenName+";profBonus="+profBonus]
+	[macro("character/Skills and Saves@this"):"Roll=Save;randomBonus="+randomBonus+";tokenName="+tokenName+";profBonus="+profBonus]
 
 };
 case "4":{
@@ -110,7 +110,7 @@ case "4":{
 	
 	[h:init=init+bonus]
 
-	[h,macro("d20 Roller@Lib:Character"):"text=Initiative"+if(text=="" || text==0,""," | "+text)+";value=+"+if(init<0,init,"+"+init)+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=blue"]
+	[h,macro("character/d20 Roller@this"):"text=Initiative"+if(text=="" || text==0,""," | "+text)+";value=+"+if(init<0,init,"+"+init)+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=blue"]
 
 };
 case "5":{
@@ -129,7 +129,7 @@ case "5":{
 
 	[mod=mod+if(isProf==1,profBonus,0)]
 
-	[h,macro("d20 Roller@Lib:Character"):"text="+capitalize(atkName)+" Attack;value=++"+mod+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=red"]
+	[h,macro("character/d20 Roller@this"):"text="+capitalize(atkName)+" Attack;value=++"+mod+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=red"]
 
 };
 case "6":{
@@ -191,7 +191,7 @@ case "6":{
 
 	[h:atrName=capitalize(substring(listget(attributeList,atr),0,3))]
 
-	[h,macro("d20 Roller@Lib:Character"):"text="+atrName+" Spell Attack;value=++"+mod+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=8a61ae"]
+	[h,macro("character/d20 Roller@this"):"text="+atrName+" Spell Attack;value=++"+mod+if(randomBonus==0 || randomBonus=="","","++"+randomBonus)+";tokenName="+tokenName+";color=8a61ae"]
 
 };
 default:{
@@ -227,7 +227,7 @@ default:{
 	[h:diceRoll=replace(diceRoll,"^\\+","")]
 
 
-	[h,macro("Dice Roller@Lib:Character"):"text=Custom Dice Roll;value="+diceRoll+";tokenName="+tokenName+";color=Black"]
+	[h,macro("character/Dice Roller@this"):"text=Custom Dice Roll;value="+diceRoll+";tokenName="+tokenName+";color=Black"]
 
 }]
 

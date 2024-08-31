@@ -156,7 +156,7 @@
 	[h,if(matches(group2,".*share=?\\d*\$")==1),code:{
 		[h:size=replace(group2,"share","")]
 		[h:imgSize=replace(group1,"width='?\\d*'","width"+size)]
-		[h:group2=macroLinkText("Share@Lib:Character","","share=1;description="+imgSize)]
+		[h:group2=macroLinkText("character/Share@this","","share=1;description="+imgSize)]
 	}]
 	
 	[h:entry=replace(entry,"(?<!!)\\[(.*?)\\]\\((.*?)\\)","<a href='"+group2+"' >"+group1+"</a>",1)]
@@ -184,7 +184,7 @@
 }]
 
 
-[h:display=getLibProperty("Display","Lib:Campaign")]
+[h:display=getLibProperty("Display", function.getNamespace())]
 [h:replaceDiceRoll=getStrProp(display,"replaceDiceRoll")]
 [h,if(replaceDiceRoll==1),code:{
 [h:entry=function.DiceRoll(entry,tokenName,output,"character",jsonGroup,name,customName)]
@@ -260,7 +260,7 @@
 	[h:group2=replace(group2,"prof",profBonus)]
 	
 	[h:group2=replace(group2,"spell",spell)+if(bonusDmg=="" || bonusDmg==0,"","+"+bonusDmg)]
-	[h:entry=replace(entry,"ROLLPLACEHOLDER\\d+","<span title='roll: "+group2+"'>"+macroLink(group1,"Dice Roller@Lib:Character","","text="+group1+";value="+group2+";tokenName="+tokenName+";group="+jsonGroup+";name="+name+";customName="+customName)+"</span>",1)]
+	[h:entry=replace(entry,"ROLLPLACEHOLDER\\d+","<span title='roll: "+group2+"'>"+macroLink(group1,"character/Dice Roller@this","","text="+group1+";value="+group2+";tokenName="+tokenName+";group="+jsonGroup+";name="+name+";customName="+customName)+"</span>",1)]
 }]
 
 
@@ -277,7 +277,7 @@
 	[h:text=replace(tokenName,"<a.*?>","")]
 	[h:text=replace(text,".</a>","")]
 
-	[h:entry=replace(entry,"TOHITPLACEHOLDER\\d+","<span title='to hit: "+group2+"'>"+macroLink(group1,"d20 Roller@Lib:Character","","text="+text+";value=("+if(group2<0,group2,"+"+group2)+");tokenName="+tokenName+";color=red")+"</span>",1)]
+	[h:entry=replace(entry,"TOHITPLACEHOLDER\\d+","<span title='to hit: "+group2+"'>"+macroLink(group1,"character/d20 Roller@this","","text="+text+";value=("+if(group2<0,group2,"+"+group2)+");tokenName="+tokenName+";color=red")+"</span>",1)]
 }]
 [h:entry=replace(entry,"PLUSPLACEHOLDER","+")]
 

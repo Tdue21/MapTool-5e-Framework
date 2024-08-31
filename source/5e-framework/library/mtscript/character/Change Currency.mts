@@ -16,7 +16,7 @@
 [h:originalSP=if(SP=="",0,SP)]
 [h:originalCP=if(CP=="",0,CP)]
 
-[h:currencyValue=getLibProperty("Currency","Lib:Character")]
+[h:currencyValue=getLibProperty("Currency", function.getNamespace())]
 [h:PPW=getStrProp(currencyValue,"PP")]
 [h:GPW=getStrProp(currencyValue,"GP")]
 [h:EPW=getStrProp(currencyValue,"EP")]
@@ -68,11 +68,11 @@
 
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Pin Notes")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Pin Notes;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Pin Notes;tokenName="+tokenName]
 };{}]
 [h,if(isDialogVisible("Manage Party")==1),code:{
-[macro("Manage Party@Lib:Character"):""]
+[macro("character/Manage Party@this"):""]
 };{}]

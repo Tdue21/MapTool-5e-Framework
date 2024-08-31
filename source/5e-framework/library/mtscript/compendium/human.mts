@@ -91,7 +91,7 @@
 [h:atr=getProperty("Language Proficiency")]
 [h:value=getStrProp(atr,"value")]
 
-[h:languages=getLibProperty("Languages","Lib:Character Creation")]
+[h:languages=getLibProperty("Languages", function.getNamespace())]
 
 [h:language1="Common"]
 [h:languages=listdelete(languages,listfind(languages,language1))]

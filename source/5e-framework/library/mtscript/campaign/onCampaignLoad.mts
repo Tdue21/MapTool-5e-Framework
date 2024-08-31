@@ -1,41 +1,41 @@
-[h,macro("Loading@Lib:Overlay"):"Setting Starting Map"]
+[h,macro("overlay/Loading@this"):"Setting Starting Map"]
 
-[h:start=getLibProperty("Start","Lib:Campaign")]
+[h:start=getLibProperty("Start", function.getNamespace())]
 
 [h:setCurrentMap(start)]
 
-[h:link=macroLinkText("deferredCalls@Lib:Campaign")]
+[h:link=macroLinkText("campaign/deferredCalls@this")]
 [h:execLink(link,1,"self")]
 
-[h,macro("Loading@Lib:Overlay"):"Defining Functions"]
-[h:defineFunction("function.DiceRoll", "function.DiceRoll@Lib:Campaign")]
-[h:defineFunction("function.Capitalize", "function.Capitalize@Lib:Campaign")]
-[h:defineFunction("function.previousInitiative", "function.previousInitiative@Lib:Campaign")]
-[h:defineFunction("function.internalLink", "function.internalLink@Lib:Campaign")]
-[h:defineFunction("pause","function.pause@Lib:Campaign")]
-[h:defineFunction("function.AskOutput","function.AskOutput@Lib:Campaign")]
-[h:defineFunction("function.EvalMacro","function.EvalMacro@Lib:Campaign")]
-[h:defineFunction("function.GetConditions","function.GetConditions@Lib:Campaign")]
+[h,macro("overlay/Loading@this"):"Defining Functions"]
+[h:defineFunction("function.DiceRoll", "campaign/function.DiceRoll@this")]
+[h:defineFunction("function.Capitalize", "campaign/function.Capitalize@this")]
+[h:defineFunction("function.previousInitiative", "campaign/function.previousInitiative@this")]
+[h:defineFunction("function.internalLink", "campaign/function.internalLink@this")]
+[h:defineFunction("pause","campaign/function.pause@this")]
+[h:defineFunction("function.AskOutput","campaign/function.AskOutput@this")]
+[h:defineFunction("function.EvalMacro","campaign/function.EvalMacro@this")]
+[h:defineFunction("function.GetConditions","campaign/function.GetConditions@this")]
 
 
-[h:loadAudio=getLibProperty("LoadAudio","Lib:Campaign")]
-[h,macro("Loading@Lib:Overlay"):"Loading Audio Clips"]
+[h:loadAudio=getLibProperty("LoadAudio", function.getNamespace())]
+[h,macro("overlay/Loading@this"):"Loading Audio Clips"]
 [h,if(loadAudio==1),code:{
-[h:clipList=getLibProperty("Audio","Lib:Campaign")]
+[h:clipList=getLibProperty("Audio", function.getNamespace())]
 	[h,count(listcount(clipList)),code:{
 		[h:clip=listget(clipList,roll.count)]
 		[h:playClip(clip,1,0)]
 	}]
 
-[h:doorClip=getLibProperty("Door","Lib:Campaign")]
+[h:doorClip=getLibProperty("Door", function.getNamespace())]
 [h:playClip(doorClip,1,0)]
 
 };{}]
-[h,macro("Loading@Lib:Overlay"):"Loading Welcome message"]
+[h,macro("overlay/Loading@this"):"Loading Welcome message"]
 [h:resources="<a href='https://dnd.wizards.com/articles/features/basicrules'>dnd.wizards.com</a>"]
-[h:customMSG=getLibProperty("Welcome","Lib:Campaign")]
+[h:customMSG=getLibProperty("Welcome", function.getNamespace())]
 
-[h,macro("Markdown@Lib:Campaign"):"description="+customMSG]
+[h,macro("campaign/Markdown@this"):"description="+customMSG]
 
 [h:customMSG=replace(macro.return,"<a href=","<font color=#4183C4 style='text-decoration:none'><a href=")]
 [h:customMSG=replace(customMSG,"</a>","</a></font>")]
@@ -46,7 +46,7 @@
 
 [h:html='
 
-<font color=blue><i>Framework Version: '+getLibProperty("libversion","Lib:Campaign")+'</i></font>
+<font color=blue><i>Framework Version: '+getLibProperty("libversion", function.getNamespace())+'</i></font>
 
 <div style="background-color: #f6f8fa;border: 2px solid #ABB3A1;border-left: 1px solid #ABB3A1;border-right: 1px solid #ABB3A1; margin:5px ; padding:5px">
 
@@ -62,11 +62,11 @@
 
 
 [h:broadcast(html,"self")]
-[h,macro("Loading@Lib:Overlay"):"Loading Interface Overlay"]
-[h,macro("OverlayMiniMenu@Lib:Overlay"):""]
-[h,macro("OverlaySelected@Lib:Overlay"):""]
-[h,macro("Weather@Lib:Overlay"):getLibProperty("Weather","Lib:Campaign")]
+[h,macro("overlay/Loading@this"):"Loading Interface Overlay"]
+[h,macro("overlay/OverlayMiniMenu@this"):""]
+[h,macro("overlay/OverlaySelected@this"):""]
+[h,macro("overlay/Weather@this"):getLibProperty("Weather", function.getNamespace())]
 
-[h,macro("Tables List@Lib:Tables"):""]
+[h,macro("tables/Tables List@this"):""]
 
 [h:closeOverlay("loading")]

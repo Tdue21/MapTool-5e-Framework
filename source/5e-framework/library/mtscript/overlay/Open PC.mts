@@ -16,4 +16,4 @@
 
 }]
 
-[macro("Macro Frame@Lib:Character"):"macro="+sheet+";tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro="+sheet+";tokenName="+tokenName]

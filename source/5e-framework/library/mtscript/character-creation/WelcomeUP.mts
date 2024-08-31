@@ -17,7 +17,7 @@ Click <b>Next</b> to continue.
 <td valign=bottom style="padding:0px;margin=0px;margin-left:10px">
 
 
-[h: processorLink=macroLinkText("Character Creation Wizard@Lib:Character Creation","")]
+[h: processorLink=macroLinkText("character-creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 

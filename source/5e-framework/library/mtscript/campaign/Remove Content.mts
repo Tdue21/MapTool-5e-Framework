@@ -2,7 +2,7 @@
 [h:switchToken(id)]
 
 [h:sourcesList=""]
-[h:obj=getLibProperty("Bestiary","Lib:Compendium")]
+[h:obj=getLibProperty("Bestiary", function.getNamespace())]
 
 [h:fields=json.fields(obj)]
 [h,count(listcount(fields)),code:{
@@ -17,7 +17,7 @@
 }]
 
 
-[h:obj=getLibProperty("Equipment","Lib:Compendium")]
+[h:obj=getLibProperty("Equipment", function.getNamespace())]
 
 [h:fields=json.fields(obj)]
 [h,count(listcount(fields)),code:{
@@ -31,7 +31,7 @@
 	}]
 }]
 
-[h:obj=getLibProperty("Feats","Lib:Compendium")]
+[h:obj=getLibProperty("Feats", function.getNamespace())]
 
 [h:fields=json.fields(obj)]
 [h,count(listcount(fields)),code:{
@@ -45,7 +45,7 @@
 	}]
 }]
 
-[h:obj=getLibProperty("AdditionalFeats","Lib:Compendium")]
+[h:obj=getLibProperty("AdditionalFeats", function.getNamespace())]
 
 [h:fields=json.fields(obj)]
 [h,count(listcount(fields)),code:{
@@ -59,7 +59,7 @@
 	}]
 }]
 
-[h:obj=getLibProperty("Spells","Lib:Compendium")]
+[h:obj=getLibProperty("Spells", function.getNamespace())]
 
 [h:fields=json.fields(obj)]
 [h,count(listcount(fields)),code:{
@@ -82,7 +82,7 @@
 
 
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
-[h:processorLink=macroLinkText("Remove Content process@Lib:Campaign","")]
+[h:processorLink=macroLinkText("campaign/Remove Content process@this","")]
 <form action="[r:processorLink]" method="json">
 
 

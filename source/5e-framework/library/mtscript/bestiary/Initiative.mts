@@ -1,1 +1,1 @@
-[macro('Mass Initiative@Lib:Bestiary'):'']
+[macro('bestiary/Mass Initiative@this'):'']

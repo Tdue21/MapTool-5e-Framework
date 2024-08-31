@@ -1,7 +1,7 @@
-<h5>Adventuring Gear [r:macrolink("+","Args Dialog@Lib:Character","","prop=Equipment;index=new;name=new;description=new;tokenName=Lib:Compendium")]</h5>
+<h5>Adventuring Gear [r:macrolink("+", "character/Args Dialog@this")"","prop=Equipment;index=new;name=new;description=new;tokenName=Lib:Compendium")]</h5>
 
 
-[h:LibProperty=getLibProperty("Equipment","Lib:Compendium")]
+[h:LibProperty=getLibProperty("Equipment",function.getNamespace())]
 
 [h:fields=json.fields(LibProperty)]
 
@@ -97,7 +97,7 @@ Adventuring Gear
 	<!---------------------------CAPITALIZE----------------------------->
 	[h:CapitalName=function.Capitalize(currentObj)]
 
-	[r:macrolink(if(CapitalName=="","Untitled",CapitalName),"Args Dialog@Lib:Campaign","","prop=Equipment;index=;name="+currentObj+";customName=;identified=1;description=;tokenName=Lib:Compendium")]
+	[r:macrolink(if(CapitalName=="","Untitled",CapitalName),"campaign/Args Dialog@this","","prop=Equipment;index=;name="+currentObj+";customName=;identified=1;description=;tokenName=Lib:Compendium")]
 
 	[h:findCost=strfind(description,"([\\d,.]+\\s(?:p|g|e|s|c)p)")]
 	[h:findLb=strfind(description,"([\\d,.]+\\slbs?\\.)")]
@@ -113,8 +113,8 @@ Adventuring Gear
 	[r:if(find2=="","&mdash;",find2)]
 
 	<td>
-	[r:macrolink("Move","Move@Lib:Character","","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
-	[r,if(isGM()):macroLink("<font color=red>X","Delete Source@Lib:Character","","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
+	[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
+	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this")"","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
 }]
 
 <!----------------------Ammo-------------------------->
@@ -138,7 +138,7 @@ Ammo
 	<!---------------------------CAPITALIZE----------------------------->
 	[h:CapitalName=function.Capitalize(currentObj)]
 
-	[r:macrolink(if(CapitalName=="","Untitled",CapitalName),"Args Dialog@Lib:Campaign","","prop=Equipment;index=;name="+currentObj+";customName=;identified=1;description=;tokenName=Lib:Compendium")]
+	[r:macrolink(if(CapitalName=="","Untitled",CapitalName),"campaign/Args Dialog@this","","prop=Equipment;index=;name="+currentObj+";customName=;identified=1;description=;tokenName=Lib:Compendium")]
 
 	[h:findCost=strfind(description,"([\\d,.]+\\s(?:p|g|e|s|c)p)")]
 	[h:findLb=strfind(description,"([\\d,.]+\\slbs?\\.)")]
@@ -154,8 +154,8 @@ Ammo
 	[r:if(find2=="","&mdash;",find2)]
 
 	<td>
-	[r:macrolink("Move","Move@Lib:Character","","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
-	[r,if(isGM()):macroLink("<font color=red>X","Delete Source@Lib:Character","","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
+	[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
+	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this")"","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
 }]
 
 
@@ -180,7 +180,7 @@ Spellcasting Focus
 	<!---------------------------CAPITALIZE----------------------------->
 	[h:CapitalName=function.Capitalize(currentObj)]
 
-	[r:macrolink(if(CapitalName=="","Untitled",CapitalName),"Args Dialog@Lib:Campaign","","prop=Equipment;index=;name="+currentObj+";customName=;identified=1;description=;tokenName=Lib:Compendium")]
+	[r:macrolink(if(CapitalName=="","Untitled",CapitalName),"campaign/Args Dialog@this","","prop=Equipment;index=;name="+currentObj+";customName=;identified=1;description=;tokenName=Lib:Compendium")]
 
 	[h:findCost=strfind(description,"([\\d,.]+\\s(?:p|g|e|s|c)p)")]
 	[h:findLb=strfind(description,"([\\d,.]+\\slbs?\\.)")]
@@ -196,8 +196,8 @@ Spellcasting Focus
 	[r:if(find2=="","&mdash;",find2)]
 
 	<td>
-	[r:macrolink("Move","Move@Lib:Character","","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
-	[r,if(isGM()):macroLink("<font color=red>X","Delete Source@Lib:Character","","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
+	[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
+	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this")"","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
 }]
 
 </table>

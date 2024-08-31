@@ -5,7 +5,7 @@
 [h:output= function.getOutput())]
 [h:output=function.AskOutput(output)]
 
-[h:link=macroLinkText("d20 Roller process@Lib:Bestiary",output,macro.args)]
+[h:link=macroLinkText("bestiary/d20 Roller process@this",output,macro.args)]
 
 [h:execLink(link,0)]
 

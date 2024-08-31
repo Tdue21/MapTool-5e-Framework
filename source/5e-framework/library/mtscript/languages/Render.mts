@@ -3,7 +3,7 @@
 [h:width=json.get(macro.args,"width")]
 
 [h:script="Common"]
-[h:LanguageList=getLibProperty("Languages","Lib:Languages")]
+[h:LanguageList=getLibProperty("Languages",function.getNamespace())]
 [h:script=getStrProp(LanguageList,language)]
 
 [h:id=strfind(text,"([\\w\\d\\s])|(.)")]
@@ -81,7 +81,7 @@
 
 
 
-[h:link=macroLinkText("Broadcast@Lib:Languages","","text="+encode(text)+";language="+language+";translated="+encode(translated)+";broadcastText="+encode(broadcastText)+";tokenName="+tokenName)]
+[h:link=macroLinkText("languages/Broadcast@this","","text="+encode(text)+";language="+language+";translated="+encode(translated)+";broadcastText="+encode(broadcastText)+";tokenName="+tokenName)]
 [h:execLink(link,0,"all")]
 
-[macro("Chat Frame@Lib:Languages"):"width="+width+";language="+language]
+[macro("languages/Chat Frame@this"):"width="+width+";language="+language]

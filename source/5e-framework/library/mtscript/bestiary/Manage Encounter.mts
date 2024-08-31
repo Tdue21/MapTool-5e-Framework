@@ -15,7 +15,7 @@
 [h,if(pinName==""),code:{
 
 	
-	[h,if(getLibProperty("Map","Lib:Bestiary")==getCurrentMapName() && getLibProperty("Encounter","Lib:Bestiary")!="" && reload!=1):idList=getLibProperty("Encounter","Lib:Bestiary");idList=getSelected()]
+	[h,if(getLibProperty("Map", function.getNamespace())==getCurrentMapName() && getLibProperty("Encounter", function.getNamespace())!="" && reload!=1):idList=getLibProperty("Encounter", function.getNamespace());idList=getSelected()]
 
 };{
 
@@ -37,8 +37,8 @@
 	[h,if(json.type(Stats)=="UNKNOWN" || json.fields(Stats)==""):idList=listdelete(idList,roll.count);""]
 }]
 
-[h,if(repeat==0):"";setLibProperty("Encounter",idList,"Lib:Bestiary")]
-[h:setLibProperty("Map",getCurrentMapName(),"Lib:Bestiary")]
+[h,if(repeat==0):"";setLibProperty("Encounter", idList, function.getNamespace())]
+[h:setLibProperty("Map", getCurrentMapName(), function.getNamespace())]
 
 
 [h:output= function.getOutput())]
@@ -48,9 +48,9 @@
 
 <p class='topbar'>
 
-<span title="Open the party manager">[r:macrolink("Party","Manage Party@Lib:Character","","tokenName="+pinName)]</span>&nbsp;
-<span title="Open the encounter manager">[r:macrolink("Encounter","Manage Encounter@Lib:Bestiary","","tokenName="+pinName+";reload=1")]</span>&nbsp;
-<span title="Open the current loaded Pin ([r:pinName])">[r:macroLink("Pin","Pin Notes@Lib:Character","","tokenName="+pinName)]</span>&nbsp;
+<span title="Open the party manager">[r:macrolink("Party", "character/Manage Party@this")"","tokenName="+pinName)]</span>&nbsp;
+<span title="Open the encounter manager">[r:macrolink("Encounter", "bestiary/Manage Encounter@this")"","tokenName="+pinName+";reload=1")]</span>&nbsp;
+<span title="Open the current loaded Pin ([r:pinName])">[r:macrolink("Pin", "character/Pin Notes@this")"","tokenName="+pinName)]</span>&nbsp;
 </p>
 
 <table>
@@ -63,15 +63,15 @@ Encounter
 
 <font size=3>
 
-<span title="Load selected tokens into the encounter manager">[r:macroLink("Add","Manage Encounter@Lib:Bestiary","","reload=1")]</span> | 
-<span title="Select loaded tokens">[r:macroLink("Select","SelectList@Lib:Bestiary","",idList)]</span> | [r:macroLink("Bestiary","Creature Window@Lib:Tables","")] |
-	[r:macroLink("Show/Hide All","Show Hide All@Lib:Campaign","","idList="+idList+";pinName="+pinName)]
+<span title="Load selected tokens into the encounter manager">[r:macrolink("Add", "bestiary/Manage Encounter@this")"","reload=1")]</span> | 
+<span title="Select loaded tokens">[r:macrolink("Select","bestiary/SelectList@this","",idList)]</span> | [r:macroLink("Bestiary", "tables/Creature Window@this")"")] |
+	[r:macrolink("Show/Hide All", "campaign/Show Hide All@this")"","idList="+idList+";pinName="+pinName)]
 
 
 <td align=right>
 
 <!------------------------------------------------------------------->
-[h: processorLink = macroLinkText("Encounter process@Lib:Bestiary","")]
+[h: processorLink = macroLinkText("bestiary/Encounter process@this","")]
 <form action="[r:processorLink]" method="json">
 
 
@@ -129,13 +129,13 @@ Encounter
 		[h:switchToken(currentId)]
 		[h:name=getName(currentId)]
 		[h:CName=getProperty("CreatureName",currentId)]
-		[h,if(CName!=""):Bestiary=getLibProperty("Bestiary","Lib:Compendium")]
+		[h,if(CName!=""):Bestiary=getLibProperty("Bestiary", function.getNamespace())]
 		[h,if(CName!=""):Stats=json.get(Bestiary,CName);Stats=getProperty("Stats",currentId)]
 		[h:hp=getProperty("Hit Points",currentId)]
 
 		<td>
 
-		[r:macroLink(if(getVisible(currentId)==1,"X","O"),"Show Hide All@Lib:Campaign","","idList="+currentId+";pinName="+pinName,currentId)]
+		[r:macroLink(if(getVisible(currentId)==1,"X","O"),"campaign/Show Hide All@this","","idList="+currentId+";pinName="+pinName,currentId)]
 
 		<th valign=top align=left>
 
@@ -151,13 +151,13 @@ Encounter
 		[h:currentTotal=currentTotal+current]
 		[h:maxTotal=maxTotal+max]
 	
-		[r:macroLink(hp,"Damage@Lib:Bestiary",output,"value="+hp+";tokenName="+name+";pinName="+pinName)]
+		[r:macroLink(hp,"bestiary/Damage@this",output,"value="+hp+";tokenName="+name+";pinName="+pinName)]
 
 		<td align=center>
 
 		[h:actions=json.get(Stats,"actions")]
 		[h:actions=encode(json.get(actions,"Actions"))]
-		[macro("Isolate Dice Rolls@Lib:Bestiary"):"tokenName="+name+";value="+actions]
+		[macro("bestiary/Isolate Dice Rolls@this"):"tokenName="+name+";value="+actions]
 
 		<td align=right>
 		[r:CRXP=json.get(Stats,"challenge")]

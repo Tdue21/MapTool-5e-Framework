@@ -6,7 +6,7 @@
 
 [h:spellLevel="Spells"]
 
-[h:itemObject=getLibProperty(spellLevel,"Lib:Compendium")]
+[h:itemObject=getLibProperty(spellLevel,function.getNamespace())]
 
 [h:itemList=json.fields(itemObject)]
 
@@ -30,7 +30,7 @@
 	[r,if(Initial==SpellInitial):"";"</li><h3>"+upper(SpellInitial)+"</h3>"]
 	[h:Initial=SpellInitial]
 	
-	<li>[r:macroLink(CapitalName,"Args Dialog@Lib:Character","","prop="+spellLevel+";name="+name+";description=;tokenName=Compendium")]
+	<li>[r:macroLink(CapitalName,"character/Args Dialog@this","","prop="+spellLevel+";name="+name+";description=;tokenName=Compendium")]
 
 	
 

@@ -23,10 +23,10 @@
 
 
 	
-	[h,if(group1==""):"";value=value+"<span title='<html><table width=500><tr><td>"+entry+"</table></html>'>"+macroLink(if(group2>0,"PLUSPLACEHOLDER","")+group2,"d20 Roller@Lib:Bestiary","","text="+tokenName+";value=("+group2+");tokenName="+tokenName+";color=red")+"</span>"]
+	[h,if(group1==""):"";value=value+"<span title='<html><table width=500><tr><td>"+entry+"</table></html>'>"+macroLink(if(group2>0,"PLUSPLACEHOLDER","")+group2,"bestiary/d20 Roller@this","","text="+tokenName+";value=("+group2+");tokenName="+tokenName+";color=red")+"</span>"]
 
 	[h,if(group3==""):"";value=value+"<td align=center><span title='"+group1+": "+group3+" "+group4+"'>"+
-	macroLink(group3,"Dice Roller@Lib:Bestiary","","text="+tokenName+" "+group3+";value="+group3+";tokenName="+tokenName)+"</span> "]
+	macroLink(group3,"bestiary/Dice Roller@this","","text="+tokenName+" "+group3+";value="+group3+";tokenName="+tokenName)+"</span> "]
 	
 
 		[h,if(roll.count==getFindCount(id)-1):"";value=value+"<br>"]

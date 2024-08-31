@@ -46,7 +46,7 @@
 		[h:bonusDmg=json.get(currentObj,"bonusDmg")]
 		[h:identified=json.get(currentObj,"identified")]
 
-		[macro("Get Equipment Info@Lib:Character"):"group=Equipment;name="+currentName]
+		[macro("character/Get Equipment Info@this"):"group=Equipment;name="+currentName]
 		[h:equipInfo=macro.return]
 		
 		[h:currentObj=json.fromStrProp(equipInfo+";Quantity="+Quantity+";ammo="+ammo+";Equiped="+Equiped+";offHand="+offHand+";customName="+customName+";bonusAtk="+bonusAtk+";bonusDmg="+bonusDmg+";identified="+identified)]
@@ -65,15 +65,15 @@
 
 [h:repeat=listcount(list)]
 
-[h:strValue=getStrProp(getLibProperty("Strength","Lib:"+tokenName),"value")]
+[h:strValue=getStrProp(getLibProperty("Strength", function.getNamespace())]
 [h,if(strValue==""):"";strValue=eval(string(strValue))]
-[h:dexValue=getStrProp(getLibProperty("Dexterity","Lib:"+tokenName),"value")]
+[h:dexValue=getStrProp(getLibProperty("Dexterity", function.getNamespace())]
 [h,if(dexValue==""):"";dexValue=eval(string(dexValue))]
 
 [h,if(isNumber(strValue)==1):strMod=floor(strValue/2-5);strMod=-5]
 [h,if(isNumber(dexValue)==1):dexMod=floor(dexValue/2-5);dexMod=-5]
 
-[h:EquipLib=getLibProperty("Equipment", "Lib:Compendium")]
+[h:EquipLib=getLibProperty("Equipment", function.getNamespace())]
 
 [h,if(json.type(EquipLib)=="UNKNOWN"):EquipLib="{}";""]
 
@@ -95,7 +95,7 @@
 	[h:identified=json.get(object,"identified")]
 	[h:bonusAtk=json.get(object,"bonusAtk")]
 	[h:bonusAtk=if(bonusAtk=="",0,bonusAtk)]
-	[h:bonusAtk=evalMacro("[macro('Find Mod@Lib:Character'):'tokenName='+tokenName+';currentMod='+bonusAtk]")]
+	[h:bonusAtk=evalMacro("[macro('character/Find Mod@this'):'tokenName='+tokenName+';currentMod='+bonusAtk]")]
 	[h:bonusDmg=json.get(object,"bonusDmg")]
 	[h:bonusDmg=if(bonusDmg=="",0,bonusDmg)]
 	[h:equipObj=json.get(EquipLib,name)]
@@ -123,7 +123,7 @@
 
 	[h:nameDisplay=if(customName=="" || customName==0,CapitalName,customName)]
 	
-	[h:nameLink=macrolink(nameDisplay,"Args Dialog@Lib:Character","","prop=Equipment;index="+roll.count+";name="+name+";customName="+customName+";identified="+identified+";description=;tokenName="+tokenName)]
+	[h:nameLink=macrolink(nameDisplay,"character/Args Dialog@this","","prop=Equipment;index="+roll.count+";name="+name+";customName="+customName+";identified="+identified+";description=;tokenName="+tokenName)]
 
 
 	[h:weaponStats=setStrProp(weaponStats,"nameLink",nameLink)]
@@ -156,7 +156,7 @@
 		[h:matchDescription=objDescription]
 		[h:matchDescription=add(name,matchDescription)]
 		[h:matchDescription=lower(replace(matchDescription,"\\s",""))]
-		[h:matchString=lower(getStrProp(getLibProperty("Weapon Proficiency","Lib:"+tokenName),"value"))]
+		[h:matchString=lower(getStrProp(getLibProperty("Weapon Proficiency", function.getNamespace()))]
 		[h:matchString=replace(matchString,"\\.","")]
 		[h:matchString=replace(matchString,"(?<![Hh])and",",")]
 		[h:matchString=replace(matchString,",\\s*,",",")]
@@ -173,8 +173,8 @@
 		[h:atkMod=if(isProf>0,atkMod+profBonus+bonusAtk,atkMod+bonusAtk)]
 
 		[h,if(ammo=="" || ammo==0):
-		atklink=macroLink(if(atkMod<0,atkMod,"+"+atkMod),"d20 Roller@Lib:Character","","text="+name+";value=+"+if(atkMod<0,atkMod,"+"+atkMod)+";tokenName="+tokenName+";color=red;name="+name+";customName="+customName+";group=Equipment");
-		atkLink=macroLink(if(atkMod<0,atkMod,"+"+atkMod),"Ammo Attack@Lib:Character","","text="+name+";value=+"+if(atkMod<0,atkMod,"+"+atkMod)+";tokenName="+tokenName+";color=red;ammo="+ammo+";name="+name+";customName="+customName+";group=Equipment")]
+		atklink=macroLink(if(atkMod<0,atkMod,"+"+atkMod),"character/d20 Roller@this","","text="+name+";value=+"+if(atkMod<0,atkMod,"+"+atkMod)+";tokenName="+tokenName+";color=red;name="+name+";customName="+customName+";group=Equipment");
+		atkLink=macroLink(if(atkMod<0,atkMod,"+"+atkMod),"character/Ammo Attack@this","","text="+name+";value=+"+if(atkMod<0,atkMod,"+"+atkMod)+";tokenName="+tokenName+";color=red;ammo="+ammo+";name="+name+";customName="+customName+";group=Equipment")]
 
 
 		[h:weaponStats=setStrProp(weaponStats,"atklink",atklink)]
@@ -202,8 +202,8 @@
 		[h:totalMod=currentMod)]
 		[h:offHandMod=replace(currentMod,"[a-zA-Z|\\s]","")]
 
-		[h:evalMod=evalMacro("[macro('Find Mod@Lib:Character'):'tokenName='+tokenName+';currentMod='+totalMod]")]
-		[h:evalOff=evalMacro("[macro('Find Mod@Lib:Character'):'tokenName='+tokenName+';currentMod='+offHandMod]")]
+		[h:evalMod=evalMacro("[macro('character/Find Mod@this'):'tokenName='+tokenName+';currentMod='+totalMod]")]
+		[h:evalOff=evalMacro("[macro('character/Find Mod@this'):'tokenName='+tokenName+';currentMod='+offHandMod]")]
 
 		[h:group2mod=encode(group2)]
 		[h:currentMod=encode(currentMod)]
@@ -221,9 +221,9 @@
 		[h:group2Off=replace(group2Off,"\\+0","")]
 		[h:group2Off=replace(group2Off,"\\+-","-")]
 
-		[h:dmglink=macroLink(group2mod,"Dice Roller@Lib:Character","","text="+group1+";value="+group2+";tokenName="+tokenName+";name="+name+";customName="+customName+";group=Equipment")]
+		[h:dmglink=macroLink(group2mod,"character/Dice Roller@this","","text="+group1+";value="+group2+";tokenName="+tokenName+";name="+name+";customName="+customName+";group=Equipment")]
 		
-		[h:dmglink2=macroLink(group2Off,"Dice Roller@Lib:Character","","text="+group1+";value="+group2Off+";tokenName="+tokenName+";name="+name+";customName="+customName+";group=Equipment")]
+		[h:dmglink2=macroLink(group2Off,"character/Dice Roller@this","","text="+group1+";value="+group2Off+";tokenName="+tokenName+";name="+name+";customName="+customName+";group=Equipment")]
 
 		[h,if(newEntry==0):weaponStats=setStrProp(weaponStats,"dmglink",dmglink);""]
 
@@ -250,11 +250,11 @@
 [h:weaponStats=setStrProp(weaponStats,"isProf",1)]
 [h:weaponStats=setStrProp(weaponStats,"range","Melee")]
 
-[h:atkLink=macroLink(if(profBonus+strMod<0,eval(string(profBonus+strMod)),"+"+eval(string(profBonus+strMod))),"d20 Roller@Lib:Character","","text=Unarmed Strike;value=+"+if(profBonus+strMod<0,eval(string(profBonus+strMod)),"+"+eval(string(profBonus+strMod)))+";tokenName="+tokenName+";color=red")]
+[h:atkLink=macroLink(if(profBonus+strMod<0,eval(string(profBonus+strMod)),"+"+eval(string(profBonus+strMod))),"character/d20 Roller@this","","text=Unarmed Strike;value=+"+if(profBonus+strMod<0,eval(string(profBonus+strMod)),"+"+eval(string(profBonus+strMod)))+";tokenName="+tokenName+";color=red")]
 
 [h:weaponStats=setStrProp(weaponStats,"atklink",atkLink)]
 
-[h:dmgLink=macroLink(1+strMod,"Dice Roller@Lib:Character","","text=1 + your Strength modifier;value=1+str;tokenName="+tokenName)]
+[h:dmgLink=macroLink(1+strMod,"character/Dice Roller@this","","text=1 + your Strength modifier;value=1+str;tokenName="+tokenName)]
 
 [h:weaponStats=setStrProp(weaponStats,"dmglink",dmgLink)]
 
@@ -270,5 +270,5 @@
 [h:setLibProperty("Weapons",WeaponObj,"Lib:"+tokenName)]
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]
 };{}]

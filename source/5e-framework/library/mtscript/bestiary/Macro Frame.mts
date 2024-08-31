@@ -2,7 +2,7 @@
 
 
 
-[h:display=getLibProperty("Display","Lib:Campaign")]
+[h:display=getLibProperty("Display", function.getNamespace())]
 [h:StatblockFrame=getStrProp(display,"StatblockFrame")]
 
 [h,switch(StatblockFrame):
@@ -16,6 +16,6 @@ default:frameName=tokenName+" - Statblock"]
 
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 
-[macro("Statblock@Lib:Bestiary"):tokenName]
+[macro("bestiary/Statblock@this"):tokenName]
 
 }]

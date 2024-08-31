@@ -21,7 +21,7 @@
 	[h:tokenName=getName(id)]
 	[h:switchToken(id)]
 
-	[h:display=getLibProperty("Display","Lib:Campaign")]
+	[h:display=getLibProperty("Display", function.getNamespace())]
 	[h:NPCVisibility=getStrProp(display,"NPCVisibility")]
 	[h:HiddenOpacity=getStrProp(display,"HiddenOpacity")]
 	
@@ -48,15 +48,15 @@
 
 [h:macroList=getMacros()]
 
-[h,if(listfind(macroList,"Statblock")<0):createMacro("Statblock","[macro('Macro Frame@Lib:Bestiary'):token.name]", "minWidth=120;fontColor=black;color=maroon;fontColor=white;sortBy=0")]
-[h,if(listfind(macroList,"Initiative")<0):createMacro("Initiative","[macro('Mass Initiative@Lib:Bestiary'):'']", "minWidth=53;sortBy=1")]
-[h,if(listfind(macroList,"Hide")<0):createMacro("Hide","[macro('Show Hide All@Lib:Campaign'):'idList='+getSelected()]", "minWidth=53;sortBy=2;playerEditable=0")]
-[h,if(listfind(macroList,"- Elev")<0):createMacro("- Elev","[macro('Elevation@Lib:Character'):'elevation=-1;tokenName='+token.name]", "minWidth=53;sortBy=4;group=Other Macros")]
-[h,if(listfind(macroList,"Elev +")<0):createMacro("Elev +","[macro('Elevation@Lib:Character'):'elevation=1;tokenName='+token.name]", "minWidth=53;sortBy=5;group=Other Macros")]
-[h,if(listfind(macroList,"Range")<0):createMacro("Range","[macro('Range@Lib:Campaign'):'']", "minWidth=120;sortBy=1;color=orange;group=Other Macros")]
-[h,if(listfind(macroList,"Light")<0):createMacro("Light","[macro('Light@Lib:Campaign'):'']", "minWidth=120;sortBy=2;color=yellow;group=Other Macros")]
+[h,if(listfind(macroList,"Statblock")<0):createMacro("Statblock","[macro('bestiary/Macro Frame@this'):token.name]", "minWidth=120;fontColor=black;color=maroon;fontColor=white;sortBy=0")]
+[h,if(listfind(macroList,"Initiative")<0):createMacro("Initiative","[macro('bestiary/Mass Initiative@this'):'']", "minWidth=53;sortBy=1")]
+[h,if(listfind(macroList,"Hide")<0):createMacro("Hide","[macro('campaign/Show Hide All@this'):'idList='+getSelected()]", "minWidth=53;sortBy=2;playerEditable=0")]
+[h,if(listfind(macroList,"- Elev")<0):createMacro("- Elev","[macro('character/Elevation@this'):'elevation=-1;tokenName='+token.name]", "minWidth=53;sortBy=4;group=Other Macros")]
+[h,if(listfind(macroList,"Elev +")<0):createMacro("Elev +","[macro('character/Elevation@this'):'elevation=1;tokenName='+token.name]", "minWidth=53;sortBy=5;group=Other Macros")]
+[h,if(listfind(macroList,"Range")<0):createMacro("Range","[macro('campaign/Range@this'):'']", "minWidth=120;sortBy=1;color=orange;group=Other Macros")]
+[h,if(listfind(macroList,"Light")<0):createMacro("Light","[macro('campaign/Light@this'):'']", "minWidth=120;sortBy=2;color=yellow;group=Other Macros")]
 
-[h:BestiaryObj=getLibProperty("Bestiary","Lib:Compendium")]
+[h:BestiaryObj=getLibProperty("Bestiary", function.getNamespace())]
 [h:list=json.fields(BestiaryObj)]
 
 [h:list=listSort(list,"A")]
@@ -67,7 +67,7 @@
 
 [r,if(statblock=="Add New"),code:{
 
-	[h,macro("Edit Creature@Lib:Bestiary"):"creature=;prop="]
+	[h,macro("bestiary/Edit Creature@this"):"creature=;prop="]
 	[h:statblock=getStrProp(macro.return,"creature")]
 	[h:statblockValue=getStrProp(macro.return,"prop")]
 	
@@ -98,12 +98,12 @@
 	[h:hpRoll=replace(hp,".*\\(|\\).*|\\s","")]
 	[h:hp=replace(hp,"\\s.*","")]
 
-	[h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
+	[h:gameplay=getLibProperty("Gameplay", function.getNamespace())]
 	[h:rollNPC=getStrProp(gameplay,"rollNPC")]
 	
 	[r,if(rollNPC==1),code:{
 	
-		[macro("Dice Roller@Lib:Campaign"):"text="+name+" HP;value="+hpRoll+";tokenName="+name]
+		[macro("campaign/Dice Roller@this"):"text="+name+" HP;value="+hpRoll+";tokenName="+name]
 		[h:hp=macro.return]
 	
 	};{}]

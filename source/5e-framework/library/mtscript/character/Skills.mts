@@ -1,9 +1,9 @@
 <table style="border-style: solid; border-width:2px 1px 2px 1px; margin-top:5">
 
 
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
-[h:skillList=getLibProperty("Skills", "Lib:Character")]
-[h:passiveSkillList=getLibProperty("Passive Checks", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
+[h:passiveSkillList=getLibProperty("Passive Checks", function.getNamespace())]
 
 [h:output= function.getOutput())]
 [h:tokenName=getStrProp(macro.args,"tokenName")]
@@ -88,13 +88,13 @@
 	<td width=0% align=center style="margin:0px; padding:0px; font-size:8px">
 
 
-	[r:macroLink(profDisplay,"Change Skill@Lib:Character","","skill="+roll.count+";default="+encode(skillList)+";attributeList="+attributeList+";id="+id+";tokenName="+tokenName)]
+	[r:macroLink(profDisplay,"character/Change Skill@this","","skill="+roll.count+";default="+encode(skillList)+";attributeList="+attributeList+";id="+id+";tokenName="+tokenName)]
 	
 
 	<td width=18 align=center style="margin:0px; padding:0px; font-size:8px; border-bottom: 1px solid gray;">
 	
 	<span title='Roll [r:skillName]'>
-	[r:macroLink(if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay),"d20 Roller@Lib:Character","","text="+atr+" ("+skillName+");value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";id="+id+";tokenName="+tokenName+";color=0099cc")]
+	[r:macroLink(if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay),"character/d20 Roller@this","","text="+atr+" ("+skillName+");value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";id="+id+";tokenName="+tokenName+";color=0099cc")]
 
 
 	<td style="margin:0px; padding:0px; font-size:8px">
@@ -104,7 +104,7 @@
 
 	[h:atr=if(skillAttribute==getStrProp(skillList,skillName),atr,"<font color=red>"+atr+"</font>")]
 	
-	([r:macroLink("<span title='Edit "+skillName+"'>"+atr+"</span>","Change Skill@Lib:Character","","skill="+roll.count+";default="+encode(skillList)+";attributeList="+attributeList+";id="+id+";tokenName="+tokenName)])
+	([r:macrolink("<span title='Edit "+skillName+"'>"+atr+"</span>", "character/Change Skill@this")"","skill="+roll.count+";default="+encode(skillList)+";attributeList="+attributeList+";id="+id+";tokenName="+tokenName)])
 	
 
 	[r:if(other==0,"",if(other>0,"+","-"))]
@@ -119,6 +119,6 @@
 
 <td colspan=3 align=center style="margin:0px; padding:0px; margin-top:5; font-size:6px">
 
-<b>[r:macroLink("SKILLS","Global Mod@Lib:Character","","tokenName="+tokenName+";value=Skill")]
+<b>[r:macrolink("SKILLS", "character/Global Mod@this")"","tokenName="+tokenName+";value=Skill")]
 
 </table>

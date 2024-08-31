@@ -21,11 +21,11 @@
 
 
 [h,if(isFrameVisible(tokenName+" - Pin Notes")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Pin Notes;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Pin Notes;tokenName="+tokenName]
 };{}]
 [h,if(isDialogVisible("Manage Party")==1),code:{
-[macro("Manage Party@Lib:Character"):""]
+[macro("character/Manage Party@this"):""]
 };{}]
 [h,if(isDialogVisible("Manage")==1),code:{
-[macro("Pin Notes@Lib:Character"):"tokenName="+tokenName]
+[macro("character/Pin Notes@this"):"tokenName="+tokenName]
 };{}]

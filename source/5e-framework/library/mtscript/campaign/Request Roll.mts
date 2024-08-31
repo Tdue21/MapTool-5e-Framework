@@ -1,4 +1,4 @@
-[h:attributeList=getLibProperty("Attributes","Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 [h:save=""]
 [h,count(listcount(attributeList)),code:{
 	[h:currentAtr=listget(attributeList,roll.count)]
@@ -11,7 +11,7 @@
 	[h:ability=listAppend(ability,"Ability: "+currentAtr)]
 }]
 
-[h:skillList=getLibProperty("Skills","Lib:Character")]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
 [h:skill=""]
 [h,count(countStrProp(skillList)),code:{
 	[h:currentSkill=indexKeyStrProp(skillList,roll.count)]
@@ -100,7 +100,7 @@
 	[h:owners=getOwners(",",currentId)]
 	[h,if(owners==""):owners="GM"]
 	
-	[h:link=macroLinkText("Request Roll Process@Lib:Campaign","","tokenName="+tokenName+";roll="+roll+";diceRoll="+diceRoll+";color="+color+";text="+text+";player="+getPlayerName()+";message="+message)]
+	[h:link=macroLinkText("campaign/Request Roll Process@this","","tokenName="+tokenName+";roll="+roll+";diceRoll="+diceRoll+";color="+color+";text="+text+";player="+getPlayerName()+";message="+message)]
 	[h:execLink(link,0,owners)]
 
 }]

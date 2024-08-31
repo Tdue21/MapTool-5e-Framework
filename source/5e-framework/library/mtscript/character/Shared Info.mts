@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('D&D')]">
 
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:closeShared=getStrProp(permissions,"closeShared")]
 [h,if(isGM()==1):closeShared=1]
 
@@ -16,7 +16,7 @@
 
 <p class='topbar'>
 
-[r:macroLink("Close Shared","Close Shared@Lib:Campaign")]
+[r:macroLink("Close Shared","campaign/Close Shared@this")]
 
 </p>
 };{}]
@@ -27,7 +27,7 @@
 
 </h1>
 
-[macro("Markdown@Lib:Character"):"tokenName="+tokenName+";description="+encode(description)]
+[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(description)]
 
 [r,if(allies==""),code:{};{
 	
@@ -38,7 +38,7 @@
 	
 	</h4>
 	
-	[macro("Markdown@Lib:Character"):"tokenName="+tokenName+";description="+encode(allies)]
+	[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(allies)]
 
 }]
 
@@ -50,7 +50,7 @@
 	
 	</h4>
 	
-	[macro("Markdown@Lib:Character"):"tokenName="+tokenName+";description="+encode(treasure)]
+	[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(treasure)]
 
 }]
 

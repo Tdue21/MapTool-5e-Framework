@@ -10,7 +10,7 @@
 
 
 
-[macro("Get Spell Level@Lib:Character"):"group=Spells;name="+name]
+[macro("character/Get Spell Level@this"):"group=Spells;name="+name]
 
 
 [h,if(json.type(obj)=="UNKNOWN"):level=macro.return;level=json.get(obj,"level")]
@@ -51,17 +51,17 @@
 [h,if(level==0):"";availableSlotsLevel=listappend(availableSlotsLevel,"Use resources")]
 [h:availableSlotsLevel=listappend(availableSlotsLevel,"Don't use slots")]
 
-[h,macro("Get Spell Info@Lib:Character"):"name="+name+";tokenName="+tokenName+";source="+source]
+[h,macro("character/Get Spell Info@this"):"name="+name+";tokenName="+tokenName+";source="+source]
 [h:mod=getStrProp(macro.return,"mod")]
 [h:profBonus=getStrProp(macro.return,"profBonus")]
 [h:attack=getStrProp(macro.return,"attack")]
 [h:save=getStrProp(macro.return,"save")]
 [h:template=getStrProp(macro.return,"template")]
 
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 
 <!------Needs Concentration?------->
-[h:allSpells=getLibProperty("Spells","Lib:Compendium")]
+[h:allSpells=getLibProperty("Spells", function.getNamespace())]
 [h:SpellObj=json.get(allSpells,name)]
 [h:description=json.get(SpellObj,"description")]
 [h:needsConcentration=matches(description,"[\\w\\W]*[Cc]oncentration[\\w\\W]*")]
@@ -116,19 +116,19 @@
 [h,if(rollAtk==1),code:{
 
 	[h,if(UseSlot=="Use resources"):"";ATKValue=profBonus+mod]
-	[macro("d20 Roller@Lib:Character"):"text=Spell Attack;value=++"+ATKValue+";tokenName="+tokenName+";color=8a61ae;group=Spells;name="+name]
+	[macro("character/d20 Roller@this"):"text=Spell Attack;value=++"+ATKValue+";tokenName="+tokenName+";color=8a61ae;group=Spells;name="+name]
 
 }]
 
 [h,if(ShowDC==1),code:{
 	[h,if(UseSlot=="Use resources"):"";DCValue=8+profBonus+mod]
-	[macro("Dice Roller@Lib:Character"):"text="+save+" Saving Throw DC:;value="+DCValue+";tokenName="+tokenName+";group=Spells;name="+name]
+	[macro("character/Dice Roller@this"):"text="+save+" Saving Throw DC:;value="+DCValue+";tokenName="+tokenName+";group=Spells;name="+name]
 
 }]
 
 
 [h,if(template==1),code:{
-	[macro("Drop Template@Lib:Character"):tokenName]
+	[macro("character/Drop Template@this"):tokenName]
 }]
 
 [h,if(isNumber(UseSlot)==0),code:{};{
@@ -156,14 +156,14 @@
 
 [h,if(isNumber(UseSlot)==1):resourceText=level;resourceText=resource]
 
-[h:broadcast("<font style='text-decoration:none'>"+tokenName+" casts <b>"+macroLink(function.Capitalize(name),"Args Dialog@Lib:Character","","prop=Spells;name="+name+";tokenName="+tokenName)+"</b>"+resourceText,Output)]
+[h:broadcast("<font style='text-decoration:none'>"+tokenName+" casts <b>"+macroLink(function.Capitalize(name),"character/Args Dialog@this","","prop=Spells;name="+name+";tokenName="+tokenName)+"</b>"+resourceText,Output)]
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Spellcasting Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Spellcasting Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Spellcasting Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Statblock")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Statblock;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Statblock;tokenName="+tokenName]
 };{}]

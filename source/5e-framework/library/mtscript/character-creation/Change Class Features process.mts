@@ -26,7 +26,7 @@
 [h:cancel=if(cancel=="cancel",0,1)]
 [h:abort(cancel)]
 
-[h:classes=getLibProperty("Classes","Lib:Character Creation")]
+[h:classes=getLibProperty("Classes", function.getNamespace())]
 [h:classObj=json.get(classes,class)]
 [h:subclassesObj=json.get(classObj,"subclass")]
 [h,if(subclass!=""):subclassObj=json.get(subclassesObj,subclass)]
@@ -79,6 +79,6 @@
 [h:classObj=json.get(classes,class)]
 [h:classObj=json.set(classObj,"hitDice",hitDice)]
 [h:classes=json.set(classes,class,classObj)]
-[h:setLibProperty("Classes",classes,"Lib:Character Creation")]
+[h:setLibProperty("Classes", classes, function.getNamespace())]
 
-[macro("Change Classes@Lib:Character Creation"):class]
+[macro("character-creation/Change Classes@this"):class]

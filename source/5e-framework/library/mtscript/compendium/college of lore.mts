@@ -5,7 +5,7 @@
 [h:id=findToken(tokenName)]
 [h:switchToken(id)]
 
-[h:classes=getLibProperty("Classes","Lib:Character Creation")]
+[h:classes=getLibProperty("Classes", function.getNamespace())]
 
 [h:AllClassObj=json.get(classes,class)]
 
@@ -27,7 +27,7 @@
 [r,if(level==3),code:{
 
 	<!-----------------Set Skills if empty------------------->
-	[h:skillList=getLibProperty("Skills", "Lib:Character")]
+	[h:skillList=getLibProperty("Skills", function.getNamespace())]
 	[h:SkillObject=getProperty("Skills")]
 	[h:array=json.fromList(skillList,";")]
 	[h:object=""]
@@ -47,7 +47,7 @@
 	};{}]
 	<!-----------------Skill------------------->
 	
-	[h:attributeList=getLibProperty("Skills", "Lib:Character")]
+	[h:attributeList=getLibProperty("Skills", function.getNamespace())]
 	[h:repeat=countStrProp(attributeList)]
 	[h:skillList=""]
 	[h,count(repeat,""),code:{

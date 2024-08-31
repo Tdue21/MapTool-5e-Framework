@@ -96,11 +96,11 @@
 
 
 [h,if(isFrameVisible(originalToken+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+originalToken]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+originalToken]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(originalToken+" - Pin Notes")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Pin Notes;tokenName="+originalToken]
+[macro("character/Macro Frame@this"):"macro=Pin Notes;tokenName="+originalToken]
 };{}]

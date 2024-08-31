@@ -6,8 +6,8 @@
 
 [h:args=color+","+pattern+","+effects]
 
-[h:setLibProperty("Weather",args,"Lib:Campaign")]
+[h:setLibProperty("Weather", args, function.getNamespace())]
 
-[h:link=macroLinkText("Weather@Lib:Overlay","",args)]
+[h:link=macroLinkText("overlay/Weather@this","",args)]
 
 [h:execLink(link,0,"all")]

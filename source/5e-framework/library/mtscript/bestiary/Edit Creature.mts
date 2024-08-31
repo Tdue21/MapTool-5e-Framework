@@ -8,7 +8,7 @@
 [h:name=creature]
 [h:creature=lower(creature)]
 
-[h:BestiaryObj=getLibProperty("Bestiary","Lib:Compendium")]
+[h:BestiaryObj=getLibProperty("Bestiary", function.getNamespace())]
 
 [h:creatureObj=json.get(BestiaryObj,creature)]
 
@@ -28,12 +28,12 @@
 
 [h:BestiaryObj=json.set(BestiaryObj,creature,prop)]
 
-[h:setLibProperty("Bestiary",BestiaryObj,"Lib:Compendium")]
+[h:setLibProperty("Bestiary", BestiaryObj, function.getNamespace())]
 
 
 [h:macro.return="creature="+creature+";prop="+prop]
 
 
 [h,if(isDialogVisible("Manage Bestiary")==1),code:{
-[macro("Manage@Lib:Bestiary"):""]
+[macro("bestiary/Manage@this"):""]
 };{}]

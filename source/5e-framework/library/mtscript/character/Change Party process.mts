@@ -10,7 +10,7 @@
 [h:TokenList=json.get(macro.args,"TokenList")]
 [h:distribute=json.get(macro.args,"distribute")]
 
-[h:output=getLibProperty("PC Output", "Lib:Character")]
+[h:output=getLibProperty("PC Output", function.getNamespace())]
 
 <!-----------------------Experience------------------------->
 
@@ -179,8 +179,8 @@
 
 [h:args=if(pin=="Select Pin","","tokenName="+pin)]
 
-[macro("Manage Party@Lib:Character"):args]
+[macro("character/Manage Party@this"):args]
 
 [h,if(isFrameVisible(pin+" - Pin Notes")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Pin Notes;tokenName="+pin]
+[macro("character/Macro Frame@this"):"macro=Pin Notes;tokenName="+pin]
 };{}]

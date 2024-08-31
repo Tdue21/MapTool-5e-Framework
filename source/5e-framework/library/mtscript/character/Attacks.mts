@@ -38,9 +38,9 @@
 	[h:weaponStats=setStrProp(weaponStats,"offHand",0)]
 	[h:weaponStats=setStrProp(weaponStats,"isProf",1)]
 	[h:weaponStats=setStrProp(weaponStats,"range","Melee")]
-	[h:atkLink=macroLink("-5","d20 Roller@Lib:Character",output,"text=Unarmed Strike;value=+-5;tokenName="+tokenName+";color=red")]
+	[h:atkLink=macrolink("-5", "character/d20 Roller@this")output,"text=Unarmed Strike;value=+-5;tokenName="+tokenName+";color=red")]
 	[h:weaponStats=setStrProp(weaponStats,"atklink",atkLink)]
-	[h:dmgLink=macroLink(-4,"Dice Roller@Lib:Character","","text=1 + your Strength modifier;value=1+str;tokenName="+tokenName)]
+	[h:dmgLink=macroLink(-4,"character/Dice Roller@this","","text=1 + your Strength modifier;value=1+str;tokenName="+tokenName)]
 	[h:weaponStats=setStrProp(weaponStats,"dmglink",dmgLink)]
 	[h:weaponStats=json.set("","Unarmed Strike",json.fromStrProp(weaponStats))]
 
@@ -95,7 +95,7 @@
 
 [h:color="8a61ae"]
 
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 
 [h:AtrProps=""]
 [h,count(listcount(attributeList),""),code:{
@@ -194,7 +194,7 @@
 	[h:spellDC=8+profBonus+atrVar]
 
 
-	[h:linkDC="<span title='"+spellmod+"'>"+macroLink(spellDC,"Dice Roller@Lib:Character","","text=Spell Save DC;value="+spellDC+";tokenName="+tokenName)+"</span>"]
+	[h:linkDC="<span title='"+spellmod+"'>"+macroLink(spellDC,"character/Dice Roller@this","","text=Spell Save DC;value="+spellDC+";tokenName="+tokenName)+"</span>"]
 
 	[h:listDC=listappend(listDC,linkDC," /")]
 }]
@@ -211,7 +211,7 @@
 
 <td style="padding:0px; margin:0px" valign=top align=center><font size=2>
 
-[r:macroLink("<span title='Load Weapons'>Weapons</span>","Get Weapons@Lib:Character","","profBonus="+profBonus+";tokenName="+tokenName)]
+[r:macrolink("<span title='Load Weapons'>Weapons</span>", "character/Get Weapons@this")"","profBonus="+profBonus+";tokenName="+tokenName)]
 
 <td  valign=bottom align=right style="padding:0px; margin:0px"><font size=2>
 
@@ -225,7 +225,7 @@
 	[h:atrVar=eval(atrVar)]
 	[h:spellAtk=profBonus+atrVar]
 	
-	[h:atkList="<span title='"+spellmod+"'>"+listappend(atkList,macroLink(if(spellAtk<0,spellAtk,"+"+spellAtk),"d20 Roller@Lib:Character","","text="+substring(listget(spellAtributeList,roll.count," /"),0,3)+" Spell Attack;value=+"+if(spellAtk<0,spellAtk,"+"+spellAtk)+";tokenName="+tokenName+";color=8a61ae")," /")+"</span>"]
+	[h:atkList="<span title='"+spellmod+"'>"+listappend(atkList,macroLink(if(spellAtk<0,spellAtk,"+"+spellAtk),"character/d20 Roller@this","","text="+substring(listget(spellAtributeList,roll.count," /"),0,3)+" Spell Attack;value=+"+if(spellAtk<0,spellAtk,"+"+spellAtk)+";tokenName="+tokenName+";color=8a61ae")," /")+"</span>"]
 }]
 
 
@@ -262,7 +262,7 @@
 
 	<span title="[r:value]/[r:total]">
 	
-	[r:macroLink("lv:<b>"+currentSlot+"</b>","Change Slots@Lib:Character","","level="+currentSlot+";tokenName="+tokenName)]
+	[r:macrolink("lv:<b>"+currentSlot+"</b>", "character/Change Slots@this")"","level="+currentSlot+";tokenName="+tokenName)]
 	
 	</span>
 	
@@ -279,7 +279,7 @@
 [h:CapitalName=function.Capitalize(name)]
 
 
-	[r:macrolink(CapitalName,"Args Dialog@Lib:Character","","prop=Spells;index="+roll.count+";name="+name+";source="+source+";description=;tokenName="+tokenName)]
+	[r:macrolink(CapitalName,"character/Args Dialog@this","","prop=Spells;index="+roll.count+";name="+name+";source="+source+";description=;tokenName="+tokenName)]
 
 }]
 [r:if(showspell=="","","<br>")]

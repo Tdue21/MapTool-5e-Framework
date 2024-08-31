@@ -17,7 +17,7 @@
 	[h:abort(res)]
 
 
-	[macro("New PC Token@Lib:Character"):""]
+	[macro("character/New PC Token@this"):""]
 
 	[h:tokenName=macro.return]
 	[h,if(matches(tokenName,"^Lib:.*")==1):"";tokenName="Lib:"+tokenName]

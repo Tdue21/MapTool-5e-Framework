@@ -13,7 +13,7 @@
 	[h:switchToken(currentId)]
 
 
-	[h:display=getLibProperty("Display","Lib:Campaign")]
+	[h:display=getLibProperty("Display", function.getNamespace())]
 	[h:HiddenOpacity=getStrProp(display,"HiddenOpacity")]
 [h:opacity=if(visible==1,1,HiddenOpacity*0.01)]
 [h:setVisible(visible)]
@@ -21,7 +21,7 @@
 [h:sendToBack()]
 [h:setProperty("hidden",1 - visible)]
 [h,if(isOverlayRegistered("Initiative")==1),code:{
-[macro("Initiative Overlay@Lib:Overlay"):"output=all"]
+[macro("overlay/Initiative Overlay@this"):"output=all"]
 };{}]
 
 
@@ -31,5 +31,5 @@
 
 [h,if(isDialogVisible("Manage")==1),code:{
 [h:pinName=getStrProp(macro.args,"pinName")]
-[macro("Manage Encounter@Lib:Bestiary"):"reload=1;tokenName="+pinName]
+[macro("bestiary/Manage Encounter@this"):"reload=1;tokenName="+pinName]
 };{}]

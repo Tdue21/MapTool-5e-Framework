@@ -37,4 +37,4 @@
 <!-----------------MACROS------------------->
 [h,if(matches(tokenName,"^Lib:.*")==1):"";setName("Lib:"+tokenName)]
 [h:macroList=getMacros()]
-[h,if(listfind(macroList,"Notebook")<0):createMacro("Notebook","[macro('notebook/Index@Lib:" + function.getNamespace() + "'):'Lib:"+tokenName+"']", "minWidth=120;fontColor=white;color=gray50;")]
+[h,if(listfind(macroList,"Notebook")<0):createMacro("Notebook","[macro('\l/notebook/Index@this' + function.getNamespace() + "'):'Lib:"+tokenName+"']", "minWidth=120;fontColor=white;color=gray50;")]

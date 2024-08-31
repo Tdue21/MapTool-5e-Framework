@@ -3,7 +3,7 @@
 [h,if(macro.args==""),code:{
 
 	[h:tableList=getTableNames()]
-	[h:tableblacklist=getLibProperty("blacklist","Lib:Campaign")]
+	[h:tableblacklist=getLibProperty("blacklist", function.getNamespace())]
 	[h,count(listcount(tableblacklist)):tableList=listdelete(tableList,listfind(tableList,listget(tableblacklist,roll.count)))]
 	
 	[h:playerTableList=""]
@@ -43,7 +43,7 @@
 
 [h,if(matches(roll,"^d.*")==1):roll=1+roll]
 
-[r:macroLink(roll,"Roll Table@Lib:Tables",output,"text="+table+";value="+roll+";tokenName=Lib:Character")]
+[r:macroLink(roll,"tables/Roll Table@this",output,"text="+table+";value="+roll+";tokenName=Lib:Character")]
 
 
 <th colspan=2>

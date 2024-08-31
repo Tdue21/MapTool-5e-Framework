@@ -28,4 +28,4 @@
 
 [h:value=mod+(profBonus*prof)+other]
 
-[macro("d20 Roller@Lib:Character"):"text=Constitution save;value=+"+if(value<0,value,"+"+value)+";id="+id+";tokenName="+tokenName+";color=ff9900")]
+[macro("character"):"text=Constitution save;value=+"+if(value<0,value,"+"+value)+";id="+id+";tokenName="+tokenName+";color=ff9900/d20 Roller@this")]

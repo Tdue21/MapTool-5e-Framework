@@ -1,4 +1,4 @@
-[h:bgPropList=getLibProperty("Backgrounds","Lib:Character Creation")]
+[h:bgPropList=getLibProperty("Backgrounds",function.getNamespace())]
 
 [h:bgList=""]
 [h,count(countStrProp(bgPropList)):bgList=listappend(bgList,indexKeyStrProp(bgPropList,roll.count))]
@@ -27,19 +27,19 @@
 <table>
 <tr><td width=150 valign=top>
 
-[h:bgList=getLibProperty("Backgrounds","Lib:Character Creation")]
+[h:bgList=getLibProperty("Backgrounds",function.getNamespace())]
 
 [r,count(listcount(bgList),""),code:{
 
 	[h:currentBG=listget(bgList,roll.count)]
 	
 	[r,if(background==currentBG):"<b>"]
-	[r:macroLink(currentBG,"Backgrounds Window@Lib:Tables","",currentBG)]<br>
+	[r:macroLink(currentBG,"tables/Backgrounds Window@this","",currentBG)]<br>
 	[r,if(background==currentBG):"</b>"]
 }]
 
 
-[h:featProps=getLibProperty("Feats","Lib:Compendium")]
+[h:featProps=getLibProperty("Feats",function.getNamespace())]
 
 
 
@@ -54,9 +54,9 @@
 [h:object=json.get(featProps,background)]
 [h,if(json.type(object)=="UNKNOWN"):description="";description=json.get(object,"description")]
 <h1>[r:CapitalName]<font size=3>
-	[r:macroLink("Edit","Change Form@Lib:Character","","prop=Feats;source=;name="+background+";description=;tokenName=Lib:Campaign")] |
-[r:macrolink("Move","Move@Lib:Character","","tokenName=Lib:Compendium;description=;name="+background+";prop=Feats")]</h1>
-[macro("Markdown@Lib:Campaign"):"tokenName=Lib:Tables;description="+encode(description)+";source=Background;name="+background+";group=Feats"]
+	[r:macrolink("Edit", "character/Change Form@this")"","prop=Feats;source=;name="+background+";description=;tokenName=Lib:Campaign")] |
+[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+background+";prop=Feats")]</h1>
+[macro("campaign/Markdown@this"):"tokenName=Lib:Tables;description="+encode(description)+";source=Background;name="+background+";group=Feats"]
 
 
 

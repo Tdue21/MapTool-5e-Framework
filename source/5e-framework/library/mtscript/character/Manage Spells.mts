@@ -6,9 +6,9 @@
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 <p class='topbar'>
 
-[r:macroLink("Settings","Campaign Settings@Lib:Campaign")]&nbsp;
-[r:macroLink("Import","Json Merge@Lib:Campaign","","macroName=Manage Spells;lib=Lib:Compendium;value=Spells")]&nbsp;
-[r:macroLink("Export","Json Export@Lib:Campaign","","lib=Lib:Compendium;value=Spells")]&nbsp;
+[r:macroLink("Settings","campaign/Campaign Settings@this")]&nbsp;
+[r:macrolink("Import", "campaign/Json Merge@this")"","macroName=Manage Spells;lib=Lib:Compendium;value=Spells")]&nbsp;
+[r:macrolink("Export", "campaign/Json Export@this")"","lib=Lib:Compendium;value=Spells")]&nbsp;
 
 </p>
 
@@ -17,6 +17,6 @@
 <table>
 <tr>
 <td valign=top>
-[macro("Spells List@Lib:Character"):"tokenName="+tokenName]
+[macro("character/Spells List@this"):"tokenName="+tokenName]
 </table>
 }]

@@ -43,4 +43,4 @@
 
 [h:setProperty("Resources",resourcesObj)]
 
-[macro("Macro Frame@Lib:Bestiary"):tokenName]
+[macro("bestiary/Macro Frame@this"):tokenName]

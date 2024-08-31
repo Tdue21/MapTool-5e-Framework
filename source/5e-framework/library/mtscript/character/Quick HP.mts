@@ -8,7 +8,7 @@
 [h:id=findToken(tokenName)]
 [h,if(id==""):"";switchToken(id)]
 
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 [h:AtrProps=""]
 [h,count(listcount(attributeList),""),code:{
 	[h:attribute=listget(attributeList,roll.count)]
@@ -59,7 +59,7 @@
 Current HP: <b>[r:currentInput]</b>/<b>[r:maxInput]</b> [r:if(tempInput==0,"","(<b>"+tempInput+"</b>)")]
 
 
-[macro("HP Bar@Lib:Character"):"MaxLen=65;MaxValue="+maxInput+";Value="+currentInput+";Color=Green"]
+[macro("character/HP Bar@this"):"MaxLen=65;MaxValue="+maxInput+";Value="+currentInput+";Color=Green"]
 
 [h,if(id==""),code:{};{
 	[h:setBar("Health",currentInput/maxInput)]
@@ -75,12 +75,12 @@ Current HP: <b>[r:currentInput]</b>/<b>[r:maxInput]</b> [r:if(tempInput==0,"","(
 
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Statblock")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Statblock;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Statblock;tokenName="+tokenName]
 };{}]
 
 [h,if(isOverlayRegistered("Initiative")==1),code:{
-[macro("Initiative Overlay@Lib:Overlay"):"output=all"]
+[macro("overlay/Initiative Overlay@this"):"output=all"]
 };{}]

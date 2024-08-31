@@ -173,7 +173,7 @@
 <!------player view magic items---------->
 [h:permissions=getLibProperty("PlayerPermission",function.getNamespace())]
 [h:viewMagicItems=getStrProp(permissions,"viewMagicItems")]
-[h,if(isGM()==0 && viewMagicItems==0 && listCount(outputEquip)>0):LibProperty=getLibProperty("Equipment","Lib:Compendium")]
+[h,if(isGM()==0 && viewMagicItems==0 && listCount(outputEquip)>0):LibProperty=getLibProperty("Equipment", function.getNamespace())]
 
 [h,if(isGM()==0 && viewMagicItems==0 && listCount(outputEquip)>0),count(listcount(equipmentNames)),code:{
 

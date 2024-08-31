@@ -4,7 +4,7 @@
 [h:id=findToken(tokenName)]
 [h:switchToken(id)]
 
-[h:classes=getLibProperty("Classes","Lib:Character Creation")]
+[h:classes=getLibProperty("Classes", function.getNamespace())]
 
 [h:AllClassObj=json.get(classes,class)]
 [h:spellcasting=json.get(AllClassObj,"spellcasting")]
@@ -49,8 +49,8 @@
 [h:level19=json.get(AllClassObj,"level19")]
 [h:level20=json.get(AllClassObj,"level20")]
 
-[h:featList=getLibProperty("Feats", "Lib:Character Creation")]
-[h:addFeatList=getLibProperty("AdditionalFeats", "Lib:Character Creation")]
+[h:featList=getLibProperty("Feats", function.getNamespace())]
+[h:addFeatList=getLibProperty("AdditionalFeats", function.getNamespace())]
 
 
 [h,if(json.type(ClassObj)=="UNKNOWN" || json.fields(ClassObj)==""),code:{

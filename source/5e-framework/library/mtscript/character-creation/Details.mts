@@ -9,14 +9,14 @@
 	[h:subclass=replace(subclass,"\\s*:.*","")]
 
 	<!-----------------Feats------------------->
-	[macro("Add Subclass Features@Lib:Character Creation"):"tokenName="+tokenName+";class="+class+";subclass="+subclass]
+	[macro("character-creation/Add Subclass Features@this"):"tokenName="+tokenName+";class="+class+";subclass="+subclass]
 
-	[h:macroList=getLibProperty("macroList","Lib:Compendium")]
+	[h:macroList=getLibProperty("macroList", function.getNamespace())]
 	[h:hasClassMacro=listfind(macroList,subclass)]
 
 	[h,if(hasClassMacro==-1),code:{};{
 		<!-----------------Subclass------------------->
-		[macro(subclass+"@Lib:Compendium"):"tokenName="+tokenName+";class="+class+";subclass="+subclass]
+		[macro(subclass+"compendium/@this"):"tokenName="+tokenName+";class="+class+";subclass="+subclass]
 	}]
 }]
 
@@ -27,7 +27,7 @@
 <td valign=bottom style="padding:0px;margin=0px">
 
 
-[h: processorLink=macroLinkText("Character Creation Wizard@Lib:Character Creation","")]
+[h: processorLink=macroLinkText("character-creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 

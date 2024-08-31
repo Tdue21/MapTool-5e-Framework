@@ -182,18 +182,18 @@
 
 
 [h,if(isFrameVisible(tokenName+" - Character Sheet")==1),code:{
-[macro("Macro Frame@Lib:Character"):"macro=Character Sheet;tokenName="+tokenName]
+[macro("character/Macro Frame@this"):"macro=Character Sheet;tokenName="+tokenName]
 };{}]
 [h,if(isFrameVisible(tokenName+" - Statblock")==1),code:{
 [h:library=if(getPropertyType(id)=="NPC","Bestiary","Character")]
-[macro("Macro Frame@Lib:"+library):if(getPropertyType(id)=="NPC",tokenName,"macro=Statblock;tokenName="+tokenName)]
+[macro("\l/Macro Frame@this"+library):if(getPropertyType(id)=="NPC",tokenName,"macro=Statblock;tokenName="+tokenName)]
 };{}]
 [h,if(isDialogVisible("Manage Party")==1),code:{
-[macro("Manage Party@Lib:Character"):""]
+[macro("character/Manage Party@this"):""]
 };{}]
 [h,if(isFrameVisible(tokenName)==1),code:{
-[macro("Macro Frame@Lib:Bestiary"):tokenName]
+[macro("bestiary/Macro Frame@this"):tokenName]
 };{}]
 [h,if(isOverlayRegistered("Initiative")==1),code:{
-[macro("Initiative Overlay@Lib:Overlay"):"output=all"]
+[macro("overlay/Initiative Overlay@this"):"output=all"]
 };{}]

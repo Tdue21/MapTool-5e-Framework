@@ -1,6 +1,6 @@
 [h:tokenName=getStrProp(macro.args,"tokenName")]
 
-[h:itemObject=getLibProperty("Feats","Lib:Compendium")]
+[h:itemObject=getLibProperty("Feats", function.getNamespace())]
 
 [h:itemList=json.fields(itemObject)]
 
@@ -27,14 +27,14 @@
 	[h:odd=if(odd==1,0,1)]
 	<td>
 	
-	[r:macroLink(CapitalName,"Args Dialog@Lib:Character","","prop=Feats;name="+name+";description=;tokenName=Compendium")]
+	[r:macroLink(CapitalName,"character/Args Dialog@this","","prop=Feats;name="+name+";description=;tokenName=Compendium")]
 	<td width=0% align=right>
 
 	[r:json.toList(json.get(currentObj,"sources"))]
 	
-	<font size=2 color=red>[r:macroLink("X","Delete Source@Lib:Character","","prop=Feats;name="+name+";tokenName="+tokenName)]</font>
+	<font size=2 color=red>[r:macrolink("X", "character/Delete Source@this")"","prop=Feats;name="+name+";tokenName="+tokenName)]</font>
 	
 }]
 </table>
 
-[r:macrolink("+","Args Dialog@Lib:Character","","prop=Feats;index=new;name=new;description=new;tokenName="+tokenName)]
+[r:macrolink("+", "character/Args Dialog@this")"","prop=Feats;index=new;name=new;description=new;tokenName="+tokenName)]

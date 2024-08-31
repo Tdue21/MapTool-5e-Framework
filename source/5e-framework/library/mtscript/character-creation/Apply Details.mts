@@ -2,7 +2,7 @@
 [h:id=findToken(tokenName)]
 [h:switchToken(id)]
 
-[h:attributeList=getLibProperty("Attributes", "Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 [h:AtrProps=""]
 [h,count(listcount(attributeList),""),code:{
 	[h:attribute=listget(attributeList,roll.count)]

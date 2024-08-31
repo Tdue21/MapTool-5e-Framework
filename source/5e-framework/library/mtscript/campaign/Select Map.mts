@@ -24,8 +24,8 @@
 	<table>
 	<tr>
 	<td align=center>
-	[r,if(isGM()==0):"";macroLink("Weather","Weather Select@Lib:Overlay","")]
-	[h:processorLink=macroLinkText("Select Map process@Lib:Campaign","")]
+	[r,if(isGM()==0):"";macrolink("Weather", "overlay/Weather Select@this")"")]
+	[h:processorLink=macroLinkText("campaign/Select Map process@this","")]
 	<form action="[r:processorLink]" method="json">
 
 	[h,if(isGM()==1):repeat=listcount(maps);repeat=listcount(visibleMaps)]

@@ -3,8 +3,8 @@
 [h:name=getStrProp(macro.args,"name")]
 [h:tokenName=getStrProp(macro.args,"tokenName")]
 
-[h:attributeList=getLibProperty("Attributes","Lib:Character")]
-[h:skillList=getLibProperty("Skills","Lib:Character")]
+[h:attributeList=getLibProperty("Attributes", function.getNamespace())]
+[h:skillList=getLibProperty("Skills", function.getNamespace())]
 
 [h:skill=""]
 [h,count(countStrProp(skillList)),code:{
@@ -55,5 +55,5 @@
 
 
 
-[macro("d20 Roller@Lib:Bestiary"):";text="+text+";value=+"+if(mod<0,mod,"+"+mod)+";tokenName="+tokenName+";color="+color]
+[macro("bestiary/d20 Roller@this"):";text="+text+";value=+"+if(mod<0,mod,"+"+mod)+";tokenName="+tokenName+";color="+color]
 

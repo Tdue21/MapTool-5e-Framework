@@ -28,8 +28,8 @@
 	[h:angle=if(stat=="Closed",angle+dir,angle-dir)]
 	[h:bDoor=matches(getName(doorId),".*_b")]
 	[h,if(stat=="Locked" && bDoor!=1),code:{
-		[h:doorClipURL=getLibProperty("Door","Lib:Campaign")]
-		[h:audioByte=macroLinkText("playClip@Lib:Campaign","self",doorClipURL)]
+		[h:doorClipURL=getLibProperty("Door", function.getNamespace())]
+		[h:audioByte=macroLinkText("campaign/playClip@this","self",doorClipURL)]
 		[h:execLink(audioByte,0,"all")]
 		[h:broadcast("Locked.","self")]
 	};{}]

@@ -6,14 +6,14 @@
 <link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 <p class='topbar'>
 
-[r:macroLink("Settings","Campaign Settings@Lib:Campaign")]&nbsp;
-[r:macroLink("Import","Json Merge@Lib:Campaign","","macroName=Manage Additional Feats;lib=Lib:Compendium;value=AdditionalFeats")]&nbsp;
-[r:macroLink("Export","Json Export@Lib:Campaign","","lib=Lib:Compendium;value=AdditionalFeats")]&nbsp;
+[r:macroLink("Settings","campaign/Campaign Settings@this")]&nbsp;
+[r:macrolink("Import", "campaign/Json Merge@this")"","macroName=Manage Additional Feats;lib=Lib:Compendium;value=AdditionalFeats")]&nbsp;
+[r:macrolink("Export", "campaign/Json Export@this")"","lib=Lib:Compendium;value=AdditionalFeats")]&nbsp;
 
 </p>
 
 
 <h5>Additional Feats</h5>
-[macro("Additional Feats List@Lib:Character"):"tokenName="+tokenName]
+[macro("character/Additional Feats List@this"):"tokenName="+tokenName]
 
 }]

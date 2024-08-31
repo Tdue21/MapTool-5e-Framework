@@ -28,7 +28,7 @@
 
 [h:originalQuantity=Quantity]
 
-[h:permissions=getLibProperty("PlayerPermission","Lib:Character")]
+[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:identify=getStrProp(permissions,"identify")]
 [h,if(isGM()==1):identify=1]
 
@@ -47,7 +47,7 @@ if(identify==1,"identified|"+identified+"|Identified|check",""))]
 [h,if(isNumber(Quantity)==0):res=input("var|Quantity must be a number||label|span=true");""]
 [h:abort(res)]
 
-[macro("Get Equipment Info@Lib:Character"):"group="+group+";name="+name]
+[macro("character/Get Equipment Info@this"):"group="+group+";name="+name]
 [h:equipInfo=macro.return]
 
 [h:object=json.fromStrProp(equipInfo+";Quantity="+Quantity+";Equiped="+Equiped+";offHand="+offHand+";customName="+customName+";bonusAtk="+bonusAtk+";bonusDmg="+bonusDmg+";identified="+identified)]
@@ -83,10 +83,10 @@ if(identify==1,"identified|"+identified+"|Identified|check",""))]
 
 
 [h,if(isDialogVisible(tokenName+" - "+CapitalName)==1),code:{
-[macro("Pin Args Dialog@Lib:Character"):"prop="+group+";index="+index+";source="+source+";name="+name+";description=;tokenName="+tokenName+";customName="+customName+";identified="+identified]
+[macro("character/Pin Args Dialog@this"):"prop="+group+";index="+index+";source="+source+";name="+name+";description=;tokenName="+tokenName+";customName="+customName+";identified="+identified]
 };{}]
 
 
 [h,if(isDialogVisible("Manage")==1),code:{
-[macro("Pin Notes@Lib:Character"):"tokenName="+originalToken]
+[macro("character/Pin Notes@this"):"tokenName="+originalToken]
 };{}]

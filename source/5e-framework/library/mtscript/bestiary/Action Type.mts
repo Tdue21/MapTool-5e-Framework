@@ -24,4 +24,4 @@
 
 [h:currentDescription=replace(currentDescription,"PLUSPLACEHOLDER","+")]
 
-[macro("Change Form@Lib:Bestiary"):"group="+group+";name="+currentItem+";tokenName="+tokenName+";description="+currentDescription)]
+[macro("Bestiary/Change Form@this"):"group="+group+";name="+currentItem+";tokenName="+tokenName+";description="+currentDescription)]

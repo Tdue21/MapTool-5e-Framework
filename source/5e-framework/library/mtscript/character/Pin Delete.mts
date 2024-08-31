@@ -10,7 +10,7 @@
 
 [h:switchToken(id)]
 
-[h:Output=getLibProperty("PC Output", "Lib:Character")]
+[h:Output=getLibProperty("PC Output", function.getNamespace())]
 
 [h:currentProp=getProperty(group)]
 [h:newProp=json.remove(currentProp,name)]
@@ -31,5 +31,5 @@
 
 
 [h,if(isDialogVisible("Manage")==1),code:{
-[macro("Pin Notes@Lib:Character"):"tokenName="+tokenName]
+[macro("character/Pin Notes@this"):"tokenName="+tokenName]
 };{}]

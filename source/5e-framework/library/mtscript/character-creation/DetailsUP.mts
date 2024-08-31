@@ -11,14 +11,14 @@
 [h,if(subclass=="" || subclass==0),code:{};{
 	[h:subclass=replace(subclass,"\\s*:.*","")]
 	<!-----------------Feats------------------->
-	[macro("Add Subclass Features@Lib:Character Creation"):"tokenName="+tokenName+";class="+class+";subclass="+subclass]
+	[macro("character-creation/Add Subclass Features@this"):"tokenName="+tokenName+";class="+class+";subclass="+subclass]
 	
-	[h:macroList=getLibProperty("macroList","Lib:Compendium")]
+	[h:macroList=getLibProperty("macroList", function.getNamespace())]
 	[h:hasClassMacro=listfind(macroList,subclass)]
 
 	[h,if(hasClassMacro==-1),code:{};{
 	<!-----------------Subclass------------------->
-	[macro(subclass+"@Lib:Compendium"):"tokenName="+tokenName+";class="+class+";subclass="+subclass]
+	[macro(subclass+"compendium/@this"):"tokenName="+tokenName+";class="+class+";subclass="+subclass]
 	}]
 }]
 
@@ -37,10 +37,10 @@
 
 Determine [r:characterName]'s <b>HP</b> by rolling
 
-[r:macroLink("1"+dice,"Dice Roller@Lib:Character",output,"text="+characterName+"'s Hit Points;value=1"+dice+"+"+conMod+"+"+HP+";tokenName="+characterName)]
+[r:macroLink("1"+dice,"character/Dice Roller@this",output,"text="+characterName+"'s Hit Points;value=1"+dice+"+"+conMod+"+"+HP+";tokenName="+characterName)]
 
 
-(or [r:macroLink(averageHP,"Dice Roller@Lib:Character",output,"text="+characterName+"'s Hit Points;value="+averageHP+"+"+conMod+"+"+HP+";tokenName="+characterName)]) + your <b>Constitution</b> modifier.
+(or [r:macroLink(averageHP,"character/Dice Roller@this",output,"text="+characterName+"'s Hit Points;value="+averageHP+"+"+conMod+"+"+HP+";tokenName="+characterName)]) + your <b>Constitution</b> modifier.
 
 
 
@@ -51,7 +51,7 @@ Determine [r:characterName]'s <b>HP</b> by rolling
 <td valign=bottom style="padding:0px;margin=0px">
 
 
-[h: processorLink=macroLinkText("Character Creation Wizard@Lib:Character Creation","")]
+[h: processorLink=macroLinkText("character-creation/Character Creation Wizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 <table>

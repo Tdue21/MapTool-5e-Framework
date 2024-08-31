@@ -4,7 +4,7 @@
 [dialog5(tokenName+" - Prepared Spells", "width=400; height=550; temporary=1; input=1; noframe=0"): {
 	
 	<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">	
-	[h: processorLink = macroLinkText("Prepared Spells process@Lib:Character", "")]
+	[h: processorLink = macroLinkText("character/Prepared Spells process@this", "")]
 	<form action="[r:processorLink]" method="json">
 	
 	<input type="submit" name="button" value="Save">[r,count(2,""):"&nbsp;"]
@@ -63,7 +63,7 @@
 
 		
 
-		<input type="checkbox" name="[r:name]" value=1 [r,if(prep==1):"checked='checked'"]><label for="vehicle1"><b>[r:macrolink(function.Capitalize(name),"Args Dialog@Lib:Character","","prop=Spells;name="+name+";description=;tokenName="+tokenName)]</b></label> [r,if(source!=""):"("+function.Capitalize(source)+")"]
+		<input type="checkbox" name="[r:name]" value=1 [r,if(prep==1):"checked='checked'"]><label for="vehicle1"><b>[r:macrolink(function.Capitalize(name),"character/Args Dialog@this","","prop=Spells;name="+name+";description=;tokenName="+tokenName)]</b></label> [r,if(source!=""):"("+function.Capitalize(source)+")"]
 		
 	
 	}]

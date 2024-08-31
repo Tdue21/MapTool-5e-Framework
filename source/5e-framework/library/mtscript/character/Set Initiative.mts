@@ -7,7 +7,7 @@
 
 [h:addToInitiative()]
 
-[h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
+[h:gameplay=getLibProperty("Gameplay", function.getNamespace())]
 [h:dexInit=getStrProp(gameplay,"dexInit")]
 
 [h,if(dexInit==1 && isPC()==1),code:{
@@ -40,5 +40,5 @@
 
 [h:sortInitiative()]
 
-[macro("Initiative Overlay@Lib:Overlay"):"output=all"]
+[macro("overlay/Initiative Overlay@this"):"output=all"]
 }]
