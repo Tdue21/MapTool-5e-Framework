@@ -45,6 +45,17 @@
 [h:defineFunction("function.listCharacters",     "function.listCharacters@this")]
 [h:defineFunction("function.listNotebooks",      "function.listNotebooks@this")]
 
+[h:defineFunction("campaign.menu",               "campaign.menu@this")]
+[h:defineFunction("campaign.selectMap",          "campaign.selectMap@this")]
+[h:defineFunction("campaign.notebooks",          "campaign.notebooks@this")]
+[h:defineFunction("campaign.compendium",         "campaign.compendium@this")]
+[h:defineFunction("campaign.search",             "campaign.search@this")]
+[h:defineFunction("campaign.loadOverlays",       "campaign.loadOverlays@this")]
+[h:defineFunction("campaign.shareImage",         "campaign.shareImage@this")]
+[h:defineFunction("campaign.getDistance",        "campaign.getDistance@this")]
+[h:defineFunction("campaign.state",              "campaign.state@this")]
+[h:defineFunction("campaign.conditions",         "campaign.conditions@this")]
+
 [h,macro("overlay/Loading@this"):"Loading Audio Clips"]
 
 [h:loadAudio=getLibProperty("LoadAudio", library)]
