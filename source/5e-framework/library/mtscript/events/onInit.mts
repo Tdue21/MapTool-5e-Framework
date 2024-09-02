@@ -5,7 +5,7 @@
 <!-- **                                                                   ** -->
 <!-- *********************************************************************** -->
 <!-- *********************************************************************** -->
-[h:library = "org.maptool.dnd5e"]
+[h:library = "dovesoft.dnd5e"]
 
 [h,macro("overlay/Loading@this"):"Setting Starting Map"]
 [h:start=getLibProperty("Start", library)]

@@ -177,7 +177,7 @@ function createNotebooks(notebookData) {
             const content = JSON.stringify(notebook.content);
             const tokenData = {
                 name: "Lib:" + notebook.name,
-                tokenImage: "lib://org.maptool.dnd5e/assets/images/book.png",
+                tokenImage: "lib://dovesoft.dnd5e/assets/images/book.png",
                 layer: "Token",
                 Size: "Medium",
                 x: x,

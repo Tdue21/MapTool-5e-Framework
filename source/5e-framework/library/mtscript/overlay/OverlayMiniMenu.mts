@@ -144,31 +144,31 @@ hr {
 
 <!-------------------Toggle------------------->
 <div class="menu">
-	[r:macrolink("<img style='transform: rotate("+if(toggle==0 || toggle=="","180deg","0deg")+");' src='lib://org.maptool.dnd5e/assets/icons/chevron.png'>","overlay/OverlayMiniMenu@this","","toggle="+if(toggle==0 || toggle=="",1,0))]
+	[r:macrolink("<img style='transform: rotate("+if(toggle==0 || toggle=="","180deg","0deg")+");' src='lib://dovesoft.dnd5e/assets/icons/chevron.png'>","overlay/OverlayMiniMenu@this","","toggle="+if(toggle==0 || toggle=="",1,0))]
 </div>
 
 <div id="hide">
 	<!-------------------Compendium------------------->
 	<div class="menu">
-		[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/library.png'>","tables/Tables List@this")]
+		[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/library.png'>","tables/Tables List@this")]
 		<div class="submenu">
 			<table class="border">
 				<tr><td>
-				[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/library.png' width='17'>Compendium","tables/Tables List@this")]
+				[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/library.png' width='17'>Compendium","tables/Tables List@this")]
 				<hr noshade>
 				<tr><td>
-				[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/search.png' width='17'>Search","campaign/Search@this")]
+				[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/search.png' width='17'>Search","campaign/Search@this")]
 			</table>
 		</div>
 	</div>
 
 	<!-------------------Notebooks------------------->
 	<div class="menu">
-		[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/notebook.png'>","campaign/Notebooks@this")]
+		[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/notebook.png'>","campaign/Notebooks@this")]
 		<div class="submenu">
 			<table class="border">
 				<tr><td>
-				[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/notebook.png' width='17'>New Notebook","notebook/Set Notebook@this")]
+				[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/notebook.png' width='17'>New Notebook","notebook/Set Notebook@this")]
 				<hr noshade>
 				<tr><td>
 				[r,count(listcount(ListNotes),"<tr><td>"),code:{
@@ -186,33 +186,33 @@ hr {
 
 	<!-------------------Player Menu------------------->
 	<div class="menu">
-		[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/person.png'>","campaign/Player Menu@this")]
+		[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/person.png'>","campaign/Player Menu@this")]
 		<div class="submenu">
 			<table class="border">
 				<tr><td>
-				[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/person.png' width='17'>Player Menu","campaign/Player Menu@this")]
+				[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/person.png' width='17'>Player Menu","campaign/Player Menu@this")]
 				<hr noshade>
 				[r,if(ListPC==""),code:{};{
 					<tr><td>
-					[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/combat.png' width='17'>Statblock","overlay/Open PC@this","","Sheet=Statblock;ListPC="+ListPC)]
+					[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/combat.png' width='17'>Statblock","overlay/Open PC@this","","Sheet=Statblock;ListPC="+ListPC)]
 					<tr><td>
-					[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/dnd.png' width='17'>Character","overlay/Open PC@this","","Sheet=Character Sheet;ListPC="+ListPC)]
+					[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/dnd.png' width='17'>Character","overlay/Open PC@this","","Sheet=Character Sheet;ListPC="+ListPC)]
 					<tr><td>
-					[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/notebook.png' width='17'>Description","overlay/Open PC@this","","Sheet=Description Sheet;ListPC="+ListPC)]
+					[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/notebook.png' width='17'>Description","overlay/Open PC@this","","Sheet=Description Sheet;ListPC="+ListPC)]
 					<tr><td>	
-					[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/library.png' width='17'>Spellcasting","overlay/Open PC@this","","Sheet=Spellcasting Sheet;ListPC="+ListPC)]
+					[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/library.png' width='17'>Spellcasting","overlay/Open PC@this","","Sheet=Spellcasting Sheet;ListPC="+ListPC)]
 					<hr noshade>
 				}]
 	
 				<tr><td>
-				[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/add-person.png' width='17'>New PC","character-creation/Create Macros@this")]
+				[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/add-person.png' width='17'>New PC","character-creation/Create Macros@this")]
 				<tr><td>
-				[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/setup.png' width='17'>1st Level","character-creation/Character Creation Wizard@this","","{'route':'New'}")]
+				[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/setup.png' width='17'>1st Level","character-creation/Character Creation Wizard@this","","{'route':'New'}")]
 				<tr><td>
-				[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/level-up.png' width='17'>Level Up","character-creation/Character Creation Wizard@this","","{'route':'Level Up'}")]
+				[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/level-up.png' width='17'>Level Up","character-creation/Character Creation Wizard@this","","{'route':'Level Up'}")]
 				<hr noshade>
 				<tr><td>
-				[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/library.png' width='17'>Languages","languages/Chat Frame@this")]
+				[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/library.png' width='17'>Languages","languages/Chat Frame@this")]
 			</table>
 		</div>
 	</div>
@@ -220,29 +220,29 @@ hr {
 <!-------------------GM Menu------------------->
 [r,if(isGM()==1),code:{
 <div class=menu>
-[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/dm.png'>","campaign/GM Menu@this")]
+[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/dm.png'>","campaign/GM Menu@this")]
 	<div class=submenu>
 	<table class=border>
 	<tr><td>
-	[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/dm.png' width='17'>GM Menu","campaign/GM Menu@this")]
+	[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/dm.png' width='17'>GM Menu","campaign/GM Menu@this")]
 	<hr noshade>
 	<tr><td>
-	[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/party.png' width='17'>Manage Party","campaign/Manage Party@this")]
+	[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/party.png' width='17'>Manage Party","campaign/Manage Party@this")]
 	<tr><td>
 
-	[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/combat.png' width='17'>Encounter","bestiary/Manage Encounter@this","","tokenName=;reload=1")]
+	[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/combat.png' width='17'>Encounter","bestiary/Manage Encounter@this","","tokenName=;reload=1")]
 	<tr><td>
 
-	[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/pin.png' width='17'>Pin Notes","character/Pin Notes@this")]
+	[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/pin.png' width='17'>Pin Notes","character/Pin Notes@this")]
 	<hr noshade>
 	<tr><td>
 	
-	[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/dice.png' width='17'>Request Roll","campaign/Request Roll@this")]
+	[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/dice.png' width='17'>Request Roll","campaign/Request Roll@this")]
 	<tr><td>
 	
-	[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/monster.png' width='17'>Set NPC","bestiary/NPC Wizard@this")]
+	[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/monster.png' width='17'>Set NPC","bestiary/NPC Wizard@this")]
 	<tr><td>
-	[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/settings.png' width='17'>Settings","campaign/Campaign Settings@this")]
+	[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/settings.png' width='17'>Settings","campaign/Campaign Settings@this")]
 	</table>
 	</div>
 </div>
@@ -250,21 +250,21 @@ hr {
 
 <!-------------------Initiative------------------->
 <div class=menu>
-[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/combat.png'>","overlay/Initiative Render@this")]
+[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/combat.png'>","overlay/Initiative Render@this")]
 	<div class=submenu>
 	<table class=border>
 	<tr><td>
-	[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/combat.png' width='17'>Initiative Tracker","overlay/Initiative Render@this")]
+	[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/combat.png' width='17'>Initiative Tracker","overlay/Initiative Render@this")]
 	<hr noshade>
 	<tr><td>
-	[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/dice.png' width='17'>Roll Initiative","bestiary/Mass Initiative@this")]
+	[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/dice.png' width='17'>Roll Initiative","bestiary/Mass Initiative@this")]
 	</table>
 	</div>
 </div>
 
 <!-------------------Dice Roller------------------->
 <div class=menu>
-	[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/dice.png'>","campaign/Roll Any Dice@this","")]
+	[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/dice.png'>","campaign/Roll Any Dice@this","")]
 	<div class=submenu>
 		<table class=border width=200>
 		[r,if(isGM()==1):"<tr><td colspan=5 class=center>"+macroLink("GM Output: "+output,"campaign/Quick Output@this")]
@@ -345,7 +345,7 @@ hr {
 
 <!-------------------Map------------------->
 <div class=menu>
-[r:macroLink("<img src='lib://org.maptool.dnd5e/assets/icons/globe.png'>","campaign/Select Map@this")]
+[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/globe.png'>","campaign/Select Map@this")]
 	<div class=submenu>
 	<table class=border>
 	[r,if(isGM()==1):"<tr><td>"+macroLink("Weather","overlay/Weather Select@this")+"<hr noshade>";""]
@@ -363,23 +363,23 @@ hr {
 
 <!-------------------Help------------------->
 <div class=menu>
-<a href="https://github.com/rtakehara/5e-Framework/wiki"><img src="lib://org.maptool.dnd5e/assets/icons/help.png"></a>
+<a href="https://github.com/rtakehara/5e-Framework/wiki"><img src="lib://dovesoft.dnd5e/assets/icons/help.png"></a>
 
 	<div class=submenu>
 	<table class=border>
 	<tr><td>
 	
 	<a href="https://github.com/rtakehara/5e-Framework/wiki">
-	<img src="lib://org.maptool.dnd5e/assets/icons/globe.png" width="17">
+	<img src="lib://dovesoft.dnd5e/assets/icons/globe.png" width="17">
 	Help & Documentation</a>
 	<hr noshade>
 	<tr><td>
 	<a href="[r:getLibProperty('RulesURL',namespace)]">
-	<img src="lib://org.maptool.dnd5e/assets/icons/dnd.png" width="17">
+	<img src="lib://dovesoft.dnd5e/assets/icons/dnd.png" width="17">
 	Game Rules</a>
 	<tr><td>
 	<a href="https://github.com/rtakehara/5e-Framework/issues">
-	<img src="lib://org.maptool.dnd5e/assets/icons/settings.png" width="17">
+	<img src="lib://dovesoft.dnd5e/assets/icons/settings.png" width="17">
 	Report a Bug</a>
 	</table>
 	</div>

@@ -1,4 +1,4 @@
-[h:ns = "org.maptool.dnd5e"]
+[h:ns = "dovesoft.dnd5e"]
 
 [h:js.createNS(ns)]
 [h:js.evalUri(ns, "lib://" + ns + "/scripts/onFirstInit.js?libcache=false")]

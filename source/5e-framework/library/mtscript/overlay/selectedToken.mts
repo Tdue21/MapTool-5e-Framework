@@ -1,4 +1,4 @@
-[h:namespace = "org.maptool.dnd5e"]
+[h:namespace = "dovesoft.dnd5e"]
 
 [h:toggle=getStrProp(macro.args,"toggle")]
 [h:macroGroups=getStrProp(macro.args,"macroGroups")]
