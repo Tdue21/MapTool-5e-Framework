@@ -1,3 +1,4 @@
+[h:broadcast("Start dice roller process")]
 [h,if(macro.args==""),code:{
 	[h:diceRoll=function.getDiceRoll()]
 	[h:text="Custom Dice Roll"]
@@ -45,7 +46,7 @@
 			"group2", group2,
 			"group3", group3,
 			"group4", group4,
-			"dices", dices), 4
+			"dices", dices) 
 		) + "</pre>")]
 
 	<!--------------------------------DICE SOUNDS---------------------------------->
@@ -54,6 +55,7 @@
 	};{}]
 
 	[h:firstRoll=roll.count]
+	
 	[r,if(isNumber(group3)==1),count(dices,""),code:{
 		<!--------------------------------DICE SOUNDS---------------------------------->
 		[macro("campaign/Dice Sounds@this"):""]
@@ -66,6 +68,7 @@
 		[r:if(row>=5,"<tr>","")]
 		[h:row=if(row>=5,0,row)]
 		[h:row=row+1]
+
 		<td style="padding-top: 5px; margin: 0px; padding: 0px" align=center valign=middle width=35>
 		[h,if(group3==100):img=tableImage("BlankDice",10);img=tableImage("BlankDice",group3)]
 
@@ -134,3 +137,4 @@
 [r,if(iscrit!=1):macroLink("[roll crit]","campaign/Dice Roller@this","","text=Critical Hit!;value="+crit+";color=cca300"),1)]
 
 [r,if(output!="all"):macroLink("[Share Result]","character/ShareRoll@this","all",formula)]
+[h:broadcast("Ending dice roller process")]

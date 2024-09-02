@@ -67,3 +67,10 @@
 )]
 [h:notebooks = base64.encode(data)]
 [h:js.createNotebooks(notebooks)]
+
+[h:macroData = strformat(data.getStaticData(ns, "/public/assets/data/initial-macros.json"))]
+[h:keys = json.fields(macroData)]
+[foreach(panel, keys, ""),code:{
+    [h:panelMacros = json.get(macroData, panel)]
+    [foreach(props, panelMacros, ""): createMacro(props, panel)]
+}]
