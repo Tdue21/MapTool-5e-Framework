@@ -17,7 +17,7 @@
         "tokens": [
             {
                 "name": "Image:DmBackground",
-                "tokenImage": "lib://org.maptool.dnd5e/assets/images/dm-background.png",
+                "tokenImage": "lib://dovesoft.dnd5e/assets/images/dm-background.png",
                 "size": "Free",
                 "layer": "Background",
                 "opacity": "0.6",
@@ -44,7 +44,7 @@
         "tokens": [
             {
                 "name": "Image:BG",
-                "tokenImage": "lib://org.maptool.dnd5e/assets/images/start-background.png",
+                "tokenImage": "lib://dovesoft.dnd5e/assets/images/start-background.png",
                 "size": "Free",
                 "layer": "Background",
                 "opacity": "0.5",
@@ -53,7 +53,7 @@
             },
             {
                 "name": "Image:Logo",
-                "tokenImage": "lib://org.maptool.dnd5e/assets/images/dnd-logo.png",
+                "tokenImage": "lib://dovesoft.dnd5e/assets/images/dnd-logo.png",
                 "size": "Free",
                 "layer": "Background",
                 "opacity": "1",
@@ -62,7 +62,7 @@
             },
             {
                 "name": "Click on the 'Notebook' macro",
-                "tokenImage": "lib://org.maptool.dnd5e/assets/images/start-here.png",
+                "tokenImage": "lib://dovesoft.dnd5e/assets/images/start-here.png",
                 "size": "Native",
                 "layer": "Token",
                 "opacity": "1",
@@ -72,7 +72,7 @@
                     {
                         "label": "Notebook",
                         "autoExec": true,
-                        "command": "[macro(\"notebook.showWelcome@lib:org.maptool.dnd5e\"):\"\"]"
+                        "command": "[macro(\"notebook.showWelcome@lib:dovesoft.dnd5e\"):\"\"]"
                     }
                 ]
             }

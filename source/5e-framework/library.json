@@ -6,7 +6,7 @@
   "name": "D&D 5e Framework ",
   "gitUrl": "",
   "shortDescription": "Dungeons & Dragons 5e Framework",
-  "namespace": "org.maptool.dnd5e",
+  "namespace": "dovesoft.dnd5e",
   "licenseFile": "license.txt",
   "readMeFile": "readme.md",
   "website": "",

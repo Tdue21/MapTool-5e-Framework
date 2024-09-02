@@ -1,1 +1,1 @@
-[r:"org.maptool.dnd5e"]
+[r:"dovesoft.dnd5e"]
