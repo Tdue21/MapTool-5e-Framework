@@ -55,6 +55,10 @@
 [h:defineFunction("campaign.getDistance",        "campaign.getDistance@this")]
 [h:defineFunction("campaign.state",              "campaign.state@this")]
 [h:defineFunction("campaign.conditions",         "campaign.conditions@this")]
+[h:defineFunction("campaign.visibility",         "campaign.visibility@this")]
+[h:defineFunction("campaign.fog",                "campaign.fog@this")]
+[h:defineFunction("campaign.statBlock",          "campaign.statBlock@this")]
+[h:defineFunction("campaign.diceRoller",         "campaign.diceRoller@this")]
 
 [h,macro("overlay/Loading@this"):"Loading Audio Clips"]
 
