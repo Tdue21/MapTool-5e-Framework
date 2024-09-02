@@ -2,37 +2,69 @@
 
 class MT {
 
+    /**
+     * 
+     * @returns 
+     */
     static async getMapEncounters() {
         const args = { "pc": 1, "owned": "none"};
-        const rawData = evalMacro(`[r:getTokens("json", "${JSON.stringify(args)}")]`);
+        const rawData = await evalMacro(`[h:tokens="{}"]
+[h:tokenIds=getTokens("json", "${JSON.stringify(args)}")]
+[h,foreach(tokenId, tokenIds, ""),code: {
+    [h:name=getTokenName(tokenId)]
+    [h:tokens=json.set(tokens, tokenId, name)]
+}]`);
         const data = JSON.parse(rawData);
-        
-
-
-
-        /*
-
-
-	
-	[h:Pins=getTokens(",","{'pc':1,'owned':'none'}")]
-	[h:repeat=listcount(Pins)]
-
-	<input type="submit" name="load" value="Load">&nbsp;
-
-	<select name="Pin" size="1">
-	<option [r:if(pinName=="","selected='selected'","")]>Select Pin</option>
-	[r,count(repeat,""),code:{
-		[h:pinID=listget(Pins,roll.count)]
-		[h:CurrentPin=getName(pinID)]		
-		<option [r:if(pinName==CurrentPin,"selected='selected'","")]>[r:CurrentPin]</option>	
-	}]
-        */
+        return data;
     }
-
-
     
-    getCharacters() {
+    /**
+     * 
+     */
+    static async getCharacters() {
+        const rawData = await evalMacro(`[h:info=getInfo("client")]
+[h:libTokens = json.getr(info, "library tokens")]
+[h:libList = json.fields(libTokens)]
 
+[h:tokenIds=getTokens("json", "${JSON.stringify(args)}")]
+[h,foreach(tokenId, tokenIds, ""),code: {
+    [h:name=getTokenName(tokenId)]
+    [h:tokens=json.set(tokens, tokenId, name)]
+}]`);
+            
+
+
+
+
+
+/*
+[h:info=getInfo("client")]
+[h:libtokens=json.get(info,"library tokens")]
+[h:libList=json.fields(libtokens)]
+[h:list=libList]
+[h,count(listcount(libList)),code:{
+	[h:currentLib=listget(libList,roll.count)]
+	[h:settingsProp=getLibProperty("LibName",currentLib)]
+	[h,if(settingsProp==""):list=listdelete(list,listfind(list,currentLib));""]
+	[h:hidden=getLibProperty("hidden",currentLib)]
+	[h,if(hidden==1):list=listdelete(list,listfind(list,currentLib));""]
+}]
+[h:ListPC=""]
+[h:maps=getAllMapNames()]
+[h,if(isGM()==1),count(listcount(maps)),code:{
+    [h:ListPC=list]
+};{
+	[h:map=listget(maps,roll.count)]
+	[h:ownedtokens=getOwnedNames(getPlayerName(),",",map)]
+	[h,count(listcount(ownedtokens)),code:{
+		[h:currentOwned=listget(ownedtokens,roll.count)]
+		[h:find=listfind(list,currentOwned)]
+		[h,if(find==-1):"";ListPC=listappend(ListPC,currentOwned)]
+	}]
+}]
+[h:tokens=listsort(ListPC,"N")]
+[h:partySize=listcount(tokens)]
+*/
     }
 
     static async evalMacro(macro) {
