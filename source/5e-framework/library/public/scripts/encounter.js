@@ -2,11 +2,18 @@
 
 function getCharacterLibs() {
     let tokens = MapTool.clientInfo.libraryTokens();
-    for (const item in tokens) {
-        let token = MapTool.tokens.getTokenById(item);
-        
-        MTScript.setVariable("tokenId", item);
-        MTScript.evalMacro("")
+
+	let list = [];
+	
+    for (const item in tokens) {        
+        MTScript.setVariable("libName", item);
+        MTScript.evalMacro(`[h:prop = getLibProperty("LibName", item)][h:hidden = getLibProperty("hidden", item)]`);
+		let prop = MTScript.getVariable("prop");
+		let hidden = MTScript.getVariable("hidden") === "1";
+
+		if(prop !== "" && !hidden) {
+			list.push(item);
+		}
 
         
     }
@@ -14,10 +21,13 @@ function getCharacterLibs() {
 
 } 
 
-        
+
         
             
 /*
+
+[h:]
+
 
 <!----------List PC Libs----------->
 [h:info=getInfo("client")]
@@ -47,6 +57,32 @@ function getCharacterLibs() {
 	}]
 }]
 [h:tokens=listsort(ListPC,"N")]
+
+
+
+
+
+
+[h:libtokens=json.get(info,"library tokens")]
+[h:list=json.fields(libtokens)]
+[h:ListPC=""]
+[h:maps=getAllMapNames()]
+[h,if(isGM()==1),count(listcount(maps)),code:{
+    [h:ListPC=list]
+};{
+	[h:map=listget(maps,roll.count)]
+	[h:ownedtokens=getOwnedNames(getPlayerName(),",",map)]
+	[h,count(listcount(ownedtokens)),code:{
+		[h:currentOwned=listget(ownedtokens,roll.count)]
+		[h:find=listfind(list,currentOwned)]
+		[h,if(find==-1):"";ListPC=listappend(ListPC,currentOwned)]
+	}]
+}]
+[h:tokens=listsort(ListPC,"N")]
+
+
+
+
 
 */    
 

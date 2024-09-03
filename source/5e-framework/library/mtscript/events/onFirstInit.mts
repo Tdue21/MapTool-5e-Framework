@@ -3,40 +3,20 @@
 [h:js.createNS(ns)]
 [h:js.evalUri(ns, "lib://" + ns + "/scripts/onFirstInit.js?libcache=false")]
 
-[h: audio = "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Dice%201.wav," +
-            "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Dice%202.wav," +
-            "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Dice%203.wav," +
-            "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Dice%204.wav," +
-            "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Dice%205.wav," +
-            "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Dice%206.wav," +
-            "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Dice%207.wav," +
-            "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Dice%208.wav," +
-            "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Dice%209.wav," +
-            "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Dice%2010.wav," +
-            "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Dice%2011.wav"]
+[h:data = data.getStaticData(ns, "/public/assets/data/initial-data.json"))]
+[h:keys = json.fields(data)]
+[h,foreach(key, data, ""), code: {
+    [h:value=json.get(data, key)]
+    [h:setLibProperty(key, value, ns)]
+}]
 
-[h:setLibProperty("Start", "01.Start", ns)]
-[h:setLibProperty("LoadAudio", "0", ns)]
-[h:setLibProperty("Audio", audio, ns)]
-[h:setLibProperty("door", "https://raw.githubusercontent.com/rtakehara/5e-Framework/master/Resources/Audio%20Clips/Door%20Locked.wav", ns)]
-[h:setLibProperty("Weather", "0,0,0", ns)]
-[h:setLibProperty("PC Output", "", ns)]
-[h:setLibProperty("GM Output", "", ns)]
-[h:setLibProperty("Display", "InitSize=50; darkMode=0; replaceDiceRoll=1; replaceSpellList=1; NPCVisibility=1; HiddenOpacity=40; ElevScale=60; StatblockFrame=0", ns)]
-[h:setLibProperty("Gameplay", "autosetInitiative=1 ; dexInit=0 ; rerollInit=0 ; KeepPlayers=0 ; interactDistance=5 ; NPCVisibility=1 ; HiddenOpacity=40 ; rollNPC=0", ns)]
-[h:setLibProperty("Spell Lists", "Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Warlock, Wizard", ns)]
-[h:setLibProperty("Races", "Human, High Elf, Hill Dwarf, Lightfoot Halfling, Rock Gnome, Half-Elf, Half-Orc, Dragonborn, Tiefling", ns)]
-[h:setLibProperty("Backgrounds", "Acolyte", ns)]
-[h:setLibProperty("PlayerPermission", "edit=1 ; share=1 ; closeShared=0 ; viewBestiary=0 ; identify=0 ; applyDMG=1 ; viewMagicItems=0", ns)]
-[h:setLibProperty("blacklist", "draconic,infernal,dwarvish,common,abyssal,druidic,elvish,celestial,Effects,BlankDice", ns)]
-
-[h:setLibProperty("Welcome", encode(data.getStaticData(ns, function.getNamespace())), ns)]
-[h:setLibProperty("Classes", data.getStaticData(ns, function.getNamespace()), ns)]
-[h:setLibProperty("Equipment", data.getStaticData(ns, function.getNamespace()), ns)]
-[h:setLibProperty("Spells", data.getStaticData(ns, function.getNamespace()), ns)]
-[h:setLibProperty("Feats", data.getStaticData(ns, function.getNamespace()), ns)]
-[h:setLibProperty("AdditionalFeats", data.getStaticData(ns, function.getNamespace()), ns)]
-[h:setLibProperty("Bestiary", data.getStaticData(ns, function.getNamespace()), ns)]
+[h:setLibProperty("Welcome", encode(data.getStaticData(ns, "/public/assets/data/welcome.md")), ns)]
+[h:setLibProperty("Classes", data.getStaticData(ns, "/public/assets/data/Classes.json"), ns)]
+[h:setLibProperty("Equipment", data.getStaticData(ns, "/public/assets/data/equipment.json"), ns)]
+[h:setLibProperty("Spells", data.getStaticData(ns, "/public/assets/data/Spells.json"), ns)]
+[h:setLibProperty("Feats", data.getStaticData(ns, "/public/assets/data/Feats.json"), ns)]
+[h:setLibProperty("AdditionalFeats", data.getStaticData(ns, "/public/assets/data/AdditionalFeats.json"), ns)]
+[h:setLibProperty("Bestiary", data.getStaticData(ns, "/public/assets/data/Bestiary.json"), ns)]
 
 [h:classSpells = data.getStaticData(ns, "/public/assets/data/class-spells.json")]
 [h:classes = json.fields(classSpells)]
