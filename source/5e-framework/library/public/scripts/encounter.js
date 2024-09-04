@@ -14,12 +14,9 @@ function getCharacterLibs() {
 		if(prop !== "" && !hidden) {
 			list.push(item);
 		}
-
-        
     }
-
-
 } 
+MTScript.RegisterMacro("getCharacterLibs", getCharacterLibs);
 
 
         
@@ -86,5 +83,3 @@ function getCharacterLibs() {
 
 */    
 
-}
-MTScript.RegisterMacro("getCharacterLibs", getCharacterLibs);

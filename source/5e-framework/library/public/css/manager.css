@@ -1,0 +1,181 @@
+html {
+    margin: 5px;
+    padding: 10px;
+
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    background-color: white;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    margin: 3px;
+    position: relative;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+
+h1 {
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.tabs {
+    background-color: #eee;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+    margin: 0px;
+    display: flex;
+    gap: 10px;
+}
+
+.tabs span {
+    background-color: #ccc;
+    min-width: 120px;
+    text-align: center;
+}
+
+.tabs span:hover {
+    background-color: #444;
+    color: #eee;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #ccc;
+}
+
+.encounter,
+.party {
+    width: 100%;
+    border-collapse: collapse;
+    font-size:0.9em;
+}
+
+.encounter th, 
+.encounter td {
+    width: 10%;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid white;
+}
+
+.party th,
+.party td {
+    width: 12%;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid white;
+}
+
+.encounter td:nth-child(1) {
+    width: 0%;
+}
+
+.encounter td:nth-child(2),
+.encounter td:last-child,
+.party td:nth-child(2),
+.party td:nth-child(3) {
+    width: 20%;
+}
+
+.encounter tr:first-child,
+.party tr:first-child {
+    background-color: #444;
+    color: #ddd;
+}
+
+.encounter tr:nth-child(even),
+.party tr:nth-child(even) {
+    background-color: #eaeaea;
+}
+
+.header {
+    display: grid;
+    gap: 5px;
+    align-items: center;
+    padding: 0px;
+    vertical-align: middle;
+    grid-template-columns: 1fr 4fr 1fr;
+    border-bottom: 1px solid #eaecef;
+    margin-bottom: 10px;
+}
+
+.header select {
+    width: 200px;
+}
+
+.la {
+    text-align: left;
+}
+
+.ca {
+    text-align: center;
+}
+
+.ra {
+    text-align: right;
+}
+
+.dialog-background {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.dialog {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 2px solid #888;
+    border-radius: 10px;
+    width: 60%;
+    box-shadow: 10px 5px 5px #444;
+    min-height: 150px;
+}
+
+.content div {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.content div span {
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+}
+
+.dialog-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+    justify-content: end;
+}

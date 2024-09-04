@@ -64,8 +64,9 @@ Encounter
 <font size=3>
 
 <span title="Load selected tokens into the encounter manager">[r:macrolink("Add", "bestiary/Manage Encounter@this")"","reload=1")]</span> | 
-<span title="Select loaded tokens">[r:macrolink("Select","bestiary/SelectList@this","",idList)]</span> | [r:macroLink("Bestiary", "tables/Creature Window@this")"")] |
-	[r:macrolink("Show/Hide All", "campaign/Show Hide All@this")"","idList="+idList+";pinName="+pinName)]
+<span title="Select loaded tokens">[r:macrolink("Select","bestiary/SelectList@this","",idList)]</span> | 
+[r:macroLink("Bestiary", "tables/Creature Window@this")"")] |
+[r:macrolink("Show/Hide All", "campaign/Show Hide All@this")"","idList="+idList+";pinName="+pinName)]
 
 
 <td align=right>

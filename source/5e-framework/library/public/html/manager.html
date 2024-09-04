@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto,Goudy+Bookletter+1911">
+    <link rel="stylesheet" href="../css/manager.css?libcache=false">
+    <script src="../scripts/libraries/vue.global-3.4.15.js"></script>
+    <script src="../scripts/constants.js?libcache=false"></script>
+    <title>Party Manager</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="tabs">
+            <span title="Open the party manager" @click="openTab = `Party`">Party</span>
+            <span title="Open the encounter manager" @click="openTab = `Encounter`">Encounter</span>
+            <span :title="`Open the current loaded Pin (${pinName})`" @click="openTab = `Pin`">Pin</span>
+        </div>
+
+        <div class="header">
+            <h1>{{openTab}}</h1>
+            <span></span>
+            <span>
+                <select id="pinSelector">
+                    <option selected>Select Pin</option>
+                    <option v-for="pin in pins">{{pin}}</option>
+                </select>
+            </span>
+        </div>
+
+        <section id="party" v-if="openTab === `Party`">
+            <div style="display: flex; gap: 10px; font-size: 0.8em;">
+                <span title="Create tokens of party members"> <a href="#" @click="makeTokens()">Make tokens</a></span>
+                <span title="Create a poll for the players"> <a href="#" @click="createPoll()">Create Poll</a></span>
+                <span title="Show the results of the current poll"><a href="#" @click="pollResult()">Results</a></span>
+                <span title="Open Initiative Tracker"> <a href="#" @click="initiativeTracker()">Initiative</a></span>
+            </div>
+
+            <table class="party">
+                <tr>
+                    <th>Level</th>
+                    <th>Name</th>
+                    <th>Player</th>
+                    <th>Initiative</th>
+                    <th>HP</th>
+                    <th>GP</th>
+                    <th>XP</th>
+                </tr>
+                <tr v-for="char in characters">
+                    <td class="ca">{{char.level}}</td>
+                    <td class="la"><a @click="openSheet(char)" href="#">{{char.name}}</a></td>
+                    <td class="la">{{char.playerName}}</td>
+                    <td class="ca"><a @click="showDialog(char, `Init`)" href="#">{{char.init}}</a></td>
+                    <td class="ca"><a @click="showDialog(char, `HP`)" href="#">{{char.currentHP}}/{{char.totalHP}}</a></td>
+                    <td class="ra"><a @click="showDialog(char, `GP`)" href="#">{{char.GP}}</a></td>
+                    <td class="ra"><a @click="showDialog(char, `XP`)" href="#">{{char.XP}}</a></td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="encounter" v-if="openTab === `Encounter`">
+    
+
+            <table class="encounter">
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>Name</th>
+                    <th>Init.</th>
+                    <th>HP</th>
+                    <th>AC</th>
+                    <th>Atk</th>
+                    <th>Dmg</th>
+                    <th>CR</th>
+                </tr>
+                <tr v-for="mon in monsters">
+                    <td class="ca">
+                        <span @click="toggleVisibilty(mon)">
+                            <span v-if="mon.visible">X</span>
+                            <span v-else="!mon.visible">O</span>
+                        </span>
+                    </td>
+                    <td class="la"><a @click="openStatBlock(mon)" href="#">{{mon.name}}</a></td>
+                    <td class="ca"><a @click="showDialog(mon, `Init`)" href="#">{{mon.init}}</a></td>
+                    <td class="ca"><a @click="showDialog(mon, `HP`)" href="#">{{mon.currentHP}}/{{mon.totalHP}}</a></td>
+                    <td class="ca">{{mon.AC}}</td>
+                    <td class="ca"><a @click="roll(mon, `Atk`)" href="#">{{mon.attack}}</a></td>
+                    <td class="ca"><a @click="roll(mon, `Dmg`)" href="#">{{mon.damage}}</a></td>
+                    <td class="ra">{{mon.CR}} ({{getExp(mon.CR)}})</td>
+                </tr>
+            </table>
+
+        </section>
+
+        <section id="Pin" v-if="openTab === `Pin`">
+            <div style="display: flex; gap: 10px; font-size: 0.8em;">
+                <span title="Select the loaded pin"><a href="#" @click="selectTokens()">Select</a></span>
+                <span title="Focus on the loaded pin"><a href="#" @click="openBestiary()">Focus</a></span>
+                <span title="Open the pin notes"><a href="#" @click="toggleVisibilty(null)">Notes</a></span>
+            </div>
+
+            <div>
+                {{pinNotes}}
+            </div>
+        </section>
+
+        <div class="dialog-background" v-if="showModal">
+            <div class="dialog">
+                <section id="init" class="content" v-if="showInit">
+                    <h3>Initiative</h3>
+
+                    <b>{{character.Name}}</b>: 1d20 {{character.Init}}
+
+                    <div>
+                        <span>
+                            <input id="init-clear" name="init" type="radio" :checked="initSelection === 0">
+                            <label for="init-clear">Clear initiative</label>
+                        </span>
+
+                        <span>
+                            <input id="init-roll" name="init" type="radio" :checked="initSelection === 1">
+                            <label for="init-roll">Roll initiative</label>
+                        </span>
+
+                        <span>
+                            <input id="init-enter" name="init" type="radio" :checked="initSelection === 2">
+                            <label for="init-enter">Enter initiative</label>
+                            <input id="init-value" type="number" value="12" min="-10" max="50"
+                                :disabled="disableInitValue">
+                        </span>
+                    </div>
+
+                </section>
+
+                <section id="hp" class="content" v-if="showHealth">
+                    <h3>Hit Points</h3>
+
+                    <div>
+                        <button>Heal</button>
+                        <input id="health-adjust" type="text">
+                        <button>Damage</button>
+                        <hr>
+                        <span>
+                            <label>
+                                Current HP
+                                <input id="current-hp" type="text" :value="character.CurrentHP">
+                            </label>
+
+                        </span>
+                        <span>
+                            <label>
+                                Total HP
+                                <input id="total-hp" type="text" :value="character.TotalHP">
+                            </label>
+                        </span>
+                    </div>
+                </section>
+
+                <section id="gp" class="content" v-if="showWealth">
+                    <h3>Wealth</h3>
+
+                </section>
+
+                <section id="xp" class="content" v-if="showExperience">
+                    <h3>Experience</h3>
+
+                </section>
+
+                <div class="dialog-buttons">
+                    <button @click="submitDialog">Accept</button>
+                    <button @click="cancelDialog">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    "use strict";
+
+    const { createApp } = Vue;
+    createApp({
+        data() {
+            return {
+                pinName: null,
+                pins: [],
+                characters: [],
+                monsters: [],
+                dialogType: "",
+                openTab: "",
+                initSelection: 0,
+                character: null,
+                crExp: null,
+                pinNotes: ""
+            }
+        },
+
+        computed: {
+            showModal() { return this.dialogType !== ""; },
+
+            showInit() { return this.dialogType === "Init"; },
+
+            showHealth() { return this.dialogType === "HP"; },
+
+            showWealth() { return this.dialogType === "GP"; },
+
+            showExperience() { return this.dialogType === "XP"; },
+
+            disableInitValue() { return this.initSelection !== 2; },
+
+        },
+
+        methods: {
+            async addTokens() { },
+
+            async selectTokens() { },
+
+            async openBestiary() { },
+
+            async openStatBlock(monster) { },
+
+            async toggleVisibilty(monster) {
+                if (monster !== null) {
+                    monster.visible = !monster.visible;
+                } else {
+                    if (this.monsters.length > 0) {
+                        let first = this.monsters[0];
+                        let visibility = first.visible;
+
+                        for (const monster of this.monsters) {
+                            monster.visible = !visibility;
+                        }
+                    }
+                }
+            },
+
+            getExp(cr) {
+                console.log(cr);
+                return `${this.crExp[cr]} xp`;
+            },
+
+            async cancelDialog(event) {
+                this.dialogType = "";
+            },
+
+            async submitDialog(event) {
+                this.dialogType = "";
+            },
+
+            async openSheet(char) {
+            },
+
+            async showDialog(char, dType) {
+                this.dialogType = dType;
+                this.character = char;
+            },
+
+            async makeTokens() { },
+
+            async createPoll() { },
+
+            async pollResult() { },
+
+            async initiativeTracker() { },
+
+        },
+
+        mounted() {
+            this.openTab = "Pin";
+            this.pinName = "TestPin";
+            this.pins = ["Encounter 1", "Encounter 2", "Encounter 3"];
+            this.characters = [
+                { tokenId: "", name: "Kalidar", level: 9, playerName: "William", currentHP: 67, totalHP: 67, GP: 242.3, XP: 14000, init: "+4" },
+                { tokenId: "", name: "Violet", level: 9, playerName: "Marcus", currentHP: 67, totalHP: 91, GP: 136.4, XP: 14000, init: "+2" },
+                { tokenId: "", name: "Rowan", level: 9, playerName: "Jesper", currentHP: 57, totalHP: 57, GP: 324.43, XP: 14000, init: "+2" },
+                { tokenId: "", name: "Max", level: 9, playerName: "Max", currentHP: 86, totalHP: 94, GP: 34.543, XP: 14000, init: "+3" }
+            ];
+            this.monsters = [
+                { tokenId: "", name: "Goblin 1", currentHP: 7, totalHP: 7, init: "+2", AC: 15, attack: "+4", damage: "1d6+1", CR: "0.25", visible: false },
+                { tokenId: "", name: "Goblin 2", currentHP: 7, totalHP: 7, init: "+2", AC: 15, attack: "+4", damage: "1d6+1", CR: "0.25", visible: false },
+                { tokenId: "", name: "Goblin 3", currentHP: 7, totalHP: 7, init: "+2", AC: 15, attack: "+4", damage: "1d6+1", CR: "0.25", visible: false },
+                { tokenId: "", name: "Goblin 4", currentHP: 7, totalHP: 7, init: "+2", AC: 15, attack: "+4", damage: "1d6+1", CR: "0.25", visible: false },
+                { tokenId: "", name: "Goblin 5", currentHP: 7, totalHP: 7, init: "+2", AC: 15, attack: "+4", damage: "1d6+1", CR: "0.25", visible: false },
+                { tokenId: "", name: "Bugbear", currentHP: 27, totalHP: 27, init: "+2", AC: 16, attack: "+4", damage: "2d8+2", CR: "1", visible: true },
+            ];
+            this.crExp = ChallengeExperience;
+            this.pinNotes = lipsum;
+        }
+    }).mount('#app');
+</script>
+
+</html>
