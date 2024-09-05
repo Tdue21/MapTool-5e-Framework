@@ -2,7 +2,6 @@
 
 function getCharacterLibs() {
     let tokens = MapTool.clientInfo.libraryTokens();
-
 	let list = [];
 	
     for (const item in tokens) {        
@@ -18,8 +17,19 @@ function getCharacterLibs() {
 } 
 MTScript.RegisterMacro("getCharacterLibs", getCharacterLibs);
 
-
+function getMapEncounters() {
+	let tokens = MapTool.tokens.getMapTokens();
+	let result = [];
+	for (const token of tokens) {
+		if(token.isPC() && token.isOwner("none")) {
+			result.push({ "id": token.getId(), "name": token.getName()});
+		}				
+	}
+	return result;
+}
+MTScript.RegisterMacro("getMapEncounters", getMapEncounters);
         
+
             
 /*
 

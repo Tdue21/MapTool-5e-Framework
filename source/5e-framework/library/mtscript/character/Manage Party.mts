@@ -1,33 +1,20 @@
 [h:tokenName=getStrProp(macro.args,"tokenName")]
-
 [h:pinName=getStrProp(macro.args,"tokenName")]
-
 [h:output=getLibProperty("PC Output", function.getNamespace())]
 
 [h,if(pinName=="Select Pin"):pinName=""]
-
 [h,if(pinName==""),code:{
-
 	[h:pinName=""]
-
 	[h:XPvalue=0]
-	
 	[h:treasureCurrency=""]
-
 	[h:Equipment=""]
 };{
-
-	
 	[h:id=findToken(pinName)]
 	[h:switchToken(id)]
-
 	[h:pinXP=getProperty("XP")]
 	[h:XPvalue=getStrProp(string(pinXP),"value")]
-	
 	[h:treasureCurrency=getProperty("Currency")]
-
 	[h:Equipment=getProperty("Equipment")]
-	
 }]
 [h:EquipCount=listcount(json.fields(Equipment))]
 
@@ -46,46 +33,35 @@
 }]
 [h:ListPC=""]
 [h:maps=getAllMapNames()]
+
 [h,if(isGM()==1),count(listcount(maps)),code:{
-[h:ListPC=list]
-
+	[h:ListPC=list]
 };{
-
 	[h:map=listget(maps,roll.count)]
 	[h:ownedtokens=getOwnedNames(getPlayerName(),",",map)]
-	
 	[h,count(listcount(ownedtokens)),code:{
-	
 		[h:currentOwned=listget(ownedtokens,roll.count)]
 		[h:find=listfind(list,currentOwned)]
 		[h,if(find==-1):"";ListPC=listappend(ListPC,currentOwned)]
 	}]
 }]
 [h:tokens=listsort(ListPC,"N")]
-
-
 [h:partySize=listcount(tokens)]
 
 [dialog5("Manage", "width=580; height=400; temporary=1; noframe=0; input=1"):{
+	<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
+	<title>[r:tokenName]</title>
 
-<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
+	[h:startMap=getLibProperty("Start", function.getNamespace())]
+	[h:CurrentMap=getCurrentMapName()]
 
-<title>[r:tokenName]</title>
+	<p class='topbar'>
 
-[h:startMap=getLibProperty("Start", function.getNamespace())]
-[h:CurrentMap=getCurrentMapName()]
-
-<p class='topbar'>
-
-[r:macrolink("Party", "character/Manage Party@this")"","tokenName="+tokenName)]&nbsp;
-<span title="Open the encounter manager">[r:macrolink("Encounter", "bestiary/Manage Encounter@this")"","tokenName="+pinName+";reload=1")]</span>&nbsp;
-<span title="Open the current loaded Pin ([r:pinName])">[r:macrolink("Pin", "character/Pin Notes@this")"","tokenName="+pinName)]</span>&nbsp;
-
-</p>
-
-
-
-
+	[r:macrolink("Party", "character/Manage Party@this")"","tokenName="+tokenName)]&nbsp;
+	<span title="Open the encounter manager">[r:macrolink("Encounter", "bestiary/Manage Encounter@this")"","tokenName="+pinName+";reload=1")]</span>&nbsp;
+	<span title="Open the current loaded Pin ([r:pinName])">[r:macrolink("Pin", "character/Pin Notes@this")"","tokenName="+pinName)]</span>&nbsp;
+	
+	</p>
 
 <table>
 <tr>

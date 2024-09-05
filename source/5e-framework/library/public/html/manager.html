@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/manager.css?libcache=false">
 
     <script src="../scripts/libraries/vue.global-3.4.15.js"></script>
+    <script src="../scripts/mt-tools.js?libcache=false"></script>
     <script src="../scripts/constants.js?libcache=false"></script>
 
     <title>Party Manager</title>
@@ -28,13 +29,12 @@
             <h1>{{openTab}}</h1>
             <span></span>
             <span>
-                <select id="pinSelector" title="Select active encounter pin">
-                    <option selected>Select Pin</option>
-                    <option v-for="pin in pins">{{pin}}</option>
+                <select id="pinSelector" title="Select active encounter pin" v-model="selectedPin">
+                    <option disabled value="">Select Pin</option>
+                    <option v-for="pin in pins" :value="pin.id">{{pin.name}}</option>
                 </select>
             </span>
         </div>
-
         <!-- Party Manager Section -->
         <section id="party" v-if="openTab === `Party`">
             <div class="tabcommands">
@@ -197,6 +197,7 @@
             return {
                 pinName: null,
                 pins: [],
+                selectedPin: null,
                 characters: [],
                 monsters: [],
                 dialogType: "",
@@ -221,6 +222,13 @@
 
             disableInitValue() { return this.initSelection !== 2; },
 
+        },
+
+        watch: {
+            async selectedPin(newValue, oldValue) {
+                console.log(`Selected pin ${newValue} from ${oldValue}`);
+                this.monsters = await MT.getEncounterNpcs(newValue);
+            }
         },
 
         methods: {
@@ -278,24 +286,24 @@
 
         },
 
-        mounted() {
-            this.openTab = "Pin";
+        async mounted() {
+            this.openTab = "Party";
             this.pinName = "TestPin";
-            this.pins = ["Encounter 1", "Encounter 2", "Encounter 3"];
+            this.pins = await MT.getMapEncounters(); // ["Encounter 1", "Encounter 2", "Encounter 3"];
             this.characters = [
                 { tokenId: "", name: "Kalidar", level: 9, playerName: "William", currentHP: 67, totalHP: 67, GP: 242.3, XP: 14000, init: "+4" },
                 { tokenId: "", name: "Violet", level: 9, playerName: "Marcus", currentHP: 67, totalHP: 91, GP: 136.4, XP: 14000, init: "+2" },
                 { tokenId: "", name: "Rowan", level: 9, playerName: "Jesper", currentHP: 57, totalHP: 57, GP: 324.43, XP: 14000, init: "+2" },
                 { tokenId: "", name: "Max", level: 9, playerName: "Max", currentHP: 86, totalHP: 94, GP: 34.543, XP: 14000, init: "+3" }
             ];
-            this.monsters = [
-                { tokenId: "", name: "Goblin 1", currentHP: 7, totalHP: 7, init: "+2", AC: 15, attack: "+4", damage: "1d6+1", CR: "0.25", visible: false },
-                { tokenId: "", name: "Goblin 2", currentHP: 7, totalHP: 7, init: "+2", AC: 15, attack: "+4", damage: "1d6+1", CR: "0.25", visible: false },
-                { tokenId: "", name: "Goblin 3", currentHP: 7, totalHP: 7, init: "+2", AC: 15, attack: "+4", damage: "1d6+1", CR: "0.25", visible: false },
-                { tokenId: "", name: "Goblin 4", currentHP: 7, totalHP: 7, init: "+2", AC: 15, attack: "+4", damage: "1d6+1", CR: "0.25", visible: false },
-                { tokenId: "", name: "Goblin 5", currentHP: 7, totalHP: 7, init: "+2", AC: 15, attack: "+4", damage: "1d6+1", CR: "0.25", visible: false },
-                { tokenId: "", name: "Bugbear", currentHP: 27, totalHP: 27, init: "+2", AC: 16, attack: "+4", damage: "2d8+2", CR: "1", visible: true },
-            ];
+            // this.monsters = [
+            //     { tokenId: "", name: "Goblin 1", currentHP: 7, totalHP: 7, init: "+2", AC: 15, attack: "+4", damage: "1d6+1", CR: "0.25", visible: false },
+            //     { tokenId: "", name: "Goblin 2", currentHP: 7, totalHP: 7, init: "+2", AC: 15, attack: "+4", damage: "1d6+1", CR: "0.25", visible: false },
+            //     { tokenId: "", name: "Goblin 3", currentHP: 7, totalHP: 7, init: "+2", AC: 15, attack: "+4", damage: "1d6+1", CR: "0.25", visible: false },
+            //     { tokenId: "", name: "Goblin 4", currentHP: 7, totalHP: 7, init: "+2", AC: 15, attack: "+4", damage: "1d6+1", CR: "0.25", visible: false },
+            //     { tokenId: "", name: "Goblin 5", currentHP: 7, totalHP: 7, init: "+2", AC: 15, attack: "+4", damage: "1d6+1", CR: "0.25", visible: false },
+            //     { tokenId: "", name: "Bugbear", currentHP: 27, totalHP: 27, init: "+2", AC: 16, attack: "+4", damage: "2d8+2", CR: "1", visible: true },
+            // ];
             this.crExp = ChallengeExperience;
             this.pinNotes = lipsum;
         }
