@@ -58,6 +58,19 @@ const ExperienceLevel = {
     "20": { "xp": 355000, "profBonus": "+6" }
 };
 
-const lipsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris suscipit, augue ut iaculis lacinia, tellus ligula egestas massa, vitae iaculis enim lorem at sapien. Sed quis metus malesuada, finibus magna eu, porta dui. Nullam commodo quam in ipsum accumsan, placerat malesuada ligula viverra. Nulla facilisi. Phasellus aliquam consectetur tellus vitae feugiat. Donec nec dui ac arcu ullamcorper condimentum id sed dui. Fusce pulvinar nulla nec nulla ultrices tincidunt. Curabitur convallis sem eu quam mattis imperdiet. Maecenas sit amet posuere ligula, sit amet interdum elit. Nunc bibendum lacus in arcu pulvinar dictum quis nec ex. Nulla dui quam, lobortis quis condimentum eget, fermentum id nisi. Aliquam in vestibulum lorem. Pellentesque varius eros ac dolor gravida, sit amet elementum urna blandit. Suspendisse potenti. Curabitur ullamcorper lobortis elit non porttitor.
+const lipsum = `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris suscipit, augue ut iaculis lacinia,
+tellus ligula egestas massa, vitae iaculis enim lorem at sapien. Sed quis metus malesuada, finibus magna eu, porta dui. 
+Nullam commodo quam in ipsum accumsan, placerat malesuada ligula viverra. Nulla facilisi. Phasellus aliquam consectetur 
+tellus vitae feugiat. Donec nec dui ac arcu ullamcorper condimentum id sed dui. Fusce pulvinar nulla nec nulla ultrices 
+tincidunt. Curabitur convallis sem eu quam mattis imperdiet. Maecenas sit amet posuere ligula, sit amet interdum elit. 
+Nunc bibendum lacus in arcu pulvinar dictum quis nec ex. Nulla dui quam, <i>lobortis quis condimentum</i> eget, fermentum id 
+nisi. Aliquam in vestibulum lorem. Pellentesque varius eros ac dolor gravida, sit amet elementum urna blandit. Suspendisse 
+potenti. Curabitur ullamcorper lobortis elit non porttitor.</p>
 
-Phasellus a scelerisque sapien, at hendrerit nisi. Suspendisse elit odio, fringilla non lectus id, varius feugiat massa. Nam cursus, erat nec consectetur sagittis, justo libero sagittis quam, in ullamcorper neque lectus sit amet urna. Phasellus faucibus mi tortor, et dictum ligula placerat et. Donec suscipit ac nulla vel pulvinar. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus justo turpis, suscipit vitae nisl eget, accumsan tincidunt diam. Sed viverra fermentum lorem et porttitor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla leo leo, gravida vel aliquam id, dignissim sit amet nunc. Quisque ultrices arcu eros, convallis bibendum magna iaculis id. Donec est erat, imperdiet sit amet consectetur quis, facilisis non massa.`;
+<p>Phasellus a scelerisque sapien, at hendrerit nisi. Suspendisse elit odio, fringilla non lectus id, varius feugiat massa. 
+Nam cursus, erat nec consectetur sagittis, justo libero sagittis quam, in ullamcorper neque lectus sit amet urna. Phasellus 
+faucibus mi tortor, et dictum ligula placerat et. Donec suscipit ac nulla vel pulvinar. Orci varius <b>natoque</b> penatibus et 
+magnis dis parturient montes, nascetur ridiculus mus. Vivamus justo turpis, suscipit vitae nisl eget, accumsan tincidunt 
+diam. Sed viverra fermentum lorem et porttitor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur 
+ridiculus mus. Nulla leo leo, gravida vel aliquam id, dignissim sit amet nunc. Quisque ultrices arcu eros, convallis 
+bibendum magna iaculis id. Donec est erat, imperdiet sit amet consectetur quis, facilisis non massa.</p>`;

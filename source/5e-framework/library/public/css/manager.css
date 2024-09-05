@@ -2,7 +2,7 @@ html {
     margin: 5px;
     padding: 10px;
 
-    font-size: 16px;
+    font-size: 14px;
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -59,18 +59,28 @@ a {
     cursor: pointer;
 }
 
+.showPointer {
+    cursor: pointer;
+}
+
 .selected {
     background-color: #ccc;
+}
+
+.tabcommands {
+    display: flex;
+    gap: 10px;
+    font-size: 0.8em;
 }
 
 .encounter,
 .party {
     width: 100%;
     border-collapse: collapse;
-    font-size:0.9em;
+    font-size: 0.9em;
 }
 
-.encounter th, 
+.encounter th,
 .encounter td {
     width: 10%;
     padding: 2px;
@@ -90,6 +100,7 @@ a {
 
 .encounter td:nth-child(1) {
     width: 0%;
+    cursor: pointer;
 }
 
 .encounter td:nth-child(2),

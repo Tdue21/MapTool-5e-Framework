@@ -1,35 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto,Goudy+Bookletter+1911">
     <link rel="stylesheet" href="../css/manager.css?libcache=false">
+
     <script src="../scripts/libraries/vue.global-3.4.15.js"></script>
     <script src="../scripts/constants.js?libcache=false"></script>
+
     <title>Party Manager</title>
 </head>
 
 <body>
     <div id="app">
+        <!-- Man Tabs -->
         <div class="tabs">
             <span title="Open the party manager" @click="openTab = `Party`">Party</span>
             <span title="Open the encounter manager" @click="openTab = `Encounter`">Encounter</span>
             <span :title="`Open the current loaded Pin (${pinName})`" @click="openTab = `Pin`">Pin</span>
         </div>
 
+        <!-- Header -->
         <div class="header">
             <h1>{{openTab}}</h1>
             <span></span>
             <span>
-                <select id="pinSelector">
+                <select id="pinSelector" title="Select active encounter pin">
                     <option selected>Select Pin</option>
                     <option v-for="pin in pins">{{pin}}</option>
                 </select>
             </span>
         </div>
 
+        <!-- Party Manager Section -->
         <section id="party" v-if="openTab === `Party`">
-            <div style="display: flex; gap: 10px; font-size: 0.8em;">
+            <div class="tabcommands">
                 <span title="Create tokens of party members"> <a href="#" @click="makeTokens()">Make tokens</a></span>
                 <span title="Create a poll for the players"> <a href="#" @click="createPoll()">Create Poll</a></span>
                 <span title="Show the results of the current poll"><a href="#" @click="pollResult()">Results</a></span>
@@ -58,8 +66,15 @@
             </table>
         </section>
 
+        <!-- Encounter Manager Section -->
         <section id="encounter" v-if="openTab === `Encounter`">
-    
+            <div class="tabcommands">
+                <span title="Add selected tokens to encounter"> <a href="#" @click="addTokens()">Add</a></span>
+                <span title="Select loaded tokens on map"> <a href="#" @click="selectTokens()">Select</a></span>
+                <span title="Open the Bestiary"><a href="#" @click="openBestiary()">Bestiary</a></span>
+                <span title="Hide or show all loaded tokens"><a href="#" @click="toggleVisibilty(null)">Hide/Show All</a></span>
+                <span title="Open Initiative Tracker"> <a href="#" @click="initiativeTracker()">Initiative</a></span>
+            </div>   
 
             <table class="encounter">
                 <tr>
@@ -91,16 +106,15 @@
 
         </section>
 
+        <!-- Pin Manager Section-->
         <section id="Pin" v-if="openTab === `Pin`">
-            <div style="display: flex; gap: 10px; font-size: 0.8em;">
+            <div class="tabcommands">
                 <span title="Select the loaded pin"><a href="#" @click="selectTokens()">Select</a></span>
                 <span title="Focus on the loaded pin"><a href="#" @click="openBestiary()">Focus</a></span>
                 <span title="Open the pin notes"><a href="#" @click="toggleVisibilty(null)">Notes</a></span>
             </div>
 
-            <div>
-                {{pinNotes}}
-            </div>
+            <div v-html="pinNotes" />
         </section>
 
         <div class="dialog-background" v-if="showModal">
@@ -125,7 +139,7 @@
                             <input id="init-enter" name="init" type="radio" :checked="initSelection === 2">
                             <label for="init-enter">Enter initiative</label>
                             <input id="init-value" type="number" value="12" min="-10" max="50"
-                                :disabled="disableInitValue">
+                                :disabled="disableInitValue" placeholder="Enter initiative">
                         </span>
                     </div>
 
@@ -136,7 +150,7 @@
 
                     <div>
                         <button>Heal</button>
-                        <input id="health-adjust" type="text">
+                        <input id="health-adjust" type="text" placeholder="Enter value to adjust health by">
                         <button>Damage</button>
                         <hr>
                         <span>
