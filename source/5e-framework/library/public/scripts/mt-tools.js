@@ -51,7 +51,15 @@ class MT {
      * 
      */
     static async getCharacters() {
-        const rawData = await evalMacro(`[h:info=getInfo("client")]
+        if (typeof MapTool === typeof undefined) {
+            return [
+                { tokenId: "", name: "Kalidar", level: 9, playerName: "William", currentHP: 67, totalHP: 67, GP: 242.3, XP: 14000, init: "+4" },
+                { tokenId: "", name: "Violet", level: 9, playerName: "Marcus", currentHP: 67, totalHP: 91, GP: 136.4, XP: 14000, init: "+2" },
+                { tokenId: "", name: "Rowan", level: 9, playerName: "Jesper", currentHP: 57, totalHP: 57, GP: 324.43, XP: 14000, init: "+2" },
+                { tokenId: "", name: "Max", level: 9, playerName: "Max", currentHP: 86, totalHP: 94, GP: 34.543, XP: 14000, init: "+3" }
+            ];
+        } else {
+            const rawData = await evalMacro(`[h:info=getInfo("client")]
 [h:libTokens = json.getr(info, "library tokens")]
 [h:libList = json.fields(libTokens)]
 
@@ -62,7 +70,7 @@ class MT {
 }]`);
 
 
-
+        }
 
 
 
