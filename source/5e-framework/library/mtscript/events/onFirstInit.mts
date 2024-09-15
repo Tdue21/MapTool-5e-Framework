@@ -54,3 +54,5 @@
     [h:panelMacros = json.get(macroData, panel)]
     [foreach(props, panelMacros, ""): createMacro(props, panel)]
 }]
+
+[h:broadcast("onFirstInit done")]

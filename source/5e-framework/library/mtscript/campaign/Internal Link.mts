@@ -42,9 +42,16 @@
 	};
 	case "token":{
 		<!---------TOKEN ON MAP---------->
-		[h:map=getCurrentMapName()]
-		[h,if(group2=="token"):objLink=macroLinkText("character/Focus Token@this","","map="+map+";tokenName="+ContentName)]
-	
+		[h:id=strfind(ContentName, "(.*)@(.*)")]
+		[h:findCount = getFindCount(id)]
+		[h,if(findCount == 1),code: {
+			[h:pinName = getGroup(id, 1, 1)]
+			[h:mapName = getGroup(id, 1, 2)]
+		};{
+			[h:pinName = ContentName]
+			[h:mapName = getCurrentMapName()]
+		}]
+		[h,if(group2=="token"):objLink=macroLinkText("Focus Token@Lib:Character","","map="+mapName+";tokenName="+pinName)]		
 	};
 	default:{
 		[h:tokenId=findToken(tokenName)]

@@ -6,7 +6,7 @@
 
 [dialog5(tokenName+" - "+name+" - Edit", "width=650; height=550; temporary=1; input=1; noframe=0"): {
 
-<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">[h: processorLink = macroLinkText("notebook/Change Form process@this", "")]
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">[h: processorLink = macroLinkText("notebook/ChangeFormProcess@this", "")]
 <form action="[r:processorLink]" method="json">
 <div class="div" style="margin-left: 5px">
 <input type="submit" name="button" value="Save">

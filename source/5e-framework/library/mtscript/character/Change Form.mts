@@ -38,7 +38,7 @@
     <link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
 </head>
 <body>
-    [h: processorLink = macroLinkText("character/Change Form process@this", "")]
+    [h: processorLink = macroLinkText("character/ChangeFormProcess@this", "")]
     <form action="[r:processorLink]" method="json">
         <input type="submit" name="button" value="Save">[r,count(2,""):"&nbsp;"]
         <input type="hidden" name="prop" value="[r:group]">

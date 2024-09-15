@@ -1,46 +1,51 @@
+[dialog5("Player Menu", "width=360; height=220; temporary=1; noframe=0; input=1"):{
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
+    <link rel="stylesheet" type="text/css" href="[r:function.getCss('menus')]">
+</head>
+<body>
+    [h:processorLink=macroLinkText("campaign/MenuProcess@this","")]
+    <form class="gridmenu" action="[r:processorLink]" method="json">
 
-[dialog5("Player Menu", "width=340; height=240; temporary=1; noframe=0; input=1"):{
+        <button type="submit" name="Action" value="PCMacros">
+            <img src="lib://[r:function.getNamespace()]/assets/icons/add-person.png"><br>New PC
+        </button>
 
-<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
+        <button type="submit" name="Action" value="New">
+            <img src="lib://[r:function.getNamespace()]/assets/icons/setup.png"><br>1st Level
+        </button>
 
+        <button type="submit" name="Action" value="LevelUp">
+            <img src="lib://[r:function.getNamespace()]/assets/icons/level-up.png"><br>Level Up
+        </button>
 
+        <button type="submit" name="Action" value="Dice">
+            <img src="lib://[r:function.getNamespace()]/assets/icons/dice.png"><br>Roll Dice
+        </button>
 
-[h:processorLink=macroLinkText("campaign/Menu process@this","")]
-<form action="[r:processorLink]" method="json">
+        <button type="submit" name="Action" value="Distance">
+            <img src="lib://[r:function.getNamespace()]/assets/icons/distance.png"><br>Distance
+        </button>
 
-<table>
-<tr>
-<td align=right>
+        <button type="submit" name="Action" value="Rules">
+            <img src="lib://[r:function.getNamespace()]/assets/icons/dnd.png"><br>Link Rules
+        </button>
 
-<input type="submit" name="PCMacros" value="<html><table width=60 cellspacing=0 cellpadding=0><tr><td aligin=center style='margin:0px;padding:0px'><img src=asset://8a0b10d13b3c5d66ec8a342e1ed4f50e><br><font size=2>New PC</html>">
-<td align=center width=0%>
+        <button type="submit" name="Action" value="Library">
+            <img src="lib://[r:function.getNamespace()]/assets/icons/library.png"><br>Compendium
+        </button>
 
-<input type="submit" name="New" value="<html><table width=60 cellspacing=0 cellpadding=0><tr><td aligin=center style='margin:0px;padding:0px'><img src=asset://9431a91860a997a3b66f65bfc5430c11><br><font size=2>1st Level</html>">
-<td align=left>
+        <button type="submit" name="Action" value="Notebooks">
+            <img src="lib://[r:function.getNamespace()]/assets/icons/notebook.png"><br>Notebooks
+        </button>
 
-<input type="submit" name="LevelUp" value="<html><table width=60 cellspacing=0 cellpadding=0><tr><td aligin=center style='margin:0px;padding:0px'><img src=asset://e89b8ef1ec30249c323952fdd70b696a><br><font size=2>Level Up</html>">
-<tr><td align=right>
-
-<input type="submit" name="Dice" value="<html><table width=60 cellspacing=0 cellpadding=0><tr><td aligin=center style='margin:0px;padding:0px'><img src=asset://274cb2ad110af815ee7c7d5b47989b0b><br>&nbsp;<font size=2>Roll Dice</html>">
-<td align=center>
-
-<input type="submit" name="Distance" value="<html><table width=60 cellspacing=0 cellpadding=0><tr><td aligin=center style='margin:0px;padding:0px'><img src=asset://6909f4c13ad9ab84e52ba0e0af41ce4f><br><font size=2>Distance</html>">
-<td align=left>
-
-<input type="submit" name="Rules" value="<html><table width=60 cellspacing=0 cellpadding=0><tr><td aligin=center style='margin:0px;padding:0px'><img src=asset://4625dbf1c172c2408fd3d80692331fc5><br>&nbsp;<font size=2>Link Rules</html>">
-<tr><td align=right>
-
-<input type="submit" name="Library" value="<html><table width=60 cellspacing=0 cellpadding=0><tr><td aligin=center style='margin:0px;padding:0px'><img src=asset://aed6269a99576e707a8b2e5081a11fed><br><font size=2>Compendium</html>">
-<td align=center>
-
-<input type="submit" name="Notebooks" value="<html><table width=60 cellspacing=0 cellpadding=0><tr><td aligin=center style='margin:0px;padding:0px'><img src=asset://b92cef77adaee8657caaed183e14fc90><br><font size=2>Notebooks</html>">
-<td align=left>
-
-<input type="submit" name="Map" value="<html><table width=60 cellspacing=0 cellpadding=0><tr><td aligin=center style='margin:0px;padding:0px'><img src=asset://0fcfa25c7bce6c353f089fa6baa111aa><br>&nbsp;<font size=2>Select Map</html>">
-
-
-
-</table>
-
+        <button type="submit" name="Action" value="Map">
+            <img src="lib://[r:function.getNamespace()]/assets/icons/globe.png"><br>Select Map
+        </button>
+    </form>
+</body>
+</html>
 
 }]

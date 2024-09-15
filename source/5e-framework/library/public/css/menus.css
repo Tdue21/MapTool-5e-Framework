@@ -1,0 +1,44 @@
+.stackmenu {
+    display: flex;
+    flex-direction: column;
+    justify-items: stretch;
+    gap: 5px;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.stackmenu button {
+    width: 150px;
+    text-align: left;
+    padding: 3px;
+}
+
+.accent {
+    width: 20px;
+    border: 1px solid black;
+}
+
+.gridmenu {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.gridmenu button {
+    width: 100px;
+    min-height: 25px;
+    font-size: 0.8rem;
+    font-family: "roboto", sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+button img {
+    width: 24px;
+    height: 24px;
+    margin: 0px;
+    padding: 0px;
+}

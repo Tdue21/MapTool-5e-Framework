@@ -91,11 +91,13 @@
 [h:libInfo = library.getInfo(library)]
 [h:libVersion = json.get(libInfo, "version")]
 
-[h:html='
-<font color=blue><i>Framework Version: '+libVersion+'</i></font>
-<div style="background-color: #f6f8fa;border: 2px solid #ABB3A1;border-left: 1px solid #ABB3A1;border-right: 1px solid #ABB3A1; margin:5px ; padding:5px">
-<h1 style="border-bottom: 1px solid #ABB3A1; font-size: 12px;margin-bottom:5px;margin-top:3px">Welcome, '+getPlayerName()+'!</h1>
-'+customMSG+'
+[h:"<!-- -->"]
+
+[h:html='<div style="font-family: sans-serif; color: #111111; background-color: #f6f8fa; ' + 
+'border: 3px solid #ABB3A1; border-left: 1px solid #ABB3A1; border-top: 1px solid #ABB3A1; margin: 5px; padding: 5px;">
+<h1 style="border-bottom: 1px solid #ABB3A1; font-size: 12px;margin:0px;margin-top:3px">Welcome, '+getPlayerName()+'!</h1>
+<p>'+customMSG+'</p>
+<p><i>Framework Version: '+libVersion+'</i></p>
 </div>
 ']
 [h:broadcast(html,"self")]
@@ -108,3 +110,5 @@
 [h,macro("tables/Tables List@this"):""]
 
 [h:closeOverlay("loading")]
+
+[h:broadcast("onInit done")]

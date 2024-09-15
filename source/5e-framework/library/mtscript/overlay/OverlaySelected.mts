@@ -5,13 +5,12 @@
 [h,if(toggle==""):toggle=1]
 
 [overlay("Selected Macros"):{
+<!DOCTYPE html>
+<html>
+<head>
+    [h: link = macroLinkText("overlay/OverlaySelected@this", "none","toggle="+toggle+";macroGroups="+macroGroups)]
+    <link rel="onChangeSelection" type="macro" href="[r:link]">
 
-[h: link = macroLinkText("overlay/OverlaySelected@this", "none","toggle="+toggle+";macroGroups="+macroGroups)]
-<link rel="onChangeSelection" type="macro" href="[r:link]">
-
-
-[h,if(id==""):id=getSelected();""]
-
-[r, macro("overlay/selectedToken@this"):"id="+id+";toggle="+toggle+";macroGroups="+macroGroups]
-
+    [h,if(id==""):id=getSelected();""]
+    [r, macro("overlay/selectedToken@this"):"id="+id+";toggle="+toggle+";macroGroups="+macroGroups]    
 }]

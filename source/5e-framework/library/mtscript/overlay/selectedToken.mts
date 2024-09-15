@@ -1,11 +1,9 @@
-[h:namespace = "dovesoft.dnd5e"]
-
 [h:toggle=getStrProp(macro.args,"toggle")]
 [h:macroGroups=getStrProp(macro.args,"macroGroups")]
 [h:idList=getStrProp(macro.args,"id")]
 
 [h:output= function.getOutput())]
-[h:display=getLibProperty("Display",namespace)]
+[h:display=getLibProperty("Display", function.getNamespace())]
 [h:darkMode=getStrProp(display,"darkMode")]
 
 <style>

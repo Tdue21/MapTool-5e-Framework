@@ -58,12 +58,29 @@
                     <td class="ca">{{char.level}}</td>
                     <td class="la"><a @click="openSheet(char)" href="#">{{char.name}}</a></td>
                     <td class="la">{{char.playerName}}</td>
-                    <td class="ca"><a @click="showDialog(char, `Init`)" href="#">{{char.init}}</a></td>
-                    <td class="ca"><a @click="showDialog(char, `HP`)" href="#">{{char.currentHP}}/{{char.totalHP}}</a></td>
-                    <td class="ra"><a @click="showDialog(char, `GP`)" href="#">{{char.GP}}</a></td>
+                    <td class="ca">{{char.init}}</td>
+                    <td class="ca"><a @click="showDialog(char, `HP`)" href="#">{{char.currentHP}}/{{char.totalHP}}</a>
+                    </td>
+                    <td class="ra"><a @click="showDialog(char, `GP`)" href="#">{{showCurrency(char.wealth)}}</a></td>
                     <td class="ra"><a @click="showDialog(char, `XP`)" href="#">{{char.XP}}</a></td>
                 </tr>
             </table>
+
+
+            <div class="distXp">
+                <label for="npcs">NPCs</label>
+                <input id ="npcs" type="number" v-model="distXp.npcs">
+
+                <label for="xp">XP total</label>
+                <input id ="xp" type="number" v-model="distXp.xp">
+
+                <button @click="distributeXp">Distribute XP</button>
+            </div>
+
+            <div class="distXp">
+                
+            </div>
+
         </section>
 
         <!-- Encounter Manager Section -->
@@ -72,9 +89,10 @@
                 <span title="Add selected tokens to encounter"> <a href="#" @click="addTokens()">Add</a></span>
                 <span title="Select loaded tokens on map"> <a href="#" @click="selectTokens()">Select</a></span>
                 <span title="Open the Bestiary"><a href="#" @click="openBestiary()">Bestiary</a></span>
-                <span title="Hide or show all loaded tokens"><a href="#" @click="toggleVisibilty(null)">Hide/Show All</a></span>
+                <span title="Hide or show all loaded tokens"><a href="#" @click="toggleVisibilty(null)">Hide/Show
+                        All</a></span>
                 <span title="Open Initiative Tracker"> <a href="#" @click="initiativeTracker()">Initiative</a></span>
-            </div>   
+            </div>
 
             <table class="encounter">
                 <tr>
@@ -95,7 +113,7 @@
                         </span>
                     </td>
                     <td class="la"><a @click="openStatBlock(mon)" href="#">{{mon.name}}</a></td>
-                    <td class="ca"><a @click="showDialog(mon, `Init`)" href="#">{{mon.init}}</a></td>
+                    <td class="ca">{{mon.init}}</td>
                     <td class="ca"><a @click="showDialog(mon, `HP`)" href="#">{{mon.currentHP}}/{{mon.totalHP}}</a></td>
                     <td class="ca">{{mon.AC}}</td>
                     <td class="ca"><a @click="roll(mon, `Atk`)" href="#">{{mon.attack}}</a></td>
@@ -119,6 +137,7 @@
 
         <div class="dialog-background" v-if="showModal">
             <div class="dialog">
+
                 <section id="init" class="content" v-if="showInit">
                     <h3>Initiative</h3>
 
@@ -145,47 +164,57 @@
 
                 </section>
 
-                <section id="hp" class="content" v-if="showHealth">
-                    <h3>Hit Points</h3>
+                <section id="hp" class="content health" v-if="showHealth">
 
+                    <h3>HP Adjustment: {{character.name}}</h3>
+
+                    <button class="adjust heal" @click="healHp(character)">Heal</button>
+                    <input id="health-adjust" type="number" v-model.number="healthAdjust" min="0" max="">
+                    <button class="adjust dmg" @click="dmgHp(character)">Damage</button>
+
+                    <label for="current-hp">Current HP</label>
+                    <input id="current-hp" type="number" v-model.number="character.currentHP" min="0"
+                        :max="character.totalHP">
+
+                    <label for="total-hp">Total HP</label>
+                    <input id="total-hp" type="number" v-model.number="character.totalHP" min="0">
+
+                </section>
+
+                <section id="gp" class="content currency" v-if="showWealth">
+                    <h3>Currency: {{character.name}}</h3>
                     <div>
-                        <button>Heal</button>
-                        <input id="health-adjust" type="text" placeholder="Enter value to adjust health by">
-                        <button>Damage</button>
-                        <hr>
-                        <span>
-                            <label>
-                                Current HP
-                                <input id="current-hp" type="text" :value="character.CurrentHP">
-                            </label>
-
-                        </span>
-                        <span>
-                            <label>
-                                Total HP
-                                <input id="total-hp" type="text" :value="character.TotalHP">
-                            </label>
-                        </span>
+                        <label for="ppInput" title="worth * 10">Platinum</label>
+                        <input id="ppInput" type="number" v-model="character.wealth.pp">
+                        <label for="gpInput" title="worth * 1">Gold</label>
+                        <input id="gpInput" type="number" v-model="character.wealth.gp">
+                        <label for="epInput" title="worth * 0.5">Electrum</label>
+                        <input id="epInput" type="number" v-model="character.wealth.ep">
+                        <label for="spInput" title="worth * 0.1">Silver</label>
+                        <input id="spInput" type="number" v-model="character.wealth.sp">
+                        <label for="cpInput" title="worth * 0.01">Copper</label>
+                        <input id="cpInput" type="number" v-model="character.wealth.cp">
+                        <span>Weight</span>
+                        <span>{{coinWeight(character.wealth)}} lbs</span>
                     </div>
                 </section>
 
-                <section id="gp" class="content" v-if="showWealth">
-                    <h3>Wealth</h3>
-
-                </section>
-
-                <section id="xp" class="content" v-if="showExperience">
-                    <h3>Experience</h3>
-
+                <section id="xp" class="content currency" v-if="showExperience">
+                    <h3>Experience: {{character.name}}</h3>
+                    <div>
+                        <label for="xpInput" title="Enter current experience">Experience</label>
+                        <input id="xpInput" type="number" v-model="character.XP">
+                    </div>
                 </section>
 
                 <div class="dialog-buttons">
-                    <button @click="submitDialog">Accept</button>
-                    <button @click="cancelDialog">Cancel</button>
+                    <button @click="submitDialog">Close</button>
+                    <!-- button @click="cancelDialog">Cancel</button -->
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 
 <script>
@@ -205,7 +234,12 @@
                 initSelection: 0,
                 character: null,
                 crExp: null,
-                pinNotes: ""
+                pinNotes: "",
+                healthAdjust: 0,
+                distXp: {
+                    npcs:0,
+                    xp:0
+                }
             }
         },
 
@@ -226,6 +260,8 @@
         },
 
         methods: {
+            async distributeXp() {},
+
             async addTokens() { },
 
             async selectTokens() { },
@@ -273,7 +309,35 @@
 
             async initiativeTracker() { },
 
+            showCurrency(wealth) {
+                let gp = ((wealth.pp ?? 0) * 10)
+                    + ((wealth.gp ?? 0))
+                    + ((wealth.ep ?? 0) * 0.5)
+                    + ((wealth.sp ?? 0) * 0.1)
+                    + ((wealth.cp ?? 0) * 0.01);
+                return Math.floor(gp * 100) / 100;
+            },
+
+            coinWeight(wealth) {
+                let coins = (wealth.pp ?? 0)
+                    + (wealth.gp ?? 0)
+                    + (wealth.ep ?? 0)
+                    + (wealth.sp ?? 0)
+                    + (wealth.cp ?? 0);
+                return coins / 50;
+            },
+
             getExp(cr) { return `${this.crExp[cr]} xp`; },
+
+            healHp(character) {
+                character.currentHP += this.healthAdjust;
+                this.dialogType = "";
+            },
+
+            dmgHp(character) {
+                character.currentHP -= this.healthAdjust;
+                this.dialogType = "";
+            }
         },
 
         async mounted() {
@@ -283,10 +347,12 @@
             this.characters = await MT.getCharacters();
             this.crExp = ChallengeExperience;
             this.pinNotes = lipsum;
+        },
+
+        beforeDestroy() {
         }
+
     }).mount('#app');
 </script>
 
 </html>
-
-

@@ -67,7 +67,7 @@
                 "layer": "Token",
                 "opacity": "1",
                 "x": 2,
-                "y": 3,
+                "y": 2,
                 "macros": [
                     {
                         "label": "Notebook",

@@ -124,7 +124,7 @@ function createMap(mapData) {
                 const tokenId = MTScript.getVariable("tokenId");
 
                 if (token.hasOwnProperty("macros")) {
-                    MapTool.chat.broadcast("createMacro: <pre>" + JSON.stringify(token.macros, null, 4) + "</pre>");
+                   // MapTool.chat.broadcast("createMacro: <pre>" + JSON.stringify(token.macros, null, 4) + "</pre>");
 
                     for (const macro of token.macros) {
                         MTScript.setVariable("tokenId", tokenId);
@@ -189,7 +189,7 @@ function createNotebooks(notebookData) {
                 color: "gray50",
                 fontColor: "white",
                 minWidth: 120,
-                command:"[function.showNotebook('Lib:"+ name + "')]"
+                command:"[h:function.showNotebook('Lib:"+ name + "')]"
             };
 
             MTScript.setVariable("tokenData", JSON.stringify(tokenData));
@@ -206,9 +206,11 @@ function createNotebooks(notebookData) {
 [h:setProperty("Settings", settings, tokenId)]
 [h:setProperty("Value", value, tokenId)]
 [h:setOwnedByAll(owned, tokenId)]
-[h:broadcast("<pre>" + json.indent(props) + "</pre>")]
+
 [h:createMacro(props, tokenId)]
 `);
+
+//[h:broadcast("<pre>" + json.indent(props) + "</pre>")]
             x += 2;
         }
     } catch (e) {

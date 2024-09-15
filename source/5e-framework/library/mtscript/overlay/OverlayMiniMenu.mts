@@ -338,7 +338,7 @@ hr {
 		<td>
 		[r:macroLink("1d100","campaign/Dice Roller@this","","text=Dice Roller;color=Black;value=1d100")]
 		<td class=center colspan=5>
-		[r:macroLink("Dice Roller","campaign/Menu process@this","","{'Dice':'1'}")]
+		[r:macroLink("Dice Roller","campaign/MenuProcess@this","", json.set("{}", "Action", "Dice"))]
 		</table>
 	</div>
 </div>
