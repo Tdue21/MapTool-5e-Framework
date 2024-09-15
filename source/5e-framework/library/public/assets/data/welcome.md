@@ -6,6 +6,5 @@ Here are some useful links:
 - [RPTools Forums](https://forums.rptools.net/viewtopic.php?f=85&t=28435)
 - [Video Tutorials](https://www.youtube.com/playlist?list=PLuMExokX4OFCRTdPkR8d5sTCkPsrnbG1G) (Youtube Playlist)
 - [Basic Rules](https://www.dndbeyond.com/sources/dnd/basic-rules-2014) (Basic Rules (2014) on D&D Beyond)
-- [Support me on Patreon](https://www.patreon.com/rtakehara)
 
 Have a good game!
