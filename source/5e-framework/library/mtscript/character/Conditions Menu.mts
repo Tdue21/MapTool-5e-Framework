@@ -1,3 +1,4 @@
+[h:broadcast("Conditions Menu: <br><pre>" + json.indent(macro.args, 4) + "</pre>")]
 [h,if(macro.args==""),code:{
 
 	[h:tokenName=getSelectedNames()]

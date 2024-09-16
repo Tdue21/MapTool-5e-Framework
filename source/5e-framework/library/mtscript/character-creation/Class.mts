@@ -63,7 +63,7 @@ Select a <b>class</b> from the following, and select if you want starting equipm
 <td valign=bottom style="padding:0px;margin=0px">
 
 
-[h: processorLink=macroLinkText("character-creation/Character Creation Wizard@this","")]
+[h: processorLink=macroLinkText("character-creation/CharacterCreationWizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 [h:classes=getLibProperty("Classes", function.getNamespace())]

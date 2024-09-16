@@ -11,7 +11,7 @@ Select in the list below the <b>Token</b> to setup, the list shows only <b>PC to
 <td valign=bottom style="padding:0px;margin=0px;margin-left:10px">
 
 
-[h: processorLink=macroLinkText("character-creation/Character Creation Wizard@this","")]
+[h: processorLink=macroLinkText("character-creation/CharacterCreationWizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 <!----------List PC Libs----------->

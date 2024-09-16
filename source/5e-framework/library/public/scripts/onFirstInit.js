@@ -118,8 +118,10 @@ function createMap(mapData) {
                     y: token.y
                 };
                 const opacity = token.opacity;
+                const propType = token.propertyType;
                 MTScript.setVariable("data", JSON.stringify(tokenData));
                 MTScript.setVariable("opacity", opacity);
+                MTScript.setVariable("propType", propType);
                 MTScript.evalMacro(`[h:tokenId = createToken(data)][h:setTokenOpacity(opacity, tokenId)]`);
                 const tokenId = MTScript.getVariable("tokenId");
 
@@ -168,8 +170,8 @@ function createNotebooks(notebookData) {
         const rawData = atob(notebookData);
         const notebooks = JSON.parse(rawData);
 
-        let x = 2;
-        let y = 2;
+        let x = 5;
+        let y = 0;
         for(const notebook of notebooks) {
             const name = notebook.name;
             const hidden = notebook.hidden;
@@ -211,7 +213,8 @@ function createNotebooks(notebookData) {
 `);
 
 //[h:broadcast("<pre>" + json.indent(props) + "</pre>")]
-            x += 2;
+            x++;
+            MapTool.chat.broadcast(`Created notebook "${name}" at ${x}`);
         }
     } catch (e) {
         MapTool.chat.broadcast("createNotebooks: " + e + "\n" + e.stack);

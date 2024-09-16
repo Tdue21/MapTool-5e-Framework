@@ -62,7 +62,7 @@ Select a <b>background</b> from the following list.
 <td valign=bottom style="padding:0px;margin=0px">
 
 
-[h: processorLink=macroLinkText("character-creation/Character Creation Wizard@this","")]
+[h: processorLink=macroLinkText("character-creation/CharacterCreationWizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 [h:bg=getLibProperty("Backgrounds", function.getNamespace())]

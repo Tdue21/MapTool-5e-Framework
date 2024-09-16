@@ -1,45 +1,31 @@
-[h:broadcast("<pre>" + json.indent(macro.args, 4) + "</pre>")]
-
 [h:Action = decode(json.get(macro.args,"Action"))]
 [h:output = function.getOutput())]
 [h:link = ""]
 
 [switch(Action), code:
-	case "Settings":   { [link=macroLinkText("campaign/Campaign Settings@this")] };
-	case "Rules":      { [link=macroLinkText("campaign/Basic Rules@this")] };
-	case "Party":      { [link=macroLinkText("character/Manage Party@this")] };
-	case "Search":     { [link=macroLinkText("campaign/Search@this")] };
-	case "Distance":   { [link=macroLinkText("campaign/Get Distance@this")] };	
-	case "Map":        { [link=macroLinkText("campaign/Select Map@this")] };	
-	case "Request":    { [link=macroLinkText("campaign/Request Roll@this")] };
-	case "Notebooks":  { [link=macroLinkText("campaign/Notebooks@this")] };
-	case "New":        { [link=macroLinkText("character-creation/Character Creation Wizard@this", "", json.set("{}", "route", "New"))] };
-	case "LevelUp":    { [link=macroLinkText("character-creation/Character Creation Wizard@this", "", json.set("{}", "route", "Level Up"))] };
-	case "Library":    { [link=macroLinkText("tables/Tables List@this")] };
-	case "Dice":       { [link=macroLinkText("campaign/Dice Roller@this")] };
-	case "NewPin":     { [link=macroLinkText("character/Create Pin@this")] };
-	case "NewNPC":     { [link=macroLinkText("bestiary/NPC Wizard@this")] };
-	case "NewNotebook":{ [link=macroLinkText("notebook/Set Notebook@this")] };
-	case "PCMacros":   { [link=macroLinkText("character-creation/Create Macros@this")]};
-	case "NoteList": {
-		[h,count(listcount(Action)),code:{
-			[h:currentNote=listget(Action,roll.count)]
-			[h:Note=json.get(macro.args,currentNote)]
-			[h,if(Note !=""): link = macroLinkText("Notebook@"+currentNote)]
-		}]		
+	case "Settings":    { [h:link=macroLinkText("campaign/Campaign Settings@this")] };
+	case "Rules":       { [h:link=macroLinkText("campaign/Basic Rules@this")] };
+	case "Party":       { [h:link=macroLinkText("character/Manage Party@this")] };
+	case "Search":      { [h:link=macroLinkText("campaign/Search@this")] };
+	case "Distance":    { [h:link=macroLinkText("campaign/Get Distance@this")] };	
+	case "Map":         { [h:link=macroLinkText("campaign/Select Map@this")] };	
+	case "Request":     { [h:link=macroLinkText("campaign/Request Roll@this")] };
+	case "Notebooks":   { [h:link=macroLinkText("campaign/Notebooks@this")] };
+	case "New":         { [h:link=macroLinkText("character-creation/CharacterCreationWizard@this", "", json.set("{}", "route", "New"))] };
+	case "LevelUp":     { [h:link=macroLinkText("character-creation/CharacterCreationWizard@this", "", json.set("{}", "route", "Level Up"))] };
+	case "Library":     { [h:link=macroLinkText("tables/Tables List@this")] };
+	case "Dice":        { [h:link=macroLinkText("campaign/Dice Roller@this")] };
+	case "NewPin":      { [h:link=macroLinkText("character/Create Pin@this")] };
+	case "NewNPC":      { [h:link=macroLinkText("bestiary/NPC Wizard@this")] };
+	case "PCMacros":    { [h:link=macroLinkText("character-creation/Create Macros@this")]};
+	case "Notebook":    {
+		[h:Notebook = decode(json.get(macro.args,"Notebook"))]
+		[h,if(Notebook == "NewNotebook"), code: { 
+			[h:link=macroLinkText("notebook/Set Notebook@this")] 
+		};{
+			[h,if(Notebook !=""): link = macroLinkText("Notebook@"+Notebook)]
+		}]
 	};
-	default: { link = ""}
+	default: { [h:link = ""]  }
 ]
-
-[h:broadcast("Link:" + link)]
 [h, if(link != ""): execLink(link, 1)]
-
-
-
-<!-- 
-{
-    "Notebook": "Lib:DM Tools",
-    "NoteList": "Lib%3ADM+Tools%2C+Lib%3ARules%2C+Lib%3AWelcome"
-}
-
--->

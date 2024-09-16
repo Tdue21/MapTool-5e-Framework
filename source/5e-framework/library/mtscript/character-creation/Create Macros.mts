@@ -1,21 +1,19 @@
-[h:idReference=findToken("PC","00.DM")]
+[h:idReference= findToken("PC","00.DM")]
+[h:newId      = copyToken(idReference, 1, "00.DM")]
 
-[h:newId=copyToken(idReference,1,"00.DM")]
 [h:switchToken(newId)]
 
-[h:macroList=getMacros()]
-[h:index=getMacroIndexes("Make Token")]
-[h:command=getMacroCommand(listget(index,0),idReference,"00.DM")]
+[h:macroList= getMacros()]
+[h:index    = getMacroIndexes("Make Token")]
+[h:command  = getMacroCommand(listget(index,0),idReference,"00.DM")]
 [h:removeToken(newId)]
 
-[h:id=getSelected()]
-[h:id=listget(id,0)]
+[h:id = getSelected()]
+[h:id = listget(id,0)]
 
 [h,if(id==""),code:{
-
 	[h:res=input("var|No tokens selected, create new Player Character?||label|span=true")]
 	[h:abort(res)]
-
 
 	[macro("character/New PC Token@this"):""]
 

@@ -60,6 +60,8 @@
 [h:defineFunction("campaign.statBlock",          "campaign.statBlock@this")]
 [h:defineFunction("campaign.diceRoller",         "campaign.diceRoller@this")]
 
+[h:defineFunction("token.createToken",           "token.createToken@this")]
+
 [h,macro("overlay/Loading@this"):"Loading Audio Clips"]
 
 [h:loadAudio=getLibProperty("LoadAudio", library)]

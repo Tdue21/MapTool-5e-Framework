@@ -29,7 +29,7 @@ The main methods to determine your ability scores are Rolling [r:macrolink("4d6 
 <td valign=bottom style="padding:0px;margin=0px;margin-left:10px">
 
 
-[h: processorLink=macroLinkText("character-creation/Character Creation Wizard@this","")]
+[h: processorLink=macroLinkText("character-creation/CharacterCreationWizard@this","")]
 <form action="[r:processorLink]" method="json">
 
 

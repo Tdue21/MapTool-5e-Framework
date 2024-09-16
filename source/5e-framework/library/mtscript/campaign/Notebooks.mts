@@ -3,11 +3,10 @@
 [h:libList=json.fields(libtokens)]
 
 [h:list=libList]
-[h,count(listcount(libList)),code:{
-	[h:currentLib=listget(libList,roll.count)]
+[h,foreach(currentLib, libList, ""), code: {
 	[h:settingsProp=getLibProperty("Settings",currentLib)]
-	[h,if(json.type(settingsProp)=="UNKNOWN"):fields="";fields=json.fields(settingsProp)]
-	[h,if(listfind(fields,"theme")>=0):"";list=listdelete(list,listfind(list,currentLib))]
+	[h,if(json.type(settingsProp)=="UNKNOWN"): fields=""; fields=json.fields(settingsProp)]
+	[h,if(listfind(fields,"theme")>=0): ""; list=listdelete(list,listfind(list,currentLib))]
 }]
 
 [h:ListNotesPC=""]
@@ -25,10 +24,11 @@
 
 [h:ListNotes=if(isGM()==1,ListNotesGM,ListNotesPC)]
 [h:ListNotes=listsort(ListNotes,"N")]
-[h:height=125+listcount(ListNotes)*40]
+
+[h:height=150 + listcount(ListNotes) * 50]
 [h:height=if(height>600,600,height)]
 
-[dialog5("Notebooks", "width=200; height="+height+"; temporary=1; noframe=0; input=1"):{
+[dialog5("Notebooks", "width=250; height="+height+"; temporary=1; noframe=0; input=1"):{
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,11 +36,10 @@
 	<link rel="stylesheet" type="text/css" href="[r:function.getCss('menus')]">
 </head>
 <body>
-
 	[h:processorLink=macroLinkText("campaign/MenuProcess@this","")]
 	<form class="stackmenu" action="[r:processorLink]" method="json">
 		<h4>Create</h4>
-		<button type="submit" name="NewNotebook" value="NewNotebook">New Notebook</button>
+		<button type="submit" name="Notebook" value="NewNotebook">New Notebook</button>
 		<h4>Read</h4>
 		[r,foreach(currentNote, ListNotes, ""), code: {
 			[h:visible = if(listfind(ListNotesPC,currentNote)==-1, 0, 1)]
@@ -54,6 +53,7 @@
 				<span>[r:CurrentName]</span>
 			</button>
 		}]
+		<input type="hidden" name="Action" value="Notebook">
 		<input type="hidden" name="NoteList" value="[r:encode(ListNotes)]">
 	</form>
 </body>

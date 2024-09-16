@@ -10,7 +10,8 @@
             "ai rounding": "CELL_UNIT",
             "background paint": "%bgpaint%",
             "grid": {
-                "type": "None",
+                "type": "Square",
+                "size": 50,
                 "color": "#333333"
             }
         },
@@ -21,8 +22,40 @@
                 "size": "Free",
                 "layer": "Background",
                 "opacity": "0.6",
-                "x": -5,
-                "y": -5
+                "x": -9,
+                "y": -7
+            },
+            {
+                "name": "PC",
+                "tokenImage": "lib://dovesoft.dnd5e/assets/images/pc.png",
+                "size": "Medium",
+                "layer": "Token",
+                "opacity": "1",
+                "propertyType":"Props",
+                "x": 0,
+                "y": 0,
+                "macros": [
+                    {
+                        "label": "Make Token",
+                        "autoExec": true,
+                        "color": "teal",
+                        "fontColor": "white",
+                        "fontSize": "1.2em",
+                        "minWidth": "120",
+                        "command": "[h:token.createToken()]"
+                    }
+                ]
+            },
+            {
+                "name": "Monster",
+                "tokenImage": "lib://dovesoft.dnd5e/assets/images/monster.png",
+                "size": "Medium",
+                "layer": "Token",
+                "opacity": "1",
+                "propertyType":"NPC",
+                "x": 1,
+                "y": 0,
+                "macros": []
             }
         ]
     },
@@ -38,6 +71,7 @@
             "background paint": "%bgpaint%",
             "grid": {
                 "type": "Square",
+                "size": 50,
                 "color": "#333333"
             }
         },
@@ -48,8 +82,8 @@
                 "size": "Free",
                 "layer": "Background",
                 "opacity": "0.5",
-                "x": -4,
-                "y": -5
+                "x": -7,
+                "y": -9
             },
             {
                 "name": "Image:Logo",
@@ -57,8 +91,8 @@
                 "size": "Free",
                 "layer": "Background",
                 "opacity": "1",
-                "x": -5,
-                "y": 2
+                "x": -9,
+                "y": 3
             },
             {
                 "name": "Click on the 'Notebook' macro",
@@ -66,8 +100,8 @@
                 "size": "Native",
                 "layer": "Token",
                 "opacity": "1",
-                "x": 2,
-                "y": 2,
+                "x": 5,
+                "y": 5,
                 "macros": [
                     {
                         "label": "Notebook",

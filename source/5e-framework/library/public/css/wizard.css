@@ -1,0 +1,36 @@
+body {
+    background-color: #ffffff;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    padding: 5px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.menu {
+    border: 1px solid black;
+    background-color: #7682FF;
+    color: white;
+    margin: 0px;
+    padding: 15px;
+    display: flex;
+    gap: 5px;
+    align-items: end;
+    justify-items: right;
+    flex-direction: column;
+    width: 140px;
+    height: calc(100% - 10px);
+}
+
+.content {
+    border: 1px solid black;
+    width: calc(100% - 170px);
+    height: calc(100% - 10px);
+    margin: 0px;
+    padding: 5px;
+}

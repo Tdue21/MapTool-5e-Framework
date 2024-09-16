@@ -207,9 +207,9 @@ hr {
 				<tr><td>
 				[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/add-person.png' width='17'>New PC","character-creation/Create Macros@this")]
 				<tr><td>
-				[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/setup.png' width='17'>1st Level","character-creation/Character Creation Wizard@this","","{'route':'New'}")]
+				[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/setup.png' width='17'>1st Level","character-creation/CharacterCreationWizard@this","","{'route':'New'}")]
 				<tr><td>
-				[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/level-up.png' width='17'>Level Up","character-creation/Character Creation Wizard@this","","{'route':'Level Up'}")]
+				[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/level-up.png' width='17'>Level Up","character-creation/CharacterCreationWizard@this","","{'route':'Level Up'}")]
 				<hr noshade>
 				<tr><td>
 				[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/library.png' width='17'>Languages","languages/Chat Frame@this")]

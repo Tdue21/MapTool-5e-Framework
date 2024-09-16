@@ -11,10 +11,14 @@
     width: 150px;
     text-align: left;
     padding: 3px;
+    min-height: 25px;
+    font-size: 0.8rem;
+    font-family: "roboto", sans-serif;
 }
 
 .accent {
-    width: 20px;
+    margin-left: 10px;
+    width: 30px;
     border: 1px solid black;
 }
 
