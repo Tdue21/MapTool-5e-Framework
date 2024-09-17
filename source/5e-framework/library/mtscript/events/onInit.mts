@@ -7,10 +7,6 @@
 <!-- *********************************************************************** -->
 [h:library = "dovesoft.dnd5e"]
 
-[h,macro("overlay/Loading@this"):"Setting Starting Map"]
-[h:start=getLibProperty("Start", library)]
-[h:setCurrentMap(start)]
-
 [h:link=macroLinkText("campaign/deferredCalls@this")]
 [h:execLink(link,1,"self")]
 

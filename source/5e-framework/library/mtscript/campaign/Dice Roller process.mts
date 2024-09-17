@@ -1,35 +1,47 @@
 [h:broadcast("Start dice roller process")]
-[h,if(macro.args==""),code:{
-	[h:diceRoll=function.getDiceRoll()]
-	[h:text="Custom Dice Roll"]
-	[h:color="Black"]
+
+[h,if(macro.args == ""),code:{
+	[h:diceRoll = function.getDiceRoll()]
+	[h:text     = "Custom Dice Roll"]
+	[h:color    = "Black"]
 };{
-	[h:diceRoll=getStrProp(macro.args,"value")]
-	[h:text=getStrProp(macro.args,"text")]
-	[h:color=getStrProp(macro.args,"color")]
+	[h:diceRoll = getStrProp(macro.args,"value")]
+	[h:text     = getStrProp(macro.args,"text")]
+	[h:color    = getStrProp(macro.args,"color")]
 }]
 
-[h:iscrit=if(text=="Critical Hit!",1,0)]
-[h:abort(if(diceRoll=="" || diceRoll==0,0,1))]
-[h:output=function.getOutput()]
-[h:classProps=""]
-[h:atrList=""]
+[h:iscrit = if(text=="Critical Hit!",1,0)]
+[h:abort(if(diceRoll=="" || diceRoll==0, 0, 1))]
+[h:output     = function.getOutput()]
+[h:classProps = ""]
+[h:atrList    = ""]
 
-<table style="border:1px solid [r:color];margin: 0px; padding: 0px" width=200>
-	<tr>
-	<td align=left style="margin: 0px; padding: 0px" bgcolor=[r:color]>
-	<font color=White size=[r:if(length(text)>=35,2,3)]><b>
-	[r,if(length(text)>=35):substring(text,0,35)+"...";text]
-	<tr>
-	<td align=left style="margin: 0px; padding: 0px">
-<table style="margin: 0px; padding: 0px">
-	<tr>
+[h,if(length(text) >= 35), code: {
+	[h:fontSize = "12px"]
+	[h:text     = substring(text, 0, 35) + "..."]
+};{
+	[h:fontSize = "14px")]
+}]
+
+[h:html=strformat('
+<table style="border:1px solid %{color};margin: 0px; padding: 0px; width:200px">
+<tr>
+	<td align="left" style="margin: 0px; padding: 0px; background-color:%{color};color:white;font-size:%{fontSize}">
+		<b>%{text}</b>
+	</td>
+</tr>
+<tr>
+	<td align="left" style="margin: 0px; padding: 0px">
+		<table style="margin: 0px; padding: 0px">
+		<tr>
+')]		
 
 [h:diceRoll = function.getHigherLevel(diceRoll)]	
 [h:formula=""]
 [h:row=0]
 [h:critFormula=""]
 [h:id=strfind(diceRoll,"([-+]?)(?:(\\d+)d(\\d+)|([0-9A-Za-z|]+))")]
+
 [r,count(getFindCount(id),""),code:{
 	[h:group1=getGroup(id,roll.count+1,1)]
 	[h:group2=getGroup(id,roll.count+1,2)]
@@ -69,25 +81,29 @@
 		[h:row=if(row>=5,0,row)]
 		[h:row=row+1]
 
-		<td style="padding-top: 5px; margin: 0px; padding: 0px" align=center valign=middle width=35>
 		[h,if(group3==100):img=tableImage("BlankDice",10);img=tableImage("BlankDice",group3)]
+		[h: fontColor=if(dice==group3,"3cff00",if(dice==1,"ff5b5b","white"))]
+		[h,if(group3==100):droll = if(floor(dice/10)==10,"00",floor(dice/10)); droll = if(group3==10,if(dice==10,0,dice),dice)]
+		[h:html = html + '
 
+		<td style="padding-top: 5px; margin: 0px; padding: 0px" align=center valign=middle width=35>
 		<table>
-			<tr><td width=32 height=32 align=center valign=middle background=[r:img] style="background-repeat: no-repeat;background-position: center; padding-left:4px; padding-bottom:5px;">
-			<font color=[r:if(dice==group3,"3cff00",if(dice==1,"ff5b5b","white"))] size=4><b>
-			[r,if(group3==100):if(floor(dice/10)==10,"00",floor(dice/10));if(group3==10,if(dice==10,0,dice),dice)]
-		</table>
+			<tr><td width=32 height=32 align=center valign=middle background=%{img} style="background-repeat: no-repeat;background-position: center; padding-left:4px; padding-bottom:5px;">
+			<font color=%{fontColor} size=4><b>%{droll}</b></font>
+			</td></tr>			
+		</table>']
 
-		[r,if(group3==100):"<td><table><tr><td width=32 height=32 align=center valign=middle background="+img+" style='background-repeat: no-repeat;background-position: center; padding-left:4px; padding-bottom:5px;'><font color="+if(dice==group3,"3cff00",if(dice==1,"ff5b5b","white"))+" size=4><b>"+substring(dice,length(dice)-1,length(dice))+"</table>";""]
-		[h,if(group3==100):row=row+1;""]
-	
+		[r,if(group3==100):html = html + "<td><table><tr><td width=32 height=32 align=center valign=middle background="+img+" style='background-repeat: no-repeat;background-position: center; padding-left:4px; padding-bottom:5px;'><font color="+if(dice==group3,"3cff00",if(dice==1,"ff5b5b","white"))+" size=4><b>"+substring(dice,length(dice)-1,length(dice))+"</table>";""]
+		[h,if(group3==100):row=row+1;""]	
 	};{}]
 
 	[h,if(isNumber(group3)==1):critFormula=critFormula+"+"+group2+"d"+group3]
 
 	[r,if(isNumber(group4)==1),code:{
+		[h:html=html + '
 		<td align=center valign=middle style="margin: 0px; padding: 0px">
-		<font size=4 color=gray><b>[r:group1+group4]
+		<font size=4 color=gray><b>']
+		[r:html=html + group1+group4]
 		[h:lvl=0]
 		[h:formula=add(formula,number(group1+group4))]
 	};{
@@ -97,7 +113,7 @@
 	[h,if(lvl==""):lvl=0;""]
 	[h:lvl=if(group1=="-",lvl*-1,lvl)]
 	[h:formula=add(formula,lvl)]
-	[r:if(lvl<0,"",if(lvl==0,"",if(firstRoll==0,"","")))+if(lvl==0,"","<td align=center valign=middle width=0% style='margin: 0px; padding: 0px'><font size=4 color=gray><b>"+if(lvl<0,lvl,"+"+lvl))]
+	[h:html = html + if(lvl<0,"",if(lvl==0,"",if(firstRoll==0,"","")))+if(lvl==0,"","<td align=center valign=middle width=0% style='margin: 0px; padding: 0px'><font size=4 color=gray><b>"+if(lvl<0,lvl,"+"+lvl))]
 
 	[h:countMax=listcount(group4,"|")]
 	[h:countMax=if(countMax==0,1,countMax)]
@@ -110,31 +126,31 @@
 	[h:mod=if(group1=="-",mod*-1,mod)]
 	[h:formula=add(formula,mod)]
 
-	[r:if(mod<0,"",if(mod==0,"",if(firstRoll==0,"","")))+if(mod==0,"","<td align=center valign=middle width=0% style='margin: 0px; padding: 0px'><font size=4 color=gray><b>"+if(mod<0,mod,"+"+mod))]
+	[h:html = html + if(mod<0,"",if(mod==0,"",if(firstRoll==0,"","")))+if(mod==0,"","<td align=center valign=middle width=0% style='margin: 0px; padding: 0px'><font size=4 color=gray><b>"+if(mod<0,mod,"+"+mod))]
 }]
 		
-</table>
+[h:macro.return=formula]
+[h:crit=critFormula+"+"+formula]
+[h:critText = if(iscrit!=1 , macroLink("[roll crit]", "campaign/Dice Roller@this", "", "text=Critical Hit!;value="+crit+";color=cca300"), "")]
 
-<table width=100% style="margin: 0px; padding: 0px; border-style: solid ; border-width:1px 0px 0px 0px; border-color:[r:color]">	
+[h:html = html + strformat('
+</table>
+<table width=100% style="margin: 0px; padding: 0px; border-style: solid ; border-width:1px 0px 0px 0px; border-color:%{color}">	
 <tr>
 <td style="margin: 0px; padding: 0px">
-<font size=4 color=red style="text-decoration:none"><b>
+<font size=4 color=red style="text-decoration:none"><b>')]
 
-[r:macroLink(formula,"character/Take Damage@this","",formula)]
-
+[h:html=html + macroLink(formula,"character/Take Damage@this","",formula)]
+[h:html=html + 
+strformat('
 </b>
 <font size=3 color=gray>
-
-([r:diceRoll])
-
-[h:macro.return=formula]
-		
+(%{diceRoll})
 </table>
-
 </table>
-[h:crit=critFormula+"+"+formula]
 <font color=gray size=2 style="text-decoration:none">
-[r,if(iscrit!=1):macroLink("[roll crit]","campaign/Dice Roller@this","","text=Critical Hit!;value="+crit+";color=cca300"),1)]
+%{critText}')]
 
-[r,if(output!="all"):macroLink("[Share Result]","character/ShareRoll@this","all",formula)]
+[h:html = html + if(output!="all", macroLink("[Share Result]","character/ShareRoll@this","all",formula), "")]
+[r:broadcast(html)]
 [h:broadcast("Ending dice roller process")]
