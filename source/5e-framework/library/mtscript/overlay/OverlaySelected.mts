@@ -1,5 +1,3 @@
-[h:broadcast("Overlay Selected: <br><pre>" + json.indent(macro.args, 4) + "</pre>")]
-
 [h:toggle=getStrProp(macro.args,"toggle")]
 [h:id=getStrProp(macro.args,"id")]
 [h:macroGroups=getStrProp(macro.args,"macroGroups")]

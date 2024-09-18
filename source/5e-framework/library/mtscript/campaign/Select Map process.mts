@@ -1,7 +1,7 @@
 [h,if(json.type(macro.args)=="UNKNOWN"):map=macro.args;map=json.fields(macro.args)]
 
 
-
+[h:broadcast("<pre>" + json.indent(macro.args, 4) + "</pre>")]
 
 [h:setCurrentMap(map)]
 
