@@ -1,0 +1,1 @@
+[macro('character/Drop Template@this'):token.name]

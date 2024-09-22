@@ -217,7 +217,7 @@
 		[h:CapitalName=replace(CapitalName,"(?<=\\s)A(?=n?\\s)","a")]
 		[h:CapitalName=replace(CapitalName,"(?<=\\s)Th(?=(?:e|at|ose)\\s)","th")]
 		[h:CapitalName=replace(CapitalName,"'S(?=\\s)","'s")]
-	[r:macroLink(CapitalName,"campaign/Select Map process@this","",json.fromStrProp(currentMapName))]
+	[r:macroLink(CapitalName,"campaign/SelectMapProcess@this","",json.set("{}", "MapName", currentMapName))]
 	}]
 
 

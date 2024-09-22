@@ -197,7 +197,7 @@
 	[r,foreach(CurrentMap, maps,""),code:{
 		<li>
 			[r:if(getMapVisible(CurrentMap)==1, "", "<span style='background-color:#e6e6e6'>")]
-			[r:macroLink(CurrentMap,"campaign/Select Map process@this","",json.fromStrProp(CurrentMap))]
+			[r:macroLink(CurrentMap,"campaign/SelectMapProcess@this","",json.set("{}", "MapName", CurrentMap))]
 			[r:if(getMapVisible(CurrentMap)==1, "", "</span>")]
 		</li>
 	}]

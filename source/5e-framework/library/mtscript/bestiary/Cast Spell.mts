@@ -4,7 +4,7 @@
 
 [h:output= function.getOutput())]
 
-[macro("character/Get Spell Level@this"):"group=Spells;name="+name]
+[macro("character/GetSpellLevel@this"):"group=Spells;name="+name]
 [h:level=macro.return]
 
 [h:slotList=level]

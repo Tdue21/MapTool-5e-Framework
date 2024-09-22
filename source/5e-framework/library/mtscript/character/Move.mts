@@ -160,7 +160,7 @@ if(group=="Equipment","moveQuantity|1|Quantity|text|width=6",""))]
 
 	[h,if(group=="Equipment"):object=json.fromStrProp(equipInfo+";Quantity="+moveQuantity+";Equiped="+Equiped+";offHand="+offHand+";customName="+customName+";identified="+identified);object=""]
 
-	[macro("character/Get Spell Level@this"):"group="+group+";name="+name]
+	[macro("character/GetSpellLevel@this"):"group="+group+";name="+name]
 	[h:level=macro.return]
 
 [h:classes=getLibProperty("Class&Level",tokenName)]

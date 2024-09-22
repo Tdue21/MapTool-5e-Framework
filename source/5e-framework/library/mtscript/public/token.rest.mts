@@ -1,0 +1,1 @@
+[macro('character/Rest@this'):token.name]

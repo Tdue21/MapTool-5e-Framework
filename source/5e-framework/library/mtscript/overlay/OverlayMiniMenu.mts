@@ -227,7 +227,7 @@ hr {
 	[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/dm.png' width='17'>GM Menu","campaign/GM Menu@this")]
 	<hr noshade>
 	<tr><td>
-	[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/party.png' width='17'>Manage Party","campaign/Manage Party@this")]
+	[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/party.png' width='17'>Manage Party","character/Manage Party@this")]
 	<tr><td>
 
 	[r:macroLink("<img src='lib://dovesoft.dnd5e/assets/icons/combat.png' width='17'>Encounter","bestiary/Manage Encounter@this","","tokenName=;reload=1")]
@@ -351,12 +351,12 @@ hr {
 	[r,if(isGM()==1):"<tr><td>"+macroLink("Weather","overlay/Weather Select@this")+"<hr noshade>";""]
 	
 	<tr><td>
-[r,count(listcount(maps),"<tr><td>"),code:{
-	[h:CurrentMap=listget(maps,roll.count)]
-	[h,if(getCurrentMapName()==CurrentMap):current="<b>";current=""]
-	[r:macroLink(current+CurrentMap+if(getMapVisible(CurrentMap)==1==0,"</b> (<b>H</b>)",""),"campaign/Select Map process@this","",json.fromStrProp(CurrentMap+"=overlay"))]
 	
-}]
+	[r,count(listcount(maps),"<tr><td>"),code:{
+		[h:CurrentMap=listget(maps,roll.count)]
+		[h,if(getCurrentMapName()==CurrentMap):current="<b>";current=""]
+		[r:macroLink(current+CurrentMap+if(getMapVisible(CurrentMap)==1==0,"</b> (<b>H</b>)",""),"campaign/SelectMapProcess@this","",json.set("{}", "MapName", CurrentMap))]
+	}]
 	</table>
 	</div>
 </div>

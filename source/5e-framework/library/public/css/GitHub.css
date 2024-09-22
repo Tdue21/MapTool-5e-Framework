@@ -170,3 +170,11 @@ code {
     background-color: #f3f4f4;
     padding: 0 2px 0 2px;
 }
+
+.topbar	{
+	border-bottom: 1px solid gray;
+	padding:0px;
+	margin:0px;
+	font-family:roboto;
+	font-size:0.8em
+}

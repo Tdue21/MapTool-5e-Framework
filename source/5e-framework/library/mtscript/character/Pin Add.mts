@@ -40,7 +40,7 @@
 	
 	};{
 
-		[macro("character/Get Spell Level@this"):"group="+group+";name="+item]
+		[macro("character/GetSpellLevel@this"):"group="+group+";name="+item]
 		[h:level=macro.return]
 		[macro("character/Get Equipment Info@this"):"group="+group+";name="+item]
 		[h:equipInfo=macro.return]
@@ -63,7 +63,7 @@
 	
 		[h:currentItem=lower(listget(list,roll.count))]
 
-		[macro("character/Get Spell Level@this"):"group="+group+";name="+currentItem]
+		[macro("character/GetSpellLevel@this"):"group="+group+";name="+currentItem]
 		[h:level=macro.return]
 
 		[macro("character/Get Equipment Info@this"):"group="+group+";name="+currentItem]

@@ -24,23 +24,19 @@
 	
 	[h:macroList=getMacros()]
 	
-	[h,if(listfind(macroList,"Character")<0):createMacro("Character","[macro('character/Macro Frame@this'):'macro=Character Sheet;tokenName='+token.name]", "minWidth=120;sortBy=1")]
-	[h,if(listfind(macroList,"Spellcasting")<0):createMacro("Spellcasting","[macro('character/Macro Frame@this'):'macro=Spellcasting Sheet;tokenName='+token.name]", "minWidth=120;sortBy=3")]
-	[h,if(listfind(macroList,"Description")<0):createMacro("Description","[macro('character/Macro Frame@this'):'macro=Description Sheet;tokenName='+token.name]", "minWidth=120;sortBy=2")]
-	[h,if(listfind(macroList,"Statblock")<0):createMacro("Statblock","[macro('character/Macro Frame@this'):'macro=Statblock;tokenName='+token.name]", "minWidth=120;fontColor=black;color=maroon;fontColor=white;sortBy=0")]
-	
-	[h,if(listfind(macroList,"Interact")<0):createMacro("Interact","[macro('campaign/Interact@this'):'']", "minWidth=120;sortBy=1;color=teal;fontColor=white;group=Other Macros")]
-
-	[h,if(listfind(macroList,"Rest")<0):createMacro("Rest","[macro('character/Rest@this'):token.name]", "minWidth=120;sortBy=2;color=cyan;fontColor=black;group=Other Macros")]
-
-	[h,if(listfind(macroList,"Area Template")<0):createMacro("Area Template","[macro('character/Drop Template@this'):token.name]", "minWidth=120;sortBy=3;fontColor=red;group=Other Macros")]
-	
-	[h,if(listfind(macroList,"Range")<0):createMacro("Range","[macro('campaign/Range@this'):'']", "minWidth=120;sortBy=4;color=orange;group=Other Macros")]
-	[h,if(listfind(macroList,"Light")<0):createMacro("Light","[macro('campaign/Light@this'):'']", "minWidth=120;sortBy=5;color=yellow;group=Other Macros")]
-	
-	
-	[h,if(listfind(macroList,"- Elev")<0):createMacro("- Elev","[macro('character/Elevation@this'):'elevation=-1;tokenName='+token.name]", "minWidth=53;sortBy=6;group=Other Macros")]
-	[h,if(listfind(macroList,"Elev +")<0):createMacro("Elev +","[macro('character/Elevation@this'):'elevation=1;tokenName='+token.name]", "minWidth=53;sortBy=7;group=Other Macros")]
+	[h,if(listfind(macroList,"Statblock"    ) < 0): createMacro("Statblock",    "[token.statBlock()]",         "minWidth=120;sortBy=1;color=maroon;fontColor=white")]
+	[h,if(listfind(macroList,"Character"    ) < 0): createMacro("Character",    "[token.character()]",         "minWidth=120;sortBy=2")]
+	[h,if(listfind(macroList,"Description"  ) < 0): createMacro("Description",  "[token.description()]",       "minWidth=120;sortBy=3")]
+	[h,if(listfind(macroList,"Spellcasting" ) < 0): createMacro("Spellcasting", "[token.spellCasting()]",      "minWidth=120;sortBy=4")]
+	     
+	[h,if(listfind(macroList,"Interact"     ) < 0): createMacro("Interact",     "[token.interact()]",          "minWidth=120;sortBy=1;color=teal;fontColor=white;group=Other Macros")]
+	[h,if(listfind(macroList,"Rest"         ) < 0): createMacro("Rest",         "[token.rest()]",              "minWidth=120;sortBy=2;color=cyan;fontColor=black;group=Other Macros")]
+	[h,if(listfind(macroList,"Area Template") < 0): createMacro("Area Template","[token.areaTemplate()]",      "minWidth=120;sortBy=3;fontColor=red;group=Other Macros")]
+	 
+ 	[h,if(listfind(macroList,"Range"        ) < 0): createMacro("Range",        "[token.range()]",             "minWidth=120;sortBy=4;color=orange;group=Other Macros")]
+	[h,if(listfind(macroList,"Light"        ) < 0): createMacro("Light",        "[token.light()]",             "minWidth=120;sortBy=5;color=yellow;group=Other Macros")]
+	[h,if(listfind(macroList,"- Elev"       ) < 0): createMacro("- Elev",       "[token.decreaseElevation()]", "minWidth=53;sortBy=6;group=Other Macros")]
+	[h,if(listfind(macroList,"Elev +"       ) < 0): createMacro("Elev +",       "[token.increaseElevation()]", "minWidth=53;sortBy=7;group=Other Macros")]
 	
 	[h:setName(name)]
 	

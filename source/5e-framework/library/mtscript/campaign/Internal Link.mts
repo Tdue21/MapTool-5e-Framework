@@ -21,7 +21,7 @@
 	[h,switch(group2),code:
 
 	case "map":{
-		[h:objLink=macroLinkText("campaign/Select Map process@this","",ContentName)]
+		[h:objLink=macroLinkText("campaign/SelectMapProcess@this","", json.set("{}", "MapName", ContentName))]
 	};
 	case "note":{
 		[h:note=replace(group3,".*@","")]

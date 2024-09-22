@@ -24,8 +24,7 @@
 [h:libList=json.fields(libtokens)]
 
 [h:list=libList]
-[h,count(listcount(libList)),code:{
-	[h:currentLib=listget(libList,roll.count)]
+[h,foreach(currentLib, libList, ""), code:{
 	[h:settingsProp=getLibProperty("LibName",currentLib)]
 	[h,if(settingsProp==""):list=listdelete(list,listfind(list,currentLib));""]
 	[h:hidden=getLibProperty("hidden",currentLib)]
@@ -47,65 +46,51 @@
 }]
 [h:tokens=listsort(ListPC,"N")]
 [h:partySize=listcount(tokens)]
+[h:startMap=getLibProperty("Start", function.getNamespace())]
+[h:CurrentMap=getCurrentMapName()]
 
-[dialog5("Manage", "width=580; height=400; temporary=1; noframe=0; input=1"):{
+[dialog5("Manage", "title=Party/Encounter Manager; width=580; height=400; temporary=1; noframe=0; input=1"):{
+<!DOCTYPE html>
+<html>
+<head>
 	<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
-	<title>[r:tokenName]</title>
-
-	[h:startMap=getLibProperty("Start", function.getNamespace())]
-	[h:CurrentMap=getCurrentMapName()]
-
-	<p class='topbar'>
-
-	[r:macrolink("Party", "character/Manage Party@this")"","tokenName="+tokenName)]&nbsp;
-	<span title="Open the encounter manager">[r:macrolink("Encounter", "bestiary/Manage Encounter@this")"","tokenName="+pinName+";reload=1")]</span>&nbsp;
-	<span title="Open the current loaded Pin ([r:pinName])">[r:macrolink("Pin", "character/Pin Notes@this")"","tokenName="+pinName)]</span>&nbsp;
-	
+</head>
+<body>
+	<p style="border-bottom: 1px solid gray; padding:0px; margin:0px; font-family:roboto; font-size:1em">
+		<span title="Open the party manager"                   >[r:macrolink("Party",     "character/Manage Party@this"   ), "tokenName="+tokenName)]&nbsp;
+		<span title="Open the encounter manager"               >[r:macrolink("Encounter", "bestiary/Manage Encounter@this"), "tokenName="+pinName+";reload=1")]</span>&nbsp;
+		<span title="Open the current loaded Pin ([r:pinName])">[r:macrolink("Pin",       "character/Pin Notes@this"      ), "tokenName="+pinName)]</span>&nbsp;
 	</p>
 
-<table>
-<tr>
-<td>
-
-<b><font size=5>
-Party
-</b>
-<font size=3>
-
-<span title="Make or move tokens to the current map">[r:macrolink("Make tokens", "campaign/Move Tokens@this")"")]</span>
-|
-[r:macroLink("Create Poll","vote/New Vote@this")]
-|
-[r:macroLink("Results","vote/Open Results@this")]
-
-<td align=right>
-
-<!-----------------Load Pin------------------->
-
-	[h: processorLink = macroLinkText("character/Load Pin@this", "")]
-	<form action="[r:processorLink]" method="json">
-
-
-	
-	[h:Pins=getTokens(",","{'pc':1,'owned':'none'}")]
-	[h:repeat=listcount(Pins)]
-
-	<input type="submit" name="load" value="Load">&nbsp;
-
-	<select name="Pin" size="1">
-	<option [r:if(pinName=="","selected='selected'","")]>Select Pin</option>
-	[r,count(repeat,""),code:{
-		[h:pinID=listget(Pins,roll.count)]
-		[h:CurrentPin=getName(pinID)]		
-		<option [r:if(pinName==CurrentPin,"selected='selected'","")]>[r:CurrentPin]</option>	
-	}]
-
-
-	</select>
-	
-	</form>
-
-</table>
+	<table>
+	<tr>
+	<td>
+		<span style="font-size:1.4em;font-weight:bold">Party</span>
+		<span style="font-size:0.9em">
+			<span title="Make or move tokens to the current map">[r:macrolink("Make tokens", "campaign/Move Tokens@this")"")]</span> | 
+			<span title="Create a poll for the players">[r:macroLink("Create Poll","vote/New Vote@this")]</span> | 
+			<span title="Show results of current vote">[r:macroLink("Results","vote/Open Results@this")]</span>
+		</span>
+	</td>
+	<td align=right>
+		<!-----------------Load Pin------------------->
+		[h: processorLink = macroLinkText("character/Load Pin@this", "")]
+		<form action="[r:processorLink]" method="json">
+			[h:Pins=getTokens(",","{'pc':1,'owned':'none'}")]
+			[h:repeat=listcount(Pins)]
+			<input type="submit" name="load" value="Load">&nbsp;
+			<select name="Pin" size="1">
+				<option [r:if(pinName=="","selected='selected'","")]>Select Pin</option>
+				[r,count(repeat,""),code:{
+					[h:pinID=listget(Pins,roll.count)]
+					[h:CurrentPin=getName(pinID)]		
+					<option [r:if(pinName==CurrentPin,"selected='selected'","")]>[r:CurrentPin]</option>	
+				}]
+			</select>
+		</form>
+	</td>
+	</tr>
+	</table>
 
 
 	[h:class="odd"]

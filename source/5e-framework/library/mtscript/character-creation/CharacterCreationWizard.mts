@@ -11,19 +11,20 @@
 };{
 	[h:window=json.get(macro.args,"window")]
 	[h:submit=json.get(macro.args,"submit")]
-	[h:next=if(submit=="Next >" || submit=="Skip",1,-1)]
-	[h:abort(if(submit==" Close ",0,1))]
-	[h:abort(if(submit==" Finish ",0,1))]
+	[h:next=if(submit=="Next" || submit=="Skip",1,-1)]
+	[h:abort(if(submit=="Close",0,1))]
+	[h:abort(if(submit=="Finish",0,1))]
 	[h:window=listget(ItemList,(listfind(ItemList,window)+next))]
 }]
 
-[dialog5("Character Creation Wizard","width=650; height=525; temporary=0; input=1; noframe=0"): {
+[dialog5("Character Creation Wizard","width=700; height=600; temporary=1; input=1; noframe=0"): {
 <!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="[r:function.getCss('wizard')]">
 </head>
 <body>
+
 	<div class="menu">
 		[r, foreach(currentItem, ItemList, ""), code: {
 		<span>
@@ -33,9 +34,14 @@
 		</span>
 		}]
 	</div>
-	<div class="content">
-		[macro("character-creation/" + window + "@this"):macro.args]
+    
+	<div class="body">
+		[h: processorLink=macroLinkText("character-creation/CharacterCreationWizard@this","")]
+		<form action="[r:processorLink]" method="json">
+			[macro("character-creation/" + window + "@this"):macro.args]
+		</form>
 	</div>
+
 </body>
 </html>
 }]

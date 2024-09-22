@@ -1,0 +1,1 @@
+[macro("overlay/Remove Initiative@this"):""]

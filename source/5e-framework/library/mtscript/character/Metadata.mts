@@ -151,7 +151,7 @@ if(identify==1,"identified|"+identified+"|Identified|check",""))]
 [h:bonusAtk=json.get(obj,"bonusAtk")]
 [h:bonusDmg=json.get(obj,"bonusDmg")]
 
-[macro("character/Get Spell Level@this"):"group="+group+";name="+name]
+[macro("character/GetSpellLevel@this"):"group="+group+";name="+name]
 [h:level=macro.return]
 
 [h:sourceList=spellClassList+",Race,Item,Other"]

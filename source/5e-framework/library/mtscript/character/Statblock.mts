@@ -8,61 +8,47 @@
 
 
 <p class='topbar'>
-[r:macrolink("Load", "character/Selector@this")"","macro=Statblock;tokenName="+tokenName)]&nbsp;
+	[r:macrolink("Load", "character/Selector@this")"","macro=Statblock;tokenName="+tokenName)]&nbsp;
+	[r:macrolink("Make Token", "character/Make Token@this")"","Lib:"+tokenName)]&nbsp;
+	[r:macrolink("Info", "character/Info@this")"","tokenName="+tokenName)]&nbsp;
 
-[r:macrolink("Make Token", "character/Make Token@this")"","Lib:"+tokenName)]&nbsp;
+	[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
+	[h:sharePlayer=getStrProp(permissions,"share")]
+	[h,if(isGM()==1):sharePlayer=1]
 
-[r:macrolink("Info", "character/Info@this")"","tokenName="+tokenName)]&nbsp;
-
-
-[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
-[h:sharePlayer=getStrProp(permissions,"share")]
-[h,if(isGM()==1):sharePlayer=1]
-
-[r,if(sharePlayer==1):macrolink("Share", "character/Share Statblock@this")"",tokenName)]
+	[r,if(sharePlayer==1):macrolink("Share", "character/Share Statblock@this")"",tokenName)]
 </p>
-
 
 [h,token(tokenName):tokenName=getLibProperty("LibName","Lib:"+tokenName)]
 [h:id=findToken(tokenName)]
 [h,if(id==""):"";switchToken(id)]
 
 <table style="margin:0px;padding:0px">
-<tr><td style="margin:0px;padding:0px">
+	<tr><td style="margin:0px;padding:0px">
+		<h3 style="padding: 0px;margin: 0px">[r:macroLink(tokenName,"overlay/Focus@this","","id="+id)]</h3>
+		[h:classes=getLibProperty("Class&Level","Lib:"+tokenName)]
+		[h:totalLevel=0]
+		[h,if(json.type(classes)=="UNKNOWN"),code:{
+			[h:classList=setLibProperty("Class&Level","{}","Lib:"+tokenName)]
+			[h:repeat=0]
+		};{
+			[h:classList=json.fields(classes)]	
+			[h:repeat=listcount(classList)]
+		}]
 
-<h3 style="padding: 0px;margin: 0px">[r:macroLink(tokenName,"overlay/Focus@this","","id="+id)]</h3>
+		[h,count(repeat,""),code:{
+			[h:name=listget(classList,roll.count)]
+			[h:object=json.get(classes,name)]
+			[h:class=json.get(object,"name")]
+			[h:level=json.get(object,"level")]
+			[h:subclass=json.get(object,"subclass")]
+			[h:totalLevel=totalLevel+level]
+		}]
+		[h:profBonus=ceil(totalLevel/4)+1]
 
-
-[h:classes=getLibProperty("Class&Level","Lib:"+tokenName)]
-[h:totalLevel=0]
-[h,if(json.type(classes)=="UNKNOWN"),code:{
-	[h:classList=setLibProperty("Class&Level","{}","Lib:"+tokenName)]
-	[h:repeat=0]
-};{
-	[h:classList=json.fields(classes)]	
-	[h:repeat=listcount(classList)]
-}]
-[h,count(repeat,""),code:{
-
-	[h:name=listget(classList,roll.count)]
-	[h:object=json.get(classes,name)]
-	[h:class=json.get(object,"name")]
-	[h:level=json.get(object,"level")]
-	[h:subclass=json.get(object,"subclass")]
-
-	[h:totalLevel=totalLevel+level]
-	
-
-}]
-
-[h:profBonus=ceil(totalLevel/4)+1]
-
-
-
-[h:setLibProperty("Attributes",attributeList,"Lib:"+tokenName)]
-
-[h:AtrProps=""]
-[h,count(listcount(attributeList),""),code:{
+		[h:setLibProperty("Attributes",attributeList,"Lib:"+tokenName)]
+		[h:AtrProps=""]
+		[h,count(listcount(attributeList),""),code:{
 	[h:attribute=listget(attributeList,roll.count)]
 	[h:value=getLibProperty(attribute,"Lib:"+tokenName)]
 	[h:value=getStrProp(value,"value")]
@@ -72,10 +58,6 @@
 	[h:AtrProps=setStrProp(AtrProps,substring(lower(attribute),0,3),mod)]
 }]
 [h:varsFromStrProp(AtrProps)]
-
-
-
-
 
 <!-----------------RACE------------------->
 [h:race=getLibProperty("Race","Lib:"+tokenName)]

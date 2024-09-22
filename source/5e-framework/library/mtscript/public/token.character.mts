@@ -1,0 +1,1 @@
+[macro('character/Macro Frame@this'):'macro=Character Sheet;tokenName='+token.name]

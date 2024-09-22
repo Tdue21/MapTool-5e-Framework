@@ -1,5 +1,3 @@
-[h:broadcast("Start dice roller process")]
-
 [h,if(macro.args == ""),code:{
 	[h:diceRoll = function.getDiceRoll()]
 	[h:text     = "Custom Dice Roll"]
@@ -24,12 +22,10 @@
 }]
 
 [h:html=strformat('
-<table style="border:1px solid %{color};margin: 0px; padding: 0px; width:200px">
-<tr>
-	<td align="left" style="margin: 0px; padding: 0px; background-color:%{color};color:white;font-size:%{fontSize}">
-		<b>%{text}</b>
-	</td>
-</tr>
+<div style="text-align:left; margin: 0px; padding: 5px; border:1px solid black; border-bottom:none; background-color:%{color};color:white;font-size:14pt; width:90%;">
+	<b>%{text}</b>
+</div>
+<table style="border:1px solid %{color}; border-top:none; margin: 0px; padding: 0px; width:90%;background-color:white">
 <tr>
 	<td align="left" style="margin: 0px; padding: 0px">
 		<table style="margin: 0px; padding: 0px">
@@ -50,16 +46,10 @@
 	[h:dices=if(group2=="",1,group2)]
 	[h:group2=if(isNumber(group2)==1,group2,0)]
 
-	[h:broadcast("<pre>" + json.indent(
-		json.set("{}",
-			"diceRoll", diceRoll,
-			"id", id,
-			"group1", group1,
-			"group2", group2,
-			"group3", group3,
-			"group4", group4,
-			"dices", dices) 
-		) + "</pre>")]
+	[h:'<!-- broadcast("<pre>" + json.indent(json.set("{}",
+			"diceRoll", diceRoll, "id", id, "group1", group1,
+			"group2", group2, "group3", group3, "group4", group4,
+			"dices", dices), 4) + "</pre>")-->']
 
 	<!--------------------------------DICE SOUNDS---------------------------------->
 	[h,if(group3==100),code:{
@@ -77,23 +67,23 @@
 		[h:dice=if(group1=="-",dice*-1,if(firstRoll==0,"","+")+dice)]
 		[h:formula=add(formula,dice)]
 
-		[r:if(row>=5,"<tr>","")]
+		[r:html = html + if(row>=5,"<tr>","")]
 		[h:row=if(row>=5,0,row)]
 		[h:row=row+1]
 
 		[h,if(group3==100):img=tableImage("BlankDice",10);img=tableImage("BlankDice",group3)]
 		[h: fontColor=if(dice==group3,"3cff00",if(dice==1,"ff5b5b","white"))]
 		[h,if(group3==100):droll = if(floor(dice/10)==10,"00",floor(dice/10)); droll = if(group3==10,if(dice==10,0,dice),dice)]
-		[h:html = html + '
+		[h:html = html + strformat('
 
-		<td style="padding-top: 5px; margin: 0px; padding: 0px" align=center valign=middle width=35>
+		<td style="padding-top: 5px; margin: 0px; padding: 0px" align=center valign=middle width=52>
 		<table>
-			<tr><td width=32 height=32 align=center valign=middle background=%{img} style="background-repeat: no-repeat;background-position: center; padding-left:4px; padding-bottom:5px;">
+			<tr><td width=48 height=48 align=center valign=middle background=%{img}-48 style="background-repeat: no-repeat;background-position: center; padding-left:4px; padding-bottom:5px;">
 			<font color=%{fontColor} size=4><b>%{droll}</b></font>
 			</td></tr>			
-		</table>']
+		</table>')]
 
-		[r,if(group3==100):html = html + "<td><table><tr><td width=32 height=32 align=center valign=middle background="+img+" style='background-repeat: no-repeat;background-position: center; padding-left:4px; padding-bottom:5px;'><font color="+if(dice==group3,"3cff00",if(dice==1,"ff5b5b","white"))+" size=4><b>"+substring(dice,length(dice)-1,length(dice))+"</table>";""]
+		[r,if(group3==100):html = html + "<td width=52><table><tr><td width=48 height=48 align=center valign=middle background="+img+"-48 style='background-repeat: no-repeat;background-position: center; padding-left:4px; padding-bottom:5px;'><font color="+if(dice==group3,"3cff00",if(dice==1,"ff5b5b","white"))+" size=4><b>"+substring(dice,length(dice)-1,length(dice))+"</table>";""]
 		[h,if(group3==100):row=row+1;""]	
 	};{}]
 
@@ -141,8 +131,7 @@
 <font size=4 color=red style="text-decoration:none"><b>')]
 
 [h:html=html + macroLink(formula,"character/Take Damage@this","",formula)]
-[h:html=html + 
-strformat('
+[h:html=html + strformat('
 </b>
 <font size=3 color=gray>
 (%{diceRoll})
@@ -153,4 +142,3 @@ strformat('
 
 [h:html = html + if(output!="all", macroLink("[Share Result]","character/ShareRoll@this","all",formula), "")]
 [r:broadcast(html)]
-[h:broadcast("Ending dice roller process")]

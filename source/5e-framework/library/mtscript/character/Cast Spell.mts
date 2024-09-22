@@ -10,7 +10,7 @@
 
 
 
-[macro("character/Get Spell Level@this"):"group=Spells;name="+name]
+[macro("character/GetSpellLevel@this"):"group=Spells;name="+name]
 
 
 [h,if(json.type(obj)=="UNKNOWN"):level=macro.return;level=json.get(obj,"level")]

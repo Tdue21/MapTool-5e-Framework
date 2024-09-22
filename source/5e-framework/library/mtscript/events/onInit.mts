@@ -16,7 +16,6 @@
 [h:defineFunction("function.Capitalize",         "campaign/function.Capitalize@this")]
 [h:defineFunction("function.previousInitiative", "campaign/function.previousInitiative@this")]
 [h:defineFunction("function.internalLink",       "campaign/function.internalLink@this")]
-[h:defineFunction("pause",                       "campaign/function.pause@this")]
 [h:defineFunction("function.AskOutput",          "campaign/function.AskOutput@this")]
 [h:defineFunction("function.EvalMacro",          "campaign/function.EvalMacro@this")]
 [h:defineFunction("function.GetConditions",      "campaign/function.GetConditions@this")]
@@ -34,6 +33,7 @@
 [h:defineFunction("function.shareImage",         "function.shareImage@this")]
 [h:defineFunction("function.getDistance",        "function.getDistance@this")]
 [h:defineFunction("function.getAssetId",         "function.getAssetId@this")]
+[h:defineFunction("pause",                       "function.pause@this")]
 
 [h:defineFunction("function.getDiceRoll",        "diceroller/function.getDiceRoll@this")]
 [h:defineFunction("function.getHigherLevel",     "diceroller/function.getHigherLevel@this")]
@@ -57,6 +57,28 @@
 [h:defineFunction("campaign.diceRoller",         "campaign.diceRoller@this")]
 
 [h:defineFunction("token.createToken",           "token.createToken@this")]
+[h:defineFunction("token.character",             "token.character@this")]
+[h:defineFunction("token.description",           "token.description@this")]
+[h:defineFunction("token.spellCasting",          "token.spellCasting@this")]
+[h:defineFunction("token.statBlock",             "token.statBlock@this")]
+
+[h:defineFunction("token.interact",              "token.interact@this")]
+[h:defineFunction("token.rest",                  "token.rest@this")]
+[h:defineFunction("token.areaTemplate",          "token.areaTemplate@this")]
+[h:defineFunction("token.range",                 "token.range@this")]
+[h:defineFunction("token.light",                 "token.light@this")]
+[h:defineFunction("token.decreaseElevation",     "token.decreaseElevation@this")]
+[h:defineFunction("token.increaseElevation",     "token.increaseElevation@this")]
+
+[h:defineFunction("gm.clearInitiative",          "gm.clearInitiative@this")]
+[h:defineFunction("gm.prevInitiative",           "gm.prevInitiative@this")]
+[h:defineFunction("gm.nextInitiative",           "gm.nextInitiative@this")]
+[h:defineFunction("gm.exposeFog",                "gm.exposeFog@this")]
+[h:defineFunction("gm.manageParty",              "gm.manageParty@this")]
+[h:defineFunction("gm.moveTokens",               "gm.moveTokens@this")]
+[h:defineFunction("gm.requestRoll",              "gm.requestRoll@this")]
+[h:defineFunction("gm.setMap",                   "gm.setMap@this")]
+[h:defineFunction("gm.showHideToken",            "gm.showHideToken@this")]
 
 [h,macro("overlay/Loading@this"):"Loading Audio Clips"]
 

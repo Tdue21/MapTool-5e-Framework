@@ -1,0 +1,1 @@
+[macro('character/Elevation@this'):'elevation=1;tokenName='+token.name]

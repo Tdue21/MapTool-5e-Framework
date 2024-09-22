@@ -4,7 +4,6 @@
 [h:object=getStrProp(macro.args,"object")]
 
 [h:id=findToken(tokenName)]
-
 [h:switchToken(id)]
 
 [h:res=input("currentItem|Features,Actions,Reactions,Legendary Actions,Lair Actions,Regional Effects|Group|list|value=string")]
@@ -13,15 +12,11 @@
 [h:group=if(currentItem=="Features","feats","actions")]
 
 [h:CurrentObject=json.get(object,group)]
-
 [h,if(json.type(CurrentObject)=="UNKNOWN"):CurrentObject="{}"]
 
 [h:currentDescription=json.get(CurrentObject,currentItem)]
-
 [h:currentDescription=replace(currentDescription,"\\+","PLUSPLACEHOLDER")]
-
 [h:currentDescription=decode(currentDescription)]
-
 [h:currentDescription=replace(currentDescription,"PLUSPLACEHOLDER","+")]
 
-[macro("Bestiary/Change Form@this"):"group="+group+";name="+currentItem+";tokenName="+tokenName+";description="+currentDescription)]
+[macro("bestiary/Change Form@this"):"group="+group+";name="+currentItem+";tokenName="+tokenName+";description="+currentDescription)]
