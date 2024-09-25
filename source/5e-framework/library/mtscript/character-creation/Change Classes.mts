@@ -45,7 +45,7 @@
 	<td>
 	<input type="text" name="class" value="[r:class]" size="20">
 
-	<br>[r:macrolink("Change Class Features", "character-creation/Change Class Features@this")"","class="+class)]
+	<br>[r:macrolink("Change Class Features", "character-creation/Change Class Features@this", "","class="+class)]
 
 	<tr><td valign=top>
 	<b>Subclasses</b>
@@ -61,7 +61,7 @@
 
 	}]
 	
-	[r:macrolink("+", "character-creation/Change Class Features@this")"","class="+class+";subclass=add new")]
+	[r:macrolink("+", "character-creation/Change Class Features@this", "","class="+class+";subclass=add new")]
 
 
 	<tr><td>
@@ -91,7 +91,7 @@
 		[r,count(listcount(atrList),""):"<option "+if(spellcasting==listget(atrList,roll.count),"selected='selected'","")+">"+listget(atrList,roll.count)+"</option>"]
 	</select>
 
-	<br>[r:macrolink("Change Spell List", "character-creation/Change Spells@this")"",class)]
+	<br>[r:macrolink("Change Spell List", "character-creation/Change Spells@this", "",class)]
 	
 	<input type="hidden" name="name" value="[r:class]">
 

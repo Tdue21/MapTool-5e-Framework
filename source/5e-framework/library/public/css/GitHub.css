@@ -172,9 +172,19 @@ code {
 }
 
 .topbar	{
+    border: none;
 	border-bottom: 1px solid gray;
-	padding:0px;
+    background-color: #eaeaea;
+	padding:5px;
 	margin:0px;
-	font-family:roboto;
-	font-size:0.8em
+}
+
+.topbar span {
+    padding-left: 5px;
+    padding-right: 5px;
+    min-width: 80px;
+}
+
+.topbar span:hover {
+    background-color: #aeaeae;
 }

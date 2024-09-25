@@ -815,7 +815,7 @@ Notes
 	
 	[h,token("Lib:"+tokenName):description=getGMNotes("Lib:"+tokenName,start)]
 	<h5 style="border-bottom: 2px solid">
-	[r:macrolink("GM Notes", "character/Change Form@this")"","prop=GMNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+	[r:macrolink("GM Notes", "character/Change Form@this", "","prop=GMNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 	</h5>
 	
 	[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(description)]

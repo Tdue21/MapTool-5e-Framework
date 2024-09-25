@@ -211,7 +211,7 @@
 
 <td style="padding:0px; margin:0px" valign=top align=center><font size=2>
 
-[r:macrolink("<span title='Load Weapons'>Weapons</span>", "character/Get Weapons@this")"","profBonus="+profBonus+";tokenName="+tokenName)]
+[r:macrolink("<span title='Load Weapons'>Weapons</span>", "character/Get Weapons@this", "","profBonus="+profBonus+";tokenName="+tokenName)]
 
 <td  valign=bottom align=right style="padding:0px; margin:0px"><font size=2>
 
@@ -262,7 +262,7 @@
 
 	<span title="[r:value]/[r:total]">
 	
-	[r:macrolink("lv:<b>"+currentSlot+"</b>", "character/Change Slots@this")"","level="+currentSlot+";tokenName="+tokenName)]
+	[r:macrolink("lv:<b>"+currentSlot+"</b>", "character/Change Slots@this", "","level="+currentSlot+";tokenName="+tokenName)]
 	
 	</span>
 	

@@ -50,8 +50,8 @@
 
 [h:args=setStrProp(macro.args,"tokenName","Lib:Compendium")]
 
-[r,if(share==1 || edit==0):"";macrolink("Edit", "bestiary/Change Form@this")"","group=info;name=Info;tokenName="+tokenName+";description="+description)+" &nbsp;"]
-[r,if(share==1 || sharePlayer==0):"";macrolink("Share", "bestiary/Share Info@this")"","share=1;description="+description+";tokenName="+tokenName)+" &nbsp;"]
+[r,if(share==1 || edit==0):"";macrolink("Edit", "bestiary/Change Form@this", "","group=info;name=Info;tokenName="+tokenName+";description="+description)+" &nbsp;"]
+[r,if(share==1 || sharePlayer==0):"";macrolink("Share", "bestiary/Share Info@this", "","share=1;description="+description+";tokenName="+tokenName)+" &nbsp;"]
 
 
 [r,if(share==1):"";"</p>"]

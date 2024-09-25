@@ -42,10 +42,10 @@
 
 		[r,if(share==1):"";"<p class='topbar'>"]
 		[h:args=setStrProp(macro.args,"tokenName","Lib:Compendium")]
-		[r,if(share==1 || edit==0):"";macrolink("Edit", "character/Change Form@this")"",args)+" &nbsp;"]
-		[r,if(share==1):"";macrolink("Move", "character/Move@this")"",args)+" &nbsp;"]
-		[r,if(share==1 || sharePlayer==0):"";macrolink("Share", "character/Share@this")"",args+";share=1")+" &nbsp;"]
-		[r,if(share==1 || sharePlayer==0 || group!="Spells"):"";macrolink("Cast", "bestiary/Cast Spell@this")"",macro.args)+" &nbsp;"]
+		[r,if(share==1 || edit==0):"";macrolink("Edit", "character/Change Form@this", "",args)+" &nbsp;"]
+		[r,if(share==1):"";macrolink("Move", "character/Move@this", "",args)+" &nbsp;"]
+		[r,if(share==1 || sharePlayer==0):"";macrolink("Share", "character/Share@this", "",args+";share=1")+" &nbsp;"]
+		[r,if(share==1 || sharePlayer==0 || group!="Spells"):"";macrolink("Cast", "bestiary/Cast Spell@this", "",macro.args)+" &nbsp;"]
 
 		[r,if(share==1):"";"</p>"]
 

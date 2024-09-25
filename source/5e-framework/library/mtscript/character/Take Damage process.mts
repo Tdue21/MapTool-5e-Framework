@@ -73,7 +73,7 @@
 		[if(outputGM=="all" || isGM()==1),macro("character/HP Bar@this"):"MaxLen=65;MaxValue="+total+";Value="+new+";Color=Green";"MaxLen=0;MaxValue="+total+";Value="+new+";Color=Green"]
 
 
-		[r,if(getState("Concentration")==1 && dmg<0):"<font size=2>Concentration DC: <font color=red><b>"+if(floor(number((dmg*-1)/2))>10,floor(number((dmg*-1)/2)),10)+"</b> <font color=gray style='text-decoration:none'>"+macrolink("[roll con]", "bestiary/Maintain Concentration@this")"","tokenName="+tokenName+";dmg="+number(dmg*-1))+"</font>";""]
+		[r,if(getState("Concentration")==1 && dmg<0):"<font size=2>Concentration DC: <font color=red><b>"+if(floor(number((dmg*-1)/2))>10,floor(number((dmg*-1)/2)),10)+"</b> <font color=gray style='text-decoration:none'>"+macrolink("[roll con]", "bestiary/Maintain Concentration@this", "","tokenName="+tokenName+";dmg="+number(dmg*-1))+"</font>";""]
 
 		[h,if(new/total==1):barNPC=1]
 		[h,if(new/total<1):barNPC=0.9]
@@ -124,7 +124,7 @@
 		
 		[macro("character/HP Bar@this"):"MaxLen=65;MaxValue="+maxInput+";Value="+currentInput+";Color=Green"]
 
-		[r,if(getState("Concentration")==1 && effectiveDmg<0):"<font size=2>Concentration DC: <font color=red><b>"+if(floor(number((effectiveDmg*-1)/2))>10,floor(number((effectiveDmg*-1)/2)),10)+"</b> <font color=gray style='text-decoration:none'>"+macrolink("[roll con]", "character/Maintain Concentration@this")"","tokenName="+tokenName+";dmg="+number(effectiveDmg*-1))+"</font>";""]
+		[r,if(getState("Concentration")==1 && effectiveDmg<0):"<font size=2>Concentration DC: <font color=red><b>"+if(floor(number((effectiveDmg*-1)/2))>10,floor(number((effectiveDmg*-1)/2)),10)+"</b> <font color=gray style='text-decoration:none'>"+macrolink("[roll con]", "character/Maintain Concentration@this", "","tokenName="+tokenName+";dmg="+number(effectiveDmg*-1))+"</font>";""]
 		
 		
 

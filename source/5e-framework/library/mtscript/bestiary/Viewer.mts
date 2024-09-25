@@ -23,7 +23,7 @@
 [h:currentItem="Features"]
 [h:currentDescription=json.get(CurrentObject,currentItem)]
 
-[h:featureLink=macrolink("Features", "bestiary/Action Type@this")"","group="+group+";name="+currentItem+";tokenName="+tokenName+";object="+object)]
+[h:featureLink=macrolink("Features", "bestiary/Action Type@this", "","group="+group+";name="+currentItem+";tokenName="+tokenName+";object="+object)]
 
 <!----------------------LOAD VARIANT----------------------->
 [h:show=getStrProp(settings,"variant")]
@@ -35,7 +35,7 @@
 	[h:currentItem="Variant Rules"]
 	[h:currentDescription=json.get(CurrentObject,currentItem)]
 	
-	[h:variantLink=macrolink("Variant", "bestiary/Change Form@this")"","group="+group+";name="+currentItem+";tokenName="+tokenName+";description="+currentDescription)]
+	[h:variantLink=macrolink("Variant", "bestiary/Change Form@this", "","group="+group+";name="+currentItem+";tokenName="+tokenName+";description="+currentDescription)]
 };{}]
 
 

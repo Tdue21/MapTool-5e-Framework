@@ -4,41 +4,34 @@
 
 [h:submit=json.get(macro.args,"submit")]
 [h,if(submit=="Skip"),code:{
-
-[h:hasClassMacro=0]
-
+	[h:hasClassMacro=0]
 };{
 	[h:race=lower(json.get(macro.args,"race"))]
+	[h:macroList=getLibProperty("macroList", function.getNamespace())]
+	[h:hasClassMacro=listfind(macroList,race)]
 
-[h:macroList=getLibProperty("macroList", function.getNamespace())]
-[h:hasClassMacro=listfind(macroList,race)]
-
-[h,if(hasClassMacro==-1),code:{
-
-	[macro("compendium/custom race@this"):"tokenName="+tokenName+";name="+race]
-
+	[h,if(hasClassMacro==-1),code:{
+		[macro("compendium/custom race@this"):"tokenName="+tokenName+";name="+race]
 	};{
-	[h:macro.return=""]
-	[macro(race+"compendium/@this"):tokenName]
-	
-}]
-[h,if(macro.return==""):"";race=macro.return]
-[h,if(macro.return==""):"";setProperty("Race","value="+capitalize(race)+";text=")]
-<!-----------------Feat------------------->
-[h:group="Feats"]
-[h:inputList=getLibProperty(group,"Lib:Character")]
-[h:inputList=json.fields(inputList)]
-[h:inputList=listSort(inputList,"N")]
-[h:Property=getProperty(group)]
-[h,if(json.type(Property)=="UNKNOWN"):currentList="{}";currentList=json.fields(Property)]
-[h,count(listcount(currentList)),code:{
-	[h:currentItem=listget(currentList,roll.count)]
-	[h:delete=listfind(inputList,currentItem)]
-	[h:inputList=listdelete(inputList,delete)]
-}]
-[h:Property=json.set(Property,lower(race),"Race")]
-[h:setProperty(group,Property)]
-
+		[h:macro.return=""]
+		[macro("compendium/"+race+"@this"):tokenName]
+	}]
+	[h,if(macro.return==""):"";race=macro.return]
+	[h,if(macro.return==""):"";setProperty("Race","value="+capitalize(race)+";text=")]
+	<!-----------------Feat------------------->
+	[h:group="Feats"]
+	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=json.fields(inputList)]
+	[h:inputList=listSort(inputList,"N")]
+	[h:Property=getProperty(group)]
+	[h,if(json.type(Property)=="UNKNOWN"):currentList="{}";currentList=json.fields(Property)]
+	[h,count(listcount(currentList)),code:{
+		[h:currentItem=listget(currentList,roll.count)]
+		[h:delete=listfind(inputList,currentItem)]
+		[h:inputList=listdelete(inputList,delete)]
+	}]
+	[h:Property=json.set(Property,lower(race),"Race")]
+	[h:setProperty(group,Property)]
 }]
 
 <h1>Background</h1>

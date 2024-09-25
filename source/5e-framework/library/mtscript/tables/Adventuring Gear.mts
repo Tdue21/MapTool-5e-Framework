@@ -1,4 +1,4 @@
-<h5>Adventuring Gear [r:macrolink("+", "character/Args Dialog@this")"","prop=Equipment;index=new;name=new;description=new;tokenName=Lib:Compendium")]</h5>
+<h5>Adventuring Gear [r:macrolink("+", "character/Args Dialog@this", "","prop=Equipment;index=new;name=new;description=new;tokenName=Lib:Compendium")]</h5>
 
 
 [h:LibProperty=getLibProperty("Equipment",function.getNamespace())]
@@ -113,8 +113,8 @@ Adventuring Gear
 	[r:if(find2=="","&mdash;",find2)]
 
 	<td>
-	[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
-	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this")"","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
+	[r:macrolink("Move", "character/Move@this", "","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
+	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this", "","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
 }]
 
 <!----------------------Ammo-------------------------->
@@ -154,8 +154,8 @@ Ammo
 	[r:if(find2=="","&mdash;",find2)]
 
 	<td>
-	[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
-	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this")"","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
+	[r:macrolink("Move", "character/Move@this", "","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
+	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this", "","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
 }]
 
 
@@ -196,8 +196,8 @@ Spellcasting Focus
 	[r:if(find2=="","&mdash;",find2)]
 
 	<td>
-	[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
-	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this")"","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
+	[r:macrolink("Move", "character/Move@this", "","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
+	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this", "","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
 }]
 
 </table>

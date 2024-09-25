@@ -19,7 +19,7 @@
 [h,if(rollNPC==1):outputNPC=function.getOutput();outputNPC="none"]
 [r:macrolink("Make Token", "bestiary/Quick Monster@this")outputNPC,tokenName)]&nbsp;
 
-[r:macrolink("Info", "bestiary/Info@this")"","name=;tokenName="+tokenName)] &nbsp;
+[r:macrolink("Info", "bestiary/Info@this", "","name=;tokenName="+tokenName)] &nbsp;
 
 [h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 [h:sharePlayer=getStrProp(permissions,"share")]

@@ -21,14 +21,14 @@
 
 <p bgcolor=white style="border-bottom: 1px solid gray;padding:0px;margin:0px;font-family:sans;font-size:10px">
 
-[r:macrolink("Weapons", "tables/Equipment Table@this")"","Weapons")+" &nbsp;"]
-[r:macrolink("Armor", "tables/Equipment Table@this")"","Armor")+" &nbsp;"]
-[r:macrolink("Adventuring Gear", "tables/Equipment Table@this")"","Adventuring Gear")+" &nbsp;"]
-[r:macrolink("Equipment Packs", "tables/Equipment Table@this")"","Equipment Packs")+" &nbsp;"]
-[r:macrolink("Tools", "tables/Equipment Table@this")"","Tools")+" &nbsp;"]
-[r:macrolink("Mounts & Vehicles", "tables/Equipment Table@this")"","Mounts")+" &nbsp;"]
-[r:macrolink("Other", "tables/Equipment Table@this")"","Other")+" &nbsp;"]
-[r,if(isGM()==0 && viewMagicItems==0):"";macrolink("Magic Items", "tables/Equipment Table@this")"","Magic Items")+" &nbsp;"]
+[r:macrolink("Weapons", "tables/Equipment Table@this", "","Weapons")+" &nbsp;"]
+[r:macrolink("Armor", "tables/Equipment Table@this", "","Armor")+" &nbsp;"]
+[r:macrolink("Adventuring Gear", "tables/Equipment Table@this", "","Adventuring Gear")+" &nbsp;"]
+[r:macrolink("Equipment Packs", "tables/Equipment Table@this", "","Equipment Packs")+" &nbsp;"]
+[r:macrolink("Tools", "tables/Equipment Table@this", "","Tools")+" &nbsp;"]
+[r:macrolink("Mounts & Vehicles", "tables/Equipment Table@this", "","Mounts")+" &nbsp;"]
+[r:macrolink("Other", "tables/Equipment Table@this", "","Other")+" &nbsp;"]
+[r,if(isGM()==0 && viewMagicItems==0):"";macrolink("Magic Items", "tables/Equipment Table@this", "","Magic Items")+" &nbsp;"]
 
 </p>
 

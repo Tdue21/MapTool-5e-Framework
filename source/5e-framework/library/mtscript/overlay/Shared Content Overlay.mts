@@ -78,7 +78,7 @@ h6	{font-size: '+fontSize+';margin:0px;padding:0px;}
 	[h:settingsObject=getLibProperty("Settings",tokenName)]
 	[h:theme=json.get(settingsObject,"theme")]
 
-<div class="float">[r:macrolink("X", "overlay/closeOverlay@this")"","Shared")]</div>
+<div class="float">[r:macrolink("X", "overlay/closeOverlay@this", "","Shared")]</div>
 	
 	
 

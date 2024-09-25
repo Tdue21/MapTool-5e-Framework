@@ -67,7 +67,7 @@
 	<td>
 		<span style="font-size:1.4em;font-weight:bold">Party</span>
 		<span style="font-size:0.9em">
-			<span title="Make or move tokens to the current map">[r:macrolink("Make tokens", "campaign/Move Tokens@this")"")]</span> | 
+			<span title="Make or move tokens to the current map">[r:macrolink("Make tokens", "campaign/Move Tokens@this", "")]</span> | 
 			<span title="Create a poll for the players">[r:macroLink("Create Poll","vote/New Vote@this")]</span> | 
 			<span title="Show results of current vote">[r:macroLink("Results","vote/Open Results@this")]</span>
 		</span>
@@ -321,7 +321,7 @@
 	x
 	[r:Quantity]
 	
-	([r:macrolink("Move", "character/Pin Move@this")"","prop=Equipment;index="+roll.count+";name="+objName+";customName="+customName+";description=;tokenName="+pinName+";identified="+identified)])
+	([r:macrolink("Move", "character/Pin Move@this", "","prop=Equipment;index="+roll.count+";name="+objName+";customName="+customName+";description=;tokenName="+pinName+";identified="+identified)])
 	
 
 	

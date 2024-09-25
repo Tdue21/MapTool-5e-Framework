@@ -53,13 +53,13 @@
 		[h,if(isGM()==1):edit=1]
 		[h,if(isGM()==1):sharePlayer=1]
 		
-		[r,if(share==1 || edit==0):"";macrolink("Edit", "character/Change Form@this")"",macro.args)+" &nbsp;"]
-		[r,if(share==1):"";macrolink("Remove", "character/Delete@this")"",macro.args)+" &nbsp;"]
-		[r,if(share==1 || tokenName=="Lib:Character"):"";macrolink("Settings", "character/Metadata@this")"",macro.args)+" &nbsp;"]
-		[r,if(share==1):"";macrolink("Move", "character/Move@this")"",macro.args)+" &nbsp;"]
-		[r,if(share==1 || sharePlayer==0):"";macrolink("Share", "character/Share@this")"",macro.args+";share=1")+" &nbsp;"]
+		[r,if(share==1 || edit==0):"";macrolink("Edit", "character/Change Form@this", "",macro.args)+" &nbsp;"]
+		[r,if(share==1):"";macrolink("Remove", "character/Delete@this", "",macro.args)+" &nbsp;"]
+		[r,if(share==1 || tokenName=="Lib:Character"):"";macrolink("Settings", "character/Metadata@this", "",macro.args)+" &nbsp;"]
+		[r,if(share==1):"";macrolink("Move", "character/Move@this", "",macro.args)+" &nbsp;"]
+		[r,if(share==1 || sharePlayer==0):"";macrolink("Share", "character/Share@this", "",macro.args+";share=1")+" &nbsp;"]
 
-		[r,if(share==1 || sharePlayer==0 || group!="Spells"):"";macrolink("Cast", "character/Cast Spell@this")"",macro.args)+" &nbsp;"]
+		[r,if(share==1 || sharePlayer==0 || group!="Spells"):"";macrolink("Cast", "character/Cast Spell@this", "",macro.args)+" &nbsp;"]
 		
 		[h:loadedWeapons=getLibProperty("Weapons","Lib:"+tokenName)]
 		[h:fields=json.fields(loadedWeapons)]
@@ -72,7 +72,7 @@
 		[h:fields=json.fields(lower(resourcesObj))]
 		[h:useResource=""]
 		[h,count(listcount(fields)):useResource=if(matches(name,".*"+listget(fields,roll.count)+".*")==1,listget(fields,roll.count),useResource)]
-		[r,if(share==1 || sharePlayer==0 || matches(group,".*[F]eat.*")==0 || useResource==""):"";macrolink("Use", "character/Consume Resource@this")"",macro.args+";resource="+useResource)+" &nbsp;"]
+		[r,if(share==1 || sharePlayer==0 || matches(group,".*[F]eat.*")==0 || useResource==""):"";macrolink("Use", "character/Consume Resource@this", "",macro.args+";resource="+useResource)+" &nbsp;"]
 		
 		
 		[r,if(share==1):"";"</p>"]

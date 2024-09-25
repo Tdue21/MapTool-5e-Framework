@@ -32,9 +32,9 @@
 
 	[r:json.toList(json.get(currentObj,"sources"))]
 	
-	<font size=2 color=red>[r:macrolink("X", "character/Delete Source@this")"","prop=AdditionalFeats;name="+name+";tokenName="+tokenName)]</font>
+	<font size=2 color=red>[r:macrolink("X", "character/Delete Source@this", "","prop=AdditionalFeats;name="+name+";tokenName="+tokenName)]</font>
 	
 }]
 </table>
 
-[r:macrolink("+", "character/Args Dialog@this")"","prop=AdditionalFeats;index=new;name=new;description=new;tokenName="+tokenName)]
+[r:macrolink("+", "character/Args Dialog@this", "","prop=AdditionalFeats;index=new;name=new;description=new;tokenName="+tokenName)]

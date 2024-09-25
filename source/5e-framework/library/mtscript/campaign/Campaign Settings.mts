@@ -28,35 +28,35 @@ v[r,token("Lib:Campaign"):getProperty("libversion")]
 
 <tr class=bg><td>
 <span title="Change value of currency (not working)">
-[r:macrolink("Currency Value", "campaign/Settings@this")"","Currency")]
+[r:macrolink("Currency Value", "campaign/Settings@this", "","Currency")]
 <td align=right>
 
 <tr><td>
 <span title="Set map to load by default">
-[r:macrolink("Starting Map", "campaign/Settings@this")"","Start")]
+[r:macrolink("Starting Map", "campaign/Settings@this", "","Start")]
 <td align=right>
 [r,token("Lib:Campaign"):value=getProperty("Start")]
 
 <tr class=bg><td>
 <span title="Quick link to the game rules">
-[r:macrolink("Rules URL", "campaign/Settings@this")"","RulesLink")]
+[r:macrolink("Rules URL", "campaign/Settings@this", "","RulesLink")]
 
 
 <tr><td>
 <span title="Define a welcome message">
-[r:macrolink("Welcome Message", "campaign/Change Property@this")"","tokenName=Lib:Campaign;prop=Welcome")]
+[r:macrolink("Welcome Message", "campaign/Change Property@this", "","tokenName=Lib:Campaign;prop=Welcome")]
 <td align=right>
 [h,token("Lib:Campaign"):value=getProperty("Welcome")]
 [r:if(value==0 || value=="","empty","")]
 
 <tr class=bg><td>
 <span title="Define preferences for framework behavior">
-[r:macrolink("Gameplay Settings", "campaign/Settings@this")"","Gameplay")]
+[r:macrolink("Gameplay Settings", "campaign/Settings@this", "","Gameplay")]
 <td align=right>
 
 <tr><td>
 <span title="Define display preferences">
-[r:macrolink("Display Settings", "campaign/Settings@this")"","Display")]
+[r:macrolink("Display Settings", "campaign/Settings@this", "","Display")]
 <td align=right>
 
 </table>
@@ -129,14 +129,14 @@ Compendium
 Character Sheet
 <tr class=bg><td>
 <span title="Define custom atributes">
-[r:macrolink("Attributes", "campaign/Settings@this")"","Attributes")]
+[r:macrolink("Attributes", "campaign/Settings@this", "","Attributes")]
 <td align=right>
 [h:value=getLibProperty("Attributes", function.getNamespace())]
 [r:listcount(value)]
 
 <tr><td>
 <span title="Define custom skills">
-[r:macrolink("Skills", "campaign/Settings@this")"","Skills")]
+[r:macrolink("Skills", "campaign/Settings@this", "","Skills")]
 <td align=right>
 [h:value=getLibProperty("Skills", function.getNamespace())]
 [r:listcount(value,";")]
@@ -144,42 +144,42 @@ Character Sheet
 
 <tr class=bg><td>
 <span title="Define passive checks to display on the Character Sheet">
-[r:macrolink("Passive Checks", "campaign/Settings@this")"","Passive")]
+[r:macrolink("Passive Checks", "campaign/Settings@this", "","Passive")]
 <td align=right>
 [h:value=getLibProperty("Passive Checks", function.getNamespace())]
 [r:listcount(value)]
 
 <tr><td>
 <span title="Define list of Feat Options">
-[r:macrolink("Feat Options", "campaign/Settings@this")"","Feats")]
+[r:macrolink("Feat Options", "campaign/Settings@this", "","Feats")]
 <td align=right>
 [h:value=getLibProperty("Feats", function.getNamespace())]
 [r:listcount(value)]
 
 <tr class=bg><td>
 <span title="Define default languages">
-[r:macrolink("Languages", "campaign/Settings@this")"","Languages")]
+[r:macrolink("Languages", "campaign/Settings@this", "","Languages")]
 <td align=right>
 [h:value=getLibProperty("Languages", function.getNamespace())]
 [r:listcount(value)]
 
 <tr><td>
 <span title="Define races">
-[r:macrolink("Races", "campaign/Settings@this")"","Races")]
+[r:macrolink("Races", "campaign/Settings@this", "","Races")]
 <td align=right>
 [h:value=getLibProperty("Races", function.getNamespace())]
 [r:listcount(value)]
 
 <tr class=bg><td>
 <span title="Define backgrounds">
-[r:macrolink("Backgrounds", "campaign/Settings@this")"","Backgrounds")]
+[r:macrolink("Backgrounds", "campaign/Settings@this", "","Backgrounds")]
 <td align=right>
 [h:value=getLibProperty("Backgrounds", function.getNamespace())]
 [r:listcount(value)]
 
 <tr><td>
 <span title="Manage Classes and Subclasses">
-[r:macrolink("Classes", "character-creation/Change Classes@this")"")]
+[r:macrolink("Classes", "character-creation/Change Classes@this", "")]
 <td align=right>
 [h:value=getLibProperty("Classes", function.getNamespace())]
 [h:fields=json.fields(value)]
@@ -198,17 +198,17 @@ Character Sheet
 
 <tr class=bg><td>
 <span title="Define weapon lists by type">
-[r:macrolink("Equipment Lists", "campaign/Settings@this")"","Equipment")]
+[r:macrolink("Equipment Lists", "campaign/Settings@this", "","Equipment")]
 <td align=right>
 
 <tr><td>
 <span title="Define spell lists to display on the library">
-[r:macrolink("Spell Lists", "campaign/Settings@this")"","Spells")]
+[r:macrolink("Spell Lists", "campaign/Settings@this", "","Spells")]
 
 <tr class=bg><td>
 
 <span title="Define spells by class and level">
-[r:macrolink("Spells", "character-creation/Change Spells@this")"")]
+[r:macrolink("Spells", "character-creation/Change Spells@this", "")]
 
 
 </table>
@@ -220,7 +220,7 @@ Player Permissions
 <tr class=bg><td>
 
 <span title="Define output of rolls made by the players and GM">
-[r:macrolink("Roll Output", "campaign/Settings@this")"","Output")]
+[r:macrolink("Roll Output", "campaign/Settings@this", "","Output")]
 <td align=right>
 [r:getLibProperty("PC Output",function.getNamespace())] /
 [r:getLibProperty("GM Output",function.getNamespace())]
@@ -228,25 +228,25 @@ Player Permissions
 <tr><td>
 
 <span title="Define output of dice sounds made by the players and GM">
-[r:macrolink("Audio Output", "campaign/Settings@this")"","OutputAudio")]
+[r:macrolink("Audio Output", "campaign/Settings@this", "","OutputAudio")]
 <td align=right>
 [r:getLibProperty("PC Audio",function.getNamespace())] /
 [r:getLibProperty("GM Audio",function.getNamespace())]
 
 <tr class=bg><td>
 <span title="Define link to audio clips and set audio to preload on startup or when required, multiple links delimited by comma">
-[r:macrolink("Audio Clips", "campaign/Settings@this")"","Clips")]
+[r:macrolink("Audio Clips", "campaign/Settings@this", "","Clips")]
 <td align=right>
 [r:listcount(getLibProperty("Audio", function.getNamespace()))]
 
 <tr><td>
 <span title="Define what players are allowed to access or edit">
-[r:macrolink("Player Permissions", "campaign/Settings@this")"","Permissions")]
+[r:macrolink("Player Permissions", "campaign/Settings@this", "","Permissions")]
 <td align=right>
 
 <tr class=bg><td>
 <span title="Define tables to be ignored on the compendium, delimited by comma">
-[r:macrolink("Table Blacklist", "campaign/Settings@this")"","blacklist")]
+[r:macrolink("Table Blacklist", "campaign/Settings@this", "","blacklist")]
 <td align=right>
 [r:listcount(getLibProperty("blacklist", function.getNamespace()))]
 

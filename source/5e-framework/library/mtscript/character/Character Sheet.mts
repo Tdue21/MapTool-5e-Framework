@@ -19,7 +19,7 @@
 <table width=100%>
 <tr bgcolor=#DCDCDC>
 <td style="margin:0px; padding:0px; font-size:8px" align=left>
-[r:macrolink("Load", "character/Selector@this")"","macro=Character Sheet;tokenName="+tokenName)]
+[r:macrolink("Load", "character/Selector@this", "","macro=Character Sheet;tokenName="+tokenName)]
 <td style="margin:0px; padding:0px; font-size:8px" align=right><b>DUNGEONS & DRAGONS
 <tr>
 <td colspan=2 style="border-style: double none double solid; border-width:3px;font-size:15px;margin:0px; padding:0px" align=center>
@@ -51,7 +51,7 @@
 
 
 <tr style="font-size:6px">
-<td style="margin:0px; padding:0px"><span title="Edit Name">[r:macrolink("CHARACTER NAME", "character/Rename@this")"","tokenName="+tokenName)]</span>
+<td style="margin:0px; padding:0px"><span title="Edit Name">[r:macrolink("CHARACTER NAME", "character/Rename@this", "","tokenName="+tokenName)]</span>
 <td bgcolor=#DCDCDC>
 
 </table>
@@ -139,9 +139,9 @@
 
 <tr style="font-size:6px; border-top: 1px solid gray;">
 <td style="margin:0px; padding:0px">
-[r:macrolink("<span title='Add Class'>CLASS & LEVEL</span>", "character/Change Class@this")"","class=New Class;tokenName="+tokenName)]
+[r:macrolink("<span title='Add Class'>CLASS & LEVEL</span>", "character/Change Class@this", "","class=New Class;tokenName="+tokenName)]
 <td style="margin:0px; padding:0px">
-[r:macrolink("<span title='Edit Background'>BACKGROUND</span>", "character/Change Property@this")"","name=Background;value="+encode(background)+";id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Background'>BACKGROUND</span>", "character/Change Property@this", "","name=Background;value="+encode(background)+";id="+id+";tokenName="+tokenName)]
 <td style="margin:0px; padding:0px">PLAYER NAME
 <tr>
 <td style="margin:0px; padding:0px">
@@ -184,13 +184,13 @@
 
 <tr style="font-size:6px; border-top: 1px solid gray;">
 <td style="margin:0px; padding:0px">
-[r:macrolink("<span title='Edit Race'>RACE</span>", "character/Change Property@this")"","name=Race;value="+encode(race)+";id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Race'>RACE</span>", "character/Change Property@this", "","name=Race;value="+encode(race)+";id="+id+";tokenName="+tokenName)]
 
 <td style="margin:0px; padding:0px">
-[r:macrolink("<span title='Edit Alignment'>ALIGNMENT</span>", "character/Change Property@this")"","name=Alignment;value="+encode(alignment)+";id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Alignment'>ALIGNMENT</span>", "character/Change Property@this", "","name=Alignment;value="+encode(alignment)+";id="+id+";tokenName="+tokenName)]
 <td style="margin:0px; padding:0px">
 
-[r:macrolink("<span title='Edit Experience Points'>EXPERIENCE POINTS</span>", "character/Change Property@this")"","name=XP;value="+encode(xp)+";id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Experience Points'>EXPERIENCE POINTS</span>", "character/Change Property@this", "","name=XP;value="+encode(xp)+";id="+id+";tokenName="+tokenName)]
 
 </table>
 
@@ -277,41 +277,41 @@ PROFICIENCY BONUS
 [h:ArmorProf=getLibProperty("Armor Proficiency","Lib:"+tokenName)]
 [h:value=getStrProp(string(ArmorProf),"value")]
 [h:text=getStrProp(string(ArmorProf),"text")]
-[r:macrolink("<span title='Edit Armor Proficiency'>Armor</span>", "character/Change Property@this")"","name=Armor Proficiency;value="+encode(ArmorProf)+";id="+id+";tokenName="+tokenName)]: 
+[r:macrolink("<span title='Edit Armor Proficiency'>Armor</span>", "character/Change Property@this", "","name=Armor Proficiency;value="+encode(ArmorProf)+";id="+id+";tokenName="+tokenName)]: 
 <!-----------------ARMOR PROFICIENCIES------------------->
 [h:value=replace(value,"\\.","")]
 [h:value=replace(value,"(?<![\\w\\d])and",",")]
 [r,count(listcount(value)),code:{
 	[h:entry=listget(value,roll.count)]
-	[r:macrolink("<span title='Roll "+entry+"'>"+entry+"<span>", "character/Other Proficiencies@this")"","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
+	[r:macrolink("<span title='Roll "+entry+"'>"+entry+"<span>", "character/Other Proficiencies@this", "","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
 }]
 
 <br>
 [h:WeaponProf=getLibProperty("Weapon Proficiency","Lib:"+tokenName)]
 [h:value=getStrProp(string(WeaponProf),"value")]
 [h:text=getStrProp(string(WeaponProf),"text")]
-[r:macrolink("<span title='Edit Weapon Proficiency'>Weapon</span>", "character/Change Property@this")"","name=Weapon Proficiency;value="+encode(WeaponProf)+";id="+id+";tokenName="+tokenName)]:
+[r:macrolink("<span title='Edit Weapon Proficiency'>Weapon</span>", "character/Change Property@this", "","name=Weapon Proficiency;value="+encode(WeaponProf)+";id="+id+";tokenName="+tokenName)]:
 
 <!-----------------WEAPON PROFICIENCIES------------------->
 [h:value=replace(value,"\\.","")]
 [h:value=replace(value,"(?<![\\w\\d])and",",")]
 [r,count(listcount(value)),code:{
 	[h:entry=listget(value,roll.count)]
-	[r:macrolink("<span title='Roll "+entry+"'>"+entry+"<span>", "character/Other Proficiencies@this")"","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
+	[r:macrolink("<span title='Roll "+entry+"'>"+entry+"<span>", "character/Other Proficiencies@this", "","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
 }]
 
 <br>
 [h:ToolProf=getLibProperty("Tool Proficiency","Lib:"+tokenName)]
 [h:value=getStrProp(string(ToolProf),"value")]
 [h:text=getStrProp(string(ToolProf),"text")]
-[r:macrolink("<span title='Edit Tool Proficiencies'>Tools</span>", "character/Change Property@this")"","name=Tool Proficiency;value="+encode(ToolProf)+";id="+id+";tokenName="+tokenName)]:
+[r:macrolink("<span title='Edit Tool Proficiencies'>Tools</span>", "character/Change Property@this", "","name=Tool Proficiency;value="+encode(ToolProf)+";id="+id+";tokenName="+tokenName)]:
 
 <!-----------------TOOL PROFICIENCIES------------------->
 [h:value=replace(value,"\\.","")]
 [h:value=replace(value,"(?<![\\w\\d])and",",")]
 [r,count(listcount(value)),code:{
 	[h:entry=listget(value,roll.count)]
-	[r:macrolink("<span title='Roll "+entry+"'>"+entry+"<span>", "character/Other Proficiencies@this")"","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
+	[r:macrolink("<span title='Roll "+entry+"'>"+entry+"<span>", "character/Other Proficiencies@this", "","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
 }]
 
 <br>
@@ -319,27 +319,27 @@ PROFICIENCY BONUS
 [h:value=getStrProp(string(LanguageProf),"value")]
 [h:setLibProperty("Languages",value,"Lib:"+tokenName)]
 [h:text=getStrProp(string(LanguageProf),"text")]
-[r:macrolink("<span title='Edit Language Proficiencies'>Languages</span>", "character/Change Property@this")"","name=Language Proficiency;value="+encode(LanguageProf)+";id="+id+";tokenName="+tokenName)]:
+[r:macrolink("<span title='Edit Language Proficiencies'>Languages</span>", "character/Change Property@this", "","name=Language Proficiency;value="+encode(LanguageProf)+";id="+id+";tokenName="+tokenName)]:
 
 <!-----------------LANGUAGE PROFICIENCIES------------------->
 [h:value=replace(value,"\\.","")]
 [h:value=replace(value,"(?<![\\w\\d])and",",")]
 [r,count(listcount(value)),code:{
 	[h:entry=listget(value,roll.count)]
-	[r:macrolink("<span title='Roll "+entry+"'>"+entry+"<span>", "character/Other Proficiencies@this")"","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
+	[r:macrolink("<span title='Roll "+entry+"'>"+entry+"<span>", "character/Other Proficiencies@this", "","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
 }]
 
 <br>
 [h:OtherProf=getLibProperty("Other Proficiency","Lib:"+tokenName)]
 [h:value=getStrProp(string(OtherProf),"value")]
 [h:text=getStrProp(string(OtherProf),"text")]
-[r:macrolink("<span title='Edit Other Proficiencies'>Other</span>", "character/Change Property@this")"","name=Other Proficiency;value="+encode(OtherProf)+";id="+id+";tokenName="+tokenName)]: 
+[r:macrolink("<span title='Edit Other Proficiencies'>Other</span>", "character/Change Property@this", "","name=Other Proficiency;value="+encode(OtherProf)+";id="+id+";tokenName="+tokenName)]: 
 <!-----------------OTHER PROFICIENCIES------------------->
 [h:value=replace(value,"\\.","")]
 [h:value=replace(value,"(?<![\\w\\d])and",",")]
 [r,count(listcount(value)),code:{
 	[h:entry=listget(value,roll.count)]
-	[r:macrolink("<span title='Roll "+entry+"'>"+entry+"<span>", "character/Other Proficiencies@this")"","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
+	[r:macrolink("<span title='Roll "+entry+"'>"+entry+"<span>", "character/Other Proficiencies@this", "","entry="+entry+";tokenName="+tokenName+";profBonus="+profBonus)]
 }]
 
 
@@ -389,7 +389,7 @@ PROFICIENCY BONUS
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 <b>
-[r:macrolink("<span title='Edit Armor Class'>ARMOR<br>CLASS</span>", "character/Change Property@this")"","value="+encode(AC)+";name=AC;id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Armor Class'>ARMOR<br>CLASS</span>", "character/Change Property@this", "","value="+encode(AC)+";name=AC;id="+id+";tokenName="+tokenName)]
 </table>
 [h,if(id==""):"";setProperty("Armor Class",totalValue+if(text=="" || text==0,""," ("+text+")"))]
 
@@ -462,7 +462,7 @@ default:bonus=0]
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 
 <br>
-<b>[r:macrolink("<span title='Edit Movement Speed'>SPEED</span>", "character/Change Property@this")"","value="+encode(Spd)+";name=Speed;id="+id+";tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Edit Movement Speed'>SPEED</span>", "character/Change Property@this", "","value="+encode(Spd)+";name=Speed;id="+id+";tokenName="+tokenName)]
 
 </table>
 
@@ -604,7 +604,7 @@ default:bonus=0]
 	[h:sides=indexKeyStrProp(totalHitDice,roll.count)]
 	[h:currentHitDice=dices+sides]
 	
-	[r:macrolink("<span title='Roll Hit Dice'>"+currentHitDice+"</span>", "character/Hit Dice Roll@this")"","dices="+dices+";sides="+replace(sides,"d","")+";tokenName="+tokenName+";output="+output+";conMod="+con)]
+	[r:macrolink("<span title='Roll Hit Dice'>"+currentHitDice+"</span>", "character/Hit Dice Roll@this", "","dices="+dices+";sides="+replace(sides,"d","")+";tokenName="+tokenName+";output="+output+";conMod="+con)]
 }]
 <tr>
 <td colspan=2 align=center style="font-size:11px; margin:0px; padding:0px">
@@ -627,7 +627,7 @@ default:bonus=0]
 <tr>
 <td colspan=2 align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 <b>
-[r:macrolink("<span title='Edit Hit Dice'>HIT DICE</span>", "character/Change Hit Die@this")"","totalHitDice="+encode(totalHitDice)+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Hit Dice'>HIT DICE</span>", "character/Change Hit Die@this", "","totalHitDice="+encode(totalHitDice)+";tokenName="+tokenName)]
 
 
 </table>
@@ -668,7 +668,7 @@ FAILURES
 <td colspan=2 align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 <b>
 
-[r:macrolink("<span title='Roll Death Saving Throw'>DEATH SAVES</span>", "character/d20 Roller@this")"","text=Death Save;value=;tokenName="+tokenName+";color=death")]
+[r:macrolink("<span title='Roll Death Saving Throw'>DEATH SAVES</span>", "character/d20 Roller@this", "","text=Death Save;value=;tokenName="+tokenName+";color=death")]
 
 
 </table>
@@ -699,7 +699,7 @@ FAILURES
 
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macrolink("<span title='Add Custom Attacks'>ATTACKS & SPELLCASTING</span>", "character/Custom Attack@this")"","profBonus="+profBonus+";tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Add Custom Attacks'>ATTACKS & SPELLCASTING</span>", "character/Custom Attack@this", "","profBonus="+profBonus+";tokenName="+tokenName)]
 
 </table>
 
@@ -873,13 +873,13 @@ default:sizemod=1]
 
 [h:carryMod=StrengthValue*sizemod]
 
-[r:macrolink("Total weight", "character/Carry Capacity Calculation@this")"","tokenName="+tokenName)]: [r:totalWeight]/[r:carryMod*15)]
+[r:macrolink("Total weight", "character/Carry Capacity Calculation@this", "","tokenName="+tokenName)]: [r:totalWeight]/[r:carryMod*15)]
 
 [r:if(totalWeight>carryMod*15,"(<span title='You can not carry that much weight'>Can't carry)",if(totalWeight>carryMod*10,"(<span title='speed drops by 20 ft., disadvantage on ability checks, attack rolls, and saving throws that use STR, DEX, or CON'>Heavily encumbered</span>)",if(totalWeight>carryMod*5,"(<span title='speed drops by 10 ft.'>Encumbered</span>)","")))]
 
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macrolink("<span title='Add Equipment'>EQUIPMENT</span>", "character/Add@this")"","prop="+object+";tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Add Equipment'>EQUIPMENT</span>", "character/Add@this", "","prop="+object+";tokenName="+tokenName)]
 
 
 </table>
@@ -922,7 +922,7 @@ default:sizemod=1]
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 <b>
 
-[r:macrolink("<span title='Edit Personality Traits'>PERSONALITY TRAITS</span>", "character/Change Textfield Form@this")"","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Personality Traits'>PERSONALITY TRAITS</span>", "character/Change Textfield Form@this", "","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 </table>
 
 
@@ -942,7 +942,7 @@ default:sizemod=1]
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 <b>
-[r:macrolink("<span title='Edit Ideals'>IDEALS</span>", "character/Change Textfield Form@this")"","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Ideals'>IDEALS</span>", "character/Change Textfield Form@this", "","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 
 </table>
 
@@ -961,7 +961,7 @@ default:sizemod=1]
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 <b>
-[r:macrolink("<span title='Edit Bonds'>BONDS</span>", "character/Change Textfield Form@this")"","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Bonds'>BONDS</span>", "character/Change Textfield Form@this", "","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 
 </table>
 
@@ -983,7 +983,7 @@ default:sizemod=1]
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
 <b>
 
-[r:macrolink("<span title='Edit Flaws'>FLAWS</span>", "character/Change Textfield Form@this")"","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit Flaws'>FLAWS</span>", "character/Change Textfield Form@this", "","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 
 </table>
 
@@ -1058,7 +1058,7 @@ default:sizemod=1]
 
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macrolink("<span title='Add Features'>FEATURES & TRAITS</span>", "character/Add@this")"","prop="+object+";tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Add Features'>FEATURES & TRAITS</span>", "character/Add@this", "","prop="+object+";tokenName="+tokenName)]
 
 
 </table>

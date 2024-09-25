@@ -30,9 +30,9 @@
 	
 	[r:macroLink(CapitalName,"character/Args Dialog@this","","prop=Level 0;name="+name+";description="+encode(description)+";tokenName="+tokenName)]
 	<td width=0%>
-	<font size=2 color=red>[r:macrolink("X", "character/Delete Source@this")"","prop=Level 0;name="+name+";tokenName="+tokenName)]</font>
+	<font size=2 color=red>[r:macrolink("X", "character/Delete Source@this", "","prop=Level 0;name="+name+";tokenName="+tokenName)]</font>
 	
 }]
 </table>
 
-[r:macrolink("+", "character/Args Dialog@this")"","prop=Level 0;index=new;name=new;description=new;tokenName="+tokenName)]
+[r:macrolink("+", "character/Args Dialog@this", "","prop=Level 0;index=new;name=new;description=new;tokenName="+tokenName)]

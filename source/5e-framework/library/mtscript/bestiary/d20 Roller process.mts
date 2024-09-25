@@ -184,9 +184,9 @@
 
 };{
 
-	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macrolink("[Set initiative]", "character/Set Initiative@this")"","tokenName="+tokenName+";value="+formulaNormal),"")]
-	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macrolink("[Adv]", "character/Set Initiative@this")"","tokenName="+tokenName+";value="+adv),"")]
-	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macrolink("[Dis]", "character/Set Initiative@this")"","tokenName="+tokenName+";value="+dis),"")]
+	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macrolink("[Set initiative]", "character/Set Initiative@this", "","tokenName="+tokenName+";value="+formulaNormal),"")]
+	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macrolink("[Adv]", "character/Set Initiative@this", "","tokenName="+tokenName+";value="+adv),"")]
+	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1,macrolink("[Dis]", "character/Set Initiative@this", "","tokenName="+tokenName+";value="+dis),"")]
 	[r,if(isGM()==1):if(matches(text,"Initiative.*")==1 && output!="all","<br>","")]
 
 }]

@@ -70,8 +70,8 @@
 
 		<h4>[r:CapitalName]
 		<font size=3>
-	[r:macrolink("Edit", "character/Change Form@this")"","prop=AdditionalFeats;source=;name="+feat+": "+currentFeature+";description=;tokenName=Lib:Campaign")] |
-	[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+feat+": "+currentFeature+";prop=AdditionalFeats")]</h4>
+	[r:macrolink("Edit", "character/Change Form@this", "","prop=AdditionalFeats;source=;name="+feat+": "+currentFeature+";description=;tokenName=Lib:Campaign")] |
+	[r:macrolink("Move", "character/Move@this", "","tokenName=Lib:Compendium;description=;name="+feat+": "+currentFeature+";prop=AdditionalFeats")]</h4>
 
 		[h:currentObj=json.get(AddFeats,feat+": "+currentFeature)]
 		[h:description=json.get(currentObj,"description")]

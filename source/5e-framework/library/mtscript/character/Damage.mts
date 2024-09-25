@@ -67,7 +67,7 @@ Current HP: <b>[r:currentInput]</b>/<b>[r:maxInput]</b> [r:if(tempInput==0,"","(
 
 [h,if(id==""):concentration=0;concentration=getState("Concentration")]
 
-[r,if(concentration==1 && effectiveDmg<0):"<font size=2>Concentration DC: <font color=red><b>"+if(floor(number((effectiveDmg*-1)/2))>10,floor(number((effectiveDmg*-1)/2)),10)+"</b> <font color=gray style='text-decoration:none'>"+macrolink("[roll con]", "character/Maintain Concentration@this")"","tokenName="+tokenName+";dmg="+number(effectiveDmg*-1))+"</font>";""]
+[r,if(concentration==1 && effectiveDmg<0):"<font size=2>Concentration DC: <font color=red><b>"+if(floor(number((effectiveDmg*-1)/2))>10,floor(number((effectiveDmg*-1)/2)),10)+"</b> <font color=gray style='text-decoration:none'>"+macrolink("[roll con]", "character/Maintain Concentration@this", "","tokenName="+tokenName+";dmg="+number(effectiveDmg*-1))+"</font>";""]
 
 
 

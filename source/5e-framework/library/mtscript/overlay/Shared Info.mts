@@ -78,7 +78,7 @@ img	{
 </div>
 <div class="[r:class]">
 
-<div class="float">[r:macrolink("X", "overlay/closeOverlay@this")"","Shared")]</div>
+<div class="float">[r:macrolink("X", "overlay/closeOverlay@this", "","Shared")]</div>
 
 
 <h1 style="padding-bottom:0px;margin-bottom:0px;">

@@ -30,54 +30,30 @@
 	[h:setProperty("Charisma",props,id)]
 
 }]
-
-<h1>Race</h1>
-
-<p style="margin-top: 10px; margin-bottom: 10px">
-
-Select a <b>race</b>, <b>subrace</b> or <b>variant race</b> from the following list.
-
-</p>
-
-
-<tr>
-<td valign=bottom style="padding:0px;margin=0px">
-
-
-[h: processorLink=macroLinkText("character-creation/CharacterCreationWizard@this","")]
-<form action="[r:processorLink]" method="json">
-
-
 [h:races=getLibProperty("Races", function.getNamespace())]
 
+<div class="content">
+	<h1>Race</h1>
 
-<select name="race" size="15">
+	<p>Select a <b>race</b>, <b>subrace</b> or <b>variant race</b> from the following list.</p>
 
-[r,count(listcount(races),""),code:{
+	<select name="race" size="15">
+		[r,count(listcount(races),""),code:{
+			<option[r:if(roll.count==0," selected='selected'","")]>[r:listget(races,roll.count)]</option>
+		}]
+		<option>Custom Race</option>
+	</select>
 
-<option[r:if(roll.count==0," selected='selected'","")]>[r:listget(races,roll.count)]</option>
-
-}]
-<option>Custom Race</option>
-</select>
-
-
-
-<p style="margin-top: 10px;margin-bottom: 10px;margin-left:10px">
-
-Click <b>Next</b> to continue.
-
-</p>
-
+	<p>Click <b>Next</b> to continue.</p>
+</div>
 
 <input type="hidden" name="tokenName" value="[r:tokenName]">
 <input type="hidden" name="window" value="Race">
 
-
-<div class="div" style="padding-left: 207px;padding-top: 13px;padding-bottom: 12px;margin:0px;" bgcolor=#D8D8D8>
-<input type="submit" name="submit" value="< Back">&nbsp;
-<input type="submit" name="submit" value="Skip">&nbsp;
-<input type="submit" name="submit" value="Next >">
+<div class="buttons">
+	<button type="submit" name="submit" value="Back">&lt; Back</button>
+	<button type="submit" name="submit" value="Skip">Skip</button>
+	<button type="submit" name="submit" value="Next">Next &gt;</button>
 </div>
 
 

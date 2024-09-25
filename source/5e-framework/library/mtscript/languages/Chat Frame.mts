@@ -72,8 +72,8 @@
 
 
 	
-	[r:macrolink("&lt;", "languages/Chat Frame@this")"","width="+number(width-1)+";language="+language)]
-	[r:macrolink(">", "languages/Chat Frame@this")"","width="+number(width+1)+";language="+language)]
+	[r:macrolink("&lt;", "languages/Chat Frame@this", "","width="+number(width-1)+";language="+language)]
+	[r:macrolink(">", "languages/Chat Frame@this", "","width="+number(width+1)+";language="+language)]
 	<input type="text" name="text" value="" size="[r:width]">
 	
 	&nbsp;

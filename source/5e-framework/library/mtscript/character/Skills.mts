@@ -104,7 +104,7 @@
 
 	[h:atr=if(skillAttribute==getStrProp(skillList,skillName),atr,"<font color=red>"+atr+"</font>")]
 	
-	([r:macrolink("<span title='Edit "+skillName+"'>"+atr+"</span>", "character/Change Skill@this")"","skill="+roll.count+";default="+encode(skillList)+";attributeList="+attributeList+";id="+id+";tokenName="+tokenName)])
+	([r:macrolink("<span title='Edit "+skillName+"'>"+atr+"</span>", "character/Change Skill@this", "","skill="+roll.count+";default="+encode(skillList)+";attributeList="+attributeList+";id="+id+";tokenName="+tokenName)])
 	
 
 	[r:if(other==0,"",if(other>0,"+","-"))]
@@ -119,6 +119,6 @@
 
 <td colspan=3 align=center style="margin:0px; padding:0px; margin-top:5; font-size:6px">
 
-<b>[r:macrolink("SKILLS", "character/Global Mod@this")"","tokenName="+tokenName+";value=Skill")]
+<b>[r:macrolink("SKILLS", "character/Global Mod@this", "","tokenName="+tokenName+";value=Skill")]
 
 </table>

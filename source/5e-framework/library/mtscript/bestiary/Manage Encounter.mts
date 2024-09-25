@@ -48,9 +48,9 @@
 
 <p class='topbar'>
 
-<span title="Open the party manager">[r:macrolink("Party", "character/Manage Party@this")"","tokenName="+pinName)]</span>&nbsp;
-<span title="Open the encounter manager">[r:macrolink("Encounter", "bestiary/Manage Encounter@this")"","tokenName="+pinName+";reload=1")]</span>&nbsp;
-<span title="Open the current loaded Pin ([r:pinName])">[r:macrolink("Pin", "character/Pin Notes@this")"","tokenName="+pinName)]</span>&nbsp;
+<span title="Open the party manager">[r:macrolink("Party", "character/Manage Party@this", "","tokenName="+pinName)]</span>&nbsp;
+<span title="Open the encounter manager">[r:macrolink("Encounter", "bestiary/Manage Encounter@this", "","tokenName="+pinName+";reload=1")]</span>&nbsp;
+<span title="Open the current loaded Pin ([r:pinName])">[r:macrolink("Pin", "character/Pin Notes@this", "","tokenName="+pinName)]</span>&nbsp;
 </p>
 
 <table>
@@ -63,10 +63,10 @@ Encounter
 
 <font size=3>
 
-<span title="Load selected tokens into the encounter manager">[r:macrolink("Add", "bestiary/Manage Encounter@this")"","reload=1")]</span> | 
+<span title="Load selected tokens into the encounter manager">[r:macrolink("Add", "bestiary/Manage Encounter@this", "","reload=1")]</span> | 
 <span title="Select loaded tokens">[r:macrolink("Select","bestiary/SelectList@this","",idList)]</span> | 
-[r:macroLink("Bestiary", "tables/Creature Window@this")"")] |
-[r:macrolink("Show/Hide All", "campaign/Show Hide All@this")"","idList="+idList+";pinName="+pinName)]
+[r:macroLink("Bestiary", "tables/Creature Window@this", "")] |
+[r:macrolink("Show/Hide All", "campaign/Show Hide All@this", "","idList="+idList+";pinName="+pinName)]
 
 
 <td align=right>

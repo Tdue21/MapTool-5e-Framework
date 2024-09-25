@@ -5,8 +5,8 @@
 <p class='topbar'>
 
 [r:macroLink("Settings","campaign/Campaign Settings@this")]&nbsp;
-[r:macrolink("Import", "campaign/Json Merge@this")"","macroName=Manage Bestiary;lib=Lib:Compendium;value=Bestiary")]&nbsp;
-[r:macrolink("Export", "campaign/Json Export@this")"","lib=Lib:Compendium;value=Bestiary")]&nbsp;
+[r:macrolink("Import", "campaign/Json Merge@this", "","macroName=Manage Bestiary;lib=Lib:Compendium;value=Bestiary")]&nbsp;
+[r:macrolink("Export", "campaign/Json Export@this", "","lib=Lib:Compendium;value=Bestiary")]&nbsp;
 
 </p>
 	
@@ -50,11 +50,11 @@
 		<td width=0% align=right>
 		[r,if(json.type(creatureObj)=="UNKNOWN"):"test";json.toList(json.get(creatureObj,"sources"))]
 		<font color=red>
-		[r:macrolink("X", "bestiary/Delete Creature@this")"",currentNPC)]
+		[r:macrolink("X", "bestiary/Delete Creature@this", "",currentNPC)]
 		
 	}]
 	
 	</table>
 	</table>
-	[r:macrolink("+", "bestiary/Edit Creature@this")"","creature=;prop=")]
+	[r:macrolink("+", "bestiary/Edit Creature@this", "","creature=;prop=")]
 }]

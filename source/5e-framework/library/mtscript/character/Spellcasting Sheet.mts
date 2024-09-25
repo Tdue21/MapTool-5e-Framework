@@ -13,7 +13,7 @@
 <table width=100%>
 <tr bgcolor=#DCDCDC>
 <td style="margin:0px; padding:0px; font-size:8px" align=left>
-[r:macrolink("Load", "character/Selector@this")"","macro=Spellcasting Sheet;tokenName="+tokenName)]
+[r:macrolink("Load", "character/Selector@this", "","macro=Spellcasting Sheet;tokenName="+tokenName)]
 <td style="margin:0px; padding:0px; font-size:8px" align=right><b>D&D
 <tr>
 <td colspan=2 height=35 style="border-style: double none double solid; border-width:3px;font-size:15px;margin:0px; padding:0px" align=center>
@@ -260,7 +260,7 @@ SPELL ATTACK BONUS
 <tr>
 <td align=center bgcolor=white style="font-size:13px; margin:0px; padding:0px;padding-left:3px">
 <b>
-[r:macrolink("<span title='Add Spell'>0</span>", "character/Add@this")"","prop="+object+";tokenName="+tokenName)]
+[r:macrolink("<span title='Add Spell'>0</span>", "character/Add@this", "","prop="+object+";tokenName="+tokenName)]
 </table>
 
 <td width=15 align=center style="border-style: solid double solid none; border-width:2px 3px 2px 3px;font-size:13px;margin:0px; padding:0px">

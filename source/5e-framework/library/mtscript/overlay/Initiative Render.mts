@@ -121,23 +121,23 @@ body	{
 	
 	<table width=100%>
 		<tr><td valign=top>
-		<span title="Refresh">[r:macrolink("<img style='filter:invert(100%);' src='asset://db583448ed08a5abc19f514310294ee4-15' >", "overlay/Initiative Overlay@this")"","output=all")]</span>
+		<span title="Refresh">[r:macrolink("<img style='filter:invert(100%);' src='asset://db583448ed08a5abc19f514310294ee4-15' >", "overlay/Initiative Overlay@this", "","output=all")]</span>
 
-		<span title="Roll Initiative">[r:macrolink("<img style='filter:invert(100%);' src='asset://274cb2ad110af815ee7c7d5b47989b0b-19' >", "bestiary/Mass Initiative@this")"","output=all")]</span>
+		<span title="Roll Initiative">[r:macrolink("<img style='filter:invert(100%);' src='asset://274cb2ad110af815ee7c7d5b47989b0b-19' >", "bestiary/Mass Initiative@this", "","output=all")]</span>
 
 		
 		[r,if(isGM()==1):macroLink("<span title='Clear initiative Tracker'>Clear","overlay/Remove Initiative@this")+"</span>"]
 
 		<td align=right><span title="Close">
-		[r:macrolink("<b>X</b>", "overlay/closeOverlay@this")"","Initiative")]
+		[r:macrolink("<b>X</b>", "overlay/closeOverlay@this", "","Initiative")]
 
 		<tr><td colspan=2 align=center>
 		
-		[r,if(isGM()==1):"<span title='Previous'>"+macrolink("<img style='filter:invert(100%);transform:rotate(180deg)' src=asset://8ccc215a396b748332ddc89046fb9fd7-17>", "overlay/Initiative Overlay@this")"","command=Previous;output=all")+"</span>"]
+		[r,if(isGM()==1):"<span title='Previous'>"+macrolink("<img style='filter:invert(100%);transform:rotate(180deg)' src=asset://8ccc215a396b748332ddc89046fb9fd7-17>", "overlay/Initiative Overlay@this", "","command=Previous;output=all")+"</span>"]
 		
-		<b>[r,if(isGM()==1):macrolink("<span title='Reset Round'>Round:", "overlay/Initiative Overlay@this")"","command=Reset;output=all")+"</span>";"Round:"]</b> [r:round]
+		<b>[r,if(isGM()==1):macrolink("<span title='Reset Round'>Round:", "overlay/Initiative Overlay@this", "","command=Reset;output=all")+"</span>";"Round:"]</b> [r:round]
 		
-		[r,if(isGM()==1):"<span title='Next'>"+macrolink("<img style='filter:invert(100%);' src=asset://8ccc215a396b748332ddc89046fb9fd7-17>", "overlay/Initiative Overlay@this")"","command=Next;output=all")+"</span>"]
+		[r,if(isGM()==1):"<span title='Next'>"+macrolink("<img style='filter:invert(100%);' src=asset://8ccc215a396b748332ddc89046fb9fd7-17>", "overlay/Initiative Overlay@this", "","command=Next;output=all")+"</span>"]
 			
 		
 		

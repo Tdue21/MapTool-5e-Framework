@@ -25,7 +25,7 @@
 <tr>
 <td align=center bgcolor=white style="font-size:13px; margin:0px; padding:0px;padding-left:3px">
 <b>
-[r:macrolink("<span title='Add Spell'>"+level+"</span>", "character/Add@this")"","prop="+object+";tokenName="+tokenName)]
+[r:macrolink("<span title='Add Spell'>"+level+"</span>", "character/Add@this", "","prop="+object+";tokenName="+tokenName)]
 </table>
 
 <td width=60 align=center style="border-style: solid double solid none; border-width:2px 3px 2px 3px;font-size:13px;margin:0px; padding:0px">
@@ -58,7 +58,7 @@
 [r,if(repeat==0),count(blank,""),code:{
 	<tr style="border-style: none none solid none; border-width:1px; border-color:gray;font-size:8px;margin:0px; padding:0px">
 	<td width=15>
-	[r:if(level==1 && roll.count==0,macrolink("<font size=1>PREP</font>", "character/Prepared Spells@this")"","tokenName="+tokenName)+"<br>","")]
+	[r:if(level==1 && roll.count==0,macrolink("<font size=1>PREP</font>", "character/Prepared Spells@this", "","tokenName="+tokenName)+"<br>","")]
 	O
 	<td align=center valign=bottom>
 	[r:if(level==1 && roll.count==0,"<font color=gray size=1>SPELL NAME</font><br>","")]
@@ -87,7 +87,7 @@
 	<tr style="border-style: none none solid none; border-width:1px; border-color:gray;font-size:8px;margin:0px; padding:0px">
 	<td width=15 align=left>
 	
-[r:if(level==1 && roll.count==0,macrolink("<font size=1>PREP</font>", "character/Prepared Spells@this")"","tokenName="+tokenName)+"<br>","")]
+[r:if(level==1 && roll.count==0,macrolink("<font size=1>PREP</font>", "character/Prepared Spells@this", "","tokenName="+tokenName)+"<br>","")]
 
 	[h:prepIcon=if(prep==0,"<span title='Not Prepared'>O</span>","<span title='Prepared'>X</span>")]
 	[r:macrolink(prepIcon,"character/Quick Prepare@this","","level="+level+";object="+objData+";name="+objName+";tokenName="+tokenName)]
@@ -105,9 +105,9 @@
 	};{}]
 	[r,if(customAtr==0 || customAtr=="" || match==0),code:{};{
 		[h:spellMod=atrMod+profBonus]
-		DC [r:macrolink("<span title='Display DC - "+customAtr+"'>"+number(8+spellMod)+"</span>", "character/Dice Roller@this")"","text="+objName+" DC;value="+number(8+spellMod)+";tokenName="+tokenName)] -
+		DC [r:macrolink("<span title='Display DC - "+customAtr+"'>"+number(8+spellMod)+"</span>", "character/Dice Roller@this", "","text="+objName+" DC;value="+number(8+spellMod)+";tokenName="+tokenName)] -
 		
-		Atk [r:macrolink("<span title='Roll Spell Attack - "+customAtr+"'>"+if(spellMod<0,spellMod,"+"+spellMod)+"</span>", "character/d20 Roller@this")"","text="+objName+";value=+"+if(spellMod<0,spellMod,"+"+spellMod)+";id="+id+";tokenName="+tokenName+";color=8a61ae")] -
+		Atk [r:macrolink("<span title='Roll Spell Attack - "+customAtr+"'>"+if(spellMod<0,spellMod,"+"+spellMod)+"</span>", "character/d20 Roller@this", "","text="+objName+";value=+"+if(spellMod<0,spellMod,"+"+spellMod)+";id="+id+";tokenName="+tokenName+";color=8a61ae")] -
 	}]
 	[r,if(match==1),code:{
 		[r:if(source=="Class","",source)]

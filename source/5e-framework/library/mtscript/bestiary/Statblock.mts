@@ -28,16 +28,16 @@
 [h:currentItem="Features"]
 [h:currentDescription=json.get(CurrentObject,currentItem)]
 
-[h:featureLink=macrolink("Features", "bestiary/Action Type@this")"","group="+group+";name="+currentItem+";tokenName="+tokenName+";object="+object)]
+[h:featureLink=macrolink("Features", "bestiary/Action Type@this", "","group="+group+";name="+currentItem+";tokenName="+tokenName+";object="+object)]
 
 
 <!-----------------MENU------------------->
 
 <p class='topbar'>
 [r,if(isGM()==1):macrolink("Edit", "bestiary/Edit Creature@this")"none","creature="+name+";prop="+object)+"&nbsp;";""]
-[r:macrolink("Settings", "bestiary/Edit@this")"","json="+encode(object)+";tokenName="+tokenName+";name="+name)] &nbsp;
+[r:macrolink("Settings", "bestiary/Edit@this", "","json="+encode(object)+";tokenName="+tokenName+";name="+name)] &nbsp;
 [r:featureLink] &nbsp;
-[r:macrolink("Info", "bestiary/Info@this")"","name="+name+";tokenName="+tokenName)] &nbsp;
+[r:macrolink("Info", "bestiary/Info@this", "","name="+name+";tokenName="+tokenName)] &nbsp;
 
 
 [h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
@@ -144,7 +144,7 @@
 
 [h:save=json.get(object,"save")]
 [h:show=if(save=="" || save==0,0,1)]
-<b>[r,if(show==1):macrolink("Saving Throw", "bestiary/Skills and Saves@this")"",args+"save")]</b>
+<b>[r,if(show==1):macrolink("Saving Throw", "bestiary/Skills and Saves@this", "",args+"save")]</b>
 [r,if(show==1),count(listcount(save),""),code:{
 
 	[r:if(roll.count==0,"",",")]
@@ -161,7 +161,7 @@
 
 [h:skill=json.get(object,"skill")]
 [h:show=if(skill=="" || skill==0,0,1)]
-<b>[r,if(show==1):macrolink("Skills", "bestiary/Skills and Saves@this")"",args+"skill")]</b>
+<b>[r,if(show==1):macrolink("Skills", "bestiary/Skills and Saves@this", "",args+"skill")]</b>
 [r,if(show==1),count(listcount(skill),""),code:{
 
 	[r:if(roll.count==0,"",",")]
@@ -256,7 +256,7 @@
 
 <!-----------------RESOURCES------------------->
 <h5 style="border-bottom: 2px solid">
-[r:macrolink("Resources", "bestiary/Change Resource@this")"","name=NEW RESOURCE;tokenName="+tokenName)]
+[r:macrolink("Resources", "bestiary/Change Resource@this", "","name=NEW RESOURCE;tokenName="+tokenName)]
 </h5>
 
 
@@ -324,7 +324,7 @@
 
 <p style="margin-top: 3px; margin-bottom: 6px">
 <!-----------------CONDITIONS------------------->
-<b><i>[r:macrolink("Conditions.", "character/Conditions Menu@this")"","tokenName="+tokenName)]</b></i>
+<b><i>[r:macrolink("Conditions.", "character/Conditions Menu@this", "","tokenName="+tokenName)]</b></i>
 
 [r:function.GetConditions()]
 
@@ -339,7 +339,7 @@
 	
 	[h:description=getGMNotes()]
 	<h5 style="border-bottom: 2px solid">
-	[r:macrolink("GM Notes", "bestiary/Change Form@this")"","group=GMNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+	[r:macrolink("GM Notes", "bestiary/Change Form@this", "","group=GMNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 	</h5>
 	
 	[macro("bestiary/Markdown@this"):"tokenName="+tokenName+";description="+encode(description)]

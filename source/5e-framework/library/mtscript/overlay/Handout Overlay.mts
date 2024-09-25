@@ -53,7 +53,7 @@ img	{
 </div>
 <div class="footer">
 
-<div class="float">[r:macrolink("X", "overlay/closeOverlay@this")"","Shared")]</div>
+<div class="float">[r:macrolink("X", "overlay/closeOverlay@this", "","Shared")]</div>
 
 <a href='[r:macroLinkText("overlay/closeOverlay@this","","Shared")]'>
 <img src=[r:var]></a>

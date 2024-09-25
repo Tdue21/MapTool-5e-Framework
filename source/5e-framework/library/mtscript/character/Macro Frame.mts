@@ -14,6 +14,16 @@
 }]
 
 [token(tokenName),frame(frameName,"width="+if(macroName=="Statblock",350,750)+"; height=500; temporary=0;"):{
+<!DOCTYPE html>
+<html>
+
+<head>
 	<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
+</head>
+
+<body style="padding:0px">
 	[macro("character/" + macroName + "@this"):"tokenName="+tokenName]
+</body>
+
+</html>
 }]

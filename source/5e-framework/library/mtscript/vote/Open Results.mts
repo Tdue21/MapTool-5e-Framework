@@ -9,7 +9,7 @@
 <html>
 <body style="background-color:white">
     <p bgcolor=white style="background-color:white;border-bottom: 1px solid gray;padding:0px;margin:0px;font-family:sans;font-size:10px">
-        [r:macrolink("Post", "vote/Broadcast Results@this")"")]
+        [r:macrolink("Post", "vote/Broadcast Results@this", "")]
     </p>
 </body>
 </html>

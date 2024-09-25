@@ -68,7 +68,7 @@
 	[h:modlink=macroLink(if(mod<0,mod,"+"+mod),"character/d20 Roller@this","","text="+attribute+" check;value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";tokenName="+tokenName+";color=0099cc")]
 
 
-	[r:macrolink("<span title='Edit "+attribute+"'>"+upper(attribute)+"</span>", "character/Change Attribute@this")"","value="+encode(prop)+";name="+attribute+";id="+id+";tokenName="+tokenName)]
+	[r:macrolink("<span title='Edit "+attribute+"'>"+upper(attribute)+"</span>", "character/Change Attribute@this", "","value="+encode(prop)+";name="+attribute+";id="+id+";tokenName="+tokenName)]
 	
 	<tr>
 	<td style="margin:0px; padding:0px;font-size:[r:modFont]px" align=center>

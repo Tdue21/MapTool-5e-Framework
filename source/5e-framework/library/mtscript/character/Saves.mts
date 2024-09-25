@@ -105,6 +105,6 @@
 <tr>
 <td align=center colspan=3 style="margin:0px; padding:0px; margin-top:5; font-size:6px">
 
-<b>[r:macrolink("SAVES", "character/Global Mod@this")"","tokenName="+tokenName+";value=Save")]
+<b>[r:macrolink("SAVES", "character/Global Mod@this", "","tokenName="+tokenName+";value=Save")]
 
 </table>

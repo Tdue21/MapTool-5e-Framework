@@ -20,7 +20,7 @@
 <table width=100%>
 <tr bgcolor=#DCDCDC>
 <td style="margin:0px; padding:0px; font-size:8px" align=left>
-[r:macrolink("Load", "character/Selector@this")"","macro=Description Sheet;tokenName="+tokenName)]
+[r:macrolink("Load", "character/Selector@this", "","macro=Description Sheet;tokenName="+tokenName)]
 <td style="margin:0px; padding:0px; font-size:8px" align=right><b>DUNGEONS & DRAGONS
 <tr>
 <td colspan=2 style="border-style: double none double solid; border-width:3px;font-size:15px;margin:0px; padding:0px" align=center>
@@ -52,7 +52,7 @@
 
 
 <tr style="font-size:6px">
-<td style="margin:0px; padding:0px"><span title="Edit Name">[r:macrolink("CHARACTER NAME", "character/Rename@this")"","tokenName="+tokenName)]</span>
+<td style="margin:0px; padding:0px"><span title="Edit Name">[r:macrolink("CHARACTER NAME", "character/Rename@this", "","tokenName="+tokenName)]</span>
 <td bgcolor=#DCDCDC>
 
 </table>
@@ -119,16 +119,16 @@
 
 
 
-[r:macrolink("<span title='Edit age'>AGE</span>", "character/Change Property@this")"","name=Age;value="+encode(Age)+";id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit age'>AGE</span>", "character/Change Property@this", "","name=Age;value="+encode(Age)+";id="+id+";tokenName="+tokenName)]
 
 <td style="margin:0px; padding:0px">
 
-[r:macrolink("<span title='Edit height'>HEIGHT</span>", "character/Change Property@this")"","name=Height;value="+encode(Height)+";id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit height'>HEIGHT</span>", "character/Change Property@this", "","name=Height;value="+encode(Height)+";id="+id+";tokenName="+tokenName)]
 
 
 <td style="margin:0px; padding:0px">
 
-[r:macrolink("<span title='Edit weight'>WEIGHT</span>", "character/Change Property@this")"","name=Weight;value="+encode(Weight)+";id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit weight'>WEIGHT</span>", "character/Change Property@this", "","name=Weight;value="+encode(Weight)+";id="+id+";tokenName="+tokenName)]
 
 <tr>
 <td style="margin:0px; padding:0px" height=16>
@@ -168,13 +168,13 @@
 
 <tr style="font-size:6px; border-top: 1px solid gray;">
 <td style="margin:0px; padding:0px">
-[r:macrolink("<span title='Edit eyes description'>EYES</span>", "character/Change Property@this")"","name=Eyes;value="+encode(Eyes)+";id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit eyes description'>EYES</span>", "character/Change Property@this", "","name=Eyes;value="+encode(Eyes)+";id="+id+";tokenName="+tokenName)]
 
 <td style="margin:0px; padding:0px">
-[r:macrolink("<span title='Edit skin description'>SKIN</span>", "character/Change Property@this")"","name=Skin;value="+encode(Skin)+";id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit skin description'>SKIN</span>", "character/Change Property@this", "","name=Skin;value="+encode(Skin)+";id="+id+";tokenName="+tokenName)]
 <td style="margin:0px; padding:0px">
 
-[r:macrolink("<span title='Edit hair description'>HAIR</span>", "character/Change Property@this")"","name=Hair;value="+encode(Hair)+";id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit hair description'>HAIR</span>", "character/Change Property@this", "","name=Hair;value="+encode(Hair)+";id="+id+";tokenName="+tokenName)]
 
 </table>
 
@@ -207,7 +207,7 @@
 
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macrolink("<span title='Edit portrait URL'>CHARACTER APPEARANCE</span>", "character/Change Property@this")"","name=Portrait;value="+encode(value)+";id="+id+";tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Edit portrait URL'>CHARACTER APPEARANCE</span>", "character/Change Property@this", "","name=Portrait;value="+encode(value)+";id="+id+";tokenName="+tokenName)]
 
 </table>
 
@@ -240,7 +240,7 @@
 
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macrolink("<span title='Edit Backstory'>CHARACTER BACKSTORY</span>", "character/Change Textfield Form@this")"","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Edit Backstory'>CHARACTER BACKSTORY</span>", "character/Change Textfield Form@this", "","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 
 </table>
 
@@ -287,7 +287,7 @@
 
 
 
-<font color=gray>[r:macrolink("<span title='Edit symbol name'>NAME", "character/Change Property@this")"","name=SymbolName;value="+encode(SymbolName)+";id="+id+";tokenName="+tokenName)]
+<font color=gray>[r:macrolink("<span title='Edit symbol name'>NAME", "character/Change Property@this", "","name=SymbolName;value="+encode(SymbolName)+";id="+id+";tokenName="+tokenName)]
 <tr>
 <td bgcolor=#DCDCDC>
 
@@ -324,13 +324,13 @@
 
 <font color=white><b>
 
-[r:macrolink("<span title='Edit symbol URL'>SYMBOL</span>", "character/Change Property@this")"","name=Symbol;value="+encode(SymbolValue)+";id="+id+";tokenName="+tokenName)]
+[r:macrolink("<span title='Edit symbol URL'>SYMBOL</span>", "character/Change Property@this", "","name=Symbol;value="+encode(SymbolValue)+";id="+id+";tokenName="+tokenName)]
 
 </table>
 <br>
 <tr>
 <td colspan=2 align=center valign=top style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macrolink("<span title='Edit Allies & Organizations'>ALLIES & ORGANIZATIONS</span>", "character/Change Textfield Form@this")"","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Edit Allies & Organizations'>ALLIES & ORGANIZATIONS</span>", "character/Change Textfield Form@this", "","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 
 </table>
 
@@ -421,10 +421,10 @@
 
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macrolink("<span title='Add Additional Features'>ADDITIONAL FEATURES & TRAITS</span>", "character/Add@this")"","prop="+object+";tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Add Additional Features'>ADDITIONAL FEATURES & TRAITS</span>", "character/Add@this", "","prop="+object+";tokenName="+tokenName)]
 
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macrolink("<span title='Edit resistances and vulnerabilities'>SPECIAL DEFENSES</span>", "character/Special Defenses@this")"","tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Edit resistances and vulnerabilities'>SPECIAL DEFENSES</span>", "character/Special Defenses@this", "","tokenName="+tokenName)]
 
 </table>
 
@@ -443,7 +443,7 @@
 
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macrolink("<span title='Edit treasures'>TREASURE</span>", "character/Change Textfield Form@this")"","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Edit treasures'>TREASURE</span>", "character/Change Textfield Form@this", "","prop=OtherNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 
 </table>
 
@@ -462,7 +462,7 @@
 
 <tr>
 <td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macrolink("<span title='Edit Notes'>NOTES</span>", "character/Change Textfield Form@this")"","prop=Notes;name="+key+";description="+description+";tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Edit Notes'>NOTES</span>", "character/Change Textfield Form@this", "","prop=Notes;name="+key+";description="+description+";tokenName="+tokenName)]
 </table>
 
 
@@ -481,7 +481,7 @@
 	
 	<tr>
 	<td align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-	<b>[r:macrolink("<span title='Edit GM Notes'>GM NOTES</span>", "character/Change Textfield Form@this")"","prop=GMNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+	<b>[r:macrolink("<span title='Edit GM Notes'>GM NOTES</span>", "character/Change Textfield Form@this", "","prop=GMNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 	</table>
 };{}]
 

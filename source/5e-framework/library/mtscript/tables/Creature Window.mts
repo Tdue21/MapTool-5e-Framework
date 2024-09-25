@@ -13,7 +13,7 @@
 	<p bgcolor=white style="border-bottom: 1px solid gray;padding:0px;margin:0px;font-family:sans;font-size:10px">
 
 
-	[r:macrolink("Build Table", "tables/Build Bestiary Table@this")"")]
+	[r:macrolink("Build Table", "tables/Build Bestiary Table@this", "")]
 
 
 	</p>
@@ -31,13 +31,13 @@
 	<table>
 	<tr>
 	<th>
-	[r:macrolink("Name", "tables/Creature Window@this")"","sort=Name;dir="+dir)]
+	[r:macrolink("Name", "tables/Creature Window@this", "","sort=Name;dir="+dir)]
 	<th>
-	[r:macrolink("Type", "tables/Creature Window@this")"","sort=Type;dir="+dir)]
+	[r:macrolink("Type", "tables/Creature Window@this", "","sort=Type;dir="+dir)]
 	<th width=10% align=center>
-	[r:macrolink("CR", "tables/Creature Window@this")"","sort=numericCR;dir="+dir)]
+	[r:macrolink("CR", "tables/Creature Window@this", "","sort=numericCR;dir="+dir)]
 	<th width=10% align=center>
-	[r:macrolink("Sources", "tables/Creature Window@this")"","sort=Sources;dir="+dir)]
+	[r:macrolink("Sources", "tables/Creature Window@this", "","sort=Sources;dir="+dir)]
 	
 	[h:odd=1]
 	[r,count(listcount(fields),"<br>"),code:{

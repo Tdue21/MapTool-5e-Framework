@@ -17,7 +17,7 @@
 [r,if(sharePlayer==1),code:{
 <p class='topbar'>
 
-[r:macrolink("Share", "character/Share@this")"","description="+encode(description)+";share=1")]
+[r:macrolink("Share", "character/Share@this", "","description="+encode(description)+";share=1")]
 
 </p>
 };{}]
@@ -26,7 +26,7 @@
 
 <table style="margin:0px; padding:0px">
 <tr><td align=center valign=middle style="margin:0px; padding:0px">
-[r:macrolink("<img src="+if(size=="",assetId,assetId+"-"+size)+">", "campaign/Image Popup@this")"","name="+name+";size="+resize)]
+[r:macrolink("<img src="+if(size=="",assetId,assetId+"-"+size)+">", "campaign/Image Popup@this", "","name="+name+";size="+resize)]
 </table>
 
 

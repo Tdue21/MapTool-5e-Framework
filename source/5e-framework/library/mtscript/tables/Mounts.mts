@@ -44,7 +44,7 @@
 
 
 
-<h5>Mounts and  Other Animals [r:macrolink("+", "campaign/Args Dialog@this")"","prop=Equipment;index=new;name=new;description=new;tokenName=Lib:Compendium")]</h5>
+<h5>Mounts and  Other Animals [r:macrolink("+", "campaign/Args Dialog@this", "","prop=Equipment;index=new;name=new;description=new;tokenName=Lib:Compendium")]</h5>
 
 <table>
 <tr><th>
@@ -103,8 +103,8 @@ Carrying Capacity
 
 
 	<td>
-	[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
-	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this")"","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
+	[r:macrolink("Move", "character/Move@this", "","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
+	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this", "","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
 }]
 
 </table>
@@ -164,8 +164,8 @@ Tack and Harness
 	[r:if(find2=="","&mdash;",find2)]
 
 	<td>
-	[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
-	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this")"","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
+	[r:macrolink("Move", "character/Move@this", "","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
+	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this", "","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
 }]
 
 <!----------------------Drawn Vehicles-------------------------->
@@ -209,8 +209,8 @@ Drawn Vehicles
 	[r:if(find2=="","&mdash;",find2)]
 
 	<td>
-	[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
-	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this")"","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
+	[r:macrolink("Move", "character/Move@this", "","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
+	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this", "","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
 }]
 
 
@@ -266,8 +266,8 @@ Speed
 	[r:if(find2=="","&mdash;",find2)]
 
 	<td>
-	[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
-	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this")"","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
+	[r:macrolink("Move", "character/Move@this", "","tokenName=Lib:Compendium;description=;name="+currentObj+";prop=Equipment")]
+	[r,if(isGM()):macrolink("<font color=red>X", "character/Delete Source@this", "","prop=Equipment;name="+currentObj+";tokenName=Lib:Compendium")]
 }]
 
 </table>

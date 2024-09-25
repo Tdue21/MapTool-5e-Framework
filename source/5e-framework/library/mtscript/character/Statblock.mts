@@ -1,31 +1,36 @@
 [h:attributeList=getLibProperty("Attributes", function.getNamespace())]
 [h:skillList=getLibProperty("Skills", function.getNamespace())]
 
-[h:output= function.getOutput())]
+[h:output= function.getOutput()]
 [h:start=getLibProperty("Start", function.getNamespace())]
 
 [h:tokenName=getStrProp(macro.args,"tokenName")]
 
 
-<p class='topbar'>
-	[r:macrolink("Load", "character/Selector@this")"","macro=Statblock;tokenName="+tokenName)]&nbsp;
-	[r:macrolink("Make Token", "character/Make Token@this")"","Lib:"+tokenName)]&nbsp;
-	[r:macrolink("Info", "character/Info@this")"","tokenName="+tokenName)]&nbsp;
+<div class="topbar">
+	<span title="Select sheet to load">[r:macrolink("Load", "character/Selector@this", "", "macro=Statblock;tokenName="+tokenName)]</span>
+	<span title="Create a token on current map">[r:macrolink("Make Token", "character/Make Token@this", "", "Lib:"+tokenName)]</span>
+	<span title="Show information dialog">[r:macrolink("Info", "character/Info@this", "", "tokenName="+tokenName)]  </span>
 
 	[h:permissions=getLibProperty("PlayerPermission", function.getNamespace())]
 	[h:sharePlayer=getStrProp(permissions,"share")]
 	[h,if(isGM()==1):sharePlayer=1]
 
-	[r,if(sharePlayer==1):macrolink("Share", "character/Share Statblock@this")"",tokenName)]
-</p>
+	[r,if(sharePlayer==1), code: {
+		<span title="Share statblock with other players">[r:macrolink("Share", "character/Share Statblock@this", "",tokenName)]</span>
+	};{}]
+</div>
 
 [h,token(tokenName):tokenName=getLibProperty("LibName","Lib:"+tokenName)]
 [h:id=findToken(tokenName)]
 [h,if(id==""):"";switchToken(id)]
 
 <table style="margin:0px;padding:0px">
-	<tr><td style="margin:0px;padding:0px">
+<tr>
+	<td style="margin:0px;padding:0px">
 		<h3 style="padding: 0px;margin: 0px">[r:macroLink(tokenName,"overlay/Focus@this","","id="+id)]</h3>
+
+		<!-- Classes -->
 		[h:classes=getLibProperty("Class&Level","Lib:"+tokenName)]
 		[h:totalLevel=0]
 		[h,if(json.type(classes)=="UNKNOWN"),code:{
@@ -46,48 +51,44 @@
 		}]
 		[h:profBonus=ceil(totalLevel/4)+1]
 
+		<!-- Attributes -->
 		[h:setLibProperty("Attributes",attributeList,"Lib:"+tokenName)]
 		[h:AtrProps=""]
 		[h,count(listcount(attributeList),""),code:{
-	[h:attribute=listget(attributeList,roll.count)]
-	[h:value=getLibProperty(attribute,"Lib:"+tokenName)]
-	[h:value=getStrProp(value,"value")]
-	[h:value=if(value=="",0,value)]
-	[h,if(isNumber(value)==0):value=eval(value);value]
-	[h:mod=floor(number(eval(string(value)))/2-5)]
-	[h:AtrProps=setStrProp(AtrProps,substring(lower(attribute),0,3),mod)]
-}]
-[h:varsFromStrProp(AtrProps)]
+			[h:attribute=listget(attributeList,roll.count)]
+			[h:value=getLibProperty(attribute,"Lib:"+tokenName)]
+			[h:value=getStrProp(value,"value")]
+			[h:value=if(value=="",0,value)]
+			[h,if(isNumber(value)==0):value=eval(value);value]
+			[h:mod=floor(number(eval(string(value)))/2-5)]
+			[h:AtrProps=setStrProp(AtrProps,substring(lower(attribute),0,3),mod)]
+		}]
+		[h:varsFromStrProp(AtrProps)]
 
-<!-----------------RACE------------------->
-[h:race=getLibProperty("Race","Lib:"+tokenName)]
+		<!-----------------RACE------------------->
+		[h:race=getLibProperty("Race","Lib:"+tokenName)]
 
-[h:value=getStrProp(string(race),"value")]
-[h:text=getStrProp(string(race),"text")]
+		[h:value=getStrProp(string(race),"value")]
+		[h:text=getStrProp(string(race),"text")]
 
-<i>
-[h:size=getSize(findToken("Lib:"+tokenName,start),start)]
+		<i>
+		[h:size=getSize(findToken("Lib:"+tokenName,start),start)]
+		[r:macrolink("<span title='Edit Race'>" + if(value=="",size+" humanoid",size+" humanoid ("+value+")")+"</span>", 
+					"character/Change Property@this", "", "name=Race;value="+encode(race)+";id="+id+";tokenName="+tokenName)],
 
-[r:macrolink("<span title='Edit Race'>"+if(value=="",size+" humanoid",size+" humanoid ("+value+")")+"</span>", "character/Change Property@this")"","name=Race;value="+encode(race)+";id="+id+";tokenName="+tokenName)],
+		<!-----------------ALIGNMENT------------------->
+		[h:alignment=getLibProperty("Alignment","Lib:"+tokenName)]
+		[h:value=getStrProp(string(alignment),"value")]
+		[h:text=getStrProp(string(alignment),"text")]
+		[h:value=if(value==0,"",value)]
+		[r:macrolink("<span title='Edit Alignment'>"+if(value=="","alignment",value)+"</span>", "character/Change Property@this", "","name=Alignment;value="+encode(alignment)+";id="+id+";tokenName="+tokenName)]
+		</i>
 
-<!-----------------ALIGNMENT------------------->
-[h:alignment=getLibProperty("Alignment","Lib:"+tokenName)]
-
-[h:value=getStrProp(string(alignment),"value")]
-[h:text=getStrProp(string(alignment),"text")]
-
-[h:value=if(value==0,"",value)]
-
-[r:macrolink("<span title='Edit Alignment'>"+if(value=="","alignment",value)+"</span>", "character/Change Property@this")"","name=Alignment;value="+encode(alignment)+";id="+id+";tokenName="+tokenName)]
-
-</i>
-
-<td width=0% align=right valign=top style="margin:0px;padding:0px">
-
-
-[r,if(id==""):"<img src='"+getTokenImage(50,"Lib:"+tokenName,start)+"'>";"<img src='"+getTokenImage(50)+"'></img>"]
-
-
+	</td>
+	<td width=0% align=right valign=top style="margin:0px;padding:0px">
+		[r,if(id==""):"<img src='"+getTokenImage(50,"Lib:"+tokenName,start)+"'>";"<img src='"+getTokenImage(50)+"'></img>"]
+	</td>
+</tr>
 </table>
 
 <hr noshade>
@@ -95,43 +96,41 @@
 <table>
 <tr>
 <td style="margin:0px;padding:0px">
+	<!-----------------AC------------------->
+	[h:AC=if(getLibProperty("AC","Lib:"+tokenName)=="",0,getLibProperty("AC","Lib:"+tokenName))]
 
-<!-----------------AC------------------->
-[h:AC=if(getLibProperty("AC","Lib:"+tokenName)=="",0,getLibProperty("AC","Lib:"+tokenName))]
+	[h:value=getStrProp(string(AC),"value")]
+	[h:text=getStrProp(string(AC),"text")]
+	[h:value=if(value=="",0,value)]
 
-[h:value=getStrProp(string(AC),"value")]
-[h:text=getStrProp(string(AC),"text")]
-
-[h:value=if(value=="",0,value)]
-
-<b>
-[r:macrolink("<span title='Edit Armor Class'>Armor Class</span>", "character/Change Property@this")"","value="+encode(AC)+";name=AC;id="+id+";tokenName="+tokenName)]
-</b>
-[r:totalValue=eval(string(value))]
-
-[r:if(text=="" || text==0,"","("+text+")")]
-
-[h,if(id==""):"";setProperty("Armor Class",totalValue+if(text=="" || text==0,""," ("+text+")"))]
-
-
-<!-----------------HP------------------->
-[h:CurrentHP=getLibProperty("Current Hit Points","Lib:"+tokenName)]
-[h:TotalHP=getLibProperty("Total Hit Points","Lib:"+tokenName)]
-[h:TempHP=getLibProperty("Temporary Hit Points","Lib:"+tokenName)]
-
-[h:CurrentHP=if(CurrentHP=="",TotalHP,CurrentHP)]
-<br>
-	 
-[r,if(TotalHP==""),code:{
-	<b>	
-	[r:macrolink("<span title='Edit Hit Points'>Hit Points</span>", "character/Damage@this")output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
+	<b>
+		[r:macrolink("<span title='Edit Armor Class'>Armor Class</span>", 
+					 "character/Change Property@this", "",
+					 "value="+encode(AC)+";name=AC;id="+id+";tokenName="+tokenName)]
 	</b>
-};{
-	<b>	
-	[h,if(id==""):"";setProperty("HP",CurrentHP+"/"+TotalHP+if(TempHP<0," ("+TempHP+")",""))]
-	[h:setLibProperty("HP", CurrentHP+"/"+TotalHP+if(TempHP<0, function.getNamespace())",""),"Lib:"+tokenName)]
+	[r:totalValue=eval(string(value))]
+
+	[r:if(text=="" || text==0,"","("+text+")")]
+	[h,if(id==""):"";setProperty("Armor Class",totalValue+if(text=="" || text==0,""," ("+text+")"))]
+
+	<!-----------------HP------------------->
+	[h:CurrentHP=getLibProperty("Current Hit Points","Lib:"+tokenName)]
+	[h:TotalHP=getLibProperty("Total Hit Points","Lib:"+tokenName)]
+	[h:TempHP=getLibProperty("Temporary Hit Points","Lib:"+tokenName)]
+
+	[h:CurrentHP=if(CurrentHP=="",TotalHP,CurrentHP)]
+	<br>
+	 
+	[r,if(TotalHP==""),code:{
+		<b>	
+			[r:macrolink("<span title='Edit Hit Points'>Hit Points</span>", "character/Damage@this", output, "current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
+		</b>
+	};{
+		<b>	
+		[h,if(id==""):"";setProperty("HP", CurrentHP+"/"+TotalHP+if(TempHP<0,"("+TempHP+")",""))]
+		[h:setLibProperty("HP", CurrentHP + "/" + TotalHP + if(TempHP<0, "(" + TempHP + ")",""), "Lib:"+tokenName)]
 	
-	[r:macrolink("<span title='Edit Hit Points'>Hit Points</span>", "character/Damage@this")output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
+		[r:macrolink('<span title="Edit Hit Points">Hit Points</span>', "character/Damage@this", output,"current="+CurrentHP+";total="+TotalHP+";temp="+TempHP+";id="+id+";tokenName="+tokenName)]
 	</b>
 	[r:CurrentHP+"/"+TotalHP]
 }]
@@ -149,7 +148,7 @@
 
 
 
-<b>[r:macrolink("<span title='Edit Movement Speed'>Speed</span>", "character/Change Property@this")"","value="+encode(Spd)+";name=Speed;id="+id+";tokenName="+tokenName)]</b>
+<b>[r:macrolink("<span title='Edit Movement Speed'>Speed</span>", "character/Change Property@this", "","value="+encode(Spd)+";name=Speed;id="+id+";tokenName="+tokenName)]</b>
 
 [r:value+if(text=="" || text==0,"",", "+text)]
 
@@ -176,11 +175,11 @@ default:bonus=0]
 
 [h:init=init+bonus]
 
-[r:macrolink("<span title='Roll Initiative'>"+if(init>0,"+"+init,init)+"</span>", "character/d20 Roller@this")"","text=Initiative"+if(text=="" || text==0,""," | "+text)+";value=+"+if(init<0,init,"+"+init)+";tokenName="+tokenName+";color=blue")]
+[r:macrolink("<span title='Roll Initiative'>"+if(init>0,"+"+init,init)+"</span>", "character/d20 Roller@this", "","text=Initiative"+if(text=="" || text==0,""," | "+text)+";value=+"+if(init<0,init,"+"+init)+";tokenName="+tokenName+";color=blue")]
 
 <br>
 
-<b><font size=2>[r:macrolink("<span title='Edit Initiative Bonus'>INIT</span>", "character/Change Initiative@this")"","value="+encode(value)+";name=Initiative;id="+id+";tokenName="+tokenName)]</b>
+<b><font size=2>[r:macrolink("<span title='Edit Initiative Bonus'>INIT</span>", "character/Change Initiative@this", "","value="+encode(value)+";name=Initiative;id="+id+";tokenName="+tokenName)]</b>
 
 </table>
 
@@ -258,7 +257,7 @@ default:bonus=0]
 </table>
 <hr noshade>
 <b><span title="Saving Throws">
-[r:macrolink("Saving Throws", "character/Skills and Saves@this")"","Roll=Save;tokenName="+tokenName+";profBonus="+profBonus)]
+[r:macrolink("Saving Throws", "character/Skills and Saves@this", "","Roll=Save;tokenName="+tokenName+";profBonus="+profBonus)]
 </span></b>
 
 
@@ -316,7 +315,7 @@ default:bonus=0]
 
 
 <b><span title="Skill Checks">
-[r:macrolink("Skills", "character/Skills and Saves@this")"","Roll=Skill;tokenName="+tokenName+";profBonus="+profBonus)]
+[r:macrolink("Skills", "character/Skills and Saves@this", "","Roll=Skill;tokenName="+tokenName+";profBonus="+profBonus)]
 </span></b>
 
 
@@ -386,7 +385,7 @@ default:bonus=0]
 
 
 
-[r:if(prof==0,"",macrolink("<span title='Roll "+skillName+"'>"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+"</span>", "character/d20 Roller@this")"","text="+atr+" ("+skillName+");value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";id="+id+";tokenName="+tokenName+";color=0099cc"))]}]
+[r:if(prof==0,"",macrolink("<span title='Roll "+skillName+"'>"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+"</span>", "character/d20 Roller@this", "","text="+atr+" ("+skillName+");value=+"+if(bonusDisplay<0,bonusDisplay,"+"+bonusDisplay)+";id="+id+";tokenName="+tokenName+";color=0099cc"))]}]
 <br>
 <!---------------------------Special Defenses----------------------------->
 [h:rules=getLibProperty("Value", function.getNamespace())]
@@ -666,7 +665,7 @@ passive Perception [r:getLibProperty("Passive Perception","Lib:"+tokenName)]
 [macro("character/Spell List@this"):"profBonus="+profBonus+";level=9;list="+level9+";tokenName="+tokenName]
 
 
-<h5 style="border-bottom: 2px solid">[r:macrolink("<span title='Add Custom Attacks'>Actions</span>", "character/Custom Attack@this")"","profBonus="+profBonus+";tokenName="+tokenName)]</h5>
+<h5 style="border-bottom: 2px solid">[r:macrolink("<span title='Add Custom Attacks'>Actions</span>", "character/Custom Attack@this", "","profBonus="+profBonus+";tokenName="+tokenName)]</h5>
 
 
 <!-----------------Attacks------------------->
@@ -724,7 +723,7 @@ passive Perception [r:getLibProperty("Passive Perception","Lib:"+tokenName)]
 }]
 	
 
-<h5 style="border-bottom: 2px solid">[r:macrolink("Resources", "character/Change Resource@this")"","name=NEW RESOURCE;tokenName="+tokenName)]</h5>
+<h5 style="border-bottom: 2px solid">[r:macrolink("Resources", "character/Change Resource@this", "","name=NEW RESOURCE;tokenName="+tokenName)]</h5>
 
 
 [h:resourcesObj=getLibProperty("Resources","Lib:"+tokenName)]
@@ -791,7 +790,7 @@ passive Perception [r:getLibProperty("Passive Perception","Lib:"+tokenName)]
 
 <p style="margin-top: 3px; margin-bottom: 6px">
 <!-----------------CONDITIONS------------------->
-<b><i>[r:macrolink("Conditions.", "character/Conditions Menu@this")"","tokenName="+tokenName)]</b></i>
+<b><i>[r:macrolink("Conditions.", "character/Conditions Menu@this", "","tokenName="+tokenName)]</b></i>
 
 [r,if(id==""),code:{};{
 	
@@ -807,7 +806,7 @@ passive Perception [r:getLibProperty("Passive Perception","Lib:"+tokenName)]
 [h,token("Lib:"+tokenName):description=getNotes("Lib:"+tokenName,start)]
 
 <h5 style="border-bottom: 2px solid">
-[r:macrolink("Notes", "character/Change Textfield Form@this")"","prop=Notes;name="+key+";description="+description+";tokenName="+tokenName)]
+[r:macrolink("Notes", "character/Change Textfield Form@this", "","prop=Notes;name="+key+";description="+description+";tokenName="+tokenName)]
 </h5>
 
 [macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(description)]
@@ -824,7 +823,7 @@ passive Perception [r:getLibProperty("Passive Perception","Lib:"+tokenName)]
 	
 	[h,token("Lib:"+tokenName):description=getGMNotes("Lib:"+tokenName,start)]
 	<h5 style="border-bottom: 2px solid">
-	[r:macrolink("GM Notes", "character/Change Textfield Form@this")"","prop=GMNotes;name="+key+";description="+description+";tokenName="+tokenName)]
+	[r:macrolink("GM Notes", "character/Change Textfield Form@this", "","prop=GMNotes;name="+key+";description="+description+";tokenName="+tokenName)]
 	</h5>
 	
 	[macro("character/Markdown@this"):"tokenName="+tokenName+";description="+encode(description)]

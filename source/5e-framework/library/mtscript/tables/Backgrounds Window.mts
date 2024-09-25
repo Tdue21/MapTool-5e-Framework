@@ -54,8 +54,8 @@
 [h:object=json.get(featProps,background)]
 [h,if(json.type(object)=="UNKNOWN"):description="";description=json.get(object,"description")]
 <h1>[r:CapitalName]<font size=3>
-	[r:macrolink("Edit", "character/Change Form@this")"","prop=Feats;source=;name="+background+";description=;tokenName=Lib:Campaign")] |
-[r:macrolink("Move", "character/Move@this")"","tokenName=Lib:Compendium;description=;name="+background+";prop=Feats")]</h1>
+	[r:macrolink("Edit", "character/Change Form@this", "","prop=Feats;source=;name="+background+";description=;tokenName=Lib:Campaign")] |
+[r:macrolink("Move", "character/Move@this", "","tokenName=Lib:Compendium;description=;name="+background+";prop=Feats")]</h1>
 [macro("campaign/Markdown@this"):"tokenName=Lib:Tables;description="+encode(description)+";source=Background;name="+background+";group=Feats"]
 
 

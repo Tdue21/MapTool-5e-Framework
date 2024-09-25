@@ -47,7 +47,7 @@
 <td bgcolor=#DCDCDC valign=middle style="margin:0px; padding:0px; font-size:8px">
 
 
-[r:macrolink("<span title='Change "+function.Capitalize(name)+"'>"+function.Capitalize(name)+"</span>", "character/Change Resource@this")"","name="+name+";tokenName="+tokenName)]
+[r:macrolink("<span title='Change "+function.Capitalize(name)+"'>"+function.Capitalize(name)+"</span>", "character/Change Resource@this", "","name="+name+";tokenName="+tokenName)]
 
 <td align=center bgcolor=#DCDCDC valign=middle style="margin:0px; padding:0px; font-size:10px">
 
@@ -91,7 +91,7 @@
 <br>
 
 <!-----------------CONDITIONS------------------->
-[r:macrolink("<span title='Edit Conditions'>Conditions</span>", "character/Conditions Menu@this")"","tokenName="+tokenName)]:
+[r:macrolink("<span title='Edit Conditions'>Conditions</span>", "character/Conditions Menu@this", "","tokenName="+tokenName)]:
 
 [r,if(id==""),code:{};{
 
@@ -112,7 +112,7 @@
 
 <tr>
 <td colspan=3 align=center style="font-size:10px;font-size:6px; margin:0px; padding:0px">
-<b>[r:macrolink("<span title='Add Resources'>RESOURCES</span>", "character/Change Resource@this")"","name=NEW RESOURCE;tokenName="+tokenName)]
+<b>[r:macrolink("<span title='Add Resources'>RESOURCES</span>", "character/Change Resource@this", "","name=NEW RESOURCE;tokenName="+tokenName)]
 
 
 

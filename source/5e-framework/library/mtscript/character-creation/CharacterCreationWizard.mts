@@ -1,5 +1,7 @@
 [h:route=json.get(macro.args,"route")]
 
+[h:broadcast("<pre>" + json.indent(macro.args, 4) + "</pre>")]
+
 [h,if(route=="Level Up")
 	:ItemList="WelcomeUP,CharacterUP,ClassUP,SubclassUP,DetailsUP,ReviewUP"
 	;ItemList="Welcome,Setup,Abilities,Race,Background,Class,Subclass,Details,Review"]

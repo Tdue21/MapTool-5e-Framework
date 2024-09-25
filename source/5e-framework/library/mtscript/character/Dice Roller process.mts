@@ -203,8 +203,8 @@
 </table>
 [h:crit=critFormula+"+"+formula]
 <font color=gray size=2 style="text-decoration:none">
-[r,if(iscrit!=1):macrolink("[roll crit]", "character/Dice Roller@this")"","group="+group+";name="+name+";customName="+customName+";text=Critical Hit!;value="+crit+";tokenName="+tokenName),1)]
+[r,if(iscrit!=1):macrolink("[roll crit]", "character/Dice Roller@this", "","group="+group+";name="+name+";customName="+customName+";text=Critical Hit!;value="+crit+";tokenName="+tokenName),1)]
 
 [r,if(output!="all"):macrolink("[Share Result]", "character/ShareRoll@this")"all",formula)]
 
-[r,if(name==""):"";macrolink("[info]", "character/Args Dialog@this")"","prop="+group+";name="+name+";customName="+customName+";tokenName="+tokenName)]
+[r,if(name==""):"";macrolink("[info]", "character/Args Dialog@this", "","prop="+group+";name="+name+";customName="+customName+";tokenName="+tokenName)]

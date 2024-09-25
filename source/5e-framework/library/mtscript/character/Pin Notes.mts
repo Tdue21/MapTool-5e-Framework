@@ -20,9 +20,9 @@
 }]
 
 <p bgcolor=white style='border-bottom: 1px solid gray;padding:0px;margin:0px;font-family:sans;font-size:10px'>
-[r:macrolink("Party", "character/Manage Party@this")"","tokenName="+tokenName)]&nbsp;
-[r:macrolink("Encounter", "bestiary/Manage Encounter@this")"","tokenName="+tokenName+";reload=1")]&nbsp;
-<span title="Open the current loaded Pin ([r:tokenName])">[r:macrolink("Pin", "character/Pin Notes@this")"","tokenName="+tokenName)]</span>&nbsp;
+[r:macrolink("Party", "character/Manage Party@this", "","tokenName="+tokenName)]&nbsp;
+[r:macrolink("Encounter", "bestiary/Manage Encounter@this", "","tokenName="+tokenName+";reload=1")]&nbsp;
+<span title="Open the current loaded Pin ([r:tokenName])">[r:macrolink("Pin", "character/Pin Notes@this", "","tokenName="+tokenName)]</span>&nbsp;
 </p>
 
 
@@ -35,13 +35,13 @@
 Pin Notes
 </b>
 <font size=3>
-[r,if(tokenName==""):macrolink("Create Pin","character/Create Pin@this","");macroLink("Select", "campaign/Center Token@this")"","tokenName="+tokenName+";map="+getCurrentMapName())]
+[r,if(tokenName==""):macrolink("Create Pin","character/Create Pin@this","");macroLink("Select", "campaign/Center Token@this", "","tokenName="+tokenName+";map="+getCurrentMapName())]
 
 [r,if(tokenName==""):"";"| "+macroLink("Focus","Focus@Token","","",tokenName)]
 
 [h,if(tokenName==""):descriptionGMNotes="";descriptionGMNotes=getGMNotes()]
 
-[r,if(tokenName==""):"";"| "+macrolink("GM Notes", "character/Change Pin Form@this")"","prop=GMNotes;name=GMNotes;description="+descriptionGMNotes+";tokenName="+tokenName)]
+[r,if(tokenName==""):"";"| "+macrolink("GM Notes", "character/Change Pin Form@this", "","prop=GMNotes;name=GMNotes;description="+descriptionGMNotes+";tokenName="+tokenName)]
 
 
 <td align=right>
@@ -126,7 +126,7 @@ Pin Notes
 [h:text=getStrProp(string(xp),"text")]
 
 <b><i>
-[r,if(tokenName==""):"";macrolink("Experience Points.", "character/Pin Change Property@this")"","name=XP;value="+encode(xp)+";id="+id+";tokenName="+tokenName)]</b></i>
+[r,if(tokenName==""):"";macrolink("Experience Points.", "character/Pin Change Property@this", "","name=XP;value="+encode(xp)+";id="+id+";tokenName="+tokenName)]</b></i>
 
 [r,if(tokenName==""):"";if(value=="","0",value))]
 
@@ -137,7 +137,7 @@ Pin Notes
 [h:object="Equipment"]
 <p>
 <b><i>
-[r,if(tokenName==""):"";macrolink("Items.", "character/Pin Add@this")"","prop="+object+";tokenName="+tokenName)]
+[r,if(tokenName==""):"";macrolink("Items.", "character/Pin Add@this", "","prop="+object+";tokenName="+tokenName)]
 </i></b>
 
 
@@ -192,7 +192,7 @@ Pin Notes
 
 [h,if(tokenName==""):currency="";currency=getProperty("Currency")]
 
-<i><b>[r,if(tokenName==""):"";macrolink("Treasure.", "character/Pin Change Currency@this")"","tokenName="+tokenName)]</b></i>
+<i><b>[r,if(tokenName==""):"";macrolink("Treasure.", "character/Pin Change Currency@this", "","tokenName="+tokenName)]</b></i>
 
 [h:PP=getStrProp(currency,"PP")]
 [h,if(PP==0 || PP==""):currency=deleteStrProp(currency,"PP");""]
