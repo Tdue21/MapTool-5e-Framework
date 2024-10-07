@@ -22,7 +22,7 @@
 
 	[h,if(hasClassMacro==-1),code:{};{
 		<!-----------------Class------------------->	
-		[macro(class+"compendium/@this"):"Equipment="+Equip+";tokenName="+tokenName+";class="+class]
+		[macro("compendium/class_" + class + "/" + class + "@this"):"Equipment="+Equip+";tokenName="+tokenName+";class="+class]
 	}]
 
 	[h:classes=getLibProperty("Classes", function.getNamespace())]
@@ -32,87 +32,53 @@
 	[h:level=json.get(subclassobj,"level")]
 }]
 
-<h1>Subclass</h1>
-
-<p style="margin-top: 10px; margin-bottom: 10px">
-
-[r,if(hasClassMacro==-1),code:{
-
-	The <b>[r:class]</b> macro on <b>Lib:Compendium</b> is missing, class features like saving throws, proficiencies, starting equipment and resources need to be added manually.
-	<br>
-	<br>
-
-};{}]
-
-[r,if(level==1),code:{
-
-	Select a <b>[r:class] subclass</b> from the following list.
-
-};{
-	[r,if(submit=="Skip"):"You did not choose a class.";"The <b>"+class+"</b> class only gets a subclass at level "+level+"."]
-
-	<br>
-	<br>
-
-	Click <b>Next</b> to continue[r,if(submit=="Skip"):", or <b>Back</b> if you want to choose a class.";""].
+<div class="content">
+	<h1>Subclass</h1>
 	
+	[r,if(hasClassMacro==-1),code:{
+		<p>
+			The <b>[r:class]</b> macro on <b>Lib:Compendium</b> is missing, class features like saving throws, proficiencies, starting equipment and resources need to be added manually.
+		</p>
+	};{}]
 
-}]
+	[r,if(level==1),code:{
+		<p>	Select a <b>[r:class] subclass</b> from the following list.</p>
+	};{
+		<p>
+		[r,if(submit=="Skip"):"You did not choose a class.";"The <b>"+class+"</b> class only gets a subclass at level "+level+"."]
+		</p>
 
-
-</p>
-
-
-<tr>
-<td valign=bottom style="padding:0px;margin=0px">
-
-
-[h: processorLink=macroLinkText("character-creation/CharacterCreationWizard@this","")]
-<form action="[r:processorLink]" method="json">
-
-
-
-
-
-[r,if(level==1),code:{
-
-	<select name="subclass" size="[r:if(hasClassMacro==-1,12,15)]">
-	
-	[r,count(listcount(subclassList),""),code:{
-
-[h:currentSubclass=listget(subclassList,roll.count)]
-
-<!---------------------------CAPITALIZE----------------------------->
-[h:CapitalName=capitalize(currentSubclass)]
-[h:CapitalName=replace(CapitalName,"(?<=\\s)Of(?=\\s)","of")]
-[h:CapitalName=replace(CapitalName,"(?<=\\s)A(?=n?\\s)","a")]
-[h:CapitalName=replace(CapitalName,"(?<=\\s)Th(?=(?:e|at|ose)\\s)","th")]
-[h:CapitalName=replace(CapitalName,"'S(?=\\s)","'s")]
-	
-	<option[r:if(roll.count==0," selected='selected'","")]>[r:CapitalName]</option>
-	
+		<p>	Click <b>Next</b> to continue[r,if(submit=="Skip"):", or <b>Back</b> if you want to choose a class.";""].</p>	
 	}]
-	</select>
 
+	[r,if(level==1),code:{
+		<select name="subclass" size="[r:if(hasClassMacro==-1,12,15)]">
+			[r,count(listcount(subclassList),""),code:{
+				[h:currentSubclass=listget(subclassList,roll.count)]
 
+				<!---------------------------CAPITALIZE----------------------------->
+				[h:CapitalName=capitalize(currentSubclass)]
+				[h:CapitalName=replace(CapitalName,"(?<=\\s)Of(?=\\s)","of")]
+				[h:CapitalName=replace(CapitalName,"(?<=\\s)A(?=n?\\s)","a")]
+				[h:CapitalName=replace(CapitalName,"(?<=\\s)Th(?=(?:e|at|ose)\\s)","th")]
+				[h:CapitalName=replace(CapitalName,"'S(?=\\s)","'s")]
+	
+				<option[r:if(roll.count==0," selected='selected'","")]>[r:CapitalName]</option>
+	
+			}]
+		</select>
 
-<p style="margin-top: 10px;margin-bottom: 10px;margin-left:10px">
+		<p>Click <b>Next</b> to continue.</p>
+	};{}]
 
-Click <b>Next</b> to continue.
+	<input type="hidden" name="tokenName" value="[r:tokenName]">
+	<input type="hidden" name="window" value="Subclass">
+	<input type="hidden" name="class" value="[r:class]">
 
-</p>
-
-};{}]
-
-<input type="hidden" name="tokenName" value="[r:tokenName]">
-<input type="hidden" name="window" value="Subclass">
-<input type="hidden" name="class" value="[r:class]">
-
-
-<div class="div" style="padding-left: 207px;padding-top: 13px;padding-bottom: 12px;margin:0px;" bgcolor=#D8D8D8>
-<input type="submit" name="submit" value="< Back">&nbsp;
-<input type="submit" name="submit" value="Skip">&nbsp;
-<input type="submit" name="submit" value="Next >">
+<div class="buttons">
+	<button type="submit" name="submit" value="Back">&lt; Back</button>
+	<button type="submit" name="submit" value="Skip">Skip</button>
+	<button type="submit" name="submit" value="Next">Next &gt;</button>
 </div>
 
 

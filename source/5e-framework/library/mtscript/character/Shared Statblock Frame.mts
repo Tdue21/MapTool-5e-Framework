@@ -7,7 +7,7 @@
 
 
 
-[token(tokenName),frame("Shared", "width=750; height=500; temporary=0;"):{
+[token(tokenName),frame5("Shared", "width=750; height=500; temporary=0;"):{
 
 
 

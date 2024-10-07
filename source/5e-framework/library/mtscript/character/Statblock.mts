@@ -529,7 +529,7 @@ passive Perception [r:getLibProperty("Passive Perception","Lib:"+tokenName)]
 <!-----------------SPELLCASTING CLASS------------------->	
 	[h:spellAtr=json.get(object,"spellcasting")]
 	
-	[h,if(spellAtr=="-"):"";spellClassList=listappend(spellClassList,name," /")]
+	[h,if(spellAtr=="-" || spellAtr == ""):"";spellClassList=listappend(spellClassList,name," /")]
 
 
 }]

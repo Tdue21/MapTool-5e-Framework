@@ -1,0 +1,16 @@
+{
+  "licenseFile": "license.txt",
+  "namespace": "dovesoft.combattracker",
+  "name": "Combat Tracker",
+  "allowsUriAccess": true,
+  "version": "0.1.0-alpha-01",
+  "gitUrl": "",
+  "shortDescription": "A short description of your add-on library",
+  "license": "MIT",
+  "authors": [
+    "thdue"
+  ],
+  "readMeFile": "readme.md",
+  "website": "",
+  "description": "A longer description of your add-on library"
+}

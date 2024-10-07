@@ -7,7 +7,6 @@
 [h:atr=setStrProp("","value","Acolyte")]
 [h:setProperty("Background",atr)]
 
-
 <!-----------------Set Skills if empty------------------->
 [h:skillList=getLibProperty("Skills", function.getNamespace())]
 [h:SkillObject=getProperty("Skills")]

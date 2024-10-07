@@ -82,7 +82,7 @@
 
 [h,macro("overlay/Loading@this"):"Loading Audio Clips"]
 
-[h:loadAudio=getLibProperty("LoadAudio", library)]
+[h:loadAudio=getLibProperty("loadAudio", library)]
 
 [h,if(loadAudio==1),code:{
     [h:clipList=getLibProperty("Audio",library)]

@@ -1,7 +1,7 @@
 [h:ns = "dovesoft.dnd5e"]
 
 [h:js.createNS(ns)]
-[h:js.evalUri(ns, "lib://" + ns + "/scripts/onFirstInit.js?libcache=false")]
+[h:js.evalUri(ns, "lib://" + ns + "/scripts/onFirstInit.js?cachelib=false")]
 
 [h:data = data.getStaticData(ns, "/public/assets/data/initial-data.json"))]
 [h:keys = json.fields(data)]
@@ -25,6 +25,11 @@
     [h:setLibProperty(class, spellList, ns)]
 }]
 
+[h:tableData = data.getStaticData(ns, "/public/assets/data/initial-tables.json")]
+[h:tableData = replace(tableData, "%ns%", ns)]
+[h:tables = base64.encode(tableData)]
+[h:js.createTables(tables)]
+
 [h:tokenImage = "lib://" + ns + "/assets/images/bgtexture.jpeg"]
 [h:assetId = js.getAssetId(tokenImage)]
 
@@ -32,11 +37,6 @@
 [h:mapData = replace(mapData, "%bgpaint%", if(assetId == "", "#CEA883", assetId))]
 [h:maps = base64.encode(mapData)]
 [h:js.createMaps(maps)]
-
-[h:tableData = data.getStaticData(ns, "/public/assets/data/initial-tables.json")]
-[h:tableData = replace(tableData, "%ns%", ns)]
-[h:tables = base64.encode(tableData)]
-[h:js.createTables(tables)]
 
 [h:setCurrentMap("00.DM")]
 

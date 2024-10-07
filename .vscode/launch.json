@@ -10,6 +10,12 @@
             "request": "launch",
             "script": "${file}",
             "args": []
+        },
+        {
+            "type": "chrome",
+            "name": "http://127.0.0.1:3000/source/Combat Tracker/library/public/html/combat.html",
+            "request": "launch",
+            "url": "http://127.0.0.1:3000/source/Combat Tracker/library/public/html/combat.html"
         }
     ]
 }

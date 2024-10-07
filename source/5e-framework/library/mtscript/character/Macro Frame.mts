@@ -13,7 +13,7 @@
 	[h:frameName=tokenName+" - "+macroName]
 }]
 
-[token(tokenName),frame(frameName,"width="+if(macroName=="Statblock",350,750)+"; height=500; temporary=0;"):{
+[token(tokenName),frame5(frameName,"width="+if(macroName=="Statblock",350,750)+"; height=500; temporary=0;"):{
 <!DOCTYPE html>
 <html>
 

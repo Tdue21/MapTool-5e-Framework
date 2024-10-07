@@ -11,16 +11,16 @@
 	[h:hasClassMacro=listfind(macroList,race)]
 
 	[h,if(hasClassMacro==-1),code:{
-		[macro("compendium/custom race@this"):"tokenName="+tokenName+";name="+race]
+		[macro("compendium/race/custom race@this"):"tokenName="+tokenName+";name="+race]
 	};{
 		[h:macro.return=""]
-		[macro("compendium/"+race+"@this"):tokenName]
+		[macro("compendium/race/"+race+"@this"):tokenName]
 	}]
 	[h,if(macro.return==""):"";race=macro.return]
 	[h,if(macro.return==""):"";setProperty("Race","value="+capitalize(race)+";text=")]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group, function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -34,58 +34,33 @@
 	[h:setProperty(group,Property)]
 }]
 
-<h1>Background</h1>
+<div class="content">
+	<h1>Background</h1>
+	[r,if(hasClassMacro==-1),code:{
+		<p>
+		The <b>[r:race]</b> macro on <b>Lib:Compendium</b> is missing, some racial traits like size, speed and ability score bonus need to be added manually.
+		</p>
+	};{}]
+	<p>Select a <b>background</b> from the following list.</p>
 
-<p style="margin-top: 10px; margin-bottom: 10px">
+	<select name="background" size="[r:if(hasClassMacro==-1,12,15)]">
+		[h:bg=getLibProperty("Backgrounds", function.getNamespace())]
+		[r,count(listcount(bg),""),code:{
+			<option[r:if(roll.count==0," selected='selected'","")]>[r:listget(bg,roll.count)]</option>
+		}]
+		<option>Custom Background</option>
+	</select>
 
-[r,if(hasClassMacro==-1),code:{
-
-	The <b>[r:race]</b> macro on <b>Lib:Compendium</b> is missing, some racial traits like size, speed and ability score bonus need to be added manually.
-	<br>
-	<br>
-
-};{}]
-
-Select a <b>background</b> from the following list.
-
-</p>
-
-
-<tr>
-<td valign=bottom style="padding:0px;margin=0px">
-
-
-[h: processorLink=macroLinkText("character-creation/CharacterCreationWizard@this","")]
-<form action="[r:processorLink]" method="json">
-
-[h:bg=getLibProperty("Backgrounds", function.getNamespace())]
-
-
-<select name="background" size="[r:if(hasClassMacro==-1,12,15)]">
-
-[r,count(listcount(bg),""),code:{
-
-<option[r:if(roll.count==0," selected='selected'","")]>[r:listget(bg,roll.count)]</option>
-
-}]
-<option>Custom Background</option>
-</select>
-
-
-
-<p style="margin-top: 10px;margin-bottom: 10px;margin-left:10px">
-
-Click <b>Next</b> to continue.
-
-</p>
+	<p>Click <b>Next</b> to continue.</p>
+</div>
 
 <input type="hidden" name="tokenName" value="[r:tokenName]">
 <input type="hidden" name="window" value="Background">
 
 
-<div class="div" style="padding-left: 207px;padding-top: 13px;padding-bottom: 12px;margin:0px;" bgcolor=#D8D8D8>
-<input type="submit" name="submit" value="< Back">&nbsp;
-<input type="submit" name="submit" value="Skip">&nbsp;
-<input type="submit" name="submit" value="Next >">
+<div class="buttons">
+	<button type="submit" name="submit" value="Back">&lt; Back</button>
+	<button type="submit" name="submit" value="Skip">Skip</button>
+	<button type="submit" name="submit" value="Next">Next &gt;</button>
 </div>
 

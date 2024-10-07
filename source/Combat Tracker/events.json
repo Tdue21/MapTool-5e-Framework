@@ -1,0 +1,34 @@
+{
+  "events": [
+    {
+      "name": "onFirstInit",
+      "mts": "events/onFirstInit"
+    },
+    {
+      "name": "onInit",
+      "mts": "events/onInit"
+    }
+  ],
+  "legacyEvents": [
+    {
+      "name": "onInitiativeChangeRequest",
+      "mts": "events/onInitiativeChangeRequest"
+    },
+    {
+      "name": "onInitiativeChange",
+      "mts": "events/onInitiativeChange"
+    },
+    {
+      "name": "onMultipleTokensMove",
+      "mts": "events/onMultipleTokensMove"
+    },
+    {
+      "name": "onTokenMove",
+      "mts": "events/onTokenMove"
+    },
+    {
+      "name": "onChangeMap",
+      "mts": "events/onChangeMap"
+    }
+  ]
+}
