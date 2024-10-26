@@ -1,3 +1,3 @@
-[h,if(isFrameVisible("Initiative") == 1), code: {
+[h,if(isFrameVisible("Combat Tracker") == 1), code: {
 	[macro("Initiative Frame@this"):""]
 };{}]

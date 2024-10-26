@@ -1,1 +1,1 @@
-[h:broadcast("<b>onInitiativeChange fired</b>")]
+[h:'<-- broadcast("<b>onInitiativeChange fired</b>") -->']

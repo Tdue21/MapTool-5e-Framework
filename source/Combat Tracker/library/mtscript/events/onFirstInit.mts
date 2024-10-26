@@ -1,1 +1,6 @@
-[h:broadcast("<b>onFirstInit fired</b>")]
+[h:createMacro(json.set("", "group", "Initiative", "sortBy", "0", "autoExecute", 1, "label", "Combat Tracker", "color", "teal", "fontColor", "white", "minWidth", 120, "command","[h:showCombatTracker()]"), "gm")]
+[h:createMacro(json.set("", "group", "Initiative", "sortBy", "1", "autoExecute", 1, "label", "Clear", "color", "red", "fontColor", "white", "minWidth", 120, "command","[h:clearInitiative()]"), "gm")]
+[h:createMacro(json.set("", "group", "Initiative", "sortBy", "2", "autoExecute", 1, "label", "&lt;&lt; Previous", "minWidth", 120, "command","[h:previousInit()]"), "gm")]
+[h:createMacro(json.set("", "group", "Initiative", "sortBy", "3", "autoExecute", 1, "label", "Next &gt;&gt;", "minWidth", 120, "command","[h:nextInit()]"), "gm")]
+[h:createMacro(json.set("", "group", "Initiative", "sortBy", "4", "autoExecute", 1, "label", "Add Selected", "minWidth", 120, "command","[h:addSelected()]"), "gm")]
+[h:createMacro(json.set("", "group", "Initiative", "sortBy", "5", "autoExecute", 1, "label", "Remove Selected", "minWidth", 120, "command","[h:removeSelected()]"), "gm")]

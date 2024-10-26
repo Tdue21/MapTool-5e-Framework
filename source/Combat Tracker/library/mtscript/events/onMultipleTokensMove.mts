@@ -1,1 +1,1 @@
-[h:broadcast("<b>onMultipleTokensMove fired</b>")]
+[h:'<!-- broadcast("<b>onMultipleTokensMove fired</b>") -->']

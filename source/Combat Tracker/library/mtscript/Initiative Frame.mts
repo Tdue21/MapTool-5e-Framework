@@ -1,4 +1,3 @@
-[h:broadcast("<pre>" + json.indent(macro.args, 4) + "</pre>")]
 [h:initList = getInitiativeList()]
 [h:round = json.get(initList, "round")]
 [h:current = Number(json.get(initList, "current"))]
@@ -49,6 +48,7 @@
 
 <body>
 	<div class="topbar">
+		[if(isGM() == 1), code: {
 		<a href="[r:refreshLink]">
 			<span title="Refresh combat tracker">
 				<img src="lib://dovesoft.combattracker/assets/icons/refresh.png">
@@ -96,6 +96,7 @@
 		</a>
 
 		<span class="separator">&nbsp;</span>
+		};{}]
 		<span class="round"><b>Round:</b> [r:round]</span>
 	</div>
 
@@ -122,10 +123,6 @@
 	[h,macro("GetTokenHealth@this"):json.set("{}", "tokenId", tokenId, "tokenName", tokenName)]
 	[h:tokenHealth = macro.return]
 
-	[h:CurrentHP = json.get(tokenHealth, "current")]
-	[h:TotalHP = json.get(tokenHealth, "total")]
-	[h:TempHP = json.get(tokenHealth, "temp")]
-
 	[h,if(tokenInit == "null"): tokenInit = ""]
 	[h:selected = if(tokenId == selectedToken, "selected", "")]
 
@@ -137,19 +134,8 @@
 			<input id="[r:tokenId]" type="number" class="init" name="value" value="[r:tokenInit]"
 				onfocusout="setTokenInit">
 
-			[h:args = 'current='+CurrentHP+';total=' + TotalHP + ';temp='+TempHP+';id=' + tokenId + ';tokenName=' + tokenName]
-
 			<div class="health">
-				<a href="[r:macroLinkText('Damage@Lib:Character', '', args)]" tabindex="-1">
-					<span>[r:CurrentHP]</span> / <span>[r:TotalHP]</span>
-
-					[h:CurrentPercent = math.floor((CurrentHP * 100) / TotalHP)]
-					[h:divClass=if(CurrentPercent > 75, "full", if(CurrentPercent > 25, "high", "low"))]
-					<div class="meter">
-						<div class="[r:divClass]" style="width:[r:CurrentPercent]%">&nbsp;</div>
-					</div>
-
-				</a>
+				[macro("CalcHealthBar@this"):json.set("", "tokenId", tokenId, "tokenName", tokenName, "tokenHealth", tokenHealth)]
 			</div>
 
 			<a href='[r:macroLinkText("Focus@Lib:Overlay", "", "id=" + tokenId)]' tabindex="-1">

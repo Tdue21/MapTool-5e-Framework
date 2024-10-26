@@ -1,3 +1,6 @@
+[h:gameplay=getLibProperty("Gameplay","Lib:Campaign")]
+[h:KeepPlayers=getStrProp(gameplay,"KeepPlayers")]
+
 [h:res=input("var|Do you want to clear initiative?||Label|span=true",
 	"keep|"+KeepPlayers+"|Keep PCs|check")]
 [h:abort(res)]

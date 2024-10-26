@@ -4,7 +4,7 @@
   "name": "Combat Tracker",
   "allowsUriAccess": true,
   "version": "0.1.0-alpha-01",
-  "gitUrl": "",
+  "gitUrl": "https://github.com/Tdue21/MapTool-5e-Framework",
   "shortDescription": "A short description of your add-on library",
   "license": "MIT",
   "authors": [
