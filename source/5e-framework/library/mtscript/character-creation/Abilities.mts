@@ -66,9 +66,7 @@
 <input type="hidden" name="window" value="Abilities">
 
 <div class="buttons">
-<button type="submit" name="submit" value="Back">&lt; Back</button>
-<button type="submit" name="submit" value="Skip">Skip</button>
-<button type="submit" name="submit" value="Next">Next &gt;</button>
+	<button type="submit" name="submit" value="Back">&lt; Back</button>
+	<button type="submit" name="submit" value="Skip">Skip</button>
+	<button type="submit" name="submit" value="Next">Next &gt;</button>
 </div>
-
-

@@ -1,0 +1,107 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap">
+
+    <script src="../scripts/libraries/vue.global-3.4.15.js"></script>
+
+    <style>
+        :root {
+            font-family: "Noto Sans";
+            font-size: 15px;
+            background-color: #f9f4d9;
+        }
+
+        tr:nth-child(even) {
+            background-color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>CR</th>
+                <th>Sources</th>
+                <th>Actions</th>
+            </tr>
+
+            <template v-for="npc in monsters">
+                <tr>
+                    <td><a href="#" @click="opennpc(npc.name)">{{npc.name}}</a></td>
+                    <td>{{npc.type}}</td>
+                    <td>{{npc.challenge}}</td>
+                    <td>{{npc.sources.join(", ")}}</td>
+                    <td><a href="#">Make Token</a></td>
+                </tr>
+            </template>
+
+        </table>
+
+    </div>
+</body>
+
+<script>
+    "use strict";
+
+    const { createApp } = Vue;
+    createApp({
+        data() {
+            return {
+                sort:"name",
+                dir:"a",
+                unsorted: [],
+                monsters: []
+
+            }
+        },
+
+        computed: {
+            sortedList() {
+
+            }
+
+        },
+
+        methods: {
+            async opennpc(name) {
+                console.log(name);
+            },
+
+            async initialization() {
+                try {
+                    let data = await fetch("../assets/data/Bestiary.json");
+                    let text = await data.text();
+                    this.unsorted = JSON.parse(text);
+
+                    this.monsters = [];
+                    for (const element in this.unsorted) {
+                        this.monsters.push(this.unsorted[element]);
+                    }
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+
+        },
+
+        async beforeMount() {
+            await this.initialization();
+        },
+
+        mounted() {
+
+        }
+    }).mount('#app');
+</script>
+
+</html>

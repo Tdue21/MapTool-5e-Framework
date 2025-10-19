@@ -793,9 +793,7 @@ passive Perception [r:getLibProperty("Passive Perception","Lib:"+tokenName)]
 <b><i>[r:macrolink("Conditions.", "character/Conditions Menu@this", "","tokenName="+tokenName)]</b></i>
 
 [r,if(id==""),code:{};{
-	
-[r:function.GetConditions()]
-
+	[r:function.GetConditions()]
 }]
 
 <!-----------------NOTES------------------->

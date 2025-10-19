@@ -119,7 +119,7 @@
 [h:CapitalName=replace(CapitalName,"(?<=\\s)Th(?=(?:e|at|ose)\\s)","th")]
 [h:CapitalName=replace(CapitalName,"'S(?=\\s)","'s")]
 
-[h,if(tokenName=="Lib:Compendium"):lib="Lib:Campaign";lib="Lib:Character"]
+[h,if(tokenName=="Lib:Compendium"):lib="Lib:Campaign";lib=function.getNamespace()]
 
 [h,if(oldName!=title && isDialogVisible(tokenName+" - "+CapitalName)==1),code:{
 [h:closeDialog(tokenName+" - "+oldName)]

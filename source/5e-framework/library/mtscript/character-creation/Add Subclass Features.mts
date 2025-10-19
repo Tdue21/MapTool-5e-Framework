@@ -66,7 +66,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -126,7 +126,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -195,7 +195,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -254,7 +254,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -328,7 +328,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -387,7 +387,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -461,7 +461,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -520,7 +520,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -596,7 +596,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -655,7 +655,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -726,7 +726,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -785,7 +785,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -857,7 +857,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -916,7 +916,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -986,7 +986,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -1045,7 +1045,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -1116,7 +1116,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -1175,7 +1175,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -1245,7 +1245,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -1304,7 +1304,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -1375,7 +1375,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -1434,7 +1434,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -1504,7 +1504,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -1563,7 +1563,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -1637,7 +1637,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -1696,7 +1696,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -1765,7 +1765,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -1824,7 +1824,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -1893,7 +1893,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -1952,7 +1952,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -2022,7 +2022,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -2081,7 +2081,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -2153,7 +2153,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -2212,7 +2212,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -2282,7 +2282,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -2341,7 +2341,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -2410,7 +2410,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -2469,7 +2469,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -2539,7 +2539,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -2598,7 +2598,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -2669,7 +2669,7 @@
 	[h:setProperty("Class&Level",ClassObj)]
 	<!-----------------Feat------------------->
 	[h:group="Feats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -2728,7 +2728,7 @@
 	
 	<!-----------------Additional Feat------------------->
 	[h:group="AdditionalFeats"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]

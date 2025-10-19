@@ -5,8 +5,9 @@
       "name": "onFirstInit"
     },
     {
+      "name": "onInit",
       "mts": "events/onInit",
-      "name": "onInit"
+      "js":"scripts/onInit"
     }
   ],
   "legacyEvents": []

@@ -1,4 +1,4 @@
-[h:tokenName="Lib:Character"]
+[h:tokenName=function.getNamespace()]
 
 
 [dialog5("Manage Additional Feats", "width=450; height=600; temporary=0; noframe=0; input=1"):{

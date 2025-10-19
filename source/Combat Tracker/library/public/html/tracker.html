@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Combat Tracker</title>
+    <link rel="onChangeToken" type="macro" href="[r:onChangeLink]">
+    <link rel="onChangeSelection" type="macro" href="[r:onSelectLink]">
+    <link rel="stylesheet" type="text/css" href="../css/initiative.css?cachelib=false">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js?cachelib=false"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <div class="topbar">
+            <a href="#" @click="processAction('refresh')">
+                <span title="Refresh combat tracker">
+                    <img src="../assets/icons/refresh.png">
+                </span>
+            </a>
+
+            <a href="#" @click="processAction('clear')">
+                <span title="Clear initiative and reset round counter.">
+                    <img src="../assets/icons/clear.png">
+                </span>
+            </a>
+
+            <a href="#" @click="processAction('roll')">
+                <span title="Roll initiative for selected tokens.">
+                    <img src="../assets/icons/dice2.png">
+                </span>
+            </a>
+
+            <span class="separator">&nbsp;</span>
+
+            <a href="#" @click="processAction('sorta')">
+                <span title="Sort ascending (reverse order)">
+                    <img src="../assets/icons/ascending.png">
+                </span>
+            </a>
+
+            <a href="#" @click="processAction('sortd')">
+                <span title="Sort descending (normal order)">
+                    <img src="../assets/icons/descending.png">
+                </span>
+            </a>
+
+            <span class="separator">&nbsp;</span>
+
+            <a href="#" @click="processAction('prev')">
+                <span title="Move initiative to previous token">
+                    <img src="../assets/icons/prev.png">
+                </span>
+            </a>
+
+            <a href="#" @click="processAction('next')">
+                <span title="Move initiative to next token">
+                    <img src="../assets/icons/next.png">
+                </span>
+            </a>
+
+            <span class="separator">&nbsp;</span>
+            <span class="round"><b>Round:</b> {{ round }}</span>
+        </div>
+
+        <div class="container">
+            <div class="initList">
+                <template v-for="token of combatants">
+                    <div class="initToken" :class="tokenState(token)">
+                        <input type="number" class="init" v-model="token.init">
+
+                        <div class="health" @click="healthClicked(token)">
+                            <span v-if="isGM" style="color: black;">
+                                {{ token.hp.current}} / {{token.hp.max}}
+                            </span>
+                            <div class="meter">
+                                <div :class="getMeterClass(token.hp)" :style="getWidth(token.hp)">&nbsp;</div>
+                            </div>
+                        </div>
+
+                        <span :title="`${token.name} (${token.init})`" @click="focusToken(token)" style="cursor: pointer;">
+                            <img :src="token.image" width="48">
+                        </span>
+
+                        <span style="padding:5px">{{token.name}}</span>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        "use strict";
+
+        const { createApp } = Vue;
+
+        createApp({
+
+            data() {
+                return {
+                    round: 2,
+
+                    combatants: [
+                        {
+                            "name": "Emma Tildon",
+                            "image": "/source/test data/images/PC Emma Tildon.png",
+                            "init": 12,
+                            "type": "pc",
+                            "hp": {
+                                "current": 19,
+                                "max": 19,
+                                "percent": 100
+                            }
+                        },
+                        {
+                            "name": "Nafaris L'Reg",
+                            "image": "/source/test data/images/PC Nafaris LReg.png",
+                            "init": 11,
+                            "type": "pc",
+                            "hp": {
+                                "current": 3,
+                                "max": 20,
+                                "percent": 15
+                            }
+                        },
+                        {
+                            "name": "Bugbear Chief",
+                            "image": "/source/test data/images/NPC Bugbear Chief.png",
+                            "init": 8,
+                            "type": "npc",
+                            "hp": {
+                                "current": 22,
+                                "max": 30,
+                                "percent": 70
+                            }
+                        }
+                    ]
+                }
+            },
+
+            computed: {
+                isGM() {
+                    return true;
+                }
+            },
+
+            methods: {
+                initialization() {
+                    console.log("initialization");
+                },
+
+                getMeterClass(tokenHp) {
+                    let percent = Math.floor((tokenHp.current * 100) / tokenHp.max);
+                    return (percent >= 75) ? 'full' :
+                        (percent >= 25) ? 'high' :
+                            'low';
+                },
+
+                isSelected(token) {
+                    return token.init == 11;
+                },
+                
+                tokenState(token) {
+/*
+                    
+	[h:isPlayer = getState("Player", tokenId)]
+	[h:isAlly = getState("Ally", tokenId)]
+	[h:isEnemy = getState("Enemy", tokenId)]
+	[h:isNeutral = getState("Neutral", tokenId)]
+	[h:color = ""]
+
+	[h,if(isPlayer || isPC(tokenId)) : color = "blue"]
+	[h,if(isEnemy || isNPC(tokenId)): color = "red"]
+	[h,if(isAlly) : color = "green"]
+	[h,if(isNeutral) : color = "yellow"]
+
+*/
+
+
+                    return {
+                        selected : token.init == 11,
+                        blue : (token.type === "pc"),
+                        red : (token.type === "npc"),
+                        green : (token.type === "ally"),
+                        yellow : (token.type === "neutral"),
+                    };
+                },
+
+                getWidth(tokenHp) {
+                    return `width: ${Math.floor((tokenHp.current * 100) / tokenHp.max)}%`;
+                },
+
+                async processAction(action) {
+                    console.log(action);
+                },
+
+                async healthClicked(token) {
+                    console.log(token);
+                },
+
+                async focusToken(token) {
+                    console.log(token);
+                }
+            },
+
+            mounted() {
+                this.initialization();
+            }
+
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

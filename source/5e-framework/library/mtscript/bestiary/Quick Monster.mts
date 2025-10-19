@@ -1,13 +1,8 @@
 [h:statblock=macro.args]
-
 [h:BestiaryObj=getLibProperty("Bestiary", function.getNamespace())]
-
 [h:statblockValue=json.get(BestiaryObj,statblock)]
-
 [h,if(json.type(statblockValue)=="UNKNOWN"),code:{
-
 	[h:statblockValue='{"name":"'+statblock+'"}']
-	
 };{}]
 
 [h:name=json.get(statblockValue,"name")]
@@ -96,22 +91,14 @@
 [h:setPropertyType("NPC")]
 <!-----------------MACROS------------------->
 [h:macroList=getMacros()]
-
-[h,if(listfind(macroList,"Statblock")<0):createMacro("Statblock","[macro('bestiary/Macro Frame@this'):token.name]", "minWidth=120;fontColor=black;color=maroon;fontColor=white;sortBy=0")]
-[h,if(listfind(macroList,"Initiative")<0):createMacro("Initiative","[macro('bestiary/Mass Initiative@this'):'']", "minWidth=53;sortBy=1")]
-[h,if(listfind(macroList,"Hide")<0):createMacro("Hide","[macro('campaign/Show Hide All@this'):'idList='+getSelected()]", "minWidth=53;sortBy=2;playerEditable=0")]
-[h,if(listfind(macroList,"Interact")<0):createMacro("Interact","[macro('campaign/Interact@this'):'']", "minWidth=120;sortBy=1;color=teal;fontColor=white;group=Other Macros")]
-[h,if(listfind(macroList,"Light")<0):createMacro("Light","[macro('campaign/Light@this'):'']", "minWidth=120;sortBy=2;color=yellow;group=Other Macros")]
-[h,if(listfind(macroList,"Range")<0):createMacro("Range","[macro('campaign/Range@this'):'']", "minWidth=120;sortBy=3;color=orange;group=Other Macros")]
-
-[h,if(listfind(macroList,"- Elev")<0):createMacro("- Elev","[macro('character/Elevation@this'):'elevation=-1;tokenName='+token.name]", "minWidth=53;sortBy=4;group=Other Macros")]
-[h,if(listfind(macroList,"Elev +")<0):createMacro("Elev +","[macro('character/Elevation@this'):'elevation=1;tokenName='+token.name]", "minWidth=53;sortBy=5;group=Other Macros")]
-
-
-[h:list=getLibProperty("List", function.getNamespace())]
+[h:macroJson=getLibProperty("MonsterMacros", function.getNamespace())]
+[h,foreach(macro, macroJson, ""), code:{
+	[h:macroName = json.get(macro, "label")]
+	[h:exists = listfind(macroList, macroName)]
+	[h,if(exists < 0):createMacro(macro)]
+}]
 
 [h:closeFrame(macro.args)]
-
 
 [h:setProperty("Stats",statblockValue)]
 [h:setProperty("CreatureName",statblock)]
@@ -129,45 +116,27 @@
 [h:rollNPC=getStrProp(gameplay,"rollNPC")]
 
 [r,if(rollNPC==1),code:{
-
 	[macro("campaign/Dice Roller@this"):"text="+name+" HP;value="+hpRoll+";tokenName="+name]
 	[h:hp=macro.return]
-
 };{}]
 
-
-
 [h:setProperty("Hit Points",hp+"/"+hp)]
-
 [h:ac=json.get(statblockValue,"ac")]
 [h:setProperty("Armor Class",ac)]
-
 [h:setProperty("Elevation",0)]
-
 [h:display=getLibProperty("Display", function.getNamespace())]
 [h:NPCVisibility=getStrProp(display,"NPCVisibility")]
 [h:HiddenOpacity=getStrProp(display,"HiddenOpacity")]
 
 [h,if(isGM()==1 && NPCVisibility==1),code:{
-
 	[h:token.visible=0]
-
 	[h:setTokenOpacity(HiddenOpacity*0.01)]
-
 };{
-
 	[h:playerName=getPlayerName()]
-	
 	[h:setOwner(playerName)]
-
 }]
 
 [h,if(isDialogVisible(statblock)==1),code:{
-[h:closeDialog(statblock)]
-[macro('bestiary/Macro Frame@this'):token.name]
+	[h:closeDialog(statblock)]
+	[macro('bestiary/Macro Frame@this'):token.name]
 };{}]
-
-
-
-
-

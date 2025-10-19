@@ -1,6 +1,6 @@
+<!-- This is the frame for a token statblock -->
+
 [h:tokenName=macro.args]
-
-
 
 [h:display=getLibProperty("Display", function.getNamespace())]
 [h:StatblockFrame=getStrProp(display,"StatblockFrame")]
@@ -12,9 +12,9 @@ default:frameName=tokenName+" - Statblock"]
 
 
 
-[frame5(frameName, "width=350; height=500; temporary=0;"):{
+[frame5(frameName, "width=350; height=500; temporary=1;"):{
 
-<link rel="stylesheet" type="text/css" href="[r:function.getCss('GitHub')]">
+<link rel="stylesheet" type="text/css" href="[r:function.getCss('D&D')]">
 
 [macro("bestiary/Statblock@this"):tokenName]
 

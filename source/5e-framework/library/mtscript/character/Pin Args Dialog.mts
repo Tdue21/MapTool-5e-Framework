@@ -55,7 +55,7 @@
 		
 		[r,if(share==1 || edit==0):"";macrolink("Edit", "character/Change Form@this", "",macro.args)+" &nbsp;"]
 		[r,if(share==1):"";macrolink("Remove", "character/Pin Delete@this", "",macro.args)+" &nbsp;"]
-		[r,if(share==1 || tokenName=="Lib:Character"):"";macrolink("Settings", "character/Pin Metadata@this", "",macro.args)+" &nbsp;"]
+		[r,if(share==1 || tokenName==function.getNamespace()):"";macrolink("Settings", "character/Pin Metadata@this", "",macro.args)+" &nbsp;"]
 		[r,if(share==1):"";macrolink("Move", "character/Pin Move@this", "",macro.args)+" &nbsp;"]
 		
 		[r,if(share==1 || sharePlayer==0):"";macrolink("Share", "character/Share@this", "",macro.args+";share=1")+" &nbsp;"]

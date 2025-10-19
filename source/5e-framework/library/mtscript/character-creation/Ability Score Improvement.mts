@@ -44,7 +44,7 @@
 [h:featList=getLibProperty("Feats", function.getNamespace())]
 
 [h:group="Feats"]
-[h:inputList=getLibProperty(group,"Lib:Character")]
+[h:inputList=getLibProperty(group,function.getNamespace())]
 [h:inputList=json.fields(inputList)]
 [h:inputList=listSort(inputList,"N")]
 [h:Property=getProperty(group)]

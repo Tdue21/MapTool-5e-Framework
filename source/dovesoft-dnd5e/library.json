@@ -1,0 +1,14 @@
+{
+  "shortDescription": "Yet Another DnD 5e Library for MapTool",
+  "website": "",
+  "version": "0.0.1",
+  "namespace": "dovesoft.dnd5e",
+  "allowsUriAccess": true,
+  "gitUrl": "",
+  "name": "dovesoft-dnd5e",
+  "description": "This is yet another DnD 5e library for MapTool. It aims to provide a comprehensive set of assets and tools to enhance your DnD 5e gaming experience within MapTool.",
+  "licenseFile": "license.txt",
+  "authors": [ "tdue21" ],
+  "license": "MIT",
+  "readMeFile": "readme.md"
+}

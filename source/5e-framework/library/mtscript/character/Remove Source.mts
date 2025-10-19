@@ -1,4 +1,4 @@
-[h:id=findToken("Lib:Character")]
+[h:id=findToken(function.getNamespace())]
 [h:switchToken(id)]
 
 [h:obj=getLibProperty("Equipment", function.getNamespace())]

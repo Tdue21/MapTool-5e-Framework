@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto,Goudy+Bookletter+1911">
+
+    <script src="../scripts/libraries/vue.global-3.4.15.js"></script>
+    <script src="../scripts/libraries/marked.umd.min-4.0.18.js"></script>
+    <script src="../scripts/mt-tools.js?libcache=false"></script>
+    <script src="../scripts/constants.js?libcache=false"></script>
+
+    <title>Character Sheet</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <section id="character">
+            <span>{{pc.libname}}</span>
+            <span>{{pc.race}}</span>
+
+        </section>
+
+        <section id="description">
+
+        </section>
+
+        <section id="spells">
+
+        </section>
+    </div>
+</body>
+
+<script>
+    "use strict";
+    
+    const { createApp } = Vue;
+    createApp({
+        data() {
+            return {
+                pc:null
+                
+            }
+        },
+    
+        methods: {
+    
+            async initialization() {
+                let data = await fetch("../assets/data/character-data.json");
+                let text = await data.text();
+                this.pc = JSON.parse(text).old;
+            }
+        },
+    
+        async beforeMount() {
+            await this.initialization();
+        },
+
+        getValue(data) {
+            let [key, value] = data.split('=').map(str => str.trim());
+            console.log(key);
+            return value;
+        },
+
+        mounted() {
+    
+        }
+    }).mount('#app');
+</script>
+
+
+</html>

@@ -29,19 +29,9 @@
 
 [r:delete=json.get(macro.args,"delete")]
 [r,if(delete=="Delete"),code:{
-
-
 	[h:CurrentObject=json.remove(CurrentObject,title)]
-	
-
 };{
-
-
-
 	[h,if(group!="GMNotes"):CurrentObject=json.set(CurrentObject,title,value)]
-	
-
-
 }]
 
 [h,if(group=="GMNotes"):setGMNotes(value);""]
@@ -55,5 +45,5 @@
 [h:CapitalName=function.Capitalize(tokenName)]
 
 [h,if(isDialogVisible(CapitalName+" - Info")==1),code:{
-[macro("bestiary/Info@this"):"name="+name+";tokenName="+tokenName]
+	[macro("bestiary/Info@this"):"name="+name+";tokenName="+tokenName]
 };{}]

@@ -45,7 +45,7 @@
 	[h:spellobj=json.get(spellobj,"Level 0")]
 	[h:spellList=json.toList(spellobj)]
 	
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -81,7 +81,7 @@
 
 	<!-----------------Spells------------------->
 	[h:group="Spells"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -115,7 +115,7 @@
 
 	<!-----------------Spells------------------->
 	[h:group="Spells"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -159,7 +159,7 @@
 
 	<!-----------------Spells------------------->
 	[h:group="Spells"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]
@@ -193,7 +193,7 @@
 
 	<!-----------------Spells------------------->
 	[h:group="Spells"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]

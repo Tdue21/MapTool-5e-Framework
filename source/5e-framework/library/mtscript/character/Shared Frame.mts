@@ -47,7 +47,7 @@
 	[r,if(share==1 || edit==0):"";macrolink("Edit","character/Change Form@this","",macro.args)+" &nbsp;"]
 	[r,if(share==1):"";macrolink("Move","character/Move@this","",macro.args)+" &nbsp;"]
 	[r,if(share==1):"";macrolink("Share","character/Share@this","",macro.args+";share=1")+" &nbsp;"]
-	[r,if(share==1 || tokenName=="Lib:Character"):"";macrolink("Data","character/Metadata@this","",macro.args)+" &nbsp;"]
+	[r,if(share==1 || tokenName==function.getNamespace()):"";macrolink("Data","character/Metadata@this","",macro.args)+" &nbsp;"]
 	[r,if(share==1):"";macrolink("Delete","character/Delete@this","",macro.args)]
 
 	[r,if(share==1):"";"</p>"]

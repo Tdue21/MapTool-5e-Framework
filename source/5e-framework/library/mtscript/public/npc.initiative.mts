@@ -1,0 +1,1 @@
+[macro("bestiary/Mass Initiative@this"):""]

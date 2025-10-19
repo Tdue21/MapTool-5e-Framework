@@ -10,7 +10,7 @@
   "licenseFile": "license.txt",
   "readMeFile": "readme.md",
   "website": "",
-  "version": "3.0.0-alpha-01",
+  "version": "0.1.0-alpha-01",
   "license": "MIT",
   "allowsUriAccess": true,
   "description": "This is a full conversion of Takehara's excellent 5e framework to MapTool add-on library."

@@ -6,41 +6,29 @@
 
 [h:submit=json.get(macro.args,"submit")]
 [h,if(submit=="Skip"),code:{};{
-
 	[macro("character-creation/Apply Details@this"):macro.args]
-
 }]
 
-<h1>Review</h1>
+<div class="content">
+	<h1>Review</h1>
 
-<p style="margin-top: 10px; margin-bottom: 10px">
+	<p>
+	This Wizard completed setting <b>[r:tokenName]'s</b> Abilities, Race, Background and Class, 
+	description and personality, some details may still be missing but you can edit manually 
+	any time, have fun playing the game.
+	</p>
 
-This Wizard completed setting <b>[r:tokenName]'s</b> Abilities, Race, Background and Class, description and personality, some details may still be missing but you can edit manually any time, have fun playing the game.
+	<p>
+	Click <b>Finish</b> to close the Wizard.
+	</p>
 
-<br>
-<br>
-
-Click <b>Finish</b> to close the Wizard.
-
-</p>
-
-
-<tr>
-<td valign=bottom style="padding:0px;margin=0px">
-
-
-[h: processorLink=macroLinkText("character-creation/CharacterCreationWizard@this","")]
-<form action="[r:processorLink]" method="json">
-
-
-
+</div>
 
 <input type="hidden" name="tokenName" value="[r:tokenName]">
 <input type="hidden" name="window" value="Review">
 
-
-<div class="div" style="padding-left: 250px;padding-top: 13px;padding-bottom: 12px;margin:0px;" bgcolor=#D8D8D8>
-<input type="submit" name="submit" value="< Back">&nbsp;
-<input type="submit" name="submit" value=" Finish ">
+<div class="buttons">
+	<button type="submit" name="submit" value="Back">&lt; Back</button>
+	<button type="submit" name="submit" value="Finish">Finish</button>
 </div>
 

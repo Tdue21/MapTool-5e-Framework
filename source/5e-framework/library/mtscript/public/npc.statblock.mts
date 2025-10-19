@@ -1,0 +1,1 @@
+[macro("bestiary/Macro Frame@this"):token.name]

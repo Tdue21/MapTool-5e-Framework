@@ -1,0 +1,896 @@
+{
+    "new": {
+        "libname": "Talindra Silvertongue",
+        "name": "Talindra Silvertongue",
+        "info": {
+            "species": "Human",
+            "age": 21,
+            "height": "5'8\" (172 cm)",
+            "sizemod": "Medium",
+            "skin": "Fair",
+            "alignment": "Neutral Good",
+            "weight": 125
+        },
+        "othernotes": {
+            "Backstory": "",
+            "Personality": "",
+            "Ideals": "",
+            "Flaws": "",
+            "Bonds": "",
+            "Allies": "",
+            "AditionalFeats": "",
+            "Treasure": ""
+        },
+        "abilities": {
+            "strength": "value=10+1 ; text=+1 racial ; prof=0 ; bonus=0",
+            "dexterity": "value=13+1 ; text=+1 racial ; prof=0 ; bonus=0",
+            "constitution": "value=11+1 ; text=+1 racial ; prof=0 ; bonus=0",
+            "intelligence": "value=11+1 ; text=+1 racial ; prof=0 ; bonus=0",
+            "wisdom": "value=11+1 ; text=+1 racial ; prof=0 ; bonus=0",
+            "charisma": "value=13+2 ; text=+1 racial, +1 actor (bard) ; prof=0 ; bonus=0"
+        },
+        "proficiencies":{
+            "armor proficiency": "value=light armor, medium armor, shield ; text=0",
+            "language proficiency": "value=Common, Elvish",
+            "tool proficiency": "value=Disguise Kit, Pan Flute, Lute, Flute, Dulcimer",
+            "weapon proficiency": "value=simple weapons, hand crossbows, longswords, rapiers, shortswords",
+            "skills": [
+                {
+                    "name": "Acrobatics",
+                    "prof": 1,
+                    "attribute": "Dexterity",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Animal Handling",
+                    "prof": 0,
+                    "attribute": "Wisdom",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Arcana",
+                    "prof": 0,
+                    "attribute": "Intelligence",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Athletics",
+                    "prof": 2,
+                    "attribute": "Strength",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Deception",
+                    "prof": 0,
+                    "attribute": "Charisma",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "History",
+                    "prof": 0,
+                    "attribute": "Intelligence",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Insight",
+                    "prof": 0,
+                    "attribute": "Wisdom",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Intimidation",
+                    "prof": 0,
+                    "attribute": "Charisma",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Investigation",
+                    "prof": 0,
+                    "attribute": "Intelligence",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Medicine",
+                    "prof": 0,
+                    "attribute": "Wisdom",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Nature",
+                    "prof": 0,
+                    "attribute": "Intelligence",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Perception",
+                    "prof": 2,
+                    "attribute": "Wisdom",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Performance",
+                    "prof": 2,
+                    "attribute": "Charisma",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Persuasion",
+                    "prof": 0,
+                    "attribute": "Charisma",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Religion",
+                    "prof": 0,
+                    "attribute": "Intelligence",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Sleight of Hand",
+                    "prof": 2,
+                    "attribute": "Dexterity",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Stealth",
+                    "prof": 0,
+                    "attribute": "Dexterity",
+                    "other": 0,
+                    "half": 1
+                },
+                {
+                    "name": "Survival",
+                    "prof": 0,
+                    "attribute": "Wisdom",
+                    "other": 0,
+                    "half": 1
+                }
+            ],
+        
+            "languages":[],
+            "tools":[],
+            "weapons":[],
+            "armor":[]
+        },
+        "ac": "value=14+dex ; text=Elven chain",
+        "current hit points": 61,
+        "hp": "61/61",
+        "initiative": "value=2 ; text=0 ; adv=0",
+        "passive perception": 19,
+        "speed": "value=30 ft.",
+        "temporary hit points": 0,
+        "total hit points": 61,
+        "totallevel": 10,
+        "additionalfeats": "",
+        "attributes": "Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma",
+        "background": "value=Entertainer;text=",
+        "class&level": {
+            "bard": {
+                "level": 10,
+                "hitDice": "d8",
+                "spellcasting": "Charisma",
+                "subclass": "college of valor",
+                "note": "-"
+            }
+        },
+        "currency": "GP=10",
+        "equipment": {
+            "common clothes": {
+                "isWeapon": 0,
+                "weight": 3,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "pouch": {
+                "isWeapon": 0,
+                "weight": 1,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "rapier": {
+                "isWeapon": 1,
+                "weight": 2,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "leather armor": {
+                "isWeapon": 0,
+                "weight": 10,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "dagger": {
+                "isWeapon": 1,
+                "weight": 1,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "lute": {
+                "isWeapon": 0,
+                "weight": 2,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "backpack": {
+                "isWeapon": 0,
+                "weight": 5,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "bedroll": {
+                "isWeapon": 0,
+                "weight": 7,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "costume clothes": {
+                "isWeapon": 0,
+                "weight": 4,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "candle": {
+                "isWeapon": 0,
+                "weight": "",
+                "Quantity": 5,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "disquise kit": {
+                "isWeapon": 0,
+                "weight": "",
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "rations (1 day)": {
+                "isWeapon": 0,
+                "weight": 2,
+                "Quantity": 5,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "waterskin": {
+                "isWeapon": 0,
+                "weight": 5,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            }
+        },
+        "feats": {
+            "human": "Race",
+            "entertainer": "Background",
+            "bard": "Class",
+            "bardic inspiration": "Class",
+            "spellcasting (bard)": "Class",
+            "jack of all trades": "Class",
+            "song of rest": "Class",
+            "bard college": "Class",
+            "expertise (bard)": "Class",
+            "college of lore": "Class",
+            "actor": ""
+        },
+        
+        "resources": {
+            "bardic inspiration": {
+                "value": 0,
+                "total": 3,
+                "reset": 1
+            }
+        },
+        "savingtrows": [
+            {
+                "name": "Strength",
+                "prof": 0,
+                "other": 0
+            },
+            {
+                "name": "Dexterity",
+                "prof": 1,
+                "other": 0
+            },
+            {
+                "name": "Constitution",
+                "prof": 0,
+                "other": 0
+            },
+            {
+                "name": "Intelligence",
+                "prof": 0,
+                "other": 0
+            },
+            {
+                "name": "Wisdom",
+                "prof": 0,
+                "other": 0
+            },
+            {
+                "name": "Charisma",
+                "prof": 1,
+                "other": 0
+            }
+        ],
+        "slots": "total1=4 ; total2=3 ; total3=3 ; total4=3 ; total5=2 ; total6=0 ; total7=0 ; total8=0 ; total9=0 ; value2=0 ; value3=0 ; value4=0 ; value5=0",
+        "spells": {
+            "dancing lights": {
+                "level": 0,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "message": {
+                "level": 0,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "prestidigitation": {
+                "level": 0,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "charm person": {
+                "level": 1,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "cure wounds": {
+                "level": 1,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "feather fall": {
+                "level": 1,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "sleep": {
+                "level": 1,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "thunderwave": {
+                "level": 1,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "blindness/deafness": {
+                "level": 2,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "invisibility": {
+                "level": 2,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "knock": {
+                "level": 2,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "hypnotic pattern": {
+                "level": 3,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "sending": {
+                "level": 3,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "greater invisibility": {
+                "level": 4,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            }
+        }
+    },
+    "old": {
+        "ac": "value=14+dex ; text=Elven chain",
+        "additionalfeats": "",
+        "age": "value=21",
+        "alignment": "value=Neutral Good",
+        "armor proficiency": "value=light armor, medium armor, shield ; text=0",
+        "attributes": "Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma",
+        "background": "value=Entertainer;text=",
+        "charisma": "value=13+2 ; text=+1 racial, +1 actor (bard) ; prof=0 ; bonus=0",
+        "class&level": {
+            "bard": {
+                "level": 10,
+                "hitDice": "d8",
+                "spellcasting": "Charisma",
+                "subclass": "college of valor",
+                "note": "-"
+            }
+        },
+        "constitution": "value=11+1 ; text=+1 racial ; prof=0 ; bonus=0",
+        "currency": "GP=10",
+        "current hit points": 61,
+        "dexterity": "value=13+1 ; text=+1 racial ; prof=0 ; bonus=0",
+        "equipment": {
+            "common clothes": {
+                "isWeapon": 0,
+                "weight": 3,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "pouch": {
+                "isWeapon": 0,
+                "weight": 1,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "rapier": {
+                "isWeapon": 1,
+                "weight": 2,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "leather armor": {
+                "isWeapon": 0,
+                "weight": 10,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "dagger": {
+                "isWeapon": 1,
+                "weight": 1,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "lute": {
+                "isWeapon": 0,
+                "weight": 2,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "backpack": {
+                "isWeapon": 0,
+                "weight": 5,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "bedroll": {
+                "isWeapon": 0,
+                "weight": 7,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "costume clothes": {
+                "isWeapon": 0,
+                "weight": 4,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "candle": {
+                "isWeapon": 0,
+                "weight": "",
+                "Quantity": 5,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "disquise kit": {
+                "isWeapon": 0,
+                "weight": "",
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "rations (1 day)": {
+                "isWeapon": 0,
+                "weight": 2,
+                "Quantity": 5,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            },
+            "waterskin": {
+                "isWeapon": 0,
+                "weight": 5,
+                "Quantity": 1,
+                "Equiped": 1,
+                "offHand": 0,
+                "customName": ""
+            }
+        },
+        "eyes": "value=Green",
+        "feats": {
+            "human": "Race",
+            "entertainer": "Background",
+            "bard": "Class",
+            "bardic inspiration": "Class",
+            "spellcasting (bard)": "Class",
+            "jack of all trades": "Class",
+            "song of rest": "Class",
+            "bard college": "Class",
+            "expertise (bard)": "Class",
+            "college of lore": "Class",
+            "actor": ""
+        },
+        "hair": "value=Dark Red",
+        "height": "value=5'8\"",
+        "hp": "61/61",
+        "initiative": "value=2 ; text=0 ; adv=0",
+        "intelligence": "value=11+1 ; text=+1 racial ; prof=0 ; bonus=0",
+        "language proficiency": "value=Common, Elvish",
+        "languages": "Common, Elvish",
+        "libname": "Talindra Silvertongue",
+        "othernotes": {
+            "Backstory": "",
+            "Personality": "",
+            "Ideals": "",
+            "Flaws": "",
+            "Bonds": "",
+            "Allies": "",
+            "AditionalFeats": "",
+            "Treasure": ""
+        },
+        "passive perception": 19,
+        "race": "value=Human",
+        "resources": {
+            "bardic inspiration": {
+                "value": 0,
+                "total": 3,
+                "reset": 1
+            }
+        },
+        "savingtrows": [
+            {
+                "name": "Strength",
+                "prof": 0,
+                "other": 0
+            },
+            {
+                "name": "Dexterity",
+                "prof": 1,
+                "other": 0
+            },
+            {
+                "name": "Constitution",
+                "prof": 0,
+                "other": 0
+            },
+            {
+                "name": "Intelligence",
+                "prof": 0,
+                "other": 0
+            },
+            {
+                "name": "Wisdom",
+                "prof": 0,
+                "other": 0
+            },
+            {
+                "name": "Charisma",
+                "prof": 1,
+                "other": 0
+            }
+        ],
+        "sizemod": "Medium",
+        "skills": [
+            {
+                "name": "Acrobatics",
+                "prof": 1,
+                "attribute": "Dexterity",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Animal Handling",
+                "prof": 0,
+                "attribute": "Wisdom",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Arcana",
+                "prof": 0,
+                "attribute": "Intelligence",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Athletics",
+                "prof": 2,
+                "attribute": "Strength",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Deception",
+                "prof": 0,
+                "attribute": "Charisma",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "History",
+                "prof": 0,
+                "attribute": "Intelligence",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Insight",
+                "prof": 0,
+                "attribute": "Wisdom",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Intimidation",
+                "prof": 0,
+                "attribute": "Charisma",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Investigation",
+                "prof": 0,
+                "attribute": "Intelligence",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Medicine",
+                "prof": 0,
+                "attribute": "Wisdom",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Nature",
+                "prof": 0,
+                "attribute": "Intelligence",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Perception",
+                "prof": 2,
+                "attribute": "Wisdom",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Performance",
+                "prof": 2,
+                "attribute": "Charisma",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Persuasion",
+                "prof": 0,
+                "attribute": "Charisma",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Religion",
+                "prof": 0,
+                "attribute": "Intelligence",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Sleight of Hand",
+                "prof": 2,
+                "attribute": "Dexterity",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Stealth",
+                "prof": 0,
+                "attribute": "Dexterity",
+                "other": 0,
+                "half": 1
+            },
+            {
+                "name": "Survival",
+                "prof": 0,
+                "attribute": "Wisdom",
+                "other": 0,
+                "half": 1
+            }
+        ],
+        "skin": "value=Fair",
+        "slots": "total1=4 ; total2=3 ; total3=3 ; total4=3 ; total5=2 ; total6=0 ; total7=0 ; total8=0 ; total9=0 ; value2=0 ; value3=0 ; value4=0 ; value5=0",
+        "speed": "value=30 ft.",
+        "spells": {
+            "dancing lights": {
+                "level": 0,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "message": {
+                "level": 0,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "prestidigitation": {
+                "level": 0,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "charm person": {
+                "level": 1,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "cure wounds": {
+                "level": 1,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "feather fall": {
+                "level": 1,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "sleep": {
+                "level": 1,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "thunderwave": {
+                "level": 1,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "blindness/deafness": {
+                "level": 2,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "invisibility": {
+                "level": 2,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "knock": {
+                "level": 2,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "hypnotic pattern": {
+                "level": 3,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "sending": {
+                "level": 3,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            },
+            "greater invisibility": {
+                "level": 4,
+                "source": "bard",
+                "prep": 1,
+                "DC": 0,
+                "Atk": 0
+            }
+        },
+        "strength": "value=10+1 ; text=+1 racial ; prof=0 ; bonus=0",
+        "temporary hit points": 0,
+        "tool proficiency": "value=Disguise Kit, Pan Flute, Lute, Flute, Dulcimer",
+        "total hit points": 61,
+        "totallevel": 10,
+        "weapon proficiency": "value=simple weapons, hand crossbows, longswords, rapiers, shortswords",
+        "weight": "value=125",
+        "wisdom": "value=11+1 ; text=+1 racial ; prof=0 ; bonus=0"
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "website": "https://github.com/Tdue21/MapTool-5e-Framework",
+  "readMeFile": "readme.md",
+  "description": "This is a derivative D&D 5e framework, based on Rod Takehara's excellent 5e framework.",
+  "namespace": "dovesoft.dnd5e",
+  "shortDescription": "Dungeons & Dragons 5e Framework",
+  "authors": [
+    "tdue21"
+  ],
+  "allowsUriAccess": true,
+  "name": "D&D 5e Framework",
+  "version": "0.1.0-alpha-01",
+  "gitUrl": "https://github.com/Tdue21/MapTool-5e-Framework",
+  "license": "MIT",
+  "licenseFile": "license.txt"
+}

@@ -163,7 +163,7 @@
 
 
 	[h:group="Equipment"]
-	[h:inputList=getLibProperty(group,"Lib:Character")]
+	[h:inputList=getLibProperty(group,function.getNamespace())]
 	[h:inputList=json.fields(inputList)]
 	[h:inputList=listSort(inputList,"N")]
 	[h:Property=getProperty(group)]

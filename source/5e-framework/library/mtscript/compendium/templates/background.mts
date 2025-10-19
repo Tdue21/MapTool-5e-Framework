@@ -179,7 +179,7 @@ if(languageChoices>1,"language2|Choose one,"+languages+"|Language 2|list|value=s
 <!----------------------------EQUIPMENT----------------------------->
 <!------------------------------------------------------------------>
 [h:group="Equipment"]
-[h:inputList=getLibProperty(group,"Lib:Character")]
+[h:inputList=getLibProperty(group,function.getNamespace())]
 [h:inputList=json.fields(inputList)]
 [h:inputList=listSort(inputList,"N")]
 [h:Property=getProperty(group)]

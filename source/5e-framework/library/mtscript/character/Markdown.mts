@@ -229,11 +229,11 @@
 
 [h,if(json.type(obj)!="UNKNOWN" || jsonGroup=="Equipment" || jsonGroup=="Cantrips" || jsonGroup=="Spells" || matches(jsonGroup,"Level.*")==1),code:{
 
-	[h,if(tokenName!="Lib:Character" && json.type(obj)!="UNKNOWN"):object=json.get(obj,name);object=""]
-	[h,if(tokenName!="Lib:Character" && json.type(object)!="UNKNOWN"):bonusDmg=json.get(object,"bonusDmg");bonusDmg=""]
-	[h,if(tokenName!="Lib:Character"):bonusDmg=if(bonusDmg=="",0,bonusDmg);bonusDmg=""]
+	[h,if(tokenName!=function.getNamespace() && json.type(obj)!="UNKNOWN"):object=json.get(obj,name);object=""]
+	[h,if(tokenName!=function.getNamespace() && json.type(object)!="UNKNOWN"):bonusDmg=json.get(object,"bonusDmg");bonusDmg=""]
+	[h,if(tokenName!=function.getNamespace()):bonusDmg=if(bonusDmg=="",0,bonusDmg);bonusDmg=""]
 
-	[h,if(tokenName!="Lib:Character" && json.type(object)!="UNKNOWN"):customAtr=json.get(object,"customAtr");customAtr=""]
+	[h,if(tokenName!=function.getNamespace() && json.type(object)!="UNKNOWN"):customAtr=json.get(object,"customAtr");customAtr=""]
 	[h,if(customAtr==0 || customAtr==""):"";spell=lower(substring(customAtr,0,3))]
 	
 };{

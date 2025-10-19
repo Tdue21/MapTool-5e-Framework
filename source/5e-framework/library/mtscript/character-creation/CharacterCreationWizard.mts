@@ -38,7 +38,7 @@
 	</div>
     
 	<div class="body">
-		[h: processorLink=macroLinkText("character-creation/CharacterCreationWizard@this","")]
+		[h:processorLink=macroLinkText("character-creation/CharacterCreationWizard@this","")]
 		<form action="[r:processorLink]" method="json">
 			[macro("character-creation/" + window + "@this"):macro.args]
 		</form>

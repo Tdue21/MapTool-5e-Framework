@@ -1,0 +1,41 @@
+{
+    "Start": "01.Start",
+    "Output": {
+        "GM": "self",
+        "PC": "all"
+    },
+    "Audio": {
+        "GM": "all",
+        "PC": "all"
+    },
+    "Display": {
+        "InitSize": 50,
+        "darkMode": 0,
+        "replaceDiceRoll": 1,
+        "replaceSpellList": 1,
+        "NPCVisibility": 1,
+        "HiddenOpacity": 40,
+        "ElevScale": 60,
+        "StatblockFrame": 0
+    },
+    "Gameplay": {
+        "autosetInitiative": "1",
+        "dexInit": 0,
+        "rerollInit": 0,
+        "KeepPlayers": 0,
+        "interactDistance": 5,
+        "NPCVisibility": 1,
+        "HiddenOpacity": 40,
+        "rollNPC": 0
+    },
+    "PlayerPermission": {
+        "edit": 1,
+        "share": 1,
+        "closeShared": 0,
+        "viewBestiary": 0,
+        "identify": 0,
+        "applyDMG": 1,
+        "viewMagicItems": 0
+    },
+    "RulesUrl":"https://www.dndbeyond.com/sources/dnd/free-rules"
+}

@@ -1,11 +1,19 @@
 "use strict";
 
 class MT {
+    static async getNpc(name) {
+        if (typeof MapTool === typeof undefined) {
+            let data = await fetch("../assets/data/Bestiary.json");
+            let text = await data.text();
+            let bestiary = JSON.parse(text);
+            return bestiary[name];
+        }
+        else {
+            // 
+            return JSON.parse(await this.evalMacro("[r:js.getMapEncounters()]"));
+        }
+    }
 
-    /**
-     * 
-     * @returns 
-     */
     static async getMapEncounters() {
         if (typeof MapTool === typeof undefined) {
             return [
@@ -47,9 +55,6 @@ class MT {
         }
     }
 
-    /**
-     * 
-     */
     static async getCharacters() {
         if (typeof MapTool === typeof undefined) {
             return [
@@ -104,7 +109,28 @@ class MT {
         */
     }
 
-    static async evalMacro(macro) {
+
+    static async getLibPropertyNames() {
+        return await this.evalMacro(`[r:getLibPropertyNames("json")]`);
+    }
+
+    static async getLibPropertyNames(id) {
+        return await this.evalMacro(`[r:getLibPropertyNames("${id}", "json")]`);
+    }
+
+    static async getMatchingLibProperties(pattern, lib, delim = "json") {
+        return await this.evalMacro(`[r:getMatchingLibProperties("${pattern}", "${lib}", "${delim}")]`);
+    }
+
+    static async getLibProperty(name, library) {
+        return await this.evalMacro(`[r:getLibProperty("${name}", "${library}")]`);
+    }
+
+    static async setLibProperty(name, value, library) {
+        return await this.evalMacro(`[r:setLibProperty("${name}", "${value}", "${library}")]`);
+    }
+
+    static async evalMacro(macro) { //WS$XajQqVpWy
         try {
             let uri = "macro:EvaluateMacro@lib:dovesoft.dnd5e";
             let r = await fetch(uri, { method: "POST", body: macro });

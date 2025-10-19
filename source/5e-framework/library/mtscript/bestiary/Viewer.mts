@@ -1,12 +1,7 @@
 [h:tokenName=macro.args]
-
 [h:BestiaryObj=getLibProperty("Bestiary", function.getNamespace())]
-
 [h:object=json.get(BestiaryObj,lower(tokenName))]
-
 [h,if(json.type(object)=="UNKNOWN"):object="{}"]
-
-
 
 [h:macroName="bestiary/Change Property@this"]
 [h:args="name="+tokenName+";json="+object+";tokenName=;key="]
@@ -38,18 +33,14 @@
 	[h:variantLink=macrolink("Variant", "bestiary/Change Form@this", "","group="+group+";name="+currentItem+";tokenName="+tokenName+";description="+currentDescription)]
 };{}]
 
-
 <table style="margin:0px;padding:0px">
-<tr><td style="margin:0px;padding:0px">
-<!-----------------NAME------------------->
-[h:crName=json.get(object,"name")]
-<h3 style="padding: 0px;margin: 0px">[r:crName]</h3>
+	<tr>
+		<td style="margin:0px;padding:0px">
+		<!-----------------NAME------------------->
+		[h:crName=json.get(object,"name")]
+		<h3 style="padding: 0px;margin: 0px">[r:crName]</h3>
 
-
-
-
-
-<!-----------------CREATURE------------------->
+		<!-----------------CREATURE------------------->
 <i>
 [h:size=getStrProp(settings,"size")]
 [h:type=json.get(object,"type")]

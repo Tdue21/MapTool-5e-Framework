@@ -126,8 +126,7 @@
 	[h,if(tokenInit == "null"): tokenInit = ""]
 	[h:selected = if(tokenId == selectedToken, "selected", "")]
 
-	<form action='[r:macroLinkText("Process Initiative@this", "")]' method="json"
-		style="margin:0px;padding:0px">
+	<form action='[r:macroLinkText("Process Initiative@this", "")]' method="json" style="margin:0px;padding:0px">
 		<div [r,if(selected !="" ):"id='selected'";""] class=" initToken [r:color] [r:selected]">
 			<input type="hidden" name="action" value="enter">
 			<input type="hidden" name="tokenId" value="[r:tokenId]">

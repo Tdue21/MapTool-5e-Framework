@@ -17,6 +17,7 @@
 [h:setLibProperty("Feats", data.getStaticData(ns, "/public/assets/data/Feats.json"), ns)]
 [h:setLibProperty("AdditionalFeats", data.getStaticData(ns, "/public/assets/data/AdditionalFeats.json"), ns)]
 [h:setLibProperty("Bestiary", data.getStaticData(ns, "/public/assets/data/Bestiary.json"), ns)]
+[h:setLibProperty("MonsterMacros", data.getStaticData(ns, "/public/assets/data/MonsterMacros.json"), ns)]
 
 [h:classSpells = data.getStaticData(ns, "/public/assets/data/class-spells.json")]
 [h:classes = json.fields(classSpells)]

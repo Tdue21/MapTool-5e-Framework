@@ -3,67 +3,91 @@
 
 [h:gameplay=getLibProperty("Gameplay", function.getNamespace())]
 [h:rollNPC=getStrProp(gameplay,"rollNPC")]
-
 [r,if(rollNPC==1):output=function.getOutput();output="none"]
 
+[h:bestiaryJson=getLibProperty("Bestiary", function.getNamespace())]
+[h:fields = json.fields(bestiaryJson, "json")]
+[h:jsonNPC=""]
+
+[h,foreach(name, fields, ""), code:{
+	[h:npc=json.get(bestiaryJson, name)]
+	
+	[h:cr = json.get(npc, "challenge")]
+	[h,if(cr==""):challenge="";challenge=substring(cr,0,indexOf(cr," "))]
+	[h,if(matches(challenge,".*/.*")==1):numericCR=eval(challenge);numericCR=challenge]
+	[h,if(isNumber(numericCR)==1):numericCR=numericCR+1000;numericCR=100]
+	
+	[h:beast = json.set("{}", 
+		"Name", name, 
+		"Type", json.get(npc, "type"), 
+		"numericCR",numericCR,
+		"CR", challenge, 
+		"Sources", json.toList(json.get(npc, "sources"))
+	)]
+	[h:jsonNPC = json.append(jsonNPC, beast)]
+}]
+[h:jsonNPC=json.sort(jsonNPC,dir,sort)]
+[h:dir=if(getStrProp(macro.args,"dir")=="a","d","a")]
+[h:fields=json.fields(jsonNPC)]
+
 [dialog5("Bestiary", "width=750; height=600; temporary=1; noframe=0; input=1"):{
-
+<!DOCTYPE html>
+<html>
+<head>
 	<link rel="stylesheet" type="text/css" href="[r:function.getCss('D&D')]">
-	
-	<p bgcolor=white style="border-bottom: 1px solid gray;padding:0px;margin:0px;font-family:sans;font-size:10px">
+	<style>
+[r:'
+	.col1 {
+		width:40%;
+		text-align:left;
+	}
 
+	.col2 {
+		width: 25%;
+		text-align:left;
+	}
 
-	[r:macrolink("Build Table", "tables/Build Bestiary Table@this", "")]
+	.col3, .col4 {
+		width: 10%;
+		text-align:center;
+	}
 
+	.col5 {
+		text-align:left;
+	}
 
-	</p>
-	
+']
+	</style>
+</head>
+<body>	
 	<h1>Bestiary</h1>
 
-
-	[h:jsonNPC=getLibProperty("Bestiary", function.getNamespace())]
-	
-	[h:jsonNPC=json.sort(jsonNPC,dir,sort)]
-	[h:dir=if(getStrProp(macro.args,"dir")=="a","d","a")]
-
-	[h:fields=json.fields(jsonNPC)]
-
-	<table>
+	<table style="width:calc(100% - 20px);margin:5px">
 	<tr>
-	<th>
-	[r:macrolink("Name", "tables/Creature Window@this", "","sort=Name;dir="+dir)]
-	<th>
-	[r:macrolink("Type", "tables/Creature Window@this", "","sort=Type;dir="+dir)]
-	<th width=10% align=center>
-	[r:macrolink("CR", "tables/Creature Window@this", "","sort=numericCR;dir="+dir)]
-	<th width=10% align=center>
-	[r:macrolink("Sources", "tables/Creature Window@this", "","sort=Sources;dir="+dir)]
-	
-	[h:odd=1]
-	[r,count(listcount(fields),"<br>"),code:{
+		<th class="col1">[r:macrolink("Name",    "tables/Creature Window@this", "", "sort=Name;dir="+dir     )]</th>
+		<th class="col2">[r:macrolink("Type",    "tables/Creature Window@this", "", "sort=Type;dir="+dir     )]</th>
+		<th class="col3">[r:macrolink("CR",      "tables/Creature Window@this", "", "sort=numericCR;dir="+dir)]</th>
+		<th class="col4">[r:macrolink("Sources", "tables/Creature Window@this", "", "sort=Sources;dir="+dir  )]</th>
+		<th class="col5">&nbsp</th>
+	</tr>
 
-		[h:currentObj=json.get(jsonNPC,roll.count)]
-
-		<tr class=[r:if(odd==1,"bg","")]>
-		[h:odd=if(odd==1,0,1)]
-		<td>
-		[h:name=json.get(currentObj,"Name")]
-
-<!---------------------------CAPITALIZE----------------------------->
-[h:CapitalName=function.Capitalize(name)]
-
-
-		
-		[r:macroLink(CapitalName,"bestiary/Viewer Frame@this","",name)]
-		<td>
-		[r:type=json.get(currentObj,"Type")]
-		<td align=center>
-		[r:challenge=json.get(currentObj,"CR")]
-		<td align=center>
-		[r:sources=json.get(currentObj,"Sources")]
-		<td width=0%>
-		[r:macrolink("Make Token", "bestiary/Quick Monster@this")output,name)]
-	
+	[r,foreach(fieldName, fields, ""),code:{
+		[h:currentObj=json.get(jsonNPC,fieldName)]
+		<tr>
+			<td class="col1">
+				[h:name=json.get(currentObj,"Name")]
+				<!---------------------------CAPITALIZE----------------------------->
+				[h:CapitalName=function.Capitalize(name)]
+				[r:macroLink(CapitalName,"bestiary/Viewer Frame@this","",name)]
+			</td>
+			
+			<td class="col2">[r:type=json.get(currentObj,"Type")]</td>
+			<td class="col3">[r:challenge=json.get(currentObj,"CR")]</td>
+			<td class="col4">[r:sources=json.get(currentObj,"Sources")]</td>
+			<td class="col5">[r:macrolink("Make Token", "bestiary/Quick Monster@this", output, name)]</td>	
+		</tr>
 	}]
-
+	</table>
+</body>
+</html>
 }]

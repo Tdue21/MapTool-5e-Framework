@@ -1,0 +1,1 @@
+[macro("campaign/Show Hide All@this"):"idList="+getSelected()]

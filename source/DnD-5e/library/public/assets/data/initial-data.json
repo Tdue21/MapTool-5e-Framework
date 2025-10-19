@@ -1,0 +1,92 @@
+{
+    "Attributes": [
+        "Strength",
+        "Dexterity",
+        "Constitution",
+        "Intelligence",
+        "Wisdom",
+        "Charisma"
+    ],
+    "Skills": {
+        "Strength": [
+            "Athletics"
+        ],
+        "Dexterity": [
+            "Acrobatics",
+            "Sleight of Hand",
+            "Stealth"
+        ],
+        "Constitution": [],
+        "Intelligence": [
+            "Arcana",
+            "History",
+            "Investigation",
+            "Nature",
+            "Religion"
+        ],
+        "Wisdom": [
+            "Animal Handling",
+            "Insight",
+            "Medicine",
+            "Perception",
+            "Survival"
+        ],
+        "Charisma": [
+            "Deception",
+            "Intimidation",
+            "Performace",
+            "Persuasion"
+        ]
+    },
+    "Species": [
+        "Human",
+        "Elf",
+        "Dwarf",
+        "Halfling"
+    ],
+    "Backgrounds": [
+        "Acolyte",
+        "Criminal",
+        "Sage",
+        "Soldier"
+    ],
+    "Feats": [
+        "Ability Score Improvement",
+        "Alert",
+        "Archery",
+        "Boon of Combat Prowess",
+        "Boon of Fate",
+        "Boon of the Night Spirit",
+        "Defense",
+        "Great Weapon Fighting",
+        "Magic Initiate",
+        "Savage Attacker",
+        "SKilled",
+        "Two-Weapon Fighting"
+    ],
+    "Languages": {
+        "Standard": [
+            "Common",
+            "Common Sign Language",
+            "Draconic",
+            "Dwarvish",
+            "Elvish",
+            "Giant",
+            "Gnomish",
+            "Goblin",
+            "Halfling",
+            "Orc"
+        ],
+        "Rare": [
+            "Abyssal",
+            "Celestial",
+            "Deep Speech",
+            "Druidic",
+            "Infernal",
+            "Primordial",
+            "Sylvan",
+            "Thieves' Cant",
+            "Undercommon"
+        ]
+    }
+}
